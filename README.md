@@ -25,7 +25,9 @@ Les workflows associés à ce repository (.github/workflows) permettent :
 
 * D'executer Sushi pour vérifier la grammaire
 * De faire les tests avec le validator_cli
-* De publier les pages : https://ansforge.github.io/{nom du repo}/{nom de la branche}/ig
+* De publier les pages : https://ansforge.github.io/IG-FHIR-PDSM4DMP-EEDS/{nom de la branche}/ig
+
+Exemple : https://ansforge.github.io/IG-FHIR-PDSM4DMP-EEDS/main/ig
 
 # Notes
 
