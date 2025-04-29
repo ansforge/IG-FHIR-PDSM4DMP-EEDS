@@ -227,6 +227,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
@@ -235,21 +236,21 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <h3 id="description">Description</h3>
 <p>consulter des documents dans le DMP d’un patient</p>
 
-<p>Cette fonctionnalité permet à l’utilisateur de télécharger et visualiser le contenu d’un
-document du DMP d’un patient.
-Elle fait suite à la fonctionnalité « lister les documents d’un DMP » (DMP_3.1a) qui a permis
-à l’utilisateur de rechercher des documents dans le DMP d’un patient.
-La cinématique générale est la suivante.</p>
+<p>Cette fonctionnalité permet à l’utilisateur de télécharger et visualiser le contenu d’un document du DMP d’un patient.</p>
+
+<p>Elle fait suite à la fonctionnalité « lister les documents d’un DMP » (DMP_3.1a) qui a permis à l’utilisateur de rechercher des documents dans le DMP d’un patient.</p>
+
+<p>La cinématique générale est la suivante.</p>
+
 <ul>
-  <li>L’utilisateur a sélectionné un ou plusieurs document(s) à consulter parmi les résultats
-retournés dans la fonctionnalité DMP_3.1a.</li>
-  <li>Le LPS envoie une requête de demande de document au système DMP (TD3.2) à partir
-du ou des identifiants de document sélectionné(s). Cf. RG_3210.</li>
+  <li>L’utilisateur a sélectionné un ou plusieurs document(s) à consulter parmi les résultats retournés dans la fonctionnalité DMP_3.1a.</li>
+  <li>Le LPS envoie une requête de demande de document au système DMP (TD3.2) à partir du ou des identifiants de document sélectionné(s). Cf. RG_3210.</li>
   <li>Le système DMP retourne le(s) document(s) au LPS.</li>
   <li>Le LPS affiche le(s) document(s). Cf. RG_3220.</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».
@@ -257,7 +258,12 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
 (EF_DMP31_01).</p>
 
 <h3 id="sortie">Sortie</h3>
+
 <p>Les documents affichés par le LPS.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Le DocumentReference contient un Binary permettant d'accéder au document pdf, CDA, ou FHIR</p>
 
 <h3 id="exemple">Exemple</h3>
 
@@ -301,7 +307,7 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 11:47+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:54+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

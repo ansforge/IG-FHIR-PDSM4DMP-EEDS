@@ -227,16 +227,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
+
 <p>Alimenter le DMP d’un patient avec de nouveaux documents</p>
 
-<p>Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs
-nouveaux documents :</p>
+<p>Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs nouveaux documents :</p>
+
 <ul>
   <li>décrits sous la forme de documents CDA et de métadonnées XDS,</li>
   <li>et transmis au système DMP sous la forme d’un lot de soumission XDS signé (XAdES).
@@ -255,12 +257,21 @@ Le LPS :</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient 
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 Lot de soumission</p>
+
 <h3 id="sortie">Sortie</h3>
+
 <p>Un DMP alimenté avec un ou plusieurs nouveaux documents.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Transactions ITI-105 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission (List), un dossier (List), un DocumentReference, ou un FHIR Document</p>
+
 <h3 id="exemple">Exemple</h3>
+
 
 
 
@@ -302,7 +313,7 @@ Lot de soumission</p>
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 11:47+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:54+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

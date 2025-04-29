@@ -227,6 +227,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
@@ -235,30 +236,34 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <h3 id="description">Description</h3>
 <p>Rechercher l’identifiant technique d’un document</p>
 
-<p>Cette fonctionnalité permet, aux LPS qui n’implémentent pas DMP_3.1a, de rechercher
-l’identifiant technique d’un document (dans le système DMP) à partir de l’identifiant local
-au LPS de ce document.
-Le LPS peut ensuite supprimer (DMP_3.3c), archiver (DMP_3.3d) ou remplacer un
-document dans le DMP du patient (DMP_2.1b/2.2b).
-Cette fonctionnalité est mise en œuvre dans les LPS ne donnant pas accès à la
-consultation des documents (DMP_3.2). À ce jour, ce cas correspond aux situations
-suivantes :</p>
+<p>Cette fonctionnalité permet, aux LPS qui n’implémentent pas DMP_3.1a, de rechercher l’identifiant technique d’un document (dans le système DMP) à partir de l’identifiant local au LPS de ce document.
+Le LPS peut ensuite supprimer (DMP_3.3c), archiver (DMP_3.3d) ou remplacer un document dans le DMP du patient (DMP_2.1b/2.2b).</p>
+
+<p>Cette fonctionnalité est mise en œuvre dans les LPS ne donnant pas accès à la consultation des documents (DMP_3.2). À ce jour, ce cas correspond aux situations suivantes :</p>
+
 <ul>
   <li>en authentification indirecte (hors mode AIR),</li>
   <li>en authentification directe par CPE,</li>
-  <li>en authentification directe sans le profil « Consultation ».
-La cinématique est décrite dans la règle RG_3110.</li>
+  <li>en authentification directe sans le profil « Consultation ».</li>
 </ul>
 
+<p>La cinématique est décrite dans la règle RG_3110.</p>
+
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le DMP du patient est au statut actif (EF_DMP12_01).
-L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
-LPS implémente le profil Alimentation).
+L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le LPS implémente le profil Alimentation).
 (Les données sont acquises pendant le déroulement de la fonctionnalité.)</p>
 
 <h3 id="sortie">Sortie</h3>
+
 <p>L’identifiant unique du document dans le système DMP (entryUUID) (</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Transaction ITI-67 avec les paramètres patient.identifier, id + statut du dmp et autorisation d'accès à mapper</p>
+
 <h3 id="exemple">Exemple</h3>
 
 
@@ -301,7 +306,7 @@ LPS implémente le profil Alimentation).
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 11:47+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:54+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |
