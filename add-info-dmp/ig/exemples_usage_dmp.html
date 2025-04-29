@@ -225,7 +225,37 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
 <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
-<h3 id="todo">TODO</h3>
+<h3 id="segur-dmpux15">Segur DMP/UX.15</h3>
+<h4 id="exigence">Exigence</h4>
+<p>Le système DOIT afficher à l'utilisateur dans l'interface du « dossier médical », sans action nécessaire de sa part (sans clic), l'information du nombre de documents qui ont été versés au DMP par des acteurs de santé tiers à la structure (cabinet, établissement, etc), en fonction de son profil et du type de prise en charge du patient.</p>
+
+<p>Les documents invisibles (au patient) DOIVENT systématiquement être inclus dans le décompte des documents notifiés y compris s'ils sont issus de la structure.</p>
+
+<p>Par défaut, ces notifications DOIVENT être réalisées pour les profils médecins en consultation et en urgence.</p>
+<h4 id="cinematique-dmp">Cinematique DMP</h4>
+
+<p> - Utilisation de la requête FindSubmissionSets pour rechercher les lots de soumission en spécifiant un intervalle temporel de soumission (date de soumission dans le DMP, critère $XDSSubmissionSetSubmissionTimeFrom et $XDSSubmissionSetSubmissionTimeTo) : retourne les lots de soumission</p>
+<ul>
+  <li>Récupérer l’ensemble des entryUUID des lots retournés.</li>
+  <li>Passer cette liste d’entryUUID à la fonction GetAssociations</li>
+  <li>Filtrer les retours sur les Associations de type HasMember, et récupérer la liste des targetObject (documents du lot).</li>
+  <li>Appel de GetDocuments avec la liste des entryUUID des documents.
+    <ul>
+      <li>Pour chaque document, examiner :
+        <ul>
+          <li>authorInstitution (OID de la structure auteur).</li>
+          <li>Le flag de visibilité (déduit de confidentialityCode ou du statut CDAr2).</li>
+        </ul>
+      </li>
+      <li>Si (a) authorInstitution ≠ OID_local ou (b) document masqué au patient, alors inclure cet entryUUID dans l’ensemble des notifications</li>
+    </ul>
+  </li>
+  <li>Comptage des notifications
+    <ul>
+      <li>nbNotifications = taille de l’ensemble.</li>
+    </ul>
+  </li>
+</ul>
 
 
 
@@ -267,7 +297,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 10:11+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 10:21+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |
