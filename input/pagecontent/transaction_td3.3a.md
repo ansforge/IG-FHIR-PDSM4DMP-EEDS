@@ -27,4 +27,8 @@ L’identifiant du document dans le système DMP issu de DMP_3.1 : entry
 
 Les attributs du document sont modifiées dans le DMP du patient.
 
+### Equivalence FHIR
+
+Mise à jour de la ressource indiquant le consentement
+
 ### Exemple
