@@ -19,7 +19,7 @@ Le LPS :
 
 ### Entrée et prérequis
 
-L’INS du patient 
+L’INS du patient
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 Lot de soumission
 
