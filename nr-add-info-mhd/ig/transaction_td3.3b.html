@@ -227,25 +227,28 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
-<p>rendre un document visible au patient ou à ses représentants
-légaux</p>
 
-<p>Cette fonctionnalité permet à l’utilisateur de modifier les attributs d’un document dans le
-DMP d’un patient.</p>
+<p>rendre un document visible au patient ou à ses représentants légaux</p>
+
+<p>Cette fonctionnalité permet à l’utilisateur de modifier les attributs d’un document dans le DMP d’un patient.</p>
 
 <ul>
   <li>Visibilité d’un document au patient,</li>
   <li>Visibilité d’un document aux représentants légaux d’un mineur (si la gestion des mineurs
 est activée),
-Elle fait suite à la fonctionnalité DMP_3.1 qui a permis de rechercher l’identifiant technique
-d’un document.
-La cinématique générale est la suivante.</li>
+Elle fait suite à la fonctionnalité DMP_3.1 qui a permis de rechercher l’identifiant technique d’un document.</li>
+</ul>
+
+<p>La cinématique générale est la suivante</p>
+
+<ul>
   <li>Le LPS affiche les attributs du document sélectionné. Cf. RG_3310.</li>
   <li>L’utilisateur indique l’action qu’il souhaite effectuer. Cf. RG_3320.</li>
   <li>L’utilisateur confirme l’action demandée. Cf. RG_3330.</li>
@@ -253,13 +256,20 @@ La cinématique générale est la suivante.</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
 LPS implémente le profil Alimentation).
 L’identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
+
 <h3 id="sortie">Sortie</h3>
+
 <p>Les attributs du document sont modifiées dans le DMP du patient.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Mise à jour de la ressource indiquant le consentement (à travailler)</p>
 
 <h3 id="exemple">Exemple</h3>
 
@@ -303,7 +313,7 @@ L’identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:54+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 13:35+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |
