@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-04-29T12:15:10+00:00",
+  "date" : "2025-04-29T12:16:28+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -48,6 +48,12 @@
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r4",
     "version" : "5.2.0"
+  },
+  {
+    "id" : "ans_fr_terminologies",
+    "uri" : "https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies",
+    "packageId" : "ans.fr.terminologies",
+    "version" : "0.1.0-ballot"
   }],
   "definition" : {
     "extension" : [{
@@ -625,6 +631,42 @@
         "valueString" : "true"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    }],
+    "resource" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/Author"
+      },
+      "name" : "Author (LM)",
+      "description" : "This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/DocumentEntry"
+      },
+      "name" : "Document Entry (LM)",
+      "description" : "This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SubmissionSet"
+      },
+      "name" : "SubmissionSet (LM)",
+      "description" : "This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "exampleBoolean" : false
     }],
     "page" : {
       "extension" : [{

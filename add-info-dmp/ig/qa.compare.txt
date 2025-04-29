@@ -1,11 +1,14 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 1, warn = 2, info = 0
+err = 0, warn = 4, info = 0
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 8 / 2 / 0
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 1 / 0 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 0 / 0 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Author : 0 / 0 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-DocumentEntry : 0 / 2 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SubmissionSet : 0 / 0 / 1
 </table>
 == n/a ==
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/construction_des_flux.html#/html/body/div/div/div/div/div/p/a at Line 234, column 67: The link './st_flux1.html' for "flux 01" cannot be resolved
@@ -19,4 +22,8 @@ ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/ou
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 == fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json ==
-ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide|4.0.1)
+== fsh-generated/resources/StructureDefinition-Author.json ==
+== fsh-generated/resources/StructureDefinition-DocumentEntry.json ==
+WARNING: StructureDefinition/DocumentEntry: StructureDefinition.snapshot.element[11].binding.valueSet: Canonical URL 'https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP(required)' does not resolve
+WARNING: StructureDefinition/DocumentEntry: StructureDefinition.differential.element[11].binding.valueSet: Canonical URL 'https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP(required)' does not resolve
+== fsh-generated/resources/StructureDefinition-SubmissionSet.json ==

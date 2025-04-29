@@ -1,0 +1,31 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"SubmissionSet","SubmissionSet","","","",0,*,"","","","null {[]} {[]}
+","SubmissionSet (LM)","This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.
+More details are to be retrieved from IHE ITI on www.ihe.net.
+(Focus for this LM is on the coded attributes.)","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"SubmissionSet.author","SubmissionSet.author","","","",0,1,"","","","Identifier {[]} {[]}
+","author","author","","","","","","","","","",,,,,"",,,,"SubmissionSet.author",0,1,"",""
+"SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","availability of the document","availability of the document","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"SubmissionSet.availabilityStatus",0,1,"",""
+"SubmissionSet.comments","SubmissionSet.comments","","","",0,1,"","","","string {[]} {[]}
+","Comments","Comments","","","","","","","","","",,,,,"",,,,"SubmissionSet.comments",0,1,"",""
+"SubmissionSet.contentTypeCode","SubmissionSet.contentTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","type of content of this submission","**Submission Set**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP","",,,,"SubmissionSet.contentTypeCode",1,1,"",""
+"SubmissionSet.entryUUID","SubmissionSet.entryUUID","","","",1,1,"","","","Identifier {[]} {[]}
+","identifier","identifier","","","","","","","","","",,,,,"",,,,"SubmissionSet.entryUUID",1,1,"",""
+"SubmissionSet.homeCommunityID","SubmissionSet.homeCommunityID","","","",0,1,"","","","Identifier {[]} {[]}
+","ID of home community","ID of home community","","","","","","","","","",,,,,"",,,,"SubmissionSet.homeCommunityID",0,1,"",""
+"SubmissionSet.intendedRecipient","SubmissionSet.intendedRecipient","","","",0,*,"","","","Identifier {[]} {[]}
+","intendend recipients of the document","intendend recipients of the document","","","","","","","","","",,,,,"",,,,"SubmissionSet.intendedRecipient",0,*,"",""
+"SubmissionSet.limitedMetadata","SubmissionSet.limitedMetadata","","","",0,1,"","","","string {[]} {[]}
+","limited metadata","limited metadata","","","","","","","","","",,,,,"",,,,"SubmissionSet.limitedMetadata",0,1,"",""
+"SubmissionSet.patientID","SubmissionSet.patientID","","","",1,1,"","","","Identifier {[]} {[]}
+","identifier of patient","identifier of patient","","","","","","","","","",,,,,"",,,,"SubmissionSet.patientID",1,1,"",""
+"SubmissionSet.sourceID","SubmissionSet.sourceID","","","",1,1,"","","","Identifier {[]} {[]}
+","identifier of source","identifier of source","","","","","","","","","",,,,,"",,,,"SubmissionSet.sourceID",1,1,"",""
+"SubmissionSet.submissionTime","SubmissionSet.submissionTime","","","",1,1,"","","","dateTime {[]} {[]}
+","timestamp of submission","timestamp of submission","","","","","","","","","",,,,,"",,,,"SubmissionSet.submissionTime",1,1,"",""
+"SubmissionSet.title","SubmissionSet.title","","","",0,1,"","","","string {[]} {[]}
+","title of document","title of document","","","","","","","","","",,,,,"",,,,"SubmissionSet.title",0,1,"",""
+"SubmissionSet.uniqueID","SubmissionSet.uniqueID","","","",1,1,"","","","Identifier {[]} {[]}
+","identifier of document","identifier of document","","","","","","","","","",,,,,"",,,,"SubmissionSet.uniqueID",1,1,"",""

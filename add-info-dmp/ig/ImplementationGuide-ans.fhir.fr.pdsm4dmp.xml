@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-04-29T12:15:10+00:00"/>
+  <date value="2025-04-29T12:16:28+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -44,6 +44,11 @@
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
     <packageId value="hl7.fhir.uv.extensions.r4"/>
     <version value="5.2.0"/>
+  </dependsOn>
+  <dependsOn id="ans_fr_terminologies">
+    <uri value="https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies"/>
+    <packageId value="ans.fr.terminologies"/>
+    <version value="0.1.0-ballot"/>
   </dependsOn>
   <definition>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -465,6 +470,39 @@
         <valueString value="true"/>
       </extension>
     </extension>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Author"/>
+      </reference>
+      <name value="Author (LM)"/>
+      <description value="This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/DocumentEntry"/>
+      </reference>
+      <name value="Document Entry (LM)"/>
+      <description value="This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SubmissionSet"/>
+      </reference>
+      <name value="SubmissionSet (LM)"/>
+      <description value="This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <exampleBoolean value="false"/>
+    </resource>
     <page>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
         <valueUrl value="toc.html"/>

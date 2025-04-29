@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-04-29T12:15:10+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-04-29T12:16:28+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -67,6 +67,14 @@
      ] ;
      fhir:packageId [ fhir:v "hl7.fhir.uv.extensions.r4" ] ;
      fhir:version [ fhir:v "5.2.0" ]
+  ] [
+     fhir:id [ fhir:v "ans_fr_terminologies" ] ;
+     fhir:uri [
+       fhir:v "https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies>
+     ] ;
+     fhir:packageId [ fhir:v "ans.fr.terminologies" ] ;
+     fhir:version [ fhir:v "0.1.0-ballot" ]
   ] ) ; # 
   fhir:definition [
      fhir:extension ( [
@@ -855,6 +863,61 @@
          ]
        ] ) ;
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] ) ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author> ;
+         fhir:reference [ fhir:v "StructureDefinition/Author" ]
+       ] ;
+       fhir:name [ fhir:v "Author (LM)" ] ;
+       fhir:description [ fhir:v "This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry> ;
+         fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
+       ] ;
+       fhir:name [ fhir:v "Document Entry (LM)" ] ;
+       fhir:description [ fhir:v "This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet> ;
+         fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
+       ] ;
+       fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
+       fhir:description [ fhir:v "This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ]
      ] ) ;
      fhir:page [
        fhir:extension ( [

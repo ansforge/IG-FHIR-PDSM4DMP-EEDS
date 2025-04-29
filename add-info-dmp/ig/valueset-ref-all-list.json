@@ -1,3 +1,165 @@
 {
-  "codeSystems" : []
+  "codeSystems" : [
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "JDV_J47_FunctionCode_CISIS",
+      "title" : null,
+      "description" : "Jeux de valeurs des Rôles fonctionnels HL7 et CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
+        "https://mos.esante.gouv.fr/NOS/TRE_R258-RelationPriseCharge/FHIR/TRE-R258-RelationPriseCharge",
+        "https://mos.esante.gouv.fr/NOS/TRE_R259-HL7ParticipationFunction/FHIR/TRE-R259-HL7ParticipationFunction"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.124"],
+      "sources" : ["1.2.250.1.213.1.1.5.124"],
+      "uses" : {
+      },
+      "StructureDefinition-Author.html" : "Author (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS",
+      "version" : "20200424120000",
+      "status" : "active",
+      "name" : "JDV_J52_AvailabilityStatus_CISIS",
+      "title" : null,
+      "description" : "Statut du document CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_R269-AvailabilityStatusProvenanceOasis/FHIR/TRE-R269-AvailabilityStatusProvenanceOasis",
+        "https://mos.esante.gouv.fr/NOS/TRE_R270-AvailabilityStatus/FHIR/TRE-R270-AvailabilityStatus"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.131"],
+      "sources" : ["1.2.250.1.213.1.1.5.131"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)",
+      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J56_AuthorSpecialty_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour authorSpecialty",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
+        "https://mos.esante.gouv.fr/NOS/TRE_A02-ProfessionSavFaire-CISIS/FHIR/TRE-A02-ProfessionSavFaire-CISIS",
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre/FHIR/TRE-R95-UsagerTitre",
+        "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.1"],
+      "sources" : ["1.2.250.1.213.1.1.5.1"],
+      "uses" : {
+      },
+      "StructureDefinition-Author.html" : "Author (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP",
+      "version" : "20230922120000",
+      "status" : "active",
+      "name" : "JDV_J57_ClassCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour métadonnée classCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
+        "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.6"],
+      "sources" : ["1.2.250.1.213.1.1.5.6"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP",
+      "version" : "20200424120000",
+      "status" : "active",
+      "name" : "JDV_J58_ConfidentialityCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour métadonnée confidentialityCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
+        "https://mos.esante.gouv.fr/NOS/TRE_A08-HL7Confidentiality/FHIR/TRE-A08-HL7Confidentiality"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.9"],
+      "sources" : ["1.2.250.1.213.1.1.5.9"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J59_ContentTypeCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour contentTypeCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+        "https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite",
+        "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.2"],
+      "sources" : ["1.2.250.1.213.1.1.5.2"],
+      "uses" : {
+      },
+      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour healthcareFacilityTypeCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.3"],
+      "sources" : ["1.2.250.1.213.1.1.5.3"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP",
+      "version" : "20230922120000",
+      "status" : "active",
+      "name" : "JDV_J62_PracticeSettingCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour practiceSettingCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.4"],
+      "sources" : ["1.2.250.1.213.1.1.5.4"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J66_TypeCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour métadonnée typeCode DMP",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM",
+        "http://loinc.org",
+        "https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.7"],
+      "sources" : ["1.2.250.1.213.1.1.5.7"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    }
+  ]
 }
