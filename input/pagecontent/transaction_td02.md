@@ -36,7 +36,7 @@ Le LPS a vérifié les conditions d’accès de l’acteur de santé au DMP du p
 - INS
 - Nom d'usage
 - Nom de naissance
-- Prénon
+- Prénom
 - Sexe
 - Date de naissance
 - Civilité
@@ -55,5 +55,4 @@ Pas d'équivalent trouvé côté MHD. L'équivalent consisterait en une requête
 Mapping des infos DMP (statut, rattachement, infos de fermetures) à rajouter : extension patient ? Ressource Coverage ?
 
 ### Exemple
-
 
