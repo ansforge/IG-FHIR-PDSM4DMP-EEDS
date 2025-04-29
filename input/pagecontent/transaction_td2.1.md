@@ -1,11 +1,13 @@
 
 ### Description 
-Remplacer un document existant dans le DMP d’un patient
 
+Remplacer un document existant dans le DMP d’un patient
 
 Cette fonctionnalité permet d’alimenter le DMP d’un patient avec une nouvelle version d’un document.
 Soient X le document initial (uniqueId par exemple 1.2.3.X) et Y la nouvelle version du document (uniqueId par exemple 1.2.3.Y).
+
 Pour remplacer un document initial X dans le DMP du patient par une nouvelle version Y, la cinématique est la suivante.
+
 -  L’utilisateur modifie le document X dans le LPS (corps et/ou métadonnées) pour créer le document Y.
 -  Le LPS a récupéré les identifiants du document X (entryUUID et uniqueId, cf. DMP_3.1).
 - Le LPS construit le document Y au format CDA et alimente les métadonnées XDS.
@@ -23,10 +25,11 @@ L’identifiant de la nouvelle version du document (uniqueId par exemple 1.2.3.Y
 Lot de soumission
 
 ### Sortie
+
 Le document X est remplacé par le document Y dans le DMP du patient.
 
 ### Equivalence FHIR
 
-Idem transaction TD2 avec utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé
+Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé
 
 ### Exemple

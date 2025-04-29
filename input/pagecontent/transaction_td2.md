@@ -29,7 +29,7 @@ Un DMP alimenté avec un ou plusieurs nouveaux documents.
 
 ### Equivalence FHIR
 
-Transactions ITI-105 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission (List), un dossier (List), un DocumentReference, ou un FHIR Document 
+Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé
 
 ### Exemple
 
