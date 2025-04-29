@@ -1,10 +1,10 @@
 
-### Description 
+### Description
+
 Alimenter le DMP d’un patient avec de nouveaux documents
 
+Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs nouveaux documents :
 
-Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs
-nouveaux documents :
 - décrits sous la forme de documents CDA et de métadonnées XDS,
 - et transmis au système DMP sous la forme d’un lot de soumission XDS signé (XAdES).
 La cinématique générale est la suivante.
@@ -17,11 +17,19 @@ Le LPS :
 - constitue un lot de soumission XDS et signe ce lot (XAdES) Cf. §3.4.1.1.5
 - soumet le lot de documents au système DMP Cf. §3.4.1.1.6
 
-
 ### Entrée et prérequis
+
 L’INS du patient 
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 Lot de soumission
+
 ### Sortie
+
 Un DMP alimenté avec un ou plusieurs nouveaux documents.
+
+### Equivalence FHIR
+
+Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé
+
 ### Exemple
+

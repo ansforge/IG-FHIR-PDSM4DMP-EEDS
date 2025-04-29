@@ -46,4 +46,11 @@ Le LPS a vérifié les conditions d’accès de l’acteur de santé au DMP du p
 - Raison de fermeture
 - Statut "médecin traitant DMP"
 
+### Equivalent FHIR
+
+Pas d'équivalent trouvé côté MHD. L'équivalent consisterait en une requête sur le endpoint Patient avec le SearchParameter identifier.
+Mapping des infos DMP (statut, rattachement, infos de fermetures) à rajouter : extension patient ? Ressource Coverage ?
+
 ### Exemple
+
+
