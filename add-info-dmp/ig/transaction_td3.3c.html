@@ -227,6 +227,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
@@ -235,21 +236,21 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <h3 id="description">Description</h3>
 <p>supprimer un document (</p>
 
-<p>Cette fonctionnalité permet à l’utilisateur de supprimer un document dans le DMP d’un
-patient.
-La cinématique générale est la suivante :</p>
+<p>Cette fonctionnalité permet à l’utilisateur de supprimer un document dans le DMP d’unpatient.</p>
+
+<p>La cinématique générale est la suivante :</p>
+
 <ul>
   <li>L’utilisateur indique qu’il souhaite supprimer le document sélectionné. Cf. RG_3410.</li>
   <li>L’utilisateur confirme l’action demandée. Cf. RG_3420.</li>
-  <li>Le LPS envoie une requête de mise à jour des attributs d’un document au système DMP
-(TD3.3c). Cf. RG_3430.
-NB1 : si le LPS implémente le profil Alimentation, il n’est pas nécessaire d’avoir une
-autorisation d’accès pour supprimer des documents dans le DMP d’un patient.
-NB2 : pour information, seul l’auteur du document peut supprimer le document (contrôle
-effectué par le système DMP, cf. [DMP-MDRF]).</li>
+  <li>Le LPS envoie une requête de mise à jour des attributs d’un document au système DMP (TD3.3c). Cf. RG_3430.</li>
 </ul>
 
+<p>NB1 : si le LPS implémente le profil Alimentation, il n’est pas nécessaire d’avoir une autorisation d’accès pour supprimer des documents dans le DMP d’un patient.
+NB2 : pour information, seul l’auteur du document peut supprimer le document (contrôle effectué par le système DMP, cf. [DMP-MDRF]).</p>
+
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
@@ -257,7 +258,12 @@ LPS implémente le profil Alimentation).
 L’identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).</p>
 
 <h3 id="sortie">Sortie</h3>
+
 <p>Le document est supprimé.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Requête HTTP DELETE ou mise à jour de la ressource avec changement de statut ?</p>
 
 <h3 id="exemple">Exemple</h3>
 
@@ -301,7 +307,7 @@ L’identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).<
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:17+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 16:14+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

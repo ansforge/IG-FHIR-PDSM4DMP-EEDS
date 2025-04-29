@@ -227,15 +227,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
-<p>Cette fonctionnalité permet de lister les documents du DMP d’un patient (cf. RG_3010) en
-indiquant des critères de recherche.
-La cinématique générale est la suivante.</p>
+
+<p>Cette fonctionnalité permet de lister les documents du DMP d’un patient (cf. RG_3010) en indiquant des critères de recherche.</p>
+
+<p>La cinématique générale est la suivante.</p>
+
 <ul>
   <li>L’utilisateur saisit un ou plusieurs critères de recherche dans le LPS. Cf. RG_3020.</li>
   <li>Le LPS appelle la transaction TD3.1. Cf. RG_3030.</li>
@@ -253,11 +256,19 @@ unique des document(s) sélectionnés. Cf. RG_3050.</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».</p>
+
 <h3 id="sortie">Sortie</h3>
+
 <p>La liste des documents consultables par l’utilisateur.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Transaction ITI-67 avec les paramètres patient.identifier, + statut du dmp et autorisation d'accès à mapper</p>
+
 <h3 id="exemple">Exemple</h3>
 
 
@@ -300,7 +311,7 @@ L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide 
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:17+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 16:14+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

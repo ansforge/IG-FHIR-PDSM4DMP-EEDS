@@ -227,6 +227,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée" id="markdown-toc-entrée">Entrée</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalent-fhir" id="markdown-toc-equivalent-fhir">Equivalent FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
@@ -235,40 +236,50 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <h3 id="description">Description</h3>
 <p>vérifier l’existence d’un DMP actif (via TD0.2) et les conditions d'accès à ce DMP</p>
 
-<p>Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient
-existe et de récupérer les données suivantes (cf. RG_0310) :</p>
+<p>Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :</p>
 <ul>
   <li>statut du DMP du patient (EF_DMP12_01),</li>
   <li>si le DMP du patient est fermé, date, motif et raison de la fermeture (cf. EF_DMP12),</li>
-  <li>statut de l’autorisation d’accès de consultation de l’acteur de santé (EF_DMP04_01),
--statut « médecin traitant DMP » (EF_DMP01_07).
-Ces données permettent au LPS de vérifier :</li>
+  <li>statut de l’autorisation d’accès de consultation de l’acteur de santé (EF_DMP04_01),</li>
+  <li>statut « médecin traitant DMP » (EF_DMP01_07).</li>
+</ul>
+
+<p>Ces données permettent au LPS de vérifier :</p>
+<ul>
   <li>si le DMP du patient existe et si celui-ci est actif,</li>
-  <li>si l’acteur de santé dispose d’une autorisation d’accès valide pour la consultation de ce
-DMP.
-Le LPS gère en local (= hors SI DMP) les conditions d'accès à ce DMP par l’acteur de
-santé :</li>
+  <li>si l’acteur de santé dispose d’une autorisation d’accès valide pour la consultation de ce DMP.</li>
+</ul>
+
+<p>Le LPS gère en local (= hors SI DMP) les conditions d'accès à ce DMP par l’acteur de santé :</p>
+<ul>
   <li>non-opposition du patient à l’alimentation de son DMP,</li>
-  <li>consentement du patient à la consultation de son DMP.
-En mode d’accès « centre de régulation », le statut de l’autorisation d’accès de l’acteur de
-santé sur le DMP du patient n’est pas contrôlé par le LPS.
-NB1 : un professionnel que le patient a bloqué ne peut pas accéder au DMP de ce
-patient, que ce soit avec ou sans l’autorisation du patient.
-NB2 : les autorisations d’accès ne sont utilisées que pour la consultation des DMP.
-Ensuite, le LPS :</li>
+  <li>consentement du patient à la consultation de son DMP.</li>
+</ul>
+
+<p>En mode d’accès « centre de régulation », le statut de l’autorisation d’accès de l’acteur de santé sur le DMP du patient n’est pas contrôlé par le LPS.
+NB1 : un professionnel que le patient a bloqué ne peut pas accéder au DMP de ce patient, que ce soit avec ou sans l’autorisation du patient.
+NB2 : les autorisations d’accès ne sont utilisées que pour la consultation des DMP.</p>
+
+<p>Ensuite, le LPS :</p>
+
+<ul>
   <li>affiche ne doit pas afficher les traits d’identité provenant du DMP (cf. RG_0320),</li>
   <li>détermine les actions possibles sur le DMP du patient (cf. RG_0330)</li>
 </ul>
 
 <h3 id="entrée">Entrée</h3>
+
 <p>L’INS du patient</p>
+
 <h3 id="sortie">Sortie</h3>
+
 <p>Le LPS a vérifié les conditions d’accès de l’acteur de santé au DMP du patient :</p>
+
 <ul>
   <li>INS</li>
   <li>Nom d'usage</li>
   <li>Nom de naissance</li>
-  <li>Prénon</li>
+  <li>Prénom</li>
   <li>Sexe</li>
   <li>Date de naissance</li>
   <li>Civilité</li>
@@ -285,7 +296,13 @@ Ensuite, le LPS :</li>
   <li>Statut "médecin traitant DMP"</li>
 </ul>
 
+<h3 id="equivalent-fhir">Equivalent FHIR</h3>
+
+<p>Pas d'équivalent trouvé côté MHD. L'équivalent consisterait en une requête sur le endpoint Patient avec le SearchParameter identifier.
+Mapping des infos DMP (statut, rattachement, infos de fermetures) à rajouter : extension patient ? Ressource Coverage ?</p>
+
 <h3 id="exemple">Exemple</h3>
+
 
 
 
@@ -327,7 +344,7 @@ Ensuite, le LPS :</li>
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:17+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 16:14+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

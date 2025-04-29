@@ -227,25 +227,24 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
+  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
   <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
+
 <p>Remplacer un document existant dans le DMP d’un patient</p>
 
-<p>Cette fonctionnalité permet d’alimenter le DMP d’un patient avec une nouvelle version
-d’un document.
-Soient X le document initial (uniqueId par exemple 1.2.3.X) et Y la nouvelle version du
-document (uniqueId par exemple 1.2.3.Y).
-Pour remplacer un document initial X dans le DMP du patient par une nouvelle version Y,
-la cinématique est la suivante.</p>
+<p>Cette fonctionnalité permet d’alimenter le DMP d’un patient avec une nouvelle version d’un document.
+Soient X le document initial (uniqueId par exemple 1.2.3.X) et Y la nouvelle version du document (uniqueId par exemple 1.2.3.Y).</p>
+
+<p>Pour remplacer un document initial X dans le DMP du patient par une nouvelle version Y, la cinématique est la suivante.</p>
+
 <ul>
-  <li>L’utilisateur modifie le document X dans le LPS (corps et/ou métadonnées) pour créer
-le document Y.</li>
-  <li>Le LPS a récupéré les identifiants du document X (entryUUID et uniqueId,
-cf. DMP_3.1).</li>
+  <li>L’utilisateur modifie le document X dans le LPS (corps et/ou métadonnées) pour créer le document Y.</li>
+  <li>Le LPS a récupéré les identifiants du document X (entryUUID et uniqueId, cf. DMP_3.1).</li>
   <li>Le LPS construit le document Y au format CDA et alimente les métadonnées XDS.
     <ul>
       <li>CDA : relatedDocument = uniqueId du document X.</li>
@@ -257,15 +256,20 @@ cf. DMP_3.1).</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
+
 <p>L’INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
-Les identifiants entryUUID et uniqueId du document à remplacer obtenus par la
-fonctionnalité DMP_3.1 (EF_DMP31_01 et EF_DMP31_02).
-L’identifiant de la nouvelle version du document (uniqueId par exemple 1.2.3.Y)
-(EF_DMP31_01).
+Les identifiants entryUUID et uniqueId du document à remplacer obtenus par la fonctionnalité DMP_3.1 (EF_DMP31_01 et EF_DMP31_02).
+L’identifiant de la nouvelle version du document (uniqueId par exemple 1.2.3.Y) (EF_DMP31_01).
 Lot de soumission</p>
+
 <h3 id="sortie">Sortie</h3>
+
 <p>Le document X est remplacé par le document Y dans le DMP du patient.</p>
+
+<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+
+<p>Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé</p>
 
 <h3 id="exemple">Exemple</h3>
 
@@ -309,7 +313,7 @@ Lot de soumission</p>
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 12:17+0000">2025-04-29</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Apr 29, 2025 16:14+0000">2025-04-29</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

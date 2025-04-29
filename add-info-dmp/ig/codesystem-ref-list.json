@@ -10,7 +10,240 @@
       "oids" : ["2.16.840.1.113883.6.1"],
       "uses" : {
       },
-      "https://smt.esante.gouv.fr/fhir/ValueSet/JDV-J66-TypeCode-DMP" : "JDV_J66_TypeCode_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J66-TypeCode-DMP.html" : "JDV_J66_TypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+      "version" : "20240329120000",
+      "status" : "active",
+      "name" : "TRE_A00_ProducteurDocNonPS",
+      "title" : null,
+      "description" : "Producteur de document non PS",
+      "oids" : ["1.2.250.1.213.1.1.4.6"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J62-PracticeSettingCode-DMP.html" : "JDV_J62_PracticeSettingCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "TRE_A01_CadreExercice",
+      "title" : null,
+      "description" : "Cadre d'exercice",
+      "oids" : ["1.2.250.1.213.1.1.4.9"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J62-PracticeSettingCode-DMP.html" : "JDV_J62_PracticeSettingCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A02-ProfessionSavFaire-CISIS/FHIR/TRE-A02-ProfessionSavFaire-CISIS",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "TRE_A02_ProfessionSavFaire_CISIS",
+      "title" : null,
+      "description" : "Profession et savoir-faire CI-SIS",
+      "oids" : ["1.2.250.1.213.1.1.4.5"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A03_ClasseDocument",
+      "title" : null,
+      "description" : "Classe de document",
+      "oids" : ["1.2.250.1.213.1.1.4.1"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J57-ClassCode-DMP.html" : "JDV_J57_ClassCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire",
+      "version" : "20240329120000",
+      "status" : "active",
+      "name" : "TRE_A05_TypeDocComplementaire",
+      "title" : null,
+      "description" : "Type de document en complément des nomenclatures internationales",
+      "oids" : ["1.2.250.1.213.1.1.4.12"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J66-TypeCode-DMP.html" : "JDV_J66_TypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A07_StatutVisibiliteDocument",
+      "title" : null,
+      "description" : "Restriction d'audience applicable aux objets référencés",
+      "oids" : ["1.2.250.1.213.1.1.4.13"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J58-ConfidentialityCode-DMP.html" : "JDV_J58_ConfidentialityCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A08-HL7Confidentiality/FHIR/TRE-A08-HL7Confidentiality",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A08_HL7Confidentiality",
+      "title" : null,
+      "description" : "HL7 confidentiality",
+      "oids" : ["2.16.840.1.113883.5.25"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J58-ConfidentialityCode-DMP.html" : "JDV_J58_ConfidentialityCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A10_NomenclatureURN",
+      "title" : null,
+      "description" : "Nomenclature identifiée par URN",
+      "oids" : ["URN"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J57-ClassCode-DMP.html" : "JDV_J57_ClassCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A12_NomenclatureASTM",
+      "title" : null,
+      "description" : "Nomenclature identifiée par ASTM",
+      "oids" : ["ASTM"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J66-TypeCode-DMP.html" : "JDV_J66_TypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "TRE_R02_SecteurActivite",
+      "title" : null,
+      "description" : "Le secteur d'activité de santé est une donnée RPPS et correspond au type de service fourni par une structure. Il sert principalement à déterminer les propriétés de facturation des professionnels de ces structures vis-à-vis de l'assurance maladie",
+      "oids" : ["1.2.250.1.71.4.2.4"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite",
+      "version" : "20240223120000",
+      "status" : "active",
+      "name" : "TRE_R209_TypeActivite",
+      "title" : null,
+      "description" : "Type d'activité",
+      "oids" : ["1.2.250.1.213.2.2"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R258-RelationPriseCharge/FHIR/TRE-R258-RelationPriseCharge",
+      "version" : "20240126120000",
+      "status" : "active",
+      "name" : "TRE_R258_RelationPriseCharge",
+      "title" : null,
+      "description" : "Relation dans la prise en charge du patient",
+      "oids" : ["1.2.250.1.213.1.1.4.2.280"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J47-FunctionCode-CISIS.html" : "JDV_J47_FunctionCode_CISIS"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R259-HL7ParticipationFunction/FHIR/TRE-R259-HL7ParticipationFunction",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_R259_HL7ParticipationFunction",
+      "title" : null,
+      "description" : "Rôles fonctionnels HL7",
+      "oids" : ["2.16.840.1.113883.5.88"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J47-FunctionCode-CISIS.html" : "JDV_J47_FunctionCode_CISIS"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R269-AvailabilityStatusProvenanceOasis/FHIR/TRE-R269-AvailabilityStatusProvenanceOasis",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_R269_AvailabilityStatusProvenanceOasis",
+      "title" : null,
+      "description" : "Statut de l'objet provenant de la norme Oasis",
+      "oids" : ["1.2.250.1.213.1.1.4.341"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J52-AvailabilityStatus-CISIS.html" : "JDV_J52_AvailabilityStatus_CISIS"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R270-AvailabilityStatus/FHIR/TRE-R270-AvailabilityStatus",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_R270_AvailabilityStatus",
+      "title" : null,
+      "description" : "Statut de l'objet",
+      "oids" : ["1.2.250.1.213.1.1.4.342"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J52-AvailabilityStatus-CISIS.html" : "JDV_J52_AvailabilityStatus_CISIS"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite",
+      "version" : "20240329120000",
+      "status" : "active",
+      "name" : "TRE_R276_FormeActivite",
+      "title" : null,
+      "description" : "Type d'organisation de prise en charge",
+      "oids" : ["1.2.250.1.213.1.6.1.128"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
+      "version" : "20250328120000",
+      "status" : "active",
+      "name" : "TRE_R85_RolePriseCharge",
+      "title" : null,
+      "description" : "Rôle dans la prise en charge des patients ou des usagers",
+      "oids" : ["1.2.250.1.213.1.6.1.107"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J47-FunctionCode-CISIS.html" : "JDV_J47_FunctionCode_CISIS"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "TRE_R94_ProfessionSocial",
+      "title" : null,
+      "description" : "Profession du social",
+      "oids" : ["1.2.250.1.213.1.6.1.4"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre/FHIR/TRE-R95-UsagerTitre",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "TRE_R95_UsagerTitre",
+      "title" : null,
+      "description" : "Usager de titre professionnel",
+      "oids" : ["1.2.250.1.213.1.6.1.109"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP"
     }
   ]
 }

@@ -13,22 +13,22 @@ More details are to be retrieved from IHE ITI on www.ihe.net.
 ","class Code of the document","**Class Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP","",,,,"DocumentEntry.class",1,1,"",""
 "DocumentEntry.type","DocumentEntry.type","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","type Code","**Type Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP","",,,,"DocumentEntry.type",1,1,"",""
-"DocumentEntry.author","DocumentEntry.author","","","",0,1,"","","","Identifier {[]} {[]}
-","author","author","","","","","","","","","",,,,,"",,,,"DocumentEntry.author",0,1,"",""
+"DocumentEntry.author","DocumentEntry.author","","","",1,*,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author {[]} {[]}
+","author","author","","","","","","","","","",,,,,"",,,,"DocumentEntry.author",1,*,"",""
 "DocumentEntry.availabilityStatus","DocumentEntry.availabilityStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
-","availability status of the document","**Availability Status**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",0,1,"",""
+","Cette métadonnée représente la pertinence de la version de la fiche d’un document.","**Availability Status**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",0,1,"",""
 "DocumentEntry.comments","DocumentEntry.comments","","","",0,1,"","","","string {[]} {[]}
-","Comments","Comments","","","","","","","","","",,,,,"",,,,"DocumentEntry.comments",0,1,"",""
+","Cette métadonnée contient le commentaire associé au document. ","Cette métadonnée contient le commentaire associé au document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.comments",0,1,"",""
 "DocumentEntry.confidentiality","DocumentEntry.confidentiality","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","confidentiality Code","**Confidentiality Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP","",,,,"DocumentEntry.confidentiality",1,1,"",""
 "DocumentEntry.creationTime","DocumentEntry.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
-","timestamp of creation of document","timestamp of creation of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.creationTime",1,1,"",""
+","Cette métadonnée représente la date et l’heure de la création du document. ","Cette métadonnée représente la date et l’heure de la création du document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.creationTime",1,1,"",""
 "DocumentEntry.format","DocumentEntry.format","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","format of the document","**Format Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP(required)","",,,,"DocumentEntry.format",1,1,"",""
 "DocumentEntry.size","DocumentEntry.size","","","",0,1,"","","","integer {[]} {[]}
 ","size of document","size of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.size",0,1,"",""
-"DocumentEntry.hash","DocumentEntry.hash","","","",0,1,"","","","string {[]} {[]}
-","hash value","hash value","","","","","","","","","",,,,,"",,,,"DocumentEntry.hash",0,1,"",""
+"DocumentEntry.hash","DocumentEntry.hash","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée contient le résultat du hachage du document déposé","Cette métadonnée contient le résultat du hachage du document déposé","","","","","","","","","",,,,,"",,,,"DocumentEntry.hash",1,1,"",""
 "DocumentEntry.practiceSetting","DocumentEntry.practiceSetting","","","",0,1,"","","","CodeableConcept {[]} {[]}
 ","practice setting","**Practice Setting**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP","",,,,"DocumentEntry.practiceSetting",0,1,"",""
 "DocumentEntry.healthcareFacilityTypeCode","DocumentEntry.healthcareFacilityTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
