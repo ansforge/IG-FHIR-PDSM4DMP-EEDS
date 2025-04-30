@@ -3,7 +3,7 @@
   "id" : "documentReferenceToMHD",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap documentReferenceToMHD</b></p><a name=\"documentReferenceToMHD\"> </a><a name=\"hcdocumentReferenceToMHD\"> </a><a name=\"documentReferenceToMHD-fr-FR\"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href=\"StructureDefinition-DocumentEntry.html\">Document Entry (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>relation</b></td><td><b>Target Code</b></td></tr><tr><td>DocumentEntry.URI</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.subject.fr-core-patient</td></tr><tr><td>DocumentEntry.title</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.comments</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.patientID</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.uniqueId</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.class</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.confidentiality</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.eventCodeList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.format</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.healthcareFacilityTypeCode</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.practiceSetting</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.type</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.documentAvailability</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.homeCommunityId</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.creationTime</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.referenceIdList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.referenceIdList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap documentReferenceToMHD</b></p><a name=\"documentReferenceToMHD\"> </a><a name=\"hcdocumentReferenceToMHD\"> </a><a name=\"documentReferenceToMHD-fr-FR\"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href=\"StructureDefinition-DocumentEntry.html\">Document Entry (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>relation</b></td><td><b>Target Code</b></td></tr><tr><td>DocumentEntry.entryUUID</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.id</td></tr><tr><td>DocumentEntry.logicalId</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.identifier</td></tr><tr><td>DocumentEntry.mimeType</td><td colspan=\"2\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td>DocumentEntry.availabilityStatus</td><td colspan=\"2\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td>DocumentEntry.hash</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.content.attachment.hash</td></tr><tr><td>DocumentEntry.size</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.content.attachment.size</td></tr><tr><td>DocumentEntry.languageCode</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.content.attachment.language</td></tr><tr><td>DocumentEntry.legalAuthenticator</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.authenticator</td></tr><tr><td>DocumentEntry.repositoryUniqueId</td><td colspan=\"2\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td>DocumentEntry.serviceStartTime</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.context.period.start</td></tr><tr><td>DocumentEntry.serviceEndTime</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.context.period.end</td></tr><tr><td>DocumentEntry.sourcePatientID</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.subject.fr-core-patient</td></tr><tr><td>DocumentEntry.sourcePatientInfo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td>DocumentReference.subject.fr-core-patient</td></tr><tr><td>DocumentEntry.URI</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.title</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.comments</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.patientID</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.uniqueId</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.class</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.confidentiality</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.eventCodeList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.format</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.healthcareFacilityTypeCode</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.practiceSetting</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.type</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.documentAvailability</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.homeCommunityId</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.creationTime</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.referenceIdList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr><tr><td>DocumentEntry.referenceIdList</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td/></tr></table></div>"
   },
   "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToMHD",
   "version" : "0.1.0",
@@ -11,7 +11,7 @@
   "title" : "documentReferenceToMHD",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-04-30T14:55:26+00:00",
+  "date" : "2025-04-30T15:08:51+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -31,9 +31,96 @@
     "source" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry",
     "target" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference",
     "element" : [{
-      "code" : "DocumentEntry.URI",
+      "code" : "DocumentEntry.entryUUID",
+      "target" : [{
+        "code" : "DocumentReference.id",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.logicalId",
+      "target" : [{
+        "code" : "DocumentReference.identifier",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.mimeType",
+      "target" : [{
+        "equivalence" : "unmatched"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.availabilityStatus",
+      "target" : [{
+        "equivalence" : "unmatched"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.hash",
+      "target" : [{
+        "code" : "DocumentReference.content.attachment.hash",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.size",
+      "target" : [{
+        "code" : "DocumentReference.content.attachment.size",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.languageCode",
+      "target" : [{
+        "code" : "DocumentReference.content.attachment.language",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.legalAuthenticator",
+      "target" : [{
+        "code" : "DocumentReference.authenticator",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.repositoryUniqueId",
+      "target" : [{
+        "equivalence" : "unmatched"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.serviceStartTime",
+      "target" : [{
+        "code" : "DocumentReference.context.period.start",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.serviceEndTime",
+      "target" : [{
+        "code" : "DocumentReference.context.period.end",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.sourcePatientID",
       "target" : [{
         "code" : "DocumentReference.subject.fr-core-patient",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.sourcePatientInfo",
+      "target" : [{
+        "code" : "DocumentReference.subject.fr-core-patient",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.URI",
+      "target" : [{
         "equivalence" : "equivalent"
       }]
     },
