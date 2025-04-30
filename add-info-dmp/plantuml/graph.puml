@@ -1,0 +1,88 @@
+@startuml
+set namespaceSeparator ?
+hide circle
+hide class fields
+
+package IG #DDDDDD{
+
+     package Profiles #DDDDDD{
+
+        class Author{
+
+             Author => [None..None]
+             Author.institution => [0..1]
+             Author.person => [0..1]
+             Author.role => [1..1]
+             Author.specialty => [0..*]
+             Author.telecommunication => [0..1]
+        } 
+
+        class DocumentEntry{
+
+             DocumentEntry => [None..None]
+             DocumentEntry.title => [1..1]
+             DocumentEntry.uniqueId => [1..1]
+             DocumentEntry.uri => [1..1]
+             DocumentEntry.class => [1..1]
+             DocumentEntry.type => [1..1]
+             DocumentEntry.author => [1..*]
+             DocumentEntry.availabilityStatus => [0..1]
+             DocumentEntry.comments => [0..1]
+             DocumentEntry.confidentiality => [1..1]
+             DocumentEntry.creationTime => [1..1]
+             DocumentEntry.format => [1..1]
+             DocumentEntry.size => [0..1]
+             DocumentEntry.hash => [1..1]
+             DocumentEntry.practiceSetting => [0..1]
+             DocumentEntry.healthcareFacilityTypeCode => [1..1]
+             DocumentEntry.legalAuthenticator => [0..1]
+             DocumentEntry.limitedMetadata => [0..1]
+             DocumentEntry.mimeType => [1..1]
+             DocumentEntry.objectType => [1..1]
+             DocumentEntry.sourcePatientID => [1..1]
+             DocumentEntry.sourcePatientInfo => [0..1]
+             DocumentEntry.referenceIdList => [0..*]
+             DocumentEntry.repositoryUniqueID => [0..1]
+             DocumentEntry.serviceStartTime => [1..1]
+             DocumentEntry.serviceEndTime => [1..1]
+        } 
+
+        class SubmissionSet{
+
+             SubmissionSet => [None..None]
+             SubmissionSet.author => [1..1]
+             SubmissionSet.availabilityStatus => [0..1]
+             SubmissionSet.comments => [0..1]
+             SubmissionSet.contentTypeCode => [1..1]
+             SubmissionSet.entryUUID => [1..1]
+             SubmissionSet.patientID => [1..1]
+             SubmissionSet.sourceID => [1..1]
+             SubmissionSet.submissionTime => [1..1]
+             SubmissionSet.title => [0..1]
+             SubmissionSet.uniqueID => [1..1]
+         }
+
+     }
+     package extension #paleturquoise {
+
+
+         }
+     }
+     package valueset #PaleVioletRed{
+       }
+
+package "Ressources de base" #palegreen {
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Author
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> DocumentEntry
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> SubmissionSet
+}
+@enduml
