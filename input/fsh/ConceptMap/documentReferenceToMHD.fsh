@@ -12,55 +12,55 @@ Usage: #definition
 * group[=].element[=].target.code = #DocumentReference.id
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.logicalId
+* group[=].element[+].code = #DocumentEntry.logicalId
 * group[=].element[=].target.code = #DocumentReference.identifier
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.mimeType
+* group[=].element[+].code = #DocumentEntry.mimeType
 //* group[=].element[=].target.code = #
 * group[=].element[=].target.equivalence = #unmatched
 
-* group[=].element[0].code = #DocumentEntry.availabilityStatus
+* group[=].element[+].code = #DocumentEntry.availabilityStatus
 //* group[=].element[=].target.code = #
 * group[=].element[=].target.equivalence = #unmatched
 
-* group[=].element[0].code = #DocumentEntry.hash
+* group[=].element[+].code = #DocumentEntry.hash
 * group[=].element[=].target.code = #DocumentReference.content.attachment.hash
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.size
+* group[=].element[+].code = #DocumentEntry.size
 * group[=].element[=].target.code = #DocumentReference.content.attachment.size
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.languageCode
+* group[=].element[+].code = #DocumentEntry.languageCode
 * group[=].element[=].target.code = #DocumentReference.content.attachment.language
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.legalAuthenticator
+* group[=].element[+].code = #DocumentEntry.legalAuthenticator
 * group[=].element[=].target.code = #DocumentReference.authenticator
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.repositoryUniqueId
+* group[=].element[+].code = #DocumentEntry.repositoryUniqueId
 //* group[=].element[=].target.code = #
 * group[=].element[=].target.equivalence = #unmatched
 
-* group[=].element[0].code = #DocumentEntry.serviceStartTime
+* group[=].element[+].code = #DocumentEntry.serviceStartTime
 * group[=].element[=].target.code = #DocumentReference.context.period.start
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.serviceEndTime
+* group[=].element[+].code = #DocumentEntry.serviceEndTime
 * group[=].element[=].target.code = #DocumentReference.context.period.end
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.sourcePatientID
+* group[=].element[+].code = #DocumentEntry.sourcePatientID
 * group[=].element[=].target.code = #DocumentReference.subject.fr-core-patient
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.sourcePatientInfo
+* group[=].element[+].code = #DocumentEntry.sourcePatientInfo
 * group[=].element[=].target.code = #DocumentReference.subject.fr-core-patient
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[0].code = #DocumentEntry.URI
+* group[=].element[+].code = #DocumentEntry.URI
 //* group[=].element[=].target.code = #
 * group[=].element[=].target.equivalence = #equivalent
 
