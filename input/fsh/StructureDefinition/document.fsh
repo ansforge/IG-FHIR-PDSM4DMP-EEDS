@@ -29,7 +29,8 @@ More details are to be retrieved from IHE ITI on www.ihe.net.
 * hash 1..1 string "Cette métadonnée contient le résultat du hachage du document déposé"
 * practiceSetting 0..1 CodeableConcept "practice setting" "**Practice Setting**"
 * practiceSetting from https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP (required)
-* healthcareFacilityTypeCode 1..1 CodeableConcept "Secteur d'activité lié à la prise en charge de la personne, en lien avec le document produit "Healthcare Facility Type Code**"
+* healthcareFacilityTypeCode 1..1 CodeableConcept "Secteur d'activité lié à la prise en charge de la personne, en lien avec le document produit "
+//Healthcare Facility Type Code**"
 * healthcareFacilityTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP (required)
 * legalAuthenticator 0..1 Identifier "legal authenticator of the document"
 * limitedMetadata 0..1 string "metadata"
