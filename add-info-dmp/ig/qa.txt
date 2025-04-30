@@ -1,11 +1,10 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 0, warn = 77, info = 0
+err = 0, warn = 72, info = 0
 IG Publisher Version: 1.8.25
-Generated Wed Apr 30 15:11:05 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 8 / 3 / 0
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToMHD : 0 / 4 / 1
+Generated Wed Apr 30 15:45:02 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+ Build Errors : 8 / 2 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 0 / 0 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Author : 0 / 4 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-DocumentEntry : 0 / 40 / 1
@@ -13,7 +12,6 @@ Generated Wed Apr 30 15:11:05 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SubmissionSet : 0 / 24 / 1
 </table>
 == n/a ==
-WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource ConceptMap/documentReferenceToMHD.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/construction_des_flux.html#/html/body/div/div/div/div/div/p/a at Line 234, column 67: The link './st_flux1.html' for "flux 01" cannot be resolved
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/construction_des_flux.html#/html/body/div/div/div/div/div/p/a at Line 238, column 67: The link './st_flux2.html' for "flux 02" cannot be resolved
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 248, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
@@ -24,11 +22,6 @@ ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/ou
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 258, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
-== fsh-generated/resources/ConceptMap-documentReferenceToMHD.json ==
-WARNING: ConceptMap/documentReferenceToMHD: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
-WARNING: ConceptMap/documentReferenceToMHD: ConceptMap.group[0].source: The Source Code System https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry is not fully defined and populated, and no sourceScope is specified, so the source code checking will not be performed
-WARNING: ConceptMap/documentReferenceToMHD: ConceptMap.group[0].target: The Target Code System https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
-WARNING: ConceptMap/documentReferenceToMHD: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present
 == fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json ==
 == fsh-generated/resources/StructureDefinition-Author.json ==
 WARNING: StructureDefinition/Author: StructureDefinition.snapshot.element[3].binding.valueSet: There are multiple different potential matches for the url 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '20241213120000', found versions: 1.2.0, 1.3.0, 20241213120000. Suggested fix: change the canonical reference from 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS' to 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS|20241213120000'

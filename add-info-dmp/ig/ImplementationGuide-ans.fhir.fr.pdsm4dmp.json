@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-04-30T15:08:51+00:00",
+  "date" : "2025-04-30T15:42:49+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -666,17 +666,6 @@
       },
       "name" : "Document Entry (LM)",
       "description" : "Model logique d'un document",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ConceptMap"
-      }],
-      "reference" : {
-        "reference" : "ConceptMap/documentReferenceToMHD"
-      },
-      "name" : "documentReferenceToMHD",
       "exampleBoolean" : false
     },
     {
