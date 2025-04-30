@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="documentReferenceToPDSM"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap documentReferenceToPDSM</b></p><a name="documentReferenceToPDSM"> </a><a name="hcdocumentReferenceToPDSM"> </a><a name="documentReferenceToPDSM-fr-FR"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href="StructureDefinition-DocumentEntry.html">Document Entry (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html">PDSm Comprehensive DocumentReference</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>relation</b></td><td><b>Target Code</b></td></tr><tr><td>DocumentEntry.entryUUID</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.id</td></tr><tr><td>DocumentEntry.logicalId</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.identifier</td></tr><tr><td>DocumentEntry.mimeType</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.availabilityStatus</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.hash</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.content.attachment.hash</td></tr><tr><td>DocumentEntry.size</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.content.attachment.size</td></tr><tr><td>DocumentEntry.languageCode</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.content.attachment.language</td></tr><tr><td>DocumentEntry.legalAuthenticator</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.authenticator</td></tr><tr><td>DocumentEntry.repositoryUniqueId</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.serviceStartTime</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.period.start</td></tr><tr><td>DocumentEntry.serviceEndTime</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.period.end</td></tr><tr><td>DocumentEntry.sourcePatientID</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.subject.fr-core-patient</td></tr><tr><td>DocumentEntry.sourcePatientInfo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.sourcePatientInfo</td></tr><tr><td>DocumentEntry.URI</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.title</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.content.attachment.title</td></tr><tr><td>DocumentEntry.comments</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.description</td></tr><tr><td>DocumentEntry.patientID</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.subject.fr-core-patient</td></tr><tr><td>DocumentEntry.uniqueId</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.identifier</td></tr><tr><td>DocumentEntry.class</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.category</td></tr><tr><td>DocumentEntry.confidentiality</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.securityLabel</td></tr><tr><td>DocumentEntry.eventCodeList</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.event</td></tr><tr><td>DocumentEntry.format</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.content.format</td></tr><tr><td>DocumentEntry.healthcareFacilityTypeCode</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.facilityType</td></tr><tr><td>DocumentEntry.practiceSetting</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.practiceSetting</td></tr><tr><td>DocumentEntry.type</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.type</td></tr><tr><td>DocumentEntry.documentAvailability</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.homeCommunityId</td><td colspan="2" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DocumentEntry.creationTime</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.date</td></tr><tr><td>DocumentEntry.referenceIdList</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>DocumentReference.context.related:referenceIdList</td></tr></table></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM"/>
+  <version value="0.1.0"/>
+  <name value="documentReferenceToPDSM"/>
+  <title value="documentReferenceToPDSM"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2025-04-30T15:49:42+00:00"/>
+  <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+  <contact>
+    <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="FRANCE"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry"/>
+    <target value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"/>
+    <element>
+      <code value="DocumentEntry.entryUUID"/>
+      <target>
+        <code value="DocumentReference.id"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.logicalId"/>
+      <target>
+        <code value="DocumentReference.identifier"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.mimeType"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.availabilityStatus"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.hash"/>
+      <target>
+        <code value="DocumentReference.content.attachment.hash"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.size"/>
+      <target>
+        <code value="DocumentReference.content.attachment.size"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.languageCode"/>
+      <target>
+        <code value="DocumentReference.content.attachment.language"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.legalAuthenticator"/>
+      <target>
+        <code value="DocumentReference.authenticator"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.repositoryUniqueId"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.serviceStartTime"/>
+      <target>
+        <code value="DocumentReference.context.period.start"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.serviceEndTime"/>
+      <target>
+        <code value="DocumentReference.context.period.end"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.sourcePatientID"/>
+      <target>
+        <code value="DocumentReference.subject.fr-core-patient"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.sourcePatientInfo"/>
+      <target>
+        <code value="DocumentReference.context.sourcePatientInfo"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.URI"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.title"/>
+      <target>
+        <code value="DocumentReference.content.attachment.title"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.comments"/>
+      <target>
+        <code value="DocumentReference.description"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.patientID"/>
+      <target>
+        <code value="DocumentReference.subject.fr-core-patient"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.uniqueId"/>
+      <target>
+        <code value="DocumentReference.identifier"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.class"/>
+      <target>
+        <code value="DocumentReference.category"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.confidentiality"/>
+      <target>
+        <code value="DocumentReference.securityLabel"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.eventCodeList"/>
+      <target>
+        <code value="DocumentReference.context.event"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.format"/>
+      <target>
+        <code value="DocumentReference.content.format"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.healthcareFacilityTypeCode"/>
+      <target>
+        <code value="DocumentReference.context.facilityType"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.practiceSetting"/>
+      <target>
+        <code value="DocumentReference.context.practiceSetting"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.type"/>
+      <target>
+        <code value="DocumentReference.type"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.documentAvailability"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.homeCommunityId"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.creationTime"/>
+      <target>
+        <code value="DocumentReference.date"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.referenceIdList"/>
+      <target>
+        <code value="DocumentReference.context.related:referenceIdList"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

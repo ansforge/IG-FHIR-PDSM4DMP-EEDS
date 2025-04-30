@@ -1,0 +1,100 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "SubmissionSetToPDSM"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap SubmissionSetToPDSM</b></p><a name=\"SubmissionSetToPDSM\"> </a><a name=\"hcSubmissionSetToPDSM\"> </a><a name=\"SubmissionSetToPDSM-fr-FR\"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href=\"StructureDefinition-SubmissionSet.html\">SubmissionSet (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p><table class=\"grid\"><tr><td colspan=\"2\"><b>Source Concept Details</b></td><td><b>relation</b></td><td colspan=\"2\"><b>Target Concept Details</b></td></tr><tr><td colspan=\"2\"><b>Codes</b> from https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet</td><td/><td colspan=\"2\"><b>Codes</b> from https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive</td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.availabilityStatus</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.status</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.submissionTime</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.date</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.title</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.title</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.patientID</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.subject.fr-core-patient</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.sourceID</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.extension:sourceId</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SubmissionSet.contentTypeCode</td><td style=\"border-left-width: 0px\"></td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List.extension:designationType</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SubmissionSet.author</td><td style=\"border-left-width: 0px\"></td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SubmissionSet.homeCommunityID</td><td style=\"border-left-width: 0px\"></td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">DSubmissionSet.intendedRecipient</td><td style=\"border-left-width: 0px\"></td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:url [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "SubmissionSetToPDSM"] ; # 
+  fhir:title [ fhir:v "SubmissionSetToPDSM"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2025-04-30T15:49:42+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://esante.gouv.fr" ]
+     ] )
+  ] ) ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "FR" ] ;
+       fhir:display [ fhir:v "FRANCE" ]
+     ] )
+  ] ) ; # 
+  fhir:group ( [
+     fhir:source [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet"^^xsd:anyURI ] ;
+     fhir:target [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"^^xsd:anyURI ] ;
+     fhir:element ( [
+       fhir:code [ fhir:v "SubmissionSet.entryUUID" ]
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.availabilityStatus" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.status" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.submissionTime" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.date" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.title" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.title" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.patientID" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.subject.fr-core-patient" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.sourceID" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.extension:sourceId" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.uniqueID" ]
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.contentTypeCode" ] ;
+       fhir:target ( [
+         fhir:code [ fhir:v "List.extension:designationType" ] ;
+         fhir:equivalence [ fhir:v "equivalent" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.author" ] ;
+       fhir:target ( [
+         fhir:equivalence [ fhir:v "unmatched" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "SubmissionSet.homeCommunityID" ] ;
+       fhir:target ( [
+         fhir:equivalence [ fhir:v "unmatched" ]
+       ] )
+     ] [
+       fhir:code [ fhir:v "DSubmissionSet.intendedRecipient" ] ;
+       fhir:target ( [
+         fhir:equivalence [ fhir:v "unmatched" ]
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
