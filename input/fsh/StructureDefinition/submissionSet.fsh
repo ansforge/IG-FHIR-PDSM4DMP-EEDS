@@ -3,28 +3,29 @@ Parent: Base
 Id: SubmissionSet
 Title: "SubmissionSet (LM)"
 Description: """
-This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.
-More details are to be retrieved from IHE ITI on www.ihe.net.
-(Focus for this LM is on the coded attributes.)
+Model logique d'un lot de soummission
 """
 
-
-
-* author 1..1 Identifier "Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission"
-* availabilityStatus 0..1 CodeableConcept  "Cette métadonnée représente la pertinence de la version de la fiche d’un document. "
+* entryUUID 1..1 Identifier "Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe. "
+* availabilityStatus 0..1 CodeableConcept  "Cette métadonnée représente la pertinence d'un lot de soumission. "
 * availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (required)
-* comments 0..1 string "Comments"
-* contentTypeCode 1..1 CodeableConcept "type of content of this submission" "**Submission Set**"
-* contentTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP (required)
-* entryUUID 1..1 Identifier "Identifiant unique du lot de soumission"
-//* homeCommunityID 0..1 Identifier "ID of home community"
-//* intendedRecipient 0..* Identifier "intendend recipients of the document"
-//* limitedMetadata 0..1 string "limited metadata"
-* patientID 1..1 Identifier "Représente l'identifiant du patient"
-* sourceID 1..1 Identifier "Représente l’identifiant unique global du système émetteur du lot de soumission"
 * submissionTime 1..1 dateTime "Représente la date et heure de soumission."
 * title 0..1 string "Titre du lot de soumission "
-* uniqueID 1..1 Identifier "Identifiant unique global affecté à ce lot de soumission par son créateur. "
+* comments 0..1 string "Cette métadonnée contient le commentaire associé au lot de soumission. "
+* patientID 1..1 Identifier "Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient tel que défini dans le cadre juridique. "
+* sourceID 1..1 Identifier "Cette métadonnée représente l’identifiant unique global du système émetteur du lot de soumission. "
+* uniqueID 1..1 Identifier "Identifiant unique global affecté à ce lot de soumission par son créateur. Cet attribut est utilisé à des fins de référence externe alors que entryUUID est destiné à des fins de gestion interne.  "
+* contentTypeCode 1..1 CodeableConcept "Ensemble de métadonnées représentant le type d’activité associé à l’événement clinique ayant abouti à la constitution du lot de soumission. " "**Submission Set**"
+* contentTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP (required)
+* author 1..1 Identifier "Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission"
+* homeCommunityID 0..1 Identifier "Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet. "
+* intendedRecipient 0..* Identifier "Cette métadonnée représente les destinataires (structure ou professionnel) auxquels lot de soumission est destiné. Elle n’est pas utilisée par les transactions décrites dans ce volet. "
+//* limitedMetadata 0..1 string "limited metadata"
+
+
+
+
+
 
 
 
