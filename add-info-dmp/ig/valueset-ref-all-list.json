@@ -110,6 +110,25 @@
       "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
     },
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J60_FormatCode_DMP",
+      "title" : null,
+      "description" : "Jeu de valeurs pour métadonnée formatCode",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
+        "https://mos.esante.gouv.fr/NOS/TRE_A06-FormatCodeComplementaire/FHIR/TRE-A06-FormatCodeComplementaire",
+        "https://mos.esante.gouv.fr/NOS/TRE_A11-IheFormatCode/FHIR/TRE-A11-IheFormatCode",
+        "https://mos.esante.gouv.fr/NOS/TRE_A09-DICOMuidRegistry/FHIR/TRE-A09-DICOMuidRegistry"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.8"],
+      "sources" : ["1.2.250.1.213.1.1.5.8"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP",
       "version" : "20240927120000",
       "status" : "active",

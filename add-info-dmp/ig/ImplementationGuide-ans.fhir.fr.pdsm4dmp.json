@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-04-30T07:06:28+00:00",
+  "date" : "2025-04-30T13:43:05+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -653,7 +653,7 @@
         "reference" : "StructureDefinition/Author"
       },
       "name" : "Author (LM)",
-      "description" : "This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "description" : "Model logique d'un auteur",
       "exampleBoolean" : false
     },
     {
@@ -665,7 +665,19 @@
         "reference" : "StructureDefinition/DocumentEntry"
       },
       "name" : "Document Entry (LM)",
-      "description" : "This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "description" : "Model logique d'un document",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/EventCode"
+      },
+      "name" : "EventCode (LM)",
+      "description" : "Model logique d'un eventCode",
       "exampleBoolean" : false
     },
     {
@@ -677,7 +689,7 @@
         "reference" : "StructureDefinition/SubmissionSet"
       },
       "name" : "SubmissionSet (LM)",
-      "description" : "This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.\nMore details are to be retrieved from IHE ITI on www.ihe.net.\n(Focus for this LM is on the coded attributes.)",
+      "description" : "Model logique d'un lot de soummission",
       "exampleBoolean" : false
     }],
     "page" : {

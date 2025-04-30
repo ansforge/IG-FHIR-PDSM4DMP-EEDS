@@ -22,10 +22,10 @@
       "oids" : ["1.2.250.1.213.1.1.4.6"],
       "uses" : {
       },
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP",
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J62-PracticeSettingCode-DMP.html" : "JDV_J62_PracticeSettingCode_DMP",
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
@@ -76,6 +76,18 @@
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J66-TypeCode-DMP.html" : "JDV_J66_TypeCode_DMP"
     },
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A06-FormatCodeComplementaire/FHIR/TRE-A06-FormatCodeComplementaire",
+      "version" : "20240726120000",
+      "status" : "active",
+      "name" : "TRE_A06_FormatCodeComplementaire",
+      "title" : null,
+      "description" : "formatCode en complément des nomenclatures internationales",
+      "oids" : ["1.2.250.1.213.1.1.4.2.282"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J60-FormatCode-DMP.html" : "JDV_J60_FormatCode_DMP"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
       "version" : "20231215120000",
       "status" : "active",
@@ -100,6 +112,18 @@
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J58-ConfidentialityCode-DMP.html" : "JDV_J58_ConfidentialityCode_DMP"
     },
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A09-DICOMuidRegistry/FHIR/TRE-A09-DICOMuidRegistry",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_A09_DICOMuidRegistry",
+      "title" : null,
+      "description" : "DICOM UID Registry",
+      "oids" : ["1.2.840.10008.2.6.1"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J60-FormatCode-DMP.html" : "JDV_J60_FormatCode_DMP"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
       "version" : "20231215120000",
       "status" : "active",
@@ -109,7 +133,20 @@
       "oids" : ["URN"],
       "uses" : {
       },
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J57-ClassCode-DMP.html" : "JDV_J57_ClassCode_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J57-ClassCode-DMP.html" : "JDV_J57_ClassCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J60-FormatCode-DMP.html" : "JDV_J60_FormatCode_DMP"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_A11-IheFormatCode/FHIR/TRE-A11-IheFormatCode",
+      "version" : "20240426120000",
+      "status" : "active",
+      "name" : "TRE_A11_IheFormatCode",
+      "title" : null,
+      "description" : "IHE formatCode",
+      "oids" : ["1.3.6.1.4.1.19376.1.2.3"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J60-FormatCode-DMP.html" : "JDV_J60_FormatCode_DMP"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM",
@@ -133,8 +170,8 @@
       "oids" : ["1.2.250.1.71.4.2.4"],
       "uses" : {
       },
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP",
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite",

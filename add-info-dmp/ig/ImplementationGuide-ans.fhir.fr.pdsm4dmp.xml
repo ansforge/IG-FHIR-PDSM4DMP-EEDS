@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-04-30T07:06:28+00:00"/>
+  <date value="2025-04-30T13:43:05+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -488,7 +488,7 @@
         <reference value="StructureDefinition/Author"/>
       </reference>
       <name value="Author (LM)"/>
-      <description value="This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <description value="Model logique d'un auteur"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -499,7 +499,18 @@
         <reference value="StructureDefinition/DocumentEntry"/>
       </reference>
       <name value="Document Entry (LM)"/>
-      <description value="This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <description value="Model logique d'un document"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/EventCode"/>
+      </reference>
+      <name value="EventCode (LM)"/>
+      <description value="Model logique d'un eventCode"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -510,7 +521,7 @@
         <reference value="StructureDefinition/SubmissionSet"/>
       </reference>
       <name value="SubmissionSet (LM)"/>
-      <description value="This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.&#xA;More details are to be retrieved from IHE ITI on www.ihe.net.&#xA;(Focus for this LM is on the coded attributes.)"/>
+      <description value="Model logique d'un lot de soummission"/>
       <exampleBoolean value="false"/>
     </resource>
     <page>

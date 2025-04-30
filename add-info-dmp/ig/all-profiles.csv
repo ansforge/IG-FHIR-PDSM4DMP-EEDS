@@ -1,93 +1,103 @@
 "Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
 "Author","Author","Author","","","",0,*,"","","","null {[]} {[]}
-","Author (LM)","This Logical Mode describes the relevant attributes on the **Author** class within IHE ITI XDS.
-More details are to be retrieved from IHE ITI on www.ihe.net.
-(Focus for this LM is on the coded attributes.)","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+","Author (LM)","Model logique d'un auteur","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "Author","Author.institution","Author.institution","","","",0,1,"","","","string {[]} {[]}
 ","institution of author","institution of author","","","","","","","","","",,,,,"",,,,"Author.institution",0,1,"",""
 "Author","Author.person","Author.person","","","",0,1,"","","","string {[]} {[]}
 ","author","author","","","","","","","","","",,,,,"",,,,"Author.person",0,1,"",""
 "Author","Author.role","Author.role","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","role of the author of this document","**Author Role**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS","",,,,"Author.role",1,1,"",""
-"Author","Author.specialty","Author.specialty","","","",0,*,"","","","CodeableConcept {[]} {[]}
-","specialty of the author for this document","**AutorSpecialty**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP","",,,,"Author.specialty",0,*,"",""
+"Author","Author.specialty","Author.specialty","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","specialty of the author for this document","**AutorSpecialty**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP","",,,,"Author.specialty",0,1,"",""
 "Author","Author.telecommunication","Author.telecommunication","","","",0,1,"","","","string {[]} {[]}
 ","contact information","contact information","","","","","","","","","",,,,,"",,,,"Author.telecommunication",0,1,"",""
 "DocumentEntry","DocumentEntry","DocumentEntry","","","",0,*,"","","","null {[]} {[]}
-","Document Entry (LM)","This Logical Mode describes the relevant attributes on the **Document Entry** class within IHE ITI XDS.
-More details are to be retrieved from IHE ITI on www.ihe.net.
-(Focus for this LM is on the coded attributes.)","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"DocumentEntry","DocumentEntry.title","DocumentEntry.title","","","",1,1,"","","","string {[]} {[]}
-","title of document","title of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.title",1,1,"",""
-"DocumentEntry","DocumentEntry.uniqueId","DocumentEntry.uniqueId","","","",1,1,"","","","Identifier {[]} {[]}
-","identifier of document","identifier of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.uniqueId",1,1,"",""
-"DocumentEntry","DocumentEntry.uri","DocumentEntry.uri","","","",1,1,"","","","Identifier {[]} {[]}
-","URI of document","URI of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.uri",1,1,"",""
-"DocumentEntry","DocumentEntry.class","DocumentEntry.class","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","class Code of the document","**Class Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP","",,,,"DocumentEntry.class",1,1,"",""
-"DocumentEntry","DocumentEntry.type","DocumentEntry.type","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","type Code","**Type Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP","",,,,"DocumentEntry.type",1,1,"",""
-"DocumentEntry","DocumentEntry.author","DocumentEntry.author","","","",1,*,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author {[]} {[]}
-","author","author","","","","","","","","","",,,,,"",,,,"DocumentEntry.author",1,*,"",""
-"DocumentEntry","DocumentEntry.availabilityStatus","DocumentEntry.availabilityStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
-","Cette métadonnée représente la pertinence de la version de la fiche d’un document.","**Availability Status**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",0,1,"",""
-"DocumentEntry","DocumentEntry.comments","DocumentEntry.comments","","","",0,1,"","","","string {[]} {[]}
-","Cette métadonnée contient le commentaire associé au document. ","Cette métadonnée contient le commentaire associé au document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.comments",0,1,"",""
-"DocumentEntry","DocumentEntry.confidentiality","DocumentEntry.confidentiality","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","confidentiality Code","**Confidentiality Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP","",,,,"DocumentEntry.confidentiality",1,1,"",""
-"DocumentEntry","DocumentEntry.creationTime","DocumentEntry.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
-","Cette métadonnée représente la date et l’heure de la création du document. ","Cette métadonnée représente la date et l’heure de la création du document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.creationTime",1,1,"",""
-"DocumentEntry","DocumentEntry.format","DocumentEntry.format","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","format of the document","**Format Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP(required)","",,,,"DocumentEntry.format",1,1,"",""
-"DocumentEntry","DocumentEntry.size","DocumentEntry.size","","","",0,1,"","","","integer {[]} {[]}
-","size of document","size of document","","","","","","","","","",,,,,"",,,,"DocumentEntry.size",0,1,"",""
+","Document Entry (LM)","Model logique d'un document","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"DocumentEntry","DocumentEntry.entryUUID","DocumentEntry.entryUUID","","","",1,1,"","","","Identifier {[]} {[]}
+","Identifiant unique du document","Identifiant unique du document","","","","","","","","","",,,,,"",,,,"DocumentEntry.entryUUID",1,1,"",""
+"DocumentEntry","DocumentEntry.logicalId","DocumentEntry.logicalId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","","","","","","","","","",,,,,"",,,,"DocumentEntry.logicalId",1,1,"",""
+"DocumentEntry","DocumentEntry.mimeType","DocumentEntry.mimeType","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","","","","","","","","","",,,,,"",,,,"DocumentEntry.mimeType",1,1,"",""
+"DocumentEntry","DocumentEntry.availabilityStatus","DocumentEntry.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",1,1,"",""
 "DocumentEntry","DocumentEntry.hash","DocumentEntry.hash","","","",1,1,"","","","string {[]} {[]}
 ","Cette métadonnée contient le résultat du hachage du document déposé","Cette métadonnée contient le résultat du hachage du document déposé","","","","","","","","","",,,,,"",,,,"DocumentEntry.hash",1,1,"",""
-"DocumentEntry","DocumentEntry.practiceSetting","DocumentEntry.practiceSetting","","","",0,1,"","","","CodeableConcept {[]} {[]}
-","practice setting","**Practice Setting**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP","",,,,"DocumentEntry.practiceSetting",0,1,"",""
-"DocumentEntry","DocumentEntry.healthcareFacilityTypeCode","DocumentEntry.healthcareFacilityTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","healthcare facility type code","Healthcare Facility Type Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP","",,,,"DocumentEntry.healthcareFacilityTypeCode",1,1,"",""
+"DocumentEntry","DocumentEntry.size","DocumentEntry.size","","","",1,1,"","","","integer {[]} {[]}
+","Cette métadonnée correspond à la taille du document déposé. ","Cette métadonnée correspond à la taille du document déposé.","","","","","","","","","",,,,,"",,,,"DocumentEntry.size",1,1,"",""
+"DocumentEntry","DocumentEntry.languageCode","DocumentEntry.languageCode","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée représente le code de la langue dans laquelle le document est rédigé.","Pour tous les documents produits système initiateur français : 'fr-FR'","","","","","","","","","",,,,,"",,,,"DocumentEntry.languageCode",1,1,"",""
 "DocumentEntry","DocumentEntry.legalAuthenticator","DocumentEntry.legalAuthenticator","","","",0,1,"","","","Identifier {[]} {[]}
-","legal authenticator of the document","legal authenticator of the document","","","","","","","","","",,,,,"",,,,"DocumentEntry.legalAuthenticator",0,1,"",""
-"DocumentEntry","DocumentEntry.limitedMetadata","DocumentEntry.limitedMetadata","","","",0,1,"","","","string {[]} {[]}
-","metadata","metadata","","","","","","","","","",,,,,"",,,,"DocumentEntry.limitedMetadata",0,1,"",""
-"DocumentEntry","DocumentEntry.mimeType","DocumentEntry.mimeType","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","mime type","mime type","","","","","","","","","",,,,,"",,,,"DocumentEntry.mimeType",1,1,"",""
-"DocumentEntry","DocumentEntry.objectType","DocumentEntry.objectType","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","mime type","mime type","","","","","","","","","",,,,,"",,,,"DocumentEntry.objectType",1,1,"",""
-"DocumentEntry","DocumentEntry.sourcePatientID","DocumentEntry.sourcePatientID","","","",1,1,"","","","Identifier {[]} {[]}
-","identifier of patient","identifier of patient","","","","","","","","","",,,,,"",,,,"DocumentEntry.sourcePatientID",1,1,"",""
-"DocumentEntry","DocumentEntry.sourcePatientInfo","DocumentEntry.sourcePatientInfo","","","",0,1,"","","","string {[]} {[]}
-","additional information to patient","additional information to patient","","","","","","","","","",,,,,"",,,,"DocumentEntry.sourcePatientInfo",0,1,"",""
-"DocumentEntry","DocumentEntry.referenceIdList","DocumentEntry.referenceIdList","","","",0,*,"","","","Identifier {[]} {[]}
-","list of reference identifiers","list of reference identifiers","","","","","","","","","",,,,,"",,,,"DocumentEntry.referenceIdList",0,*,"",""
-"DocumentEntry","DocumentEntry.repositoryUniqueID","DocumentEntry.repositoryUniqueID","","","",0,1,"","","","Identifier {[]} {[]}
-","identifier of repository","identifier of repository","","","","","","","","","",,,,,"",,,,"DocumentEntry.repositoryUniqueID",0,1,"",""
+","Cette métadonnée représente l'acteur prenant la responsabilité du contenu médical du document","XCN","","","","","","","","","",,,,,"",,,,"DocumentEntry.legalAuthenticator",0,1,"",""
+"DocumentEntry","DocumentEntry.repositoryUniqueId","DocumentEntry.repositoryUniqueId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l'identifiant unique global de l'entrepôt de documents dans lequel est stocké le document","Cette métadonnée représente l'identifiant unique global de l'entrepôt de documents dans lequel est stocké le document","","","","","","","","","",,,,,"",,,,"DocumentEntry.repositoryUniqueId",1,1,"",""
 "DocumentEntry","DocumentEntry.serviceStartTime","DocumentEntry.serviceStartTime","","","",1,1,"","","","dateTime {[]} {[]}
-","start of service","start of service","","","","","","","","","",,,,,"",,,,"DocumentEntry.serviceStartTime",1,1,"",""
-"DocumentEntry","DocumentEntry.serviceEndTime","DocumentEntry.serviceEndTime","","","",1,1,"","","","dateTime {[]} {[]}
-","end of service","end of service","","","","","","","","","",,,,,"",,,,"DocumentEntry.serviceEndTime",1,1,"",""
+","Cette métadonnée représente la date de début de l'acte de référence.","Cette métadonnée représente la date de début de l'acte de référence.","","","","","","","","","",,,,,"",,,,"DocumentEntry.serviceStartTime",1,1,"",""
+"DocumentEntry","DocumentEntry.serviceEndTime","DocumentEntry.serviceEndTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Cette métadonnée correspond à la date de fin de l'acte de référence, si connue.","Cette métadonnée correspond à la date de fin de l'acte de référence, si connue.","","","","","","","","","",,,,,"",,,,"DocumentEntry.serviceEndTime",0,1,"",""
+"DocumentEntry","DocumentEntry.sourcePatientID","DocumentEntry.sourcePatientID","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée contient l'identifiant secondaire du patient dans le système d'information du producteur (IPP) ou l'INS, s'il n'y a pas d'identifiant secondaire.","Cette métadonnée contient l'identifiant secondaire du patient dans le système d'information du producteur (IPP) ou l'INS, s'il n'y a pas d'identifiant secondaire.","","","","","","","","","",,,,,"",,,,"DocumentEntry.sourcePatientID",1,1,"",""
+"DocumentEntry","DocumentEntry.sourcePatientInfo","DocumentEntry.sourcePatientInfo","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée contient les traits d'identité du patient concerné par le document, connus par le producteur du document. ","Cette métadonnée contient les traits d'identité du patient concerné par le document, connus par le producteur du document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.sourcePatientInfo",1,1,"",""
+"DocumentEntry","DocumentEntry.URI","DocumentEntry.URI","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée n'est exploitée que par la transaction XDM 'Distribute document set on media ITI-32'","Cette métadonnée n'est exploitée que par la transaction XDM 'Distribute document set on media ITI-32'","","","","","","","","","",,,,,"",,,,"DocumentEntry.URI",1,1,"",""
+"DocumentEntry","DocumentEntry.title","DocumentEntry.title","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée représente le titre du document.","Cette métadonnée représente le titre du document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.title",1,1,"",""
+"DocumentEntry","DocumentEntry.comments","DocumentEntry.comments","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée contient le commentaire associé au document. ","Cette métadonnée contient le commentaire associé au document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.comments",0,1,"",""
+"DocumentEntry","DocumentEntry.patientID","DocumentEntry.patientID","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient. ","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.","","","","","","","","","",,,,,"",,,,"DocumentEntry.patientID",1,1,"",""
+"DocumentEntry","DocumentEntry.uniqueId","DocumentEntry.uniqueId","","","",1,1,"","","","Identifier {[]} {[]}
+","Identifiant unique affecté au document par son créateur. ","Identifiant unique affecté au document par son créateur.","","","","","","","","","",,,,,"",,,,"DocumentEntry.uniqueId",1,1,"",""
+"DocumentEntry","DocumentEntry.class","DocumentEntry.class","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","class représente la classe du document ","**Class Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP","",,,,"DocumentEntry.class",1,1,"",""
+"DocumentEntry","DocumentEntry.confidentiality","DocumentEntry.confidentiality","","","",1,4,"","","","CodeableConcept {[]} {[]}
+","Métadonnée contenant les informations définissant le niveau de confidentialité d'un document déposé dans l'entrepôt. Dans le cadre de la mise en œuvre du masquage et de la non-visibilité, ces métadonnées sont utilisées pour rendre inaccessible un document à l'utilisateur","**Confidentiality Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP","",,,,"DocumentEntry.confidentiality",1,4,"",""
+"DocumentEntry","DocumentEntry.eventCodeList","DocumentEntry.eventCodeList","","","",0,*,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/EventCode {[]} {[]}
+","Cette métadonnée contient les codes, libellés et codes système représentant :  • un évènement documenté (acte, traitement, diagnostic, etc…), • une modalité d'acquisition (contexte imagerie), • une région anatomique (contexte imagerie). ","Cette métadonnée contient les codes, libellés et codes système représentant :  • un évènement documenté (acte, traitement, diagnostic, etc…), • une modalité d'acquisition (contexte imagerie), • une région anatomique (contexte imagerie).","","","","","","","","","",,,,,"",,,,"DocumentEntry.eventCodeList",0,*,"",""
+"DocumentEntry","DocumentEntry.format","DocumentEntry.format","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Métadonnée contenant les informations définissant le format du document. ","**Format Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP","",,,,"DocumentEntry.format",1,1,"",""
+"DocumentEntry","DocumentEntry.healthcareFacilityTypeCode","DocumentEntry.healthcareFacilityTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Secteur d'activité lié à la prise en charge de la personne, en lien avec le document produit. ","Healthcare Facility Type Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP","",,,,"DocumentEntry.healthcareFacilityTypeCode",1,1,"",""
+"DocumentEntry","DocumentEntry.practiceSetting","DocumentEntry.practiceSetting","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Contexte de l’acte qui a engendré la création du document. ","**Practice Setting**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP","",,,,"DocumentEntry.practiceSetting",0,1,"",""
+"DocumentEntry","DocumentEntry.type","DocumentEntry.type","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Métadonnée représentant le type du document.","**Type Code**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP","",,,,"DocumentEntry.type",1,1,"",""
+"DocumentEntry","DocumentEntry.documentAvailability","DocumentEntry.documentAvailability","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée représente '’accessibilité du document en indiquant si celui-ci est accessible en ligne ou non","Cette métadonnée représente '’accessibilité du document en indiquant si celui-ci est accessible en ligne ou non","","","","","","","","","",,,,,"",,,,"DocumentEntry.documentAvailability",0,1,"",""
+"DocumentEntry","DocumentEntry.homeCommunityId","DocumentEntry.homeCommunityId","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée correspond à l'identifiant de la communauté représentée par le système cible, si celui-ci offre les fonctionnalités de communication avec d'autres communautés, présentées dans le profil XCA d'IHE. Elle n'est pas utilisée par les transactions décrites dans ce volet.","Cette métadonnée correspond à l'identifiant de la communauté représentée par le système cible, si celui-ci offre les fonctionnalités de communication avec d'autres communautés, présentées dans le profil XCA d'IHE. Elle n'est pas utilisée par les transactions décrites dans ce volet.","","","","","","","","","",,,,,"",,,,"DocumentEntry.homeCommunityId",0,1,"",""
+"DocumentEntry","DocumentEntry.creationTime","DocumentEntry.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Cette métadonnée représente la date et l’heure de la création du document. ","Cette métadonnée représente la date et l’heure de la création du document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.creationTime",1,1,"",""
+"DocumentEntry","DocumentEntry.referenceIdList","DocumentEntry.referenceIdList","","","",0,*,"","","","Identifier {[]} {[]}
+","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.referenceIdList",0,*,"",""
+"EventCode","EventCode","EventCode","","","",0,*,"","","","null {[]} {[]}
+","EventCode (LM)","Model logique d'un eventCode","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"EventCode","EventCode.eventCode","EventCode.eventCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Cet attribut peut contenir le code représentant : • un évènement documenté (acte, traitement, diagnostic, etc…),  • une modalité d'acquisition, • une région anatomique. ","Cet attribut peut contenir le code représentant : • un évènement documenté (acte, traitement, diagnostic, etc…),  • une modalité d'acquisition, • une région anatomique.","","","","","","","","","",,,,,"",,,,"EventCode.eventCode",1,1,"",""
 "SubmissionSet","SubmissionSet","SubmissionSet","","","",0,*,"","","","null {[]} {[]}
-","SubmissionSet (LM)","This Logical Mode describes the relevant attributes on the **Submission Set** class within IHE ITI XDS.
-More details are to be retrieved from IHE ITI on www.ihe.net.
-(Focus for this LM is on the coded attributes.)","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"SubmissionSet","SubmissionSet.author","SubmissionSet.author","","","",1,1,"","","","Identifier {[]} {[]}
-","Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission","Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission","","","","","","","","","",,,,,"",,,,"SubmissionSet.author",1,1,"",""
-"SubmissionSet","SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
-","Cette métadonnée représente la pertinence de la version de la fiche d’un document. ","Cette métadonnée représente la pertinence de la version de la fiche d’un document.","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"SubmissionSet.availabilityStatus",0,1,"",""
-"SubmissionSet","SubmissionSet.comments","SubmissionSet.comments","","","",0,1,"","","","string {[]} {[]}
-","Comments","Comments","","","","","","","","","",,,,,"",,,,"SubmissionSet.comments",0,1,"",""
-"SubmissionSet","SubmissionSet.contentTypeCode","SubmissionSet.contentTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","type of content of this submission","**Submission Set**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP","",,,,"SubmissionSet.contentTypeCode",1,1,"",""
+","SubmissionSet (LM)","Model logique d'un lot de soummission","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "SubmissionSet","SubmissionSet.entryUUID","SubmissionSet.entryUUID","","","",1,1,"","","","Identifier {[]} {[]}
-","Identifiant unique du lot de soumission","Identifiant unique du lot de soumission","","","","","","","","","",,,,,"",,,,"SubmissionSet.entryUUID",1,1,"",""
-"SubmissionSet","SubmissionSet.patientID","SubmissionSet.patientID","","","",1,1,"","","","Identifier {[]} {[]}
-","Représente l'identifiant du patient","Représente l'identifiant du patient","","","","","","","","","",,,,,"",,,,"SubmissionSet.patientID",1,1,"",""
-"SubmissionSet","SubmissionSet.sourceID","SubmissionSet.sourceID","","","",1,1,"","","","Identifier {[]} {[]}
-","Représente l’identifiant unique global du système émetteur du lot de soumission","Représente l’identifiant unique global du système émetteur du lot de soumission","","","","","","","","","",,,,,"",,,,"SubmissionSet.sourceID",1,1,"",""
+","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe. ","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe.","","","","","","","","","",,,,,"",,,,"SubmissionSet.entryUUID",1,1,"",""
+"SubmissionSet","SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée représente la pertinence d'un lot de soumission. ","Cette métadonnée représente la pertinence d'un lot de soumission.","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"SubmissionSet.availabilityStatus",0,1,"",""
 "SubmissionSet","SubmissionSet.submissionTime","SubmissionSet.submissionTime","","","",1,1,"","","","dateTime {[]} {[]}
 ","Représente la date et heure de soumission.","Représente la date et heure de soumission.","","","","","","","","","",,,,,"",,,,"SubmissionSet.submissionTime",1,1,"",""
 "SubmissionSet","SubmissionSet.title","SubmissionSet.title","","","",0,1,"","","","string {[]} {[]}
 ","Titre du lot de soumission ","Titre du lot de soumission","","","","","","","","","",,,,,"",,,,"SubmissionSet.title",0,1,"",""
+"SubmissionSet","SubmissionSet.comments","SubmissionSet.comments","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée contient le commentaire associé au lot de soumission. ","Cette métadonnée contient le commentaire associé au lot de soumission.","","","","","","","","","",,,,,"",,,,"SubmissionSet.comments",0,1,"",""
+"SubmissionSet","SubmissionSet.patientID","SubmissionSet.patientID","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient tel que défini dans le cadre juridique. ","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient tel que défini dans le cadre juridique.","","","","","","","","","",,,,,"",,,,"SubmissionSet.patientID",1,1,"",""
+"SubmissionSet","SubmissionSet.sourceID","SubmissionSet.sourceID","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l’identifiant unique global du système émetteur du lot de soumission. ","Cette métadonnée représente l’identifiant unique global du système émetteur du lot de soumission.","","","","","","","","","",,,,,"",,,,"SubmissionSet.sourceID",1,1,"",""
 "SubmissionSet","SubmissionSet.uniqueID","SubmissionSet.uniqueID","","","",1,1,"","","","Identifier {[]} {[]}
-","Identifiant unique global affecté à ce lot de soumission par son créateur. ","Identifiant unique global affecté à ce lot de soumission par son créateur.","","","","","","","","","",,,,,"",,,,"SubmissionSet.uniqueID",1,1,"",""
+","Identifiant unique global affecté à ce lot de soumission par son créateur. Cet attribut est utilisé à des fins de référence externe alors que entryUUID est destiné à des fins de gestion interne.  ","Identifiant unique global affecté à ce lot de soumission par son créateur. Cet attribut est utilisé à des fins de référence externe alors que entryUUID est destiné à des fins de gestion interne.","","","","","","","","","",,,,,"",,,,"SubmissionSet.uniqueID",1,1,"",""
+"SubmissionSet","SubmissionSet.contentTypeCode","SubmissionSet.contentTypeCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Ensemble de métadonnées représentant le type d’activité associé à l’événement clinique ayant abouti à la constitution du lot de soumission. ","**Submission Set**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP","",,,,"SubmissionSet.contentTypeCode",1,1,"",""
+"SubmissionSet","SubmissionSet.author","SubmissionSet.author","","","",1,1,"","","","Identifier {[]} {[]}
+","Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission","Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission","","","","","","","","","",,,,,"",,,,"SubmissionSet.author",1,1,"",""
+"SubmissionSet","SubmissionSet.homeCommunityID","SubmissionSet.homeCommunityID","","","",0,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet. ","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet.","","","","","","","","","",,,,,"",,,,"SubmissionSet.homeCommunityID",0,1,"",""
+"SubmissionSet","SubmissionSet.intendedRecipient","SubmissionSet.intendedRecipient","","","",0,*,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente les destinataires (structure ou professionnel) auxquels lot de soumission est destiné. Elle n’est pas utilisée par les transactions décrites dans ce volet. ","Cette métadonnée représente les destinataires (structure ou professionnel) auxquels lot de soumission est destiné. Elle n’est pas utilisée par les transactions décrites dans ce volet.","","","","","","","","","",,,,,"",,,,"SubmissionSet.intendedRecipient",0,*,"",""
