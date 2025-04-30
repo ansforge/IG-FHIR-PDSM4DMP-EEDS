@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-04-30T15:49:42+00:00",
+  "date" : "2025-04-30T16:02:39+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -644,40 +644,28 @@
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     }],
+    "grouping" : [{
+      "id" : "LogicalMddel",
+      "name" : "Model Logique",
+      "description" : "Model Logique XDS"
+    },
+    {
+      "id" : "mapping",
+      "name" : "Mapping Volet partage vers PDSM",
+      "description" : "Mapping Volet partage vers PDSM"
+    }],
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/Author"
+        "reference" : "StructureDefinition/SubmissionSet"
       },
-      "name" : "Author (LM)",
-      "description" : "Model logique d'un auteur",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/DocumentEntry"
-      },
-      "name" : "Document Entry (LM)",
-      "description" : "Model logique d'un document",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ConceptMap"
-      }],
-      "reference" : {
-        "reference" : "ConceptMap/documentReferenceToPDSM"
-      },
-      "name" : "documentReferenceToPDSM",
-      "exampleBoolean" : false
+      "name" : "SubmissionSet (LM)",
+      "description" : "Model logique d'un lot de soummission",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalMddel"
     },
     {
       "extension" : [{
@@ -689,7 +677,8 @@
       },
       "name" : "EventCode (LM)",
       "description" : "Model logique d'un eventCode",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalMddel"
     },
     {
       "extension" : [{
@@ -697,11 +686,37 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SubmissionSet"
+        "reference" : "StructureDefinition/Author"
       },
-      "name" : "SubmissionSet (LM)",
-      "description" : "Model logique d'un lot de soummission",
-      "exampleBoolean" : false
+      "name" : "Author (LM)",
+      "description" : "Model logique d'un auteur",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalMddel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/DocumentEntry"
+      },
+      "name" : "Document Entry (LM)",
+      "description" : "Model logique d'un document",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalMddel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ConceptMap"
+      }],
+      "reference" : {
+        "reference" : "ConceptMap/documentReferenceToPDSM"
+      },
+      "name" : "documentReferenceToPDSM",
+      "exampleBoolean" : false,
+      "groupingId" : "mapping"
     },
     {
       "extension" : [{
@@ -712,7 +727,8 @@
         "reference" : "ConceptMap/SubmissionSetToPDSM"
       },
       "name" : "SubmissionSetToPDSM",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "mapping"
     }],
     "page" : {
       "extension" : [{

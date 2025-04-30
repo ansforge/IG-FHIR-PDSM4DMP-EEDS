@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-04-30T15:49:42+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-04-30T16:02:39+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -880,6 +880,15 @@
        ] ) ;
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
      ] ) ;
+     fhir:grouping ( [
+       fhir:id [ fhir:v "LogicalMddel" ] ;
+       fhir:name [ fhir:v "Model Logique" ] ;
+       fhir:description [ fhir:v "Model Logique XDS" ]
+     ] [
+       fhir:id [ fhir:v "mapping" ] ;
+       fhir:name [ fhir:v "Mapping Volet partage vers PDSM" ] ;
+       fhir:description [ fhir:v "Mapping Volet partage vers PDSM" ]
+     ] ) ;
      fhir:resource ( [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -889,50 +898,16 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author> ;
-         fhir:reference [ fhir:v "StructureDefinition/Author" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet> ;
+         fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
        ] ;
-       fhir:name [ fhir:v "Author (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un auteur" ] ;
+       fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
+       fhir:description [ fhir:v "Model logique d'un lot de soummission" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry> ;
-         fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
        ] ;
-       fhir:name [ fhir:v "Document Entry (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un document" ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "ConceptMap"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM> ;
-         fhir:reference [ fhir:v "ConceptMap/documentReferenceToPDSM" ]
-       ] ;
-       fhir:name [ fhir:v "documentReferenceToPDSM" ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
+       fhir:groupingId [ fhir:v "LogicalMddel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -950,7 +925,8 @@
        fhir:example [
          a fhir:boolean ;
          fhir:v false
-       ]
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalMddel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -960,15 +936,53 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet> ;
-         fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author> ;
+         fhir:reference [ fhir:v "StructureDefinition/Author" ]
        ] ;
-       fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un lot de soummission" ] ;
+       fhir:name [ fhir:v "Author (LM)" ] ;
+       fhir:description [ fhir:v "Model logique d'un auteur" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
-       ]
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalMddel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry> ;
+         fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
+       ] ;
+       fhir:name [ fhir:v "Document Entry (LM)" ] ;
+       fhir:description [ fhir:v "Model logique d'un document" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalMddel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ConceptMap"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM> ;
+         fhir:reference [ fhir:v "ConceptMap/documentReferenceToPDSM" ]
+       ] ;
+       fhir:name [ fhir:v "documentReferenceToPDSM" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "mapping" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -985,7 +999,8 @@
        fhir:example [
          a fhir:boolean ;
          fhir:v false
-       ]
+       ] ;
+       fhir:groupingId [ fhir:v "mapping" ]
      ] ) ;
      fhir:page [
        fhir:extension ( [
