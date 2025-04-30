@@ -16,7 +16,7 @@ More details are to be retrieved from IHE ITI on www.ihe.net.
 * class from https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP (required)
 * type 1..1 CodeableConcept "type Code" "**Type Code**"
 * type from https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP (required)
-* author 1..* Identifier "author"
+* author 1..* Author "author"
 * availabilityStatus 0..1 CodeableConcept "Cette métadonnée représente la pertinence de la version de la fiche d’un document." "**Availability Status**"
 * availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (required)
 * comments 0..1 string "Cette métadonnée contient le commentaire associé au document. "
@@ -29,8 +29,7 @@ More details are to be retrieved from IHE ITI on www.ihe.net.
 * hash 1..1 string "Cette métadonnée contient le résultat du hachage du document déposé"
 * practiceSetting 0..1 CodeableConcept "practice setting" "**Practice Setting**"
 * practiceSetting from https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP (required)
-* healthcareFacilityTypeCode 1..1 CodeableConcept "Secteur d'activité lié à la prise en charge de la personne, en lien avec le document produit "
-//Healthcare Facility Type Code**"
+* healthcareFacilityTypeCode 1..1 CodeableConcept "healthcare facility type code" "Healthcare Facility Type Code**"
 * healthcareFacilityTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP (required)
 * legalAuthenticator 0..1 Identifier "legal authenticator of the document"
 * limitedMetadata 0..1 string "metadata"
