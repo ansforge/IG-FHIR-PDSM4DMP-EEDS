@@ -21,8 +21,9 @@ dependencies:
 
 parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html
     shownav: 'true'
-
-
+    path-resource:
+        #- input/fsh/data-type/primitive/primitives
+        #- input/fsh/data-type/primitive/complex/complex-data-type
 
 pages:
     index.md:
@@ -88,6 +89,17 @@ menu:
         "Site de l'ANS ": new-tab https://esante.gouv.fr/
     Documentation: new-tab https://interop.esante.gouv.fr/ig/documentation/
 
+resources:
+
+#------------ Concept Maps  -------------
+  ConceptMap/documentReferenceToPDSM:
+    name: ficheXDStoPDSM 
+    description: Relation entre une  fiche  du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"
+
+  ConceptMap/submissionSetToPDSM:
+    name: submissionSetXXDSToPDSM
+    description: Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"
+
 
 groups:
   LogicalMddel:
@@ -95,13 +107,14 @@ groups:
     description: Model Logique XDS
     resources:
       - StructureDefinition/SubmissionSet
+      - StructureDefinition/DocumentEntry      
       - StructureDefinition/EventCode
       - StructureDefinition/Author
-      - StructureDefinition/DocumentEntry
+      - StructureDefinition/PatientId
 
   mapping:
     name:  Mapping Volet partage vers PDSM
-    description: Mapping Volet partage vers PDSM
+    description: Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""
     resources:
       - ConceptMap/documentReferenceToPDSM
-      - ConceptMap/SubmissionSetToPDSM
+      - ConceptMap/submissionSetToPDSM
