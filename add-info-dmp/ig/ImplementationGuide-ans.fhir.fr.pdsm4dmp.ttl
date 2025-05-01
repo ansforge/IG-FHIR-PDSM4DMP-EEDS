@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-01T10:35:31+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-01T16:30:13+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -887,7 +887,7 @@
      ] [
        fhir:id [ fhir:v "mapping" ] ;
        fhir:name [ fhir:v "Mapping Volet partage vers PDSM" ] ;
-       fhir:description [ fhir:v "Mapping Volet partage vers PDSM" ]
+       fhir:description [ fhir:v "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\"" ]
      ] ) ;
      fhir:resource ( [
        fhir:extension ( [
@@ -917,11 +917,30 @@
          ]
        ] ) ;
        fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry> ;
+         fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
+       ] ;
+       fhir:name [ fhir:v "Document Entry (LM)" ] ;
+       fhir:description [ fhir:v "Model logique  d’une fiche" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalMddel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/EventCode> ;
          fhir:reference [ fhir:v "StructureDefinition/EventCode" ]
        ] ;
        fhir:name [ fhir:v "EventCode (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un eventCode" ] ;
+       fhir:description [ fhir:v "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -940,7 +959,7 @@
          fhir:reference [ fhir:v "StructureDefinition/Author" ]
        ] ;
        fhir:name [ fhir:v "Author (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un auteur" ] ;
+       fhir:description [ fhir:v "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé)," ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -955,11 +974,11 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry> ;
-         fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId> ;
+         fhir:reference [ fhir:v "StructureDefinition/PatientId" ]
        ] ;
-       fhir:name [ fhir:v "Document Entry (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un document" ] ;
+       fhir:name [ fhir:v "PatientId (LM)" ] ;
+       fhir:description [ fhir:v "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -977,7 +996,8 @@
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM> ;
          fhir:reference [ fhir:v "ConceptMap/documentReferenceToPDSM" ]
        ] ;
-       fhir:name [ fhir:v "documentReferenceToPDSM" ] ;
+       fhir:name [ fhir:v "ficheXDStoPDSM" ] ;
+       fhir:description [ fhir:v "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -992,10 +1012,11 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM> ;
-         fhir:reference [ fhir:v "ConceptMap/SubmissionSetToPDSM" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM> ;
+         fhir:reference [ fhir:v "ConceptMap/submissionSetToPDSM" ]
        ] ;
-       fhir:name [ fhir:v "SubmissionSetToPDSM" ] ;
+       fhir:name [ fhir:v "submissionSetXXDSToPDSM" ] ;
+       fhir:description [ fhir:v "Relation entre un lot de soummission   du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false

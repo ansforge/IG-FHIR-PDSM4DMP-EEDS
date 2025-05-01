@@ -225,6 +225,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
 <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
+<style>
+svg[id^="mermaid-"] { min-width: 200px; max-width: 500px; }
+</style>
+
 <h3 id="segur-dmpux15">Segur DMP/UX.15</h3>
 <h4 id="exigence">Exigence</h4>
 <p>Le système DOIT afficher à l'utilisateur dans l'interface du « dossier médical », sans action nécessaire de sa part (sans clic), l'information du nombre de documents qui ont été versés au DMP par des acteurs de santé tiers à la structure (cabinet, établissement, etc), en fonction de son profil et du type de prise en charge du patient.</p>
@@ -233,8 +237,36 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>Par défaut, ces notifications DOIVENT être réalisées pour les profils médecins en consultation et en urgence.</p>
 <h4 id="cinematique-dmp">Cinematique DMP</h4>
+<h5 id="diagramme">Diagramme</h5>
+<div class="mermaid" style="height:500px">
+ sequenceDiagram
+    participant PS   
+    participant DPI
+    participant DMP
+    PS-&gt;&gt;DPI:Accés au dossier patient
+    DPI-&gt;&gt;DMP: FindSubmissionSets 
+    DMP-&gt;&gt;DPI: 
 
-<p> - Utilisation de la requête FindSubmissionSets pour rechercher les lots de soumission en spécifiant un intervalle temporel de soumission (date de soumission dans le DMP, critère $XDSSubmissionSetSubmissionTimeFrom et $XDSSubmissionSetSubmissionTimeTo) : retourne les lots de soumission</p>
+    DPI-&gt;&gt;DMP: GetAssociations (liste des entryUUID ) 
+    DMP-&gt;&gt;DPI: 
+
+    loop  Filtre
+        DPI-&gt;&gt;DPI: Filtrer les retours sur les Associations de type HasMember, et récupérer la liste des targetObject 
+    end
+
+    DPI-&gt;&gt;DMP: GetDocuments  (liste des entryUUID ) 
+    DMP-&gt;&gt;DPI: 
+
+    loop  Pour chaque document
+        DPI-&gt;&gt;DPI: AuthorInstitution (OID de la structure auteur). 
+        DPI-&gt;&gt;DPI: Flag de visibilité (déduit de confidentialityCode ou du statut CDAr2).
+    end
+
+    DPI-&gt;&gt;PS: Notification du nombre de document
+</div>
+
+<h5 id="description">Description</h5>
+<p>Utilisation de la requête FindSubmissionSets pour rechercher les lots de soumission en spécifiant un intervalle temporel de soumission (date de soumission dans le DMP, critère $XDSSubmissionSetSubmissionTimeFrom et $XDSSubmissionSetSubmissionTimeTo) : retourne les lots de soumission</p>
 <ul>
   <li>Récupérer l’ensemble des entryUUID des lots retournés.</li>
   <li>Passer cette liste d’entryUUID à la fonction GetAssociations</li>
@@ -297,7 +329,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 10:36+0000">2025-05-01</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 16:31+0000">2025-05-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

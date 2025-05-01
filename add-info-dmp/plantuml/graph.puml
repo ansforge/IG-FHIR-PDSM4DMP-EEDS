@@ -11,10 +11,19 @@ package IG #DDDDDD{
 
              Author => [None..None]
              Author.institution => [0..1]
-             Author.person => [0..1]
+             Author.institution.XON1 => [1..1]
+             Author.institution.XON6 => [1..1]
+             Author.institution.XON7 => [1..1]
+             Author.institution.XON10 => [1..1]
+             Author.person => [1..1]
+             Author.person.XCN1 => [1..1]
+             Author.person.XCN2 => [1..1]
+             Author.person.XCN3 => [1..1]
+             Author.person.XCN9 => [1..1]
+             Author.person.XCN10 => [1..1]
+             Author.person.XCN13 => [1..1]
              Author.role => [1..1]
              Author.specialty => [0..1]
-             Author.telecommunication => [0..1]
         } 
 
         class DocumentEntry{
@@ -27,12 +36,33 @@ package IG #DDDDDD{
              DocumentEntry.hash => [1..1]
              DocumentEntry.size => [1..1]
              DocumentEntry.languageCode => [1..1]
-             DocumentEntry.legalAuthenticator => [0..1]
+             DocumentEntry.author => [1..*]
+             DocumentEntry.legalAuthenticator => [1..1]
+             DocumentEntry.legalAuthenticator.XCN1 => [1..1]
+             DocumentEntry.legalAuthenticator.XCN2 => [1..1]
+             DocumentEntry.legalAuthenticator.XCN3 => [1..1]
+             DocumentEntry.legalAuthenticator.XCN9 => [1..1]
+             DocumentEntry.legalAuthenticator.XCN10 => [1..1]
+             DocumentEntry.legalAuthenticator.XCN13 => [1..1]
              DocumentEntry.repositoryUniqueId => [1..1]
              DocumentEntry.serviceStartTime => [1..1]
              DocumentEntry.serviceEndTime => [0..1]
              DocumentEntry.sourcePatientID => [1..1]
+             DocumentEntry.sourcePatientID.CX1 => [1..1]
+             DocumentEntry.sourcePatientID.CX4 => [1..1]
+             DocumentEntry.sourcePatientID.CX5 => [1..1]
              DocumentEntry.sourcePatientInfo => [1..1]
+             DocumentEntry.sourcePatientInfo.PID3 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID5 => [1..*]
+             DocumentEntry.sourcePatientInfo.PID7 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID8 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID11 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID13 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID14 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID15 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID16 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID18 => [0..1]
+             DocumentEntry.sourcePatientInfo.PID21 => [0..1]
              DocumentEntry.URI => [1..1]
              DocumentEntry.title => [1..1]
              DocumentEntry.comments => [0..1]
@@ -43,12 +73,16 @@ package IG #DDDDDD{
              DocumentEntry.eventCodeList => [0..*]
              DocumentEntry.format => [1..1]
              DocumentEntry.healthcareFacilityTypeCode => [1..1]
-             DocumentEntry.practiceSetting => [0..1]
+             DocumentEntry.practiceSetting => [1..1]
              DocumentEntry.type => [1..1]
              DocumentEntry.documentAvailability => [0..1]
              DocumentEntry.homeCommunityId => [0..1]
              DocumentEntry.creationTime => [1..1]
              DocumentEntry.referenceIdList => [0..*]
+             DocumentEntry.referenceIdList.CX1 => [1..1]
+             DocumentEntry.referenceIdList.CX4 => [1..1]
+             DocumentEntry.referenceIdList.CX5 => [1..1]
+             DocumentEntry.version => [0..1]
         } 
 
         class EventCode{
@@ -57,11 +91,19 @@ package IG #DDDDDD{
              EventCode.eventCode => [1..1]
         } 
 
+        class PatientId{
+
+             PatientId => [None..None]
+             PatientId.CX1 => [1..1]
+             PatientId.CX4 => [1..1]
+             PatientId.CX5 => [1..1]
+        } 
+
         class SubmissionSet{
 
              SubmissionSet => [None..None]
              SubmissionSet.entryUUID => [1..1]
-             SubmissionSet.availabilityStatus => [0..1]
+             SubmissionSet.availabilityStatus => [1..1]
              SubmissionSet.submissionTime => [1..1]
              SubmissionSet.title => [0..1]
              SubmissionSet.comments => [0..1]
@@ -96,6 +138,10 @@ package "Ressources de base" #palegreen {
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> EventCode
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> PatientId
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

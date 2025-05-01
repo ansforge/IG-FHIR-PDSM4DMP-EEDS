@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="submissionSetToPDSM"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap submissionSetToPDSM</b></p><a name="submissionSetToPDSM"> </a><a name="hcsubmissionSetToPDSM"> </a><a name="submissionSetToPDSM-fr-FR"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>relation</b></td><td><b>Target Code</b></td><td><b>Commentaire</b></td></tr><tr><td>SubmissionSet.entryUUID</td><td colspan="2" style="background-color: #efefef">(not mapped)</td><td style="background-color: #efefef">TO DO</td></tr><tr><td>SubmissionSet.availabilityStatus</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.status</td><td/></tr><tr><td>SubmissionSet.submissionTime</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.date</td><td/></tr><tr><td>SubmissionSet.title</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.title</td><td/></tr><tr><td>SubmissionSet.patientID</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.subject.fr-core-patient</td><td/></tr><tr><td>SubmissionSet.sourceID</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.extension:sourceId</td><td/></tr><tr><td>SubmissionSet.uniqueID</td><td colspan="2" style="background-color: #efefef">(not mapped)</td><td style="background-color: #efefef">TO DO</td></tr><tr><td>SubmissionSet.contentTypeCode</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.extension:designationType</td><td/></tr><tr><td>SubmissionSet.author</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>List.source</td><td/></tr><tr><td>SubmissionSet.homeCommunityID</td><td colspan="3" style="background-color: #efefef">(not mapped)</td></tr><tr><td>DSubmissionSet.intendedRecipient</td><td colspan="3" style="background-color: #efefef">(not mapped)</td></tr></table></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM"/>
+  <version value="0.1.0"/>
+  <name value="submissionSetToPDSM"/>
+  <title value="submissionSetToPDSM"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2025-05-01T16:30:13+00:00"/>
+  <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+  <contact>
+    <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="FRANCE"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet"/>
+    <target value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"/>
+    <element>
+      <code value="SubmissionSet.entryUUID"/>
+      <target>
+        <equivalence value="unmatched"/>
+        <comment value="TO DO"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.availabilityStatus"/>
+      <target>
+        <code value="List.status"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.submissionTime"/>
+      <target>
+        <code value="List.date"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.title"/>
+      <target>
+        <code value="List.title"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.patientID"/>
+      <target>
+        <code value="List.subject.fr-core-patient"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.sourceID"/>
+      <target>
+        <code value="List.extension:sourceId"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.uniqueID"/>
+      <target>
+        <equivalence value="unmatched"/>
+        <comment value="TO DO"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.contentTypeCode"/>
+      <target>
+        <code value="List.extension:designationType"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.author"/>
+      <target>
+        <code value="List.source"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="SubmissionSet.homeCommunityID"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DSubmissionSet.intendedRecipient"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

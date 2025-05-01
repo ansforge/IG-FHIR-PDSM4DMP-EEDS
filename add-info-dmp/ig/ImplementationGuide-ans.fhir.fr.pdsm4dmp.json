@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-01T10:35:31+00:00",
+  "date" : "2025-05-01T16:30:13+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -652,7 +652,7 @@
     {
       "id" : "mapping",
       "name" : "Mapping Volet partage vers PDSM",
-      "description" : "Mapping Volet partage vers PDSM"
+      "description" : "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\""
     }],
     "resource" : [{
       "extension" : [{
@@ -673,10 +673,23 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
+        "reference" : "StructureDefinition/DocumentEntry"
+      },
+      "name" : "Document Entry (LM)",
+      "description" : "Model logique  d’une fiche",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalMddel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
         "reference" : "StructureDefinition/EventCode"
       },
       "name" : "EventCode (LM)",
-      "description" : "Model logique d'un eventCode",
+      "description" : "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalMddel"
     },
@@ -689,7 +702,7 @@
         "reference" : "StructureDefinition/Author"
       },
       "name" : "Author (LM)",
-      "description" : "Model logique d'un auteur",
+      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé),",
       "exampleBoolean" : false,
       "groupingId" : "LogicalMddel"
     },
@@ -699,10 +712,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/DocumentEntry"
+        "reference" : "StructureDefinition/PatientId"
       },
-      "name" : "Document Entry (LM)",
-      "description" : "Model logique d'un document",
+      "name" : "PatientId (LM)",
+      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalMddel"
     },
@@ -714,7 +727,8 @@
       "reference" : {
         "reference" : "ConceptMap/documentReferenceToPDSM"
       },
-      "name" : "documentReferenceToPDSM",
+      "name" : "ficheXDStoPDSM",
+      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
       "exampleBoolean" : false,
       "groupingId" : "mapping"
     },
@@ -724,9 +738,10 @@
         "valueString" : "ConceptMap"
       }],
       "reference" : {
-        "reference" : "ConceptMap/SubmissionSetToPDSM"
+        "reference" : "ConceptMap/submissionSetToPDSM"
       },
-      "name" : "SubmissionSetToPDSM",
+      "name" : "submissionSetXXDSToPDSM",
+      "description" : "Relation entre un lot de soummission   du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
       "exampleBoolean" : false,
       "groupingId" : "mapping"
     }],

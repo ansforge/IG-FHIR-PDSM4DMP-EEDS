@@ -22,10 +22,10 @@
       "oids" : ["1.2.250.1.213.1.1.4.6"],
       "uses" : {
       },
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J62-PracticeSettingCode-DMP.html" : "JDV_J62_PracticeSettingCode_DMP",
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP",
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J61-HealthcareFacilityTypeCode-DMP.html" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
@@ -246,6 +246,18 @@
       "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J59-ContentTypeCode-DMP.html" : "JDV_J59_ContentTypeCode_DMP"
     },
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/TRE_R342-XdsTypesIdentifiantsReferenceId/FHIR/TRE-R342-XdsTypesIdentifiantsReferenceId",
+      "version" : "20231215120000",
+      "status" : "active",
+      "name" : "TRE_R342_XdsTypesIdentifiantsReferenceId",
+      "title" : null,
+      "description" : "Types d'identifiants utilisés dans la métadonnée XDS referenceIdList de la fiche du document. Ces types d'identifiants sont spécifiés dans une terminologie incluse dans le profil XDS dans le Cadre Technique d'IHE IT Infrastructure.",
+      "oids" : ["1.2.250.1.213.1.1.4.347"],
+      "uses" : {
+      },
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J231-XdsTypesIdentifiantsReferenceId-DMP.html" : "JDV_J231_XdsTypesIdentifiantsReferenceId_DMP"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
       "version" : "20250328120000",
       "status" : "active",
@@ -255,8 +267,8 @@
       "oids" : ["1.2.250.1.213.1.6.1.107"],
       "uses" : {
       },
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J47-FunctionCode-CISIS.html" : "JDV_J47_FunctionCode_CISIS",
-      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP"
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J56-AuthorSpecialty-DMP.html" : "JDV_J56_AuthorSpecialty_DMP",
+      "https://interop.esante.gouv.fr/terminologies/0.1.0-ballot/ValueSet-JDV-J47-FunctionCode-CISIS.html" : "JDV_J47_FunctionCode_CISIS"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial",

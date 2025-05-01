@@ -1,17 +1,17 @@
 [
   {
-    "id" : "SubmissionSetToPDSM",
-    "type" : "ConceptMap",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM",
-    "version" : "0.1.0",
-    "name" : "SubmissionSetToPDSM"
-  },
-  {
     "id" : "documentReferenceToPDSM",
     "type" : "ConceptMap",
     "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM",
     "version" : "0.1.0",
     "name" : "documentReferenceToPDSM"
+  },
+  {
+    "id" : "submissionSetToPDSM",
+    "type" : "ConceptMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM",
+    "version" : "0.1.0",
+    "name" : "submissionSetToPDSM"
   },
   {
     "id" : "ans.fhir.fr.pdsm4dmp",
@@ -40,6 +40,13 @@
     "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/EventCode",
     "version" : "0.1.0",
     "name" : "EventCode"
+  },
+  {
+    "id" : "PatientId",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId",
+    "version" : "0.1.0",
+    "name" : "PatientId"
   },
   {
     "id" : "SubmissionSet",

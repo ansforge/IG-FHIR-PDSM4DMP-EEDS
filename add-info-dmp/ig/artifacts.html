@@ -246,11 +246,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="StructureDefinition-DocumentEntry.html"
+                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
+            </td>
+            <td>
+<p>Model logique  d’une fiche</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="StructureDefinition-EventCode.html"
                   title="StructureDefinition/EventCode">EventCode (LM)</a>
             </td>
             <td>
-<p>Model logique d'un eventCode</p>
+<p>Model logique d'un eventCode.
+Un EventCode peut contenir le code représentant :</p>
+<ul>
+  <li>un évènement documenté (acte, traitement, diagnostic, etc…),</li>
+  <li>une modalité d’acquisition,</li>
+  <li>une région anatomique.</li>
+</ul>
 </td>
          </tr>
          <tr>
@@ -259,37 +274,52 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                   title="StructureDefinition/Author">Author (LM)</a>
             </td>
             <td>
-<p>Model logique d'un auteur</p>
+<p>Modèle logique d'un auteur.
+Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. 
+L’auteur peut être :</p>
+<ul>
+  <li>Un professionnel (personne physique) via son logiciel de professionnel,</li>
+  <li>Le patient/usager (personne physique) via Mon espace Santé,</li>
+  <li>Un système de structure (dispositif, automate, appareil connecté…),</li>
+  <li>Un SNR (Service Numérique Référencé),</li>
+</ul>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-DocumentEntry.html"
-                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
+               <a href="StructureDefinition-PatientId.html"
+                  title="StructureDefinition/PatientId">PatientId (LM)</a>
             </td>
             <td>
-<p>Model logique d'un document</p>
+<p>Modèle logique de patientID.
+PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.</p>
 </td>
          </tr>
       </tbody>
    </table>
    <a name="2"> </a>
    <h3>Mapping Volet partage vers PDSM </h3>
-    <p>Mapping Volet partage vers PDSM</p>
+    <p>Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
          <tr>
             <td style="column-width:30%">
                <a href="ConceptMap-documentReferenceToPDSM.html"
-                  title="ConceptMap/documentReferenceToPDSM">documentReferenceToPDSM</a>
+                  title="ConceptMap/documentReferenceToPDSM">ficheXDStoPDSM</a>
             </td>
+            <td>
+<p>Relation entre une  fiche  du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
+</td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="ConceptMap-SubmissionSetToPDSM.html"
-                  title="ConceptMap/SubmissionSetToPDSM">SubmissionSetToPDSM</a>
+               <a href="ConceptMap-submissionSetToPDSM.html"
+                  title="ConceptMap/submissionSetToPDSM">submissionSetXXDSToPDSM</a>
             </td>
+            <td>
+<p>Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
+</td>
          </tr>
       </tbody>
    </table>
@@ -333,7 +363,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 10:36+0000">2025-05-01</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 16:31+0000">2025-05-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

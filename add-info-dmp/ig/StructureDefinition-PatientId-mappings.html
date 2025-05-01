@@ -1,9 +1,13 @@
+<!-- get modelType -->
+
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML>
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>SubmissionSetToPDSM - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0</title>
+    <title>PatientId (LM) - Mappings - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -42,8 +46,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"5.6"}
-    h3,h4,h5,h6{--heading-prefix:"5.6"}</style>
+    <style type="text/css">h2{--heading-prefix:"5.5"}
+    h3,h4,h5,h6{--heading-prefix:"5.5"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
         <!-- Placeholder for child template header declarations -->
@@ -176,15 +180,15 @@
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>SubmissionSetToPDSM</b></li>
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>PatientId (LM)</b></li>
 
           <span style="float:right;">
 
-            <a href="ConceptMap-documentReferenceToPDSM.ttl.html">&lt;prev</a> | 
+            <a href="StructureDefinition-PatientId-definitions.html">&lt;prev</a> | 
 
             <a href="#bottom">bottom</a>
 
-          | <a href="ConceptMap-SubmissionSetToPDSM-testing.html">next&gt;</a>
+          | <a href="StructureDefinition-PatientId-testing.html">next&gt;</a>
 
           </span>
 
@@ -198,7 +202,7 @@
         <div class="row">
           <div class="inner-wrapper">
 
-<div class="col-12">
+<div style="counter-reset: section 5" class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Utilisation de PDSm pour le DMP dans le contexte d'EEDS - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
   
 
@@ -209,63 +213,66 @@
 
 
 
+
+
+
 <ul class="nav nav-tabs">
 
-  <li class="active">
-    <a href="#">Narrative Content</a>
+  <li>
+    <a href="StructureDefinition-PatientId.html">Content</a>
+  </li>
+
+
+
+  <li>
+    <a href="StructureDefinition-PatientId-definitions.html">Detailed Descriptions</a>
   </li>
 
 
 
   
+    <li class="active">
+      <a href="#">Mappings</a>
+    </li>
+  
+
+
+
+
+
+
+
+  
     <li>
-      <a href="ConceptMap-SubmissionSetToPDSM.xml.html">XML</a>
+      <a href="StructureDefinition-PatientId.profile.xml.html">XML</a>
     </li>
   
 
 
   
     <li>
-      <a href="ConceptMap-SubmissionSetToPDSM.json.html">JSON</a>
+      <a href="StructureDefinition-PatientId.profile.json.html">JSON</a>
     </li>
   
 
 
   
     <li>
-      <a href="ConceptMap-SubmissionSetToPDSM.ttl.html">TTL</a>
+      <a href="StructureDefinition-PatientId.profile.ttl.html">TTL</a>
     </li>
   
-
 
 
 </ul>
 
-  <a name="root"> </a>
 
-  <h2 id="root">ConceptMap: SubmissionSetToPDSM
-(Experimental)
-  </h2>
+<a name="root"> </a>
+<h2 id="root">Logical Model: PatientId - Mappings</h2>
 
   <table class="colsd">
-
-    <tr>
-      <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM"/></span>
-      </td>
-      <td><i>Version</i>:
-      <span class="copy-text">0.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/SubmissionSetToPDSM|0.1.0"/></span>
-      </td>
-    </tr>
-
     <tr>
 
-
-
-
-
-
-
-      <td colspan="4">
+      <td colspan="2">
         
           Draft
           
@@ -274,40 +281,26 @@
         
       </td>
 
-
-
-      <td><i>Computable Name</i>: <span style="font-family: monospace;">SubmissionSetToPDSM</span></td>
     </tr>
-
-
-
-
   </table>
 
 
+<p>Mappings for the PatientId logical model.</p>
 
   <!-- insert intro if present -->
   
 
 
 
-<!--  <p>
-  Formats: <a href="ConceptMap-SubmissionSetToPDSM.xml.html">XML</a>, <a href="ConceptMap-SubmissionSetToPDSM.json.html">JSON</a>, <a href="ConceptMap-SubmissionSetToPDSM.ttl.html">Turtle</a>
-  </p>-->
-
-  
-
-
-  <div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap SubmissionSetToPDSM</b></p><a name="SubmissionSetToPDSM"> </a><a name="hcSubmissionSetToPDSM"> </a><a name="SubmissionSetToPDSM-fr-FR"> </a><p>Mapping from (non spécifié) to (non spécifié)</p><br/><p><b>Group 1 </b>Mapping from <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><table class="grid"><tr><td colspan="2"><b>Source Concept Details</b></td><td><b>relation</b></td><td colspan="2"><b>Target Concept Details</b></td></tr><tr><td colspan="2"><b>Codes</b> from https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet</td><td/><td colspan="2"><b>Codes</b> from https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive</td></tr><tr><td style="border-right-width: 0px">SubmissionSet.availabilityStatus</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.status</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px">SubmissionSet.submissionTime</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.date</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px">SubmissionSet.title</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.title</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px">SubmissionSet.patientID</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.subject.fr-core-patient</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px">SubmissionSet.sourceID</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.extension:sourceId</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px">SubmissionSet.contentTypeCode</td><td style="border-left-width: 0px"></td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">List.extension:designationType</td><td style="border-left-width: 0px"></td></tr><tr><td style="border-right-width: 0px; border-bottom-style: none">SubmissionSet.author</td><td style="border-left-width: 0px"></td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td style="border-right-width: 0px; border-bottom-style: none">SubmissionSet.homeCommunityID</td><td style="border-left-width: 0px"></td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td style="border-right-width: 0px; border-bottom-style: none">DSubmissionSet.intendedRecipient</td><td style="border-left-width: 0px"></td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr></table></div>
+  <p>No Mappings</p>
 
   <!-- insert notes if present -->
   
 
 
 
-  
-
 </div>
+
         </div>  <!-- /inner-wrapper -->
       </div>  <!-- /row -->
     </div>  <!-- /container -->
@@ -315,6 +308,8 @@
 
   <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
   <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/tabs.js"> </script>
 
 <script type="text/javascript" src="assets/js/window-hash.js"> </script>
   <a name="bottom"> </a>
@@ -327,7 +322,7 @@
             <tr>
               <td style="text-align:left">&#xA0;
 
-                <a href="ConceptMap-documentReferenceToPDSM.ttl.html">&lt;prev</a>
+                <a href="StructureDefinition-PatientId-definitions.html">&lt;prev</a>
 
               </td>
               <td style="text-align:center">
@@ -335,7 +330,7 @@
               </td>
               <td style="text-align:right">&#xA0;
 
-                <a href="ConceptMap-SubmissionSetToPDSM-testing.html">next&gt;</a>
+                <a href="StructureDefinition-PatientId-testing.html">next&gt;</a>
 
               </td>
             </tr>
@@ -345,7 +340,7 @@
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 10:36+0000">2025-05-01</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, May 1, 2025 16:31+0000">2025-05-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

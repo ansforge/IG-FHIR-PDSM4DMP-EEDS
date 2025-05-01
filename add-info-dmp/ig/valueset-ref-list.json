@@ -1,6 +1,22 @@
 {
   "codeSystems" : [
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J231-XdsTypesIdentifiantsReferenceId-DMP/FHIR/JDV-J231-XdsTypesIdentifiantsReferenceId-DMP",
+      "version" : "20221216120000",
+      "status" : "active",
+      "name" : "JDV_J231_XdsTypesIdentifiantsReferenceId_DMP",
+      "title" : null,
+      "description" : "Types d'identifiants utilisés dans la métadonnée XDS referenceIdList de la fiche du document dans le cadre du DMP",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_R342-XdsTypesIdentifiantsReferenceId/FHIR/TRE-R342-XdsTypesIdentifiantsReferenceId"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.693"],
+      "sources" : ["1.2.250.1.213.1.1.5.693"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS",
       "version" : "20241213120000",
       "status" : "active",
@@ -33,8 +49,8 @@
       "sources" : ["1.2.250.1.213.1.1.5.131"],
       "uses" : {
       },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)",
-      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
+      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)",
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP",
