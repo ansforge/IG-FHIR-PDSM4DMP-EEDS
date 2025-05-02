@@ -9,7 +9,7 @@ Cette métadonnée représente l’acteur prenant la responsabilité du contenu 
   - système via un SNR responsable du document produit via ce SNR. 
 """
 
-* 1 1..1 identifier "Identifiant (PS_IdNat)"
+* 1 1..1 PSIdNat "Identifiant (PS_IdNat)"
 * 2 1..1 string "Nom d'exercice du professionnel, nom du patient, nom du système."
 * 3 1..1 string "Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
 * 9 1..1 string " Autorité d’affectation "

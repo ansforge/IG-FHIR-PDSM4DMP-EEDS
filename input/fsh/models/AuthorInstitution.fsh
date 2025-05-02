@@ -9,4 +9,4 @@ Cet attribut représente la structure de l’auteur. Pour les documents d’expr
 * 1 1..1 string "Nom de la structure"
 * 6 1..1 string "Autorité d’affectation"
 * 7 1..1 string "Type d’identifiant"
-* 10 1..1 identifier " Identifiant de la structure (Struct_IdNat)"
+* 10 1..1 StructIdNat " Identifiant de la structure (Struct_IdNat)"
