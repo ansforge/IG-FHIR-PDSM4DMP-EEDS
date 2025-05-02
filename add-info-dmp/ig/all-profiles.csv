@@ -23,11 +23,11 @@ L’auteur peut être :
 ","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.6",1,1,"",""
 "AuthorInstitution","AuthorInstitution.7","AuthorInstitution.7","","","",1,1,"","","","string {[]} {[]}
 ","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorInstitution.7",1,1,"",""
-"AuthorInstitution","AuthorInstitution.10","AuthorInstitution.10","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+"AuthorInstitution","AuthorInstitution.10","AuthorInstitution.10","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/StructIdNat]]} {[]}
 "," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.10",1,1,"",""
 "AuthorPerson","AuthorPerson","AuthorPerson","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPerson (LM)","Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPerson","AuthorPerson.1","AuthorPerson.1","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+"AuthorPerson","AuthorPerson.1","AuthorPerson.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
 ","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorPerson.1",1,1,"",""
 "AuthorPerson","AuthorPerson.2","AuthorPerson.2","","","",1,1,"","","","string {[]} {[]}
 ","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.2",1,1,"",""
@@ -122,7 +122,7 @@ Un EventCode peut contenir le code représentant :
 -  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). 
 -  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : 
   - système via un SNR responsable du document produit via ce SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"LegalAuthenticator","LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+"LegalAuthenticator","LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
 ","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.1",1,1,"",""
 "LegalAuthenticator","LegalAuthenticator.2","LegalAuthenticator.2","","","",1,1,"","","","string {[]} {[]}
 ","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.2",1,1,"",""
@@ -134,6 +134,17 @@ Un EventCode peut contenir le code représentant :
 ","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.10",1,1,"",""
 "LegalAuthenticator","LegalAuthenticator.13","LegalAuthenticator.13","","","",1,1,"","","","string {[]} {[]}
 ","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.13",1,1,"",""
+"PSIdNat","integer","integer","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type integer","A whole number","32 bit number; for values larger than this, use decimal","","","","","","","","",,,,,"",,,,"integer",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"PSIdNat","integer.id","integer.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"PSIdNat","integer.extension","integer.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"PSIdNat","integer.value","integer.value","","","",0,1,"","","","integer {[]} {[]}
+","Primitive value for integer","The actual value","","","","","","","","<valueInteger xmlns=""http://hl7.org/fhir"" value=""-2147483648""/>","<valueInteger xmlns=""http://hl7.org/fhir"" value=""2147483647""/>",,,,,"",,,,"integer.value",0,1,"",""
 "PatientId","PatientId","PatientId","","","",0,*,"","","","null {[]} {[]}
 ","PatientId (LM)","Modèle logique de patientID.
 PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
@@ -178,6 +189,17 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
 ","Numéro de compte du patient","Numéro de compte du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.18",0,1,"",""
 "SourcePatientInfo","SourcePatientInfo.PID.21","SourcePatientInfo.PID.21","","","",0,1,"","","","string {[]} {[]}
 ","Identifiant de la mère du patient","Identifiant de la mère du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.21",0,1,"",""
+"StructIdNat","integer","integer","","","",0,*,"","","","null {[]} {[]}
+","Primitive Type integer","A whole number","32 bit number; for values larger than this, use decimal","","","","","","","","",,,,,"",,,,"integer",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"StructIdNat","integer.id","integer.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"StructIdNat","integer.extension","integer.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"StructIdNat","integer.value","integer.value","","","",0,1,"","","","integer {[]} {[]}
+","Primitive value for integer","The actual value","","","","","","","","<valueInteger xmlns=""http://hl7.org/fhir"" value=""-2147483648""/>","<valueInteger xmlns=""http://hl7.org/fhir"" value=""2147483647""/>",,,,,"",,,,"integer.value",0,1,"",""
 "SubmissionSet","SubmissionSet","SubmissionSet","","","",0,*,"","","","null {[]} {[]}
 ","SubmissionSet (LM)","Model logique d'un lot de soummission.
 ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""

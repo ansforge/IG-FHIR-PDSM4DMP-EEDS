@@ -184,7 +184,7 @@
 
             <a href="#bottom">bottom</a>
 
-          | <a href="StructureDefinition-SubmissionSet.html">next&gt;</a>
+          | <a href="StructureDefinition-SourcePatientId.html">next&gt;</a>
 
           </span>
 
@@ -223,6 +223,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li>
          <a href="#2">Mapping Volet partage vers PDSM</a>
       </li>
+      <li>
+         <a href="#3">Structures: Data Type Profiles</a>
+      </li>
    </ul>
 </div>
 <div xmlns="http://www.w3.org/1999/xhtml"
@@ -237,35 +240,20 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-SubmissionSet.html"
-                  title="StructureDefinition/SubmissionSet">SubmissionSet (LM)</a>
+               <a href="StructureDefinition-SourcePatientId.html"
+                  title="StructureDefinition/SourcePatientId"> SourcePatientId (LM)</a>
             </td>
             <td>
-<p>Model logique d'un lot de soummission.</p>
+<p>Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-DocumentEntry.html"
-                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
+               <a href="StructureDefinition-SourcePatientInfo.html"
+                  title="StructureDefinition/SourcePatientInfo"> SourcePatientInfo (LM)</a>
             </td>
             <td>
-<p>Model logique  d’une fiche</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-EventCode.html"
-                  title="StructureDefinition/EventCode">EventCode (LM)</a>
-            </td>
-            <td>
-<p>Model logique d'un eventCode.
-Un EventCode peut contenir le code représentant :</p>
-<ul>
-  <li>un évènement documenté (acte, traitement, diagnostic, etc…),</li>
-  <li>une modalité d’acquisition,</li>
-  <li>une région anatomique.</li>
-</ul>
+<p>Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.</p>
 </td>
          </tr>
          <tr>
@@ -305,30 +293,26 @@ L’auteur peut être :</p>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-PatientId.html"
-                  title="StructureDefinition/PatientId">PatientId (LM)</a>
+               <a href="StructureDefinition-DocumentEntry.html"
+                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
             </td>
             <td>
-<p>Modèle logique de patientID.
-PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.</p>
+<p>Model logique  d’une fiche</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-SourcePatientId.html"
-                  title="StructureDefinition/SourcePatientId"> SourcePatientId (LM)</a>
+               <a href="StructureDefinition-EventCode.html"
+                  title="StructureDefinition/EventCode">EventCode (LM)</a>
             </td>
             <td>
-<p>Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-SourcePatientInfo.html"
-                  title="StructureDefinition/SourcePatientInfo"> SourcePatientInfo (LM)</a>
-            </td>
-            <td>
-<p>Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.</p>
+<p>Model logique d'un eventCode.
+Un EventCode peut contenir le code représentant :</p>
+<ul>
+  <li>un évènement documenté (acte, traitement, diagnostic, etc…),</li>
+  <li>une modalité d’acquisition,</li>
+  <li>une région anatomique.</li>
+</ul>
 </td>
          </tr>
          <tr>
@@ -343,6 +327,25 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
   <li>soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous :</li>
   <li>système via un SNR responsable du document produit via ce SNR.</li>
 </ul>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-PatientId.html"
+                  title="StructureDefinition/PatientId">PatientId (LM)</a>
+            </td>
+            <td>
+<p>Modèle logique de patientID.
+PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-SubmissionSet.html"
+                  title="StructureDefinition/SubmissionSet">SubmissionSet (LM)</a>
+            </td>
+            <td>
+<p>Model logique d'un lot de soummission.</p>
 </td>
          </tr>
       </tbody>
@@ -369,6 +372,52 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
             </td>
             <td>
 <p>Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Structures: Data Type Profiles </h3>
+    <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-PSIdNat.html"
+                  title="StructureDefinition/PSIdNat"> PSIdNat</a>
+            </td>
+            <td>
+<p>Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS)</p>
+
+<p>L’identification nationale du PS est construite selon le tableau dessous :</p>
+<ul>
+  <li>0 + N° ADELI</li>
+  <li>1 + Identifiant cabinet ADELI/identifiant interne</li>
+  <li>3 + FINESS/identifiant interne</li>
+  <li>4 + SIREN/identifiant interne</li>
+  <li>5 + SIRET/identifiant interne</li>
+  <li>6 + Identifiant cabinet RPPS/identifiant interne</li>
+  <li>8 + N° RPPS</li>
+</ul>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-StructIdNat.html"
+                  title="StructureDefinition/StructIdNat"> StructIdNat</a>
+            </td>
+            <td>
+<p>Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4.</p>
+
+<p>L’identification nationale d’une structure est construite selon le tableau dessous :</p>
+<ul>
+  <li>0 + Identifiant cabinet ADELI</li>
+  <li>1 + N° FINESS 2 + N° SIREN</li>
+  <li>3 + N° SIRET</li>
+  <li>4 + N° RPPS-rang</li>
+  <li>Néant + N° technique</li>
+</ul>
 </td>
          </tr>
       </tbody>
@@ -403,7 +452,7 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
               </td>
               <td style="text-align:right">&#xA0;
 
-                <a href="StructureDefinition-SubmissionSet.html">next&gt;</a>
+                <a href="StructureDefinition-SourcePatientId.html">next&gt;</a>
 
               </td>
             </tr>
@@ -413,7 +462,7 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, May 2, 2025 13:50+0000">2025-05-02</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, May 2, 2025 14:17+0000">2025-05-02</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

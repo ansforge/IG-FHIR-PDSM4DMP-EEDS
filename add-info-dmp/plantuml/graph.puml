@@ -92,6 +92,10 @@ package IG #DDDDDD{
              LegalAuthenticator.13 => [1..1]
         } 
 
+        class PSIdNat{
+
+        } 
+
         class PatientId{
 
              PatientId => [None..None]
@@ -123,6 +127,10 @@ package IG #DDDDDD{
              SourcePatientInfo.PID.16 => [0..1]
              SourcePatientInfo.PID.18 => [0..1]
              SourcePatientInfo.PID.21 => [0..1]
+        } 
+
+        class StructIdNat{
+
         } 
 
         class SubmissionSet{
@@ -177,6 +185,10 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> LegalAuthenticator
 
+ class "integer" as  class157db7df530023575515d366c9b672e8 
+
+    class157db7df530023575515d366c9b672e8 --> PSIdNat
+
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> PatientId
@@ -188,6 +200,10 @@ package "Ressources de base" #palegreen {
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> SourcePatientInfo
+
+ class "integer" as  class157db7df530023575515d366c9b672e8 
+
+    class157db7df530023575515d366c9b672e8 --> StructIdNat
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

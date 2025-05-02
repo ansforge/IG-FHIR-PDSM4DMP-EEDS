@@ -4,7 +4,7 @@
 -  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). 
 -  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : 
   - système via un SNR responsable du document produit via ce SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+"LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
 ","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.1",1,1,"",""
 "LegalAuthenticator.2","LegalAuthenticator.2","","","",1,1,"","","","string {[]} {[]}
 ","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.2",1,1,"",""

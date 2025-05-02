@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-02T13:48:57+00:00",
+  "date" : "2025-05-02T14:15:44+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -657,13 +657,25 @@
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/PSIdNat"
+      },
+      "name" : " PSIdNat",
+      "description" : "Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) \n\nL’identification nationale du PS est construite selon le tableau dessous :\n-  0 + N° ADELI \n- 1 + Identifiant cabinet ADELI/identifiant interne \n- 3 + FINESS/identifiant interne \n- 4 + SIREN/identifiant interne \n- 5 + SIRET/identifiant interne \n- 6 + Identifiant cabinet RPPS/identifiant interne \n- 8 + N° RPPS",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SubmissionSet"
+        "reference" : "StructureDefinition/SourcePatientId"
       },
-      "name" : "SubmissionSet (LM)",
-      "description" : "Model logique d'un lot de soummission.",
+      "name" : " SourcePatientId (LM)",
+      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
@@ -673,25 +685,24 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/DocumentEntry"
+        "reference" : "StructureDefinition/SourcePatientInfo"
       },
-      "name" : "Document Entry (LM)",
-      "description" : "Model logique  d’une fiche",
+      "name" : " SourcePatientInfo (LM)",
+      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
+        "valueString" : "StructureDefinition:primitive-type"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/EventCode"
+        "reference" : "StructureDefinition/StructIdNat"
       },
-      "name" : "EventCode (LM)",
-      "description" : "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
+      "name" : " StructIdNat",
+      "description" : "Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. \n\nL’identification nationale d’une structure est construite selon le tableau dessous :\n-  0 + Identifiant cabinet ADELI \n- 1 + N° FINESS 2 + N° SIREN \n- 3 + N° SIRET \n- 4 + N° RPPS-rang \n- Néant + N° technique",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -738,10 +749,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/PatientId"
+        "reference" : "StructureDefinition/DocumentEntry"
       },
-      "name" : "PatientId (LM)",
-      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
+      "name" : "Document Entry (LM)",
+      "description" : "Model logique  d’une fiche",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
@@ -751,25 +762,25 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SourcePatientId"
+        "reference" : "StructureDefinition/EventCode"
       },
-      "name" : " SourcePatientId (LM)",
-      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
+      "name" : "EventCode (LM)",
+      "description" : "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
+        "valueString" : "ConceptMap"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SourcePatientInfo"
+        "reference" : "ConceptMap/documentReferenceToPDSM"
       },
-      "name" : " SourcePatientInfo (LM)",
-      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
+      "name" : "ficheXDStoPDSM",
+      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
+      "groupingId" : "mapping"
     },
     {
       "extension" : [{
@@ -787,15 +798,28 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ConceptMap"
+        "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "ConceptMap/documentReferenceToPDSM"
+        "reference" : "StructureDefinition/PatientId"
       },
-      "name" : "ficheXDStoPDSM",
-      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
+      "name" : "PatientId (LM)",
+      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
       "exampleBoolean" : false,
-      "groupingId" : "mapping"
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SubmissionSet"
+      },
+      "name" : "SubmissionSet (LM)",
+      "description" : "Model logique d'un lot de soummission.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
