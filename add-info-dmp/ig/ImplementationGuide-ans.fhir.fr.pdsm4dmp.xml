@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-02T14:15:44+00:00"/>
+  <date value="2025-05-02T17:24:18+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -493,10 +493,43 @@
         <valueString value="StructureDefinition:primitive-type"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/IdentifiantSysteme"/>
+      </reference>
+      <name value=" IdentifiantSysteme"/>
+      <description value="Identification d'un systeme&#xA;&#xA;L’identification du ssyteme  est construite selon le tableau dessous :&#xA;- 1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure &#xA;- 3 + FINESS/Identifiant interne du système dans la structure  &#xA;- 4 + SIREN/Identifiant interne du système dans la structure &#xA;- 5 + SIRET/Identifiant interne du système dans la structure &#xA;- 6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:primitive-type"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MatriculeINS"/>
+      </reference>
+      <name value=" MatriculeINS"/>
+      <description value="Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:primitive-type"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/PSIdNat"/>
       </reference>
       <name value=" PSIdNat"/>
       <description value="Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) &#xA;&#xA;L’identification nationale du PS est construite selon le tableau dessous :&#xA;-  0 + N° ADELI &#xA;- 1 + Identifiant cabinet ADELI/identifiant interne &#xA;- 3 + FINESS/identifiant interne &#xA;- 4 + SIREN/identifiant interne &#xA;- 5 + SIRET/identifiant interne &#xA;- 6 + Identifiant cabinet RPPS/identifiant interne &#xA;- 8 + N° RPPS"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:primitive-type"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SNR"/>
+      </reference>
+      <name value=" SNR"/>
+      <description value="Identifiant interne de l’instance de la solution ayant produit le document au format OID"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -542,7 +575,7 @@
         <reference value="StructureDefinition/Author"/>
       </reference>
       <name value="Author (LM)"/>
-      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé),"/>
+      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModel"/>
     </resource>
@@ -569,6 +602,50 @@
       <description value="Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModel"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorPersonPatient"/>
+      </reference>
+      <name value="AuthorPersonPatient (LM)"/>
+      <description value="Cet attribut représente l’auteur Patient."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorPersonPS"/>
+      </reference>
+      <name value="AuthorPersonPS (LM)"/>
+      <description value="Cet attribut représente l’auteur PS."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorPersonSNR"/>
+      </reference>
+      <name value="AuthorPersonSNR (LM)"/>
+      <description value="Cet attribut représente l’auteur SNR."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorPersonSystem"/>
+      </reference>
+      <name value="AuthorPersonSystem (LM)"/>
+      <description value="Cet attribut représente l’auteur System."/>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">

@@ -6,10 +6,13 @@ L’auteur peut être :
 - Un professionnel (personne physique) via son logiciel de professionnel, 
 - Le patient/usager (personne physique) via Mon espace Santé, 
 - Un système de structure (dispositif, automate, appareil connecté…), 
-- Un SNR (Service Numérique Référencé), ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+- Un SNR (Service Numérique Référencé), 
+
+
+author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "Author.institution","Author.institution","","","",0,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorInstitution {[]} {[]}
 ","Cet attribut représente la structure de l’auteur.","Cet attribut représente la structure de l’auteur.","","","","","","","","","",,,,,"",,,,"Author.institution",0,1,"",""
-"Author.person","Author.person","","","",1,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson {[]} {[]}
+"Author.person","Author.person","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPS], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPatient], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonSNR], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonSystem]]}
 ","author","author","","","","","","","","","",,,,,"",,,,"Author.person",1,1,"",""
 "Author.role","Author.role","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). ","**Author Role**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS","",,,,"Author.role",1,1,"",""

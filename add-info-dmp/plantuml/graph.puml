@@ -36,6 +36,50 @@ package IG #DDDDDD{
              AuthorPerson.13 => [1..1]
         } 
 
+        class AuthorPersonPS{
+
+             AuthorPersonPS => [None..None]
+             AuthorPersonPS.1 => [1..1]
+             AuthorPersonPS.2 => [1..1]
+             AuthorPersonPS.3 => [1..1]
+             AuthorPersonPS.9 => [1..1]
+             AuthorPersonPS.10 => [1..1]
+             AuthorPersonPS.13 => [1..1]
+        } 
+
+        class AuthorPersonPatient{
+
+             AuthorPersonPatient => [None..None]
+             AuthorPersonPatient.1 => [1..1]
+             AuthorPersonPatient.2 => [1..1]
+             AuthorPersonPatient.3 => [1..1]
+             AuthorPersonPatient.9 => [1..1]
+             AuthorPersonPatient.10 => [1..1]
+             AuthorPersonPatient.13 => [1..1]
+        } 
+
+        class AuthorPersonSNR{
+
+             AuthorPersonSNR => [None..None]
+             AuthorPersonSNR.1 => [1..1]
+             AuthorPersonSNR.2 => [1..1]
+             AuthorPersonSNR.3 => [1..1]
+             AuthorPersonSNR.9 => [1..1]
+             AuthorPersonSNR.10 => [1..1]
+             AuthorPersonSNR.13 => [1..1]
+        } 
+
+        class AuthorPersonSystem{
+
+             AuthorPersonSystem => [None..None]
+             AuthorPersonSystem.1 => [1..1]
+             AuthorPersonSystem.2 => [1..1]
+             AuthorPersonSystem.3 => [1..1]
+             AuthorPersonSystem.9 => [1..1]
+             AuthorPersonSystem.10 => [1..1]
+             AuthorPersonSystem.13 => [1..1]
+        } 
+
         class DocumentEntry{
 
              DocumentEntry => [None..None]
@@ -81,6 +125,10 @@ package IG #DDDDDD{
              EventCode.eventCode => [1..1]
         } 
 
+        class IdentifiantSysteme{
+
+        } 
+
         class LegalAuthenticator{
 
              LegalAuthenticator => [None..None]
@@ -90,6 +138,10 @@ package IG #DDDDDD{
              LegalAuthenticator.9 => [1..1]
              LegalAuthenticator.10 => [1..1]
              LegalAuthenticator.13 => [1..1]
+        } 
+
+        class MatriculeINS{
+
         } 
 
         class PSIdNat{
@@ -102,6 +154,10 @@ package IG #DDDDDD{
              PatientId.1 => [1..1]
              PatientId.4 => [1..1]
              PatientId.5 => [1..1]
+        } 
+
+        class SNR{
+
         } 
 
         class SourcePatientId{
@@ -175,15 +231,39 @@ package "Ressources de base" #palegreen {
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
+    class095a1b43effec73955e31e790438de49 --> AuthorPersonPS
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> AuthorPersonPatient
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> AuthorPersonSNR
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> AuthorPersonSystem
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
     class095a1b43effec73955e31e790438de49 --> DocumentEntry
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> EventCode
 
+ class "integer" as  class157db7df530023575515d366c9b672e8 
+
+    class157db7df530023575515d366c9b672e8 --> IdentifiantSysteme
+
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> LegalAuthenticator
+
+ class "integer" as  class157db7df530023575515d366c9b672e8 
+
+    class157db7df530023575515d366c9b672e8 --> MatriculeINS
 
  class "integer" as  class157db7df530023575515d366c9b672e8 
 
@@ -192,6 +272,10 @@ package "Ressources de base" #palegreen {
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> PatientId
+
+ class "integer" as  class157db7df530023575515d366c9b672e8 
+
+    class157db7df530023575515d366c9b672e8 --> SNR
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

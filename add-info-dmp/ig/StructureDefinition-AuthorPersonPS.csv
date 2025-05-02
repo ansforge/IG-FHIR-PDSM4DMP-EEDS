@@ -1,0 +1,15 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"AuthorPersonPS","AuthorPersonPS","","","",0,*,"","","","null {[]} {[]}
+","AuthorPersonPS (LM)","Cet attribut représente l’auteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"AuthorPersonPS.1","AuthorPersonPS.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
+","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.1",1,1,"",""
+"AuthorPersonPS.2","AuthorPersonPS.2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel, nom du patient","Nom d'exercice du professionnel, nom du patient","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.2",1,1,"",""
+"AuthorPersonPS.3","AuthorPersonPS.3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom)","Prénom usuel de la personne (par défaut le premier prénom)","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.3",1,1,"",""
+"AuthorPersonPS.9","AuthorPersonPS.9","","","",1,1,"","","","string {[]} {[]}
+"," Autorité d’affectation 1.2.250.1.71.4.2.1  "," Autorité d’affectation 1.2.250.1.71.4.2.1","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.9",1,1,"",""
+"AuthorPersonPS.10","AuthorPersonPS.10","","","",1,1,"","","","string {[]} {[]}
+","D","","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.10",1,1,"",""
+"AuthorPersonPS.13","AuthorPersonPS.13","","","",1,1,"","","","string {[]} {[]}
+","IDNPS","IDNPS","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.13",1,1,"",""

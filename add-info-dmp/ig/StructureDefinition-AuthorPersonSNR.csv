@@ -1,0 +1,15 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"AuthorPersonSNR","AuthorPersonSNR","","","",0,*,"","","","null {[]} {[]}
+","AuthorPersonSNR (LM)","Cet attribut représente l’auteur SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"AuthorPersonSNR.1","AuthorPersonSNR.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR]]} {[]}
+","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.1",1,1,"",""
+"AuthorPersonSNR.2","AuthorPersonSNR.2","","","",1,1,"","","","string {[]} {[]}
+","Nom du système","Nom du système","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.2",1,1,"",""
+"AuthorPersonSNR.3","AuthorPersonSNR.3","","","",1,1,"","","","string {[]} {[]}
+"," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.3",1,1,"",""
+"AuthorPersonSNR.9","AuthorPersonSNR.9","","","",1,1,"","","","string {[]} {[]}
+"," Autorité d’affectation : OID de l'éditeur   "," Autorité d’affectation : OID de l'éditeur","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.9",1,1,"",""
+"AuthorPersonSNR.10","AuthorPersonSNR.10","","","",1,1,"","","","string {[]} {[]}
+","U","","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.10",1,1,"",""
+"AuthorPersonSNR.13","AuthorPersonSNR.13","","","",1,1,"","","","string {[]} {[]}
+","RI","RI","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.13",1,1,"",""

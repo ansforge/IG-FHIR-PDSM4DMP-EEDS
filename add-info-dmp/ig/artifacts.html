@@ -224,7 +224,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <a href="#2">Mapping Volet partage vers PDSM</a>
       </li>
       <li>
-         <a href="#3">Structures: Data Type Profiles</a>
+         <a href="#3">Structures: Logical Models</a>
+      </li>
+      <li>
+         <a href="#4">Structures: Data Type Profiles</a>
       </li>
    </ul>
 </div>
@@ -271,6 +274,8 @@ L’auteur peut être :</p>
   <li>Un système de structure (dispositif, automate, appareil connecté…),</li>
   <li>Un SNR (Service Numérique Référencé),</li>
 </ul>
+
+<p>author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.</p>
 </td>
          </tr>
          <tr>
@@ -377,11 +382,82 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
       </tbody>
    </table>
    <a name="3"> </a>
+   <h3>Structures: Logical Models </h3>
+    <p>These define data models that represent the domain covered by this implementation guide in more business-friendly terms than the underlying FHIR resources.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-AuthorPersonPS.html"
+                  title="StructureDefinition/AuthorPersonPS">AuthorPersonPS (LM)</a>
+            </td>
+            <td>
+<p>Cet attribut représente l’auteur PS.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-AuthorPersonPatient.html"
+                  title="StructureDefinition/AuthorPersonPatient">AuthorPersonPatient (LM)</a>
+            </td>
+            <td>
+<p>Cet attribut représente l’auteur Patient.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-AuthorPersonSNR.html"
+                  title="StructureDefinition/AuthorPersonSNR">AuthorPersonSNR (LM)</a>
+            </td>
+            <td>
+<p>Cet attribut représente l’auteur SNR.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-AuthorPersonSystem.html"
+                  title="StructureDefinition/AuthorPersonSystem">AuthorPersonSystem (LM)</a>
+            </td>
+            <td>
+<p>Cet attribut représente l’auteur System.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="4"> </a>
    <h3>Structures: Data Type Profiles </h3>
     <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-IdentifiantSysteme.html"
+                  title="StructureDefinition/IdentifiantSysteme"> IdentifiantSysteme</a>
+            </td>
+            <td>
+<p>Identification d'un systeme</p>
+
+<p>L’identification du ssyteme  est construite selon le tableau dessous :</p>
+<ul>
+  <li>1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure</li>
+  <li>3 + FINESS/Identifiant interne du système dans la structure</li>
+  <li>4 + SIREN/Identifiant interne du système dans la structure</li>
+  <li>5 + SIRET/Identifiant interne du système dans la structure</li>
+  <li>6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure</li>
+</ul>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MatriculeINS.html"
+                  title="StructureDefinition/MatriculeINS"> MatriculeINS</a>
+            </td>
+            <td>
+<p>Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-PSIdNat.html"
@@ -400,6 +476,14 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
   <li>6 + Identifiant cabinet RPPS/identifiant interne</li>
   <li>8 + N° RPPS</li>
 </ul>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-SNR.html" title="StructureDefinition/SNR"> SNR</a>
+            </td>
+            <td>
+<p>Identifiant interne de l’instance de la solution ayant produit le document au format OID</p>
 </td>
          </tr>
          <tr>
@@ -462,7 +546,7 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, May 2, 2025 14:17+0000">2025-05-02</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, May 2, 2025 17:25+0000">2025-05-02</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |
