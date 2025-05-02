@@ -1,0 +1,11 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"AuthorInstitution","AuthorInstitution","","","",0,*,"","","","null {[]} {[]}
+","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"AuthorInstitution.1","AuthorInstitution.1","","","",1,1,"","","","string {[]} {[]}
+","Nom de la structure","Nom de la structure","","","","","","","","","",,,,,"",,,,"AuthorInstitution.1",1,1,"",""
+"AuthorInstitution.6","AuthorInstitution.6","","","",1,1,"","","","string {[]} {[]}
+","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.6",1,1,"",""
+"AuthorInstitution.7","AuthorInstitution.7","","","",1,1,"","","","string {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorInstitution.7",1,1,"",""
+"AuthorInstitution.10","AuthorInstitution.10","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+"," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.10",1,1,"",""

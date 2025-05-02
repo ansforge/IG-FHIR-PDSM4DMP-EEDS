@@ -7,13 +7,10 @@
   "profiles": {},
   "usage": {
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier": [
-      "Author.institution",
-      "Author.person",
-      "DocumentEntry.legalAuthenticator",
-      "DocumentEntry.referenceIdList"
-    ],
-    "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
-      "StructureDefinition.snapshot.element.type"
+      "AuthorInstitution",
+      "AuthorPerson",
+      "DocumentEntry.referenceIdList",
+      "LegalAuthenticator"
     ],
     "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
       "ImplementationGuide.definition"

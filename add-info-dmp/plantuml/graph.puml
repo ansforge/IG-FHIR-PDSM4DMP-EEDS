@@ -11,19 +11,29 @@ package IG #DDDDDD{
 
              Author => [None..None]
              Author.institution => [0..1]
-             Author.institution.XON1 => [1..1]
-             Author.institution.XON6 => [1..1]
-             Author.institution.XON7 => [1..1]
-             Author.institution.XON10 => [1..1]
              Author.person => [1..1]
-             Author.person.XCN1 => [1..1]
-             Author.person.XCN2 => [1..1]
-             Author.person.XCN3 => [1..1]
-             Author.person.XCN9 => [1..1]
-             Author.person.XCN10 => [1..1]
-             Author.person.XCN13 => [1..1]
              Author.role => [1..1]
              Author.specialty => [0..1]
+        } 
+
+        class AuthorInstitution{
+
+             AuthorInstitution => [None..None]
+             AuthorInstitution.1 => [1..1]
+             AuthorInstitution.6 => [1..1]
+             AuthorInstitution.7 => [1..1]
+             AuthorInstitution.10 => [1..1]
+        } 
+
+        class AuthorPerson{
+
+             AuthorPerson => [None..None]
+             AuthorPerson.1 => [1..1]
+             AuthorPerson.2 => [1..1]
+             AuthorPerson.3 => [1..1]
+             AuthorPerson.9 => [1..1]
+             AuthorPerson.10 => [1..1]
+             AuthorPerson.13 => [1..1]
         } 
 
         class DocumentEntry{
@@ -38,31 +48,11 @@ package IG #DDDDDD{
              DocumentEntry.languageCode => [1..1]
              DocumentEntry.author => [1..*]
              DocumentEntry.legalAuthenticator => [1..1]
-             DocumentEntry.legalAuthenticator.XCN1 => [1..1]
-             DocumentEntry.legalAuthenticator.XCN2 => [1..1]
-             DocumentEntry.legalAuthenticator.XCN3 => [1..1]
-             DocumentEntry.legalAuthenticator.XCN9 => [1..1]
-             DocumentEntry.legalAuthenticator.XCN10 => [1..1]
-             DocumentEntry.legalAuthenticator.XCN13 => [1..1]
              DocumentEntry.repositoryUniqueId => [1..1]
              DocumentEntry.serviceStartTime => [1..1]
              DocumentEntry.serviceEndTime => [0..1]
              DocumentEntry.sourcePatientID => [1..1]
-             DocumentEntry.sourcePatientID.CX1 => [1..1]
-             DocumentEntry.sourcePatientID.CX4 => [1..1]
-             DocumentEntry.sourcePatientID.CX5 => [1..1]
              DocumentEntry.sourcePatientInfo => [1..1]
-             DocumentEntry.sourcePatientInfo.PID3 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID5 => [1..*]
-             DocumentEntry.sourcePatientInfo.PID7 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID8 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID11 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID13 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID14 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID15 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID16 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID18 => [0..1]
-             DocumentEntry.sourcePatientInfo.PID21 => [0..1]
              DocumentEntry.URI => [1..1]
              DocumentEntry.title => [1..1]
              DocumentEntry.comments => [0..1]
@@ -91,12 +81,48 @@ package IG #DDDDDD{
              EventCode.eventCode => [1..1]
         } 
 
+        class LegalAuthenticator{
+
+             LegalAuthenticator => [None..None]
+             LegalAuthenticator.1 => [1..1]
+             LegalAuthenticator.2 => [1..1]
+             LegalAuthenticator.3 => [1..1]
+             LegalAuthenticator.9 => [1..1]
+             LegalAuthenticator.10 => [1..1]
+             LegalAuthenticator.13 => [1..1]
+        } 
+
         class PatientId{
 
              PatientId => [None..None]
-             PatientId.CX1 => [1..1]
-             PatientId.CX4 => [1..1]
-             PatientId.CX5 => [1..1]
+             PatientId.1 => [1..1]
+             PatientId.4 => [1..1]
+             PatientId.5 => [1..1]
+        } 
+
+        class SourcePatientId{
+
+             SourcePatientId => [None..None]
+             SourcePatientId.1 => [1..1]
+             SourcePatientId.4 => [1..1]
+             SourcePatientId.5 => [1..1]
+        } 
+
+        class SourcePatientInfo{
+
+             SourcePatientInfo => [None..None]
+             SourcePatientInfo.PID => [1..1]
+             SourcePatientInfo.PID.3 => [0..1]
+             SourcePatientInfo.PID.5 => [1..*]
+             SourcePatientInfo.PID.7 => [0..1]
+             SourcePatientInfo.PID.8 => [0..1]
+             SourcePatientInfo.PID.11 => [0..1]
+             SourcePatientInfo.PID.13 => [0..1]
+             SourcePatientInfo.PID.14 => [0..1]
+             SourcePatientInfo.PID.15 => [0..1]
+             SourcePatientInfo.PID.16 => [0..1]
+             SourcePatientInfo.PID.18 => [0..1]
+             SourcePatientInfo.PID.21 => [0..1]
         } 
 
         class SubmissionSet{
@@ -133,6 +159,14 @@ package "Ressources de base" #palegreen {
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
+    class095a1b43effec73955e31e790438de49 --> AuthorInstitution
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> AuthorPerson
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
     class095a1b43effec73955e31e790438de49 --> DocumentEntry
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
@@ -141,7 +175,19 @@ package "Ressources de base" #palegreen {
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
+    class095a1b43effec73955e31e790438de49 --> LegalAuthenticator
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
     class095a1b43effec73955e31e790438de49 --> PatientId
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> SourcePatientId
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> SourcePatientInfo
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

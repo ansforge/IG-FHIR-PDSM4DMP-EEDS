@@ -1,0 +1,18 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"LegalAuthenticator","LegalAuthenticator","","","",0,*,"","","","null {[]} {[]}
+","LegalAuthenticator (LM)","Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : 
+-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). 
+-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : 
+  - système via un SNR responsable du document produit via ce SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier]]} {[]}
+","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.1",1,1,"",""
+"LegalAuthenticator.2","LegalAuthenticator.2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.2",1,1,"",""
+"LegalAuthenticator.3","LegalAuthenticator.3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.3",1,1,"",""
+"LegalAuthenticator.9","LegalAuthenticator.9","","","",1,1,"","","","string {[]} {[]}
+"," Autorité d’affectation "," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.9",1,1,"",""
+"LegalAuthenticator.10","LegalAuthenticator.10","","","",1,1,"","","","string {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.10",1,1,"",""
+"LegalAuthenticator.13","LegalAuthenticator.13","","","",1,1,"","","","string {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.13",1,1,"",""

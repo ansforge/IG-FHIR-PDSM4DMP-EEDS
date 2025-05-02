@@ -1,0 +1,9 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"SourcePatientId","SourcePatientId","","","",0,*,"","","","null {[]} {[]}
+"," SourcePatientId (LM)","Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"SourcePatientId.1","SourcePatientId.1","","","",1,1,"","","","Identifier {[]} {[]}
+","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.1",1,1,"",""
+"SourcePatientId.4","SourcePatientId.4","","","",1,1,"","","","string {[]} {[]}
+","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"SourcePatientId.4",1,1,"",""
+"SourcePatientId.5","SourcePatientId.5","","","",1,1,"","","","string {[]} {[]}
+"," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.5",1,1,"",""
