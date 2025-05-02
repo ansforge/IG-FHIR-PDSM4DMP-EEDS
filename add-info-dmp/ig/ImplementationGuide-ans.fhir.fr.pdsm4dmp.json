@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-02T13:48:14+00:00",
+  "date" : "2025-05-02T13:48:57+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -645,7 +645,7 @@
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     }],
     "grouping" : [{
-      "id" : "LogicalMddel",
+      "id" : "LogicalModel",
       "name" : "Model Logique",
       "description" : "Model Logique XDS"
     },
@@ -660,60 +660,12 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SourcePatientId"
+        "reference" : "StructureDefinition/SubmissionSet"
       },
-      "name" : " SourcePatientId (LM)",
-      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/SourcePatientInfo"
-      },
-      "name" : " SourcePatientInfo (LM)",
-      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/Author"
-      },
-      "name" : "Author (LM)",
-      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé),",
+      "name" : "SubmissionSet (LM)",
+      "description" : "Model logique d'un lot de soummission.",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalMddel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorInstitution"
-      },
-      "name" : "AuthorInstitution (LM)",
-      "description" : "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPerson"
-      },
-      "name" : "AuthorPerson (LM)",
-      "description" : "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
-      "exampleBoolean" : false
+      "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
@@ -726,7 +678,7 @@
       "name" : "Document Entry (LM)",
       "description" : "Model logique  d’une fiche",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalMddel"
+      "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
@@ -739,7 +691,98 @@
       "name" : "EventCode (LM)",
       "description" : "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalMddel"
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/Author"
+      },
+      "name" : "Author (LM)",
+      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé),",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorInstitution"
+      },
+      "name" : "AuthorInstitution (LM)",
+      "description" : "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPerson"
+      },
+      "name" : "AuthorPerson (LM)",
+      "description" : "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/PatientId"
+      },
+      "name" : "PatientId (LM)",
+      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SourcePatientId"
+      },
+      "name" : " SourcePatientId (LM)",
+      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SourcePatientInfo"
+      },
+      "name" : " SourcePatientInfo (LM)",
+      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/LegalAuthenticator"
+      },
+      "name" : "LegalAuthenticator (LM)",
+      "description" : "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModel"
     },
     {
       "extension" : [{
@@ -753,44 +796,6 @@
       "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
       "exampleBoolean" : false,
       "groupingId" : "mapping"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/LegalAuthenticator"
-      },
-      "name" : "LegalAuthenticator (LM)",
-      "description" : "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/PatientId"
-      },
-      "name" : "PatientId (LM)",
-      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalMddel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/SubmissionSet"
-      },
-      "name" : "SubmissionSet (LM)",
-      "description" : "Model logique d'un lot de soummission.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalMddel"
     },
     {
       "extension" : [{
@@ -987,6 +992,10 @@
     },
     "parameter" : [{
       "code" : "path-resource",
+      "value" : "input/fsh/V2"
+    },
+    {
+      "code" : "path-resource",
       "value" : "input/capabilities"
     },
     {
@@ -1016,10 +1025,6 @@
     {
       "code" : "path-resource",
       "value" : "input/vocabulary"
-    },
-    {
-      "code" : "path-resource",
-      "value" : "input/maps"
     },
     {
       "code" : "path-resource",

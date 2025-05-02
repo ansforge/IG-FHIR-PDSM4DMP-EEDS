@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-02T13:48:14+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-02T13:48:57+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -881,7 +881,7 @@
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
      ] ) ;
      fhir:grouping ( [
-       fhir:id [ fhir:v "LogicalMddel" ] ;
+       fhir:id [ fhir:v "LogicalModel" ] ;
        fhir:name [ fhir:v "Model Logique" ] ;
        fhir:description [ fhir:v "Model Logique XDS" ]
      ] [
@@ -898,88 +898,16 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SourcePatientId> ;
-         fhir:reference [ fhir:v "StructureDefinition/SourcePatientId" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet> ;
+         fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
        ] ;
-       fhir:name [ fhir:v " SourcePatientId (LM)" ] ;
-       fhir:description [ fhir:v "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SourcePatientInfo> ;
-         fhir:reference [ fhir:v "StructureDefinition/SourcePatientInfo" ]
-       ] ;
-       fhir:name [ fhir:v " SourcePatientInfo (LM)" ] ;
-       fhir:description [ fhir:v "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author> ;
-         fhir:reference [ fhir:v "StructureDefinition/Author" ]
-       ] ;
-       fhir:name [ fhir:v "Author (LM)" ] ;
-       fhir:description [ fhir:v "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé)," ] ;
+       fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
+       fhir:description [ fhir:v "Model logique d'un lot de soummission." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
        ] ;
-       fhir:groupingId [ fhir:v "LogicalMddel" ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorInstitution> ;
-         fhir:reference [ fhir:v "StructureDefinition/AuthorInstitution" ]
-       ] ;
-       fhir:name [ fhir:v "AuthorInstitution (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson> ;
-         fhir:reference [ fhir:v "StructureDefinition/AuthorPerson" ]
-       ] ;
-       fhir:name [ fhir:v "AuthorPerson (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
+       fhir:groupingId [ fhir:v "LogicalModel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -998,7 +926,7 @@
          a fhir:boolean ;
          fhir:v false
        ] ;
-       fhir:groupingId [ fhir:v "LogicalMddel" ]
+       fhir:groupingId [ fhir:v "LogicalModel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -1017,7 +945,140 @@
          a fhir:boolean ;
          fhir:v false
        ] ;
-       fhir:groupingId [ fhir:v "LogicalMddel" ]
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author> ;
+         fhir:reference [ fhir:v "StructureDefinition/Author" ]
+       ] ;
+       fhir:name [ fhir:v "Author (LM)" ] ;
+       fhir:description [ fhir:v "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé)," ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorInstitution> ;
+         fhir:reference [ fhir:v "StructureDefinition/AuthorInstitution" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorInstitution (LM)" ] ;
+       fhir:description [ fhir:v "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson> ;
+         fhir:reference [ fhir:v "StructureDefinition/AuthorPerson" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorPerson (LM)" ] ;
+       fhir:description [ fhir:v "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId> ;
+         fhir:reference [ fhir:v "StructureDefinition/PatientId" ]
+       ] ;
+       fhir:name [ fhir:v "PatientId (LM)" ] ;
+       fhir:description [ fhir:v "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SourcePatientId> ;
+         fhir:reference [ fhir:v "StructureDefinition/SourcePatientId" ]
+       ] ;
+       fhir:name [ fhir:v " SourcePatientId (LM)" ] ;
+       fhir:description [ fhir:v "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SourcePatientInfo> ;
+         fhir:reference [ fhir:v "StructureDefinition/SourcePatientInfo" ]
+       ] ;
+       fhir:name [ fhir:v " SourcePatientInfo (LM)" ] ;
+       fhir:description [ fhir:v "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/LegalAuthenticator> ;
+         fhir:reference [ fhir:v "StructureDefinition/LegalAuthenticator" ]
+       ] ;
+       fhir:name [ fhir:v "LegalAuthenticator (LM)" ] ;
+       fhir:description [ fhir:v "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -1037,62 +1098,6 @@
          fhir:v false
        ] ;
        fhir:groupingId [ fhir:v "mapping" ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/LegalAuthenticator> ;
-         fhir:reference [ fhir:v "StructureDefinition/LegalAuthenticator" ]
-       ] ;
-       fhir:name [ fhir:v "LegalAuthenticator (LM)" ] ;
-       fhir:description [ fhir:v "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId> ;
-         fhir:reference [ fhir:v "StructureDefinition/PatientId" ]
-       ] ;
-       fhir:name [ fhir:v "PatientId (LM)" ] ;
-       fhir:description [ fhir:v "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ] ;
-       fhir:groupingId [ fhir:v "LogicalMddel" ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet> ;
-         fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
-       ] ;
-       fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un lot de soummission." ] ;
-       fhir:example [
-         a fhir:boolean ;
-         fhir:v false
-       ] ;
-       fhir:groupingId [ fhir:v "LogicalMddel" ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -1399,6 +1404,9 @@
      ] ;
      fhir:parameter ( [
        fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/fsh/V2" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/capabilities" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
@@ -1421,9 +1429,6 @@
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/vocabulary" ]
-     ] [
-       fhir:code [ fhir:v "path-resource" ] ;
-       fhir:value [ fhir:v "input/maps" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/testing" ]
