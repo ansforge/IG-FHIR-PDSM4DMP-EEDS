@@ -22,7 +22,7 @@ dependencies:
 parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html
     shownav: 'true'
     path-resource:
-        #- input/fsh/data-type/primitive/primitives
+         input/fsh/V2
         #- input/fsh/data-type/primitive/complex/complex-data-type
 
 pages:
@@ -102,7 +102,7 @@ resources:
 
 
 groups:
-  LogicalMddel:
+  LogicalModel:
     name:  Model Logique
     description: Model Logique XDS
     resources:
@@ -110,8 +110,12 @@ groups:
       - StructureDefinition/DocumentEntry      
       - StructureDefinition/EventCode
       - StructureDefinition/Author
+      - StructureDefinition/AuthorInstitution
+      - StructureDefinition/AuthorPerson            
       - StructureDefinition/PatientId
-
+      - StructureDefinition/SourcePatientId
+      - StructureDefinition/SourcePatientInfo
+      - StructureDefinition/LegalAuthenticator
   mapping:
     name:  Mapping Volet partage vers PDSM
     description: Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""
