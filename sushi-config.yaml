@@ -103,22 +103,51 @@ resources:
 
 groups:
   LogicalModel:
-    name:  Model Logique
-    description: Model Logique XDS
+    name:  Model Logique SubmissionSet et  DocumentEntry (XDS)
+    description: Model Logique  SubmissionSet et  DocumentEntry XDS
     resources:
       - StructureDefinition/SubmissionSet
       - StructureDefinition/DocumentEntry      
-      - StructureDefinition/EventCode
-      - StructureDefinition/Author
-      - StructureDefinition/AuthorInstitution
-      - StructureDefinition/AuthorPerson            
+      - StructureDefinition/EventCode      
+
+  LogicalModelPatient:
+    name:  Model Logique Patient (XDS)
+    description: Model Logique Patient XDS
+    resources:
       - StructureDefinition/PatientId
       - StructureDefinition/SourcePatientId
       - StructureDefinition/SourcePatientInfo
+
+
+  LogicalModelAuthor:
+    name:  Model Logique Author et LegalAuthenticator (XDS)
+    description: Model Logique Author et LegalAuthenticator XDS
+    resources:
       - StructureDefinition/LegalAuthenticator
+      - StructureDefinition/Author
+      - StructureDefinition/AuthorInstitution
+      - StructureDefinition/AuthorPerson            
+      - StructureDefinition/AuthorPersonPS
+      - StructureDefinition/AuthorPersonPatient
+      - StructureDefinition/AuthorPersonSNR
+      - StructureDefinition/AuthorPersonSystem   
+
+  DataType:
+    name:  Data Type 
+    description: Type de base du Model Logique
+    resources:
+      - StructureDefinition/IdentifiantSysteme
+      - StructureDefinition/MatriculeINS
+      - StructureDefinition/PSIdNat
+      - StructureDefinition/SNR            
+      - StructureDefinition/StructIdNat
+
+
+
   mapping:
     name:  Mapping Volet partage vers PDSM
     description: Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""
     resources:
       - ConceptMap/documentReferenceToPDSM
       - ConceptMap/submissionSetToPDSM
+

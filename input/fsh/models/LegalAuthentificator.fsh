@@ -9,9 +9,9 @@ Cette métadonnée représente l’acteur prenant la responsabilité du contenu 
   - système via un SNR responsable du document produit via ce SNR. 
 """
 
-* 1 1..1 PSIdNat "Identifiant (PS_IdNat)"
-* 2 1..1 string "Nom d'exercice du professionnel, nom du patient, nom du système."
-* 3 1..1 string "Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
-* 9 1..1 string " Autorité d’affectation "
-* 10 1..1 string "Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes."
-* 13 1..1 string "Type d’identifiant"
+* XCN1 1..1 PSIdNat "Identifiant (PS_IdNat)"
+* XCN2 1..1 string "Nom d'exercice du professionnel, nom du patient, nom du système."
+* XCN3 1..1 string "Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
+* XCN9 1..1 string " Autorité d’affectation "
+* XCN10 1..1 string "Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes."
+* XCN13 1..1 string "Type d’identifiant"

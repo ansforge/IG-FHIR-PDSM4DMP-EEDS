@@ -25,3 +25,21 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
 * role from https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS (required)
 * specialty 0..1 CodeableConcept "Cet attribut représente la profession éventuellement associée au savoir-faire de l’auteur professionnel caractérisé par sa profession ou la profession associée au genre d’activité pour l’auteur professionnel caractérisé par son rôle. " "**AutorSpecialty**"
 * specialty from https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP (required)
+
+
+Mapping: AuthorCDA
+Target : "http://hl7.org/v3/cda"
+Description : "Mapping CDA"
+Source: Author
+* -> "Author"
+* role -> "author/functionCode@displayName"
+* specialty -> "author/assignedAuthor/code@code"
+
+Mapping: AuthorDICOMKOS
+Id: KOS
+Target : "https://www.dicomstandard.org/"
+Description : "Mapping DICOM KOS"
+Source: Author
+* -> "Author"
+* role -> "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"
+* specialty -> "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"

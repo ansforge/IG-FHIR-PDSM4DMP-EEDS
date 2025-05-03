@@ -1,14 +1,19 @@
 Logical: AuthorPersonSNR
-Parent: Base
+Parent: AuthorPerson
 Id: AuthorPersonSNR
 Title: "AuthorPersonSNR (LM)"
 Description: """
 Cet attribut représente l’auteur SNR. 
 """
 
-* 1 1..1 SNR "Identifiant"
-* 2 1..1 string "Nom du système"
-* 3 1..1 string " nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
-* 9 1..1 string " Autorité d’affectation : OID de l'éditeur   "
-* 10 1..1 string "U"
-* 13 1..1 string "RI"
+
+* XCN1 only Reference(SNR)
+* XCN1 ^example.label = "General"
+* XCN1 ^example.valueString = "9.8.7.6.5.4.3.2.1"
+* XCN2 ^short = "Nom du système"
+* XCN3 ^short = "Nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
+* XCN9.composant2  ^short = "OID de l'éditeur"
+* XCN9.composant2 ^example.label = "General"
+* XCN9.composant2 ^example.valueString = "9.8.7.6.5.4.3.2.1."
+* XCN10 ^short = "U"
+* XCN13 ^short = "RI"

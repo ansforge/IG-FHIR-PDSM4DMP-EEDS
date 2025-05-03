@@ -1,14 +1,16 @@
 Logical: AuthorPersonPatient
-Parent: Base
+Parent: AuthorPerson
 Id: AuthorPersonPatient
 Title: "AuthorPersonPatient (LM)"
 Description: """
 Cet attribut représente l’auteur Patient. 
 """
 
-* 1 1..1 MatriculeINS "Identifiant"
-* 2 1..1 string "Nom du patient"
-* 3 1..1 string "Prénom du Patient"
-* 9 1..1 string " Valeur de l'OID de l’autorité d’affectation de l’identifiant ( "
-* 10 1..1 string "D"
-* 13 1..1 string "IDNPS"
+* XCN1 only Reference(MatriculeINS)
+* XCN1 ^example.label = "General"
+* XCN1 ^example.valueString = "124018852493334"
+* XCN2 ^short = "Nom du patient"
+* XCN3 ^short = "Prénom du patient"
+* XCN9.composant2  ^short = "Valeur de l'OID de l’autorité d’affectation de l’identifiant"
+* XCN10 ^short = "D"
+* XCN13 ^short = "NH"
