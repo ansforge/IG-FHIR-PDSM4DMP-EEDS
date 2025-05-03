@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-03T15:16:04+00:00",
+  "date" : "2025-05-03T16:40:31+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -761,7 +761,33 @@
         "reference" : "StructureDefinition/Author"
       },
       "name" : "Author (LM)",
-      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
+      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution , authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorDocumentEntry"
+      },
+      "name" : "AuthorDocumentEntry (LM)",
+      "description" : "Modèle logique d'un auteur d'un documeny\nCette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. \nL’auteur peut être : \n-  Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n-  Un système de structure (dispositif, automate, appareil connecté…), \n-  Un SNR (Service Numérique Référencé),",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorSubmissionSet"
+      },
+      "name" : "AuthorSubmissionSet (LM)",
+      "description" : "Modèle logique d'un auteur d'un lot de soumission\nCette métadonnée représente les personnes physiques et/ou les systèmes auteurs d’un lot de soumission. \nConstituée des sous-attributs **authorInstitution**, **authorPerson**, **authorRole** et **authorSpecialty**, elle ne porte pas de valeur par elle-même.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -774,7 +800,7 @@
         "reference" : "StructureDefinition/AuthorInstitution"
       },
       "name" : "AuthorInstitution (LM)",
-      "description" : "Cet attribut représente la structure de l’auteur. \nPour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
+      "description" : "Cette métadonnée représente la structure émettrice du lot de soumission. \nPour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -944,7 +970,7 @@
       },
       "name" : "AuthorPatient",
       "description" : "Patient avec un INS",
-      "exampleCanonical" : "StructureDefinition/ActorPatient",
+      "exampleCanonical" : "StructureDefinition/AuthorDocumentEntry",
       "groupingId" : "exemple"
     },
     {
@@ -957,7 +983,7 @@
       },
       "name" : "AuthorDispositif",
       "description" : "Dispositif dans une structure de santé FINESS",
-      "exampleCanonical" : "StructureDefinition/ActorSystem",
+      "exampleCanonical" : "StructureDefinition/AuthorDocumentEntry",
       "groupingId" : "exemple"
     },
     {
@@ -970,7 +996,7 @@
       },
       "name" : "AuthorStructure",
       "description" : "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne",
-      "exampleCanonical" : "StructureDefinition/ActorPS",
+      "exampleCanonical" : "StructureDefinition/AuthorDocumentEntry",
       "groupingId" : "exemple"
     },
     {
@@ -983,7 +1009,7 @@
       },
       "name" : "AuthorPSCabinetRPPS",
       "description" : "Professionnel en cabinet RPPS libéral",
-      "exampleCanonical" : "StructureDefinition/ActorPS",
+      "exampleCanonical" : "StructureDefinition/AuthorDocumentEntry",
       "groupingId" : "exemple"
     }],
     "page" : {

@@ -70,8 +70,17 @@ package IG #DDDDDD{
              Author => [None..None]
              Author.institution => [0..1]
              Author.person => [1..1]
-             Author.role => [1..1]
+             Author.role => [0..*]
              Author.specialty => [0..1]
+        } 
+
+        class AuthorDocumentEntry{
+
+             AuthorDocumentEntry => [None..None]
+             AuthorDocumentEntry.institution => [None..None]
+             AuthorDocumentEntry.person => [None..None]
+             AuthorDocumentEntry.role => [None..None]
+             AuthorDocumentEntry.specialty => [None..None]
         } 
 
         class AuthorInstitution{
@@ -84,6 +93,14 @@ package IG #DDDDDD{
              AuthorInstitution.XON6.composant3 => [1..1]
              AuthorInstitution.XON7 => [1..1]
              AuthorInstitution.XON10 => [1..1]
+        } 
+
+        class AuthorSubmissionSet{
+
+             AuthorSubmissionSet => [None..None]
+             AuthorSubmissionSet.institution => [None..None]
+             AuthorSubmissionSet.person => [None..None]
+             AuthorSubmissionSet.role => [None..None]
         } 
 
         class DocumentEntry{
@@ -235,9 +252,17 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> Author
 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author" as  classc2475048e2c7036063c8904a63957e62 
+
+    classc2475048e2c7036063c8904a63957e62 --> AuthorDocumentEntry
+
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> AuthorInstitution
+
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author" as  classc2475048e2c7036063c8904a63957e62 
+
+    classc2475048e2c7036063c8904a63957e62 --> AuthorSubmissionSet
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

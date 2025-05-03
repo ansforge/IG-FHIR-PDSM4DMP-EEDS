@@ -1,6 +1,25 @@
 {
   "codeSystems" : [
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J03-XdsContentTypeCode-CISIS/FHIR/JDV-J03-XdsContentTypeCode-CISIS",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "JDV_J03_XdsContentTypeCode_CISIS",
+      "title" : null,
+      "description" : "XDS contentTypeCode CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
+        "https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite",
+        "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.464"],
+      "sources" : ["1.2.250.1.213.1.1.5.464"],
+      "uses" : {
+      },
+      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J231-XdsTypesIdentifiantsReferenceId-DMP/FHIR/JDV-J231-XdsTypesIdentifiantsReferenceId-DMP",
       "version" : "20221216120000",
       "status" : "active",
@@ -32,6 +51,8 @@
       "sources" : ["1.2.250.1.213.1.1.5.124"],
       "uses" : {
       },
+      "StructureDefinition-AuthorDocumentEntry.html" : "AuthorDocumentEntry (LM)",
+      "StructureDefinition-AuthorSubmissionSet.html" : "AuthorSubmissionSet (LM)",
       "StructureDefinition-Author.html" : "Author (LM)"
     },
     {
@@ -70,6 +91,8 @@
       "sources" : ["1.2.250.1.213.1.1.5.1"],
       "uses" : {
       },
+      "StructureDefinition-AuthorDocumentEntry.html" : "AuthorDocumentEntry (LM)",
+      "StructureDefinition-AuthorSubmissionSet.html" : "AuthorSubmissionSet (LM)",
       "StructureDefinition-Author.html" : "Author (LM)"
     },
     {
@@ -105,25 +128,6 @@
       "uses" : {
       },
       "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J59-ContentTypeCode-DMP/FHIR/JDV-J59-ContentTypeCode-DMP",
-      "version" : "20240927120000",
-      "status" : "active",
-      "name" : "JDV_J59_ContentTypeCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour contentTypeCode",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
-        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite",
-        "https://mos.esante.gouv.fr/NOS/TRE_R276-FormeActivite/FHIR/TRE-R276-FormeActivite",
-        "https://mos.esante.gouv.fr/NOS/TRE_R209-TypeActivite/FHIR/TRE-R209-TypeActivite"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.2"],
-      "sources" : ["1.2.250.1.213.1.1.5.2"],
-      "uses" : {
-      },
-      "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP",

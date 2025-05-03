@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-03T15:16:04+00:00"/>
+  <date value="2025-05-03T16:40:31+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -584,7 +584,31 @@
         <reference value="StructureDefinition/Author"/>
       </reference>
       <name value="Author (LM)"/>
-      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même."/>
+      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution , authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="LogicalModelAuthor"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorDocumentEntry"/>
+      </reference>
+      <name value="AuthorDocumentEntry (LM)"/>
+      <description value="Modèle logique d'un auteur d'un documeny&#xA;Cette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. &#xA;L’auteur peut être : &#xA;-  Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;-  Un système de structure (dispositif, automate, appareil connecté…), &#xA;-  Un SNR (Service Numérique Référencé),"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="LogicalModelAuthor"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AuthorSubmissionSet"/>
+      </reference>
+      <name value="AuthorSubmissionSet (LM)"/>
+      <description value="Modèle logique d'un auteur d'un lot de soumission&#xA;Cette métadonnée représente les personnes physiques et/ou les systèmes auteurs d’un lot de soumission. &#xA;Constituée des sous-attributs **authorInstitution**, **authorPerson**, **authorRole** et **authorSpecialty**, elle ne porte pas de valeur par elle-même."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -596,7 +620,7 @@
         <reference value="StructureDefinition/AuthorInstitution"/>
       </reference>
       <name value="AuthorInstitution (LM)"/>
-      <description value="Cet attribut représente la structure de l’auteur. &#xA;Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML &lt;rim:Slot name='authorInstitution'&gt; n’est pas transmis."/>
+      <description value="Cette métadonnée représente la structure émettrice du lot de soumission. &#xA;Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML &lt;rim:Slot name='authorInstitution'&gt; n’est pas transmis."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -753,7 +777,7 @@
       </reference>
       <name value="AuthorPatient"/>
       <description value="Patient avec un INS"/>
-      <exampleCanonical value="StructureDefinition/ActorPatient"/>
+      <exampleCanonical value="StructureDefinition/AuthorDocumentEntry"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -765,7 +789,7 @@
       </reference>
       <name value="AuthorDispositif"/>
       <description value="Dispositif dans une structure de santé FINESS"/>
-      <exampleCanonical value="StructureDefinition/ActorSystem"/>
+      <exampleCanonical value="StructureDefinition/AuthorDocumentEntry"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -777,7 +801,7 @@
       </reference>
       <name value="AuthorStructure"/>
       <description value="Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne"/>
-      <exampleCanonical value="StructureDefinition/ActorPS"/>
+      <exampleCanonical value="StructureDefinition/AuthorDocumentEntry"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -789,7 +813,7 @@
       </reference>
       <name value="AuthorPSCabinetRPPS"/>
       <description value="Professionnel en cabinet RPPS libéral"/>
-      <exampleCanonical value="StructureDefinition/ActorPS"/>
+      <exampleCanonical value="StructureDefinition/AuthorDocumentEntry"/>
       <groupingId value="exemple"/>
     </resource>
     <page>

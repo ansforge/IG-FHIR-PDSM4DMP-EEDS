@@ -1,6 +1,6 @@
 "Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null","Mapping: null"
 "AuthorInstitution","AuthorInstitution","","","",0,*,"","","","null {[]} {[]}
-","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. 
+","AuthorInstitution (LM)","Cette métadonnée représente la structure émettrice du lot de soumission. 
 Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","AuthorInstitution","AuthorInstitution"
 "AuthorInstitution.XON1","AuthorInstitution.XON1","","","",1,1,"","","","string {[]} {[]}
 ","Nom de la structure","Nom de la structure","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""NOM EDITEUR ""/>","","",,,,,"",,,,"AuthorInstitution.XON1",1,1,"","","author/assignedAuthor/representedOrganization/name","NA"
