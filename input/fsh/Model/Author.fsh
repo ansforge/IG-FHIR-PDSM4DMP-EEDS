@@ -12,7 +12,7 @@ L’auteur peut être :
 - Un SNR (Service Numérique Référencé), 
 
 
-author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. 
+author est un ensemble constitué des sous-attributs authorInstitution , authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. 
 """
 
 * institution 0..1 AuthorInstitution "Cet attribut représente la structure de l’auteur."
@@ -21,25 +21,9 @@ author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS
 * person 1..1 Reference(ActorPS or ActorPatient or ActorSNR or ActorSystem) "author"
 
 
-* role 1..1 CodeableConcept "Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). " "**Author Role**"
+* role 0..* CodeableConcept "Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). " "**Author Role**"
 * role from https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS (required)
 * specialty 0..1 CodeableConcept "Cet attribut représente la profession éventuellement associée au savoir-faire de l’auteur professionnel caractérisé par sa profession ou la profession associée au genre d’activité pour l’auteur professionnel caractérisé par son rôle. " "**AutorSpecialty**"
 * specialty from https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP (required)
 
 
-Mapping: AuthorCDA
-Target : "http://hl7.org/v3/cda"
-Description : "Mapping CDA"
-Source: Author
-* -> "Author"
-* role -> "author/functionCode@displayName"
-* specialty -> "author/assignedAuthor/code@code"
-
-Mapping: AuthorDICOMKOS
-Id: KOS
-Target : "https://www.dicomstandard.org/"
-Description : "Mapping DICOM KOS"
-Source: Author
-* -> "Author"
-* role -> "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"
-* specialty -> "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"

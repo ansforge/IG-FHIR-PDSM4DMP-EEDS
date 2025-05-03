@@ -3,7 +3,7 @@ Parent: Base
 Id: AuthorInstitution
 Title: "AuthorInstitution (LM)"
 Description: """
-Cet attribut représente la structure de l’auteur. 
+Cette métadonnée représente la structure émettrice du lot de soumission. 
 Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. 
 """
 

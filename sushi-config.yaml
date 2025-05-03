@@ -94,16 +94,16 @@ resources:
 
 #------------ Examples -----------
   Binary/AuthorPSCabinetRPPS:
-    profile: StructureDefinition/ActorPS
+    profile: StructureDefinition/AuthorDocumentEntry
 
   Binary/AuthorStructure:
-    profile: StructureDefinition/ActorPS
+    profile: StructureDefinition/AuthorDocumentEntry
 
   Binary/AuthorDispositif:
-    profile: StructureDefinition/ActorSystem
+    profile: StructureDefinition/AuthorDocumentEntry
 
   Binary/AuthorPatient:
-    profile: StructureDefinition/ActorPatient
+    profile: StructureDefinition/AuthorDocumentEntry
 
 
 groups:
@@ -130,6 +130,8 @@ groups:
     resources:
 #      - StructureDefinition/LegalAuthenticator
       - StructureDefinition/Author
+      - StructureDefinition/AuthorDocumentEntry
+      - StructureDefinition/AuthorSubmissionSet          
       - StructureDefinition/AuthorInstitution
       - StructureDefinition/ActorXDS            
       - StructureDefinition/ActorPS
