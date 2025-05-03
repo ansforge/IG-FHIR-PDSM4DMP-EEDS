@@ -22,7 +22,7 @@ dependencies:
 parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html
     shownav: 'true'
     path-resource:
-         input/fsh/V2
+         input/Examples
         #- input/fsh/data-type/primitive/complex/complex-data-type
 
 pages:
@@ -91,14 +91,19 @@ menu:
 
 resources:
 
-#------------ Concept Maps  -------------
-  ConceptMap/documentReferenceToPDSM:
-    name: ficheXDStoPDSM 
-    description: Relation entre une  fiche  du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"
 
-  ConceptMap/submissionSetToPDSM:
-    name: submissionSetXXDSToPDSM
-    description: Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"
+#------------ Examples -----------
+  Binary/AuthorPSCabinetRPPS:
+    profile: StructureDefinition/Author
+
+  Binary/AuthorStructure:
+    profile: StructureDefinition/Author
+
+  Binary/AuthorDispositif:
+    profile: StructureDefinition/Author
+
+  Binary/AuthorPatient:
+    profile: StructureDefinition/Author
 
 
 groups:
@@ -151,3 +156,12 @@ groups:
       - ConceptMap/documentReferenceToPDSM
       - ConceptMap/submissionSetToPDSM
 
+
+  exemple:
+    name:  Liste d'exemples
+    description: Liste des exemples 
+    resources:
+      - Binary/AuthorPatient
+      - Binary/AuthorDispositif
+      - Binary/AuthorStructure
+      - Binary/AuthorPSCabinetRPPS

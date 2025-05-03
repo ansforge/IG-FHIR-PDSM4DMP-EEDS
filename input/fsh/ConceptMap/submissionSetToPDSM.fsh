@@ -1,6 +1,10 @@
 Instance: submissionSetToPDSM
 InstanceOf: ConceptMap
 Usage: #definition
+Description: """
+ Relation entre un lot de soummission   du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'
+"""
+
 * name = "submissionSetToPDSM"
 * title = "submissionSetToPDSM"
 * status = #draft

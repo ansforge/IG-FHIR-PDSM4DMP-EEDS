@@ -1,6 +1,10 @@
 Instance: documentReferenceToPDSM
 InstanceOf: ConceptMap
 Usage: #definition
+Description: """
+Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'
+"""
+
 * name = "documentReferenceToPDSM"
 * title = "documentReferenceToPDSM"
 * status = #draft
