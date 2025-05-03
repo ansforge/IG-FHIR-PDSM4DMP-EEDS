@@ -10,8 +10,10 @@ Model logique d'un lot de soummission.
 * entryUUID 1..1 uuid "Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe."
 * availabilityStatus 1..1 code  "Cette métadonnée représente la pertinence d'un lot de soumission. "
 * availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (required)
-* availabilityStatus ^example.label = "Exemple"
-* availabilityStatus ^example.valueString = "'urn:oasis:names:tc:ebxml-regrep:StatusType:Approved': version à jour du lot de soumission. 'urn:asip:ci-sis:2010:StatusType:Archived': version archivée du lot de soumission, dans le cas où toutes les fiches du lot ont leur métadonnée availabilityStatus prenant la valeur  'urn:asip:ci-sis:2010:StatusType:Archived'. "
+* availabilityStatus ^example.label = "version à jour du lot de soumission"
+* availabilityStatus ^example.valueString = "urn:oasis:names:tc:ebxml-regrep:StatusType:Approved"
+* availabilityStatus ^example.label = "version archivée du lot de soumission"
+* availabilityStatus ^example.valueString = "'urn:asip:ci-sis:2010:StatusType:Archived "
 * submissionTime 1..1 dateTime "Représente la date et heure de soumission."
 * title 0..1 string "Titre du lot de soumission "
 * comments 0..1 string "Cette métadonnée contient le commentaire associé au lot de soumission. "
