@@ -326,20 +326,6 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-LegalAuthenticator.html"
-                  title="StructureDefinition/LegalAuthenticator">LegalAuthenticator (LM)</a>
-            </td>
-            <td>
-<p>Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document :</p>
-<ul>
-  <li>soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …).</li>
-  <li>soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous :</li>
-  <li>système via un SNR responsable du document produit via ce SNR.</li>
-</ul>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
                <a href="StructureDefinition-Author.html"
                   title="StructureDefinition/Author">Author (LM)</a>
             </td>
@@ -354,7 +340,7 @@ L’auteur peut être :</p>
   <li>Un SNR (Service Numérique Référencé),</li>
 </ul>
 
-<p>author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.</p>
+<p>author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.</p>
 </td>
          </tr>
          <tr>
@@ -369,47 +355,47 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-AuthorPerson.html"
-                  title="StructureDefinition/AuthorPerson">AuthorPerson (LM)</a>
+               <a href="StructureDefinition-ActorXDS.html"
+                  title="StructureDefinition/ActorXDS">ActorXDS (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.</p>
+<p>Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-AuthorPersonPS.html"
-                  title="StructureDefinition/AuthorPersonPS">AuthorPersonPS (LM)</a>
+               <a href="StructureDefinition-ActorPS.html"
+                  title="StructureDefinition/ActorPS">ActorPS (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente l’auteur PS.</p>
+<p>Cet attribut représente l'acteur  PS.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-AuthorPersonPatient.html"
-                  title="StructureDefinition/AuthorPersonPatient">AuthorPersonPatient (LM)</a>
+               <a href="StructureDefinition-ActorPatient.html"
+                  title="StructureDefinition/ActorPatient">ActorPatient (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente l’auteur Patient.</p>
+<p>Cet attribut représente l'acteur  Patient.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-AuthorPersonSNR.html"
-                  title="StructureDefinition/AuthorPersonSNR">AuthorPersonSNR (LM)</a>
+               <a href="StructureDefinition-ActorSNR.html"
+                  title="StructureDefinition/ActorSNR">ActorSNR (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente l’auteur SNR.</p>
+<p>Cet attribut représente l'acteur  SNR.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-AuthorPersonSystem.html"
-                  title="StructureDefinition/AuthorPersonSystem">AuthorPersonSystem (LM)</a>
+               <a href="StructureDefinition-ActorSystem.html"
+                  title="StructureDefinition/ActorSystem">ActorSystem (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente l’auteur System.</p>
+<p>Cet attribut représente l'actteur  System.</p>
 </td>
          </tr>
       </tbody>
@@ -602,7 +588,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, May 3, 2025 14:35+0000">2025-05-03</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, May 3, 2025 15:11+0000">2025-05-03</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

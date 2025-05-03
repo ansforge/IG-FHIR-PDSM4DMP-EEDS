@@ -7,6 +7,64 @@ package IG #DDDDDD{
 
      package Profiles #DDDDDD{
 
+        class ActorPS{
+
+             ActorPS => [None..None]
+             ActorPS.XCN1 => [None..None]
+             ActorPS.XCN2 => [None..None]
+             ActorPS.XCN3 => [None..None]
+             ActorPS.XCN9.composant2 => [None..None]
+             ActorPS.XCN10 => [None..None]
+             ActorPS.XCN13 => [None..None]
+        } 
+
+        class ActorPatient{
+
+             ActorPatient => [None..None]
+             ActorPatient.XCN1 => [None..None]
+             ActorPatient.XCN2 => [None..None]
+             ActorPatient.XCN3 => [None..None]
+             ActorPatient.XCN9.composant2 => [None..None]
+             ActorPatient.XCN10 => [None..None]
+             ActorPatient.XCN13 => [None..None]
+        } 
+
+        class ActorSNR{
+
+             ActorSNR => [None..None]
+             ActorSNR.XCN1 => [None..None]
+             ActorSNR.XCN2 => [None..None]
+             ActorSNR.XCN3 => [None..None]
+             ActorSNR.XCN9.composant2 => [None..None]
+             ActorSNR.XCN10 => [None..None]
+             ActorSNR.XCN13 => [None..None]
+        } 
+
+        class ActorSystem{
+
+             ActorSystem => [None..None]
+             ActorSystem.XCN1 => [None..None]
+             ActorSystem.XCN2 => [None..None]
+             ActorSystem.XCN3 => [None..None]
+             ActorSystem.XCN9.composant2 => [None..None]
+             ActorSystem.XCN10 => [None..None]
+             ActorSystem.XCN13 => [None..None]
+        } 
+
+        class ActorXDS{
+
+             ActorXDS => [None..None]
+             ActorXDS.XCN1 => [1..1]
+             ActorXDS.XCN2 => [1..1]
+             ActorXDS.XCN3 => [1..1]
+             ActorXDS.XCN9 => [1..1]
+             ActorXDS.XCN9.composant1 => [1..1]
+             ActorXDS.XCN9.composant2 => [1..1]
+             ActorXDS.XCN9.composant3 => [1..1]
+             ActorXDS.XCN10 => [1..1]
+             ActorXDS.XCN13 => [1..1]
+        } 
+
         class Author{
 
              Author => [None..None]
@@ -26,64 +84,6 @@ package IG #DDDDDD{
              AuthorInstitution.XON6.composant3 => [1..1]
              AuthorInstitution.XON7 => [1..1]
              AuthorInstitution.XON10 => [1..1]
-        } 
-
-        class AuthorPerson{
-
-             AuthorPerson => [None..None]
-             AuthorPerson.XCN1 => [1..1]
-             AuthorPerson.XCN2 => [1..1]
-             AuthorPerson.XCN3 => [1..1]
-             AuthorPerson.XCN9 => [1..1]
-             AuthorPerson.XCN9.composant1 => [1..1]
-             AuthorPerson.XCN9.composant2 => [1..1]
-             AuthorPerson.XCN9.composant3 => [1..1]
-             AuthorPerson.XCN10 => [1..1]
-             AuthorPerson.XCN13 => [1..1]
-        } 
-
-        class AuthorPersonPS{
-
-             AuthorPersonPS => [None..None]
-             AuthorPersonPS.XCN1 => [None..None]
-             AuthorPersonPS.XCN2 => [None..None]
-             AuthorPersonPS.XCN3 => [None..None]
-             AuthorPersonPS.XCN9.composant2 => [None..None]
-             AuthorPersonPS.XCN10 => [None..None]
-             AuthorPersonPS.XCN13 => [None..None]
-        } 
-
-        class AuthorPersonPatient{
-
-             AuthorPersonPatient => [None..None]
-             AuthorPersonPatient.XCN1 => [None..None]
-             AuthorPersonPatient.XCN2 => [None..None]
-             AuthorPersonPatient.XCN3 => [None..None]
-             AuthorPersonPatient.XCN9.composant2 => [None..None]
-             AuthorPersonPatient.XCN10 => [None..None]
-             AuthorPersonPatient.XCN13 => [None..None]
-        } 
-
-        class AuthorPersonSNR{
-
-             AuthorPersonSNR => [None..None]
-             AuthorPersonSNR.XCN1 => [None..None]
-             AuthorPersonSNR.XCN2 => [None..None]
-             AuthorPersonSNR.XCN3 => [None..None]
-             AuthorPersonSNR.XCN9.composant2 => [None..None]
-             AuthorPersonSNR.XCN10 => [None..None]
-             AuthorPersonSNR.XCN13 => [None..None]
-        } 
-
-        class AuthorPersonSystem{
-
-             AuthorPersonSystem => [None..None]
-             AuthorPersonSystem.XCN1 => [None..None]
-             AuthorPersonSystem.XCN2 => [None..None]
-             AuthorPersonSystem.XCN3 => [None..None]
-             AuthorPersonSystem.XCN9.composant2 => [None..None]
-             AuthorPersonSystem.XCN10 => [None..None]
-             AuthorPersonSystem.XCN13 => [None..None]
         } 
 
         class DocumentEntry{
@@ -133,17 +133,6 @@ package IG #DDDDDD{
 
         class IdentifiantSysteme{
 
-        } 
-
-        class LegalAuthenticator{
-
-             LegalAuthenticator => [None..None]
-             LegalAuthenticator.XCN1 => [1..1]
-             LegalAuthenticator.XCN2 => [1..1]
-             LegalAuthenticator.XCN3 => [1..1]
-             LegalAuthenticator.XCN9 => [1..1]
-             LegalAuthenticator.XCN10 => [1..1]
-             LegalAuthenticator.XCN13 => [1..1]
         } 
 
         class MatriculeINS{
@@ -222,6 +211,26 @@ package IG #DDDDDD{
 
 package "Ressources de base" #palegreen {
 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+
+    classb1fa6044c54073490b5e2804c2a7a77e --> ActorPS
+
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+
+    classb1fa6044c54073490b5e2804c2a7a77e --> ActorPatient
+
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+
+    classb1fa6044c54073490b5e2804c2a7a77e --> ActorSNR
+
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+
+    classb1fa6044c54073490b5e2804c2a7a77e --> ActorSystem
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> ActorXDS
+
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> Author
@@ -229,26 +238,6 @@ package "Ressources de base" #palegreen {
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> AuthorInstitution
-
- class "Base" as  class095a1b43effec73955e31e790438de49 
-
-    class095a1b43effec73955e31e790438de49 --> AuthorPerson
-
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
-
-    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonPS
-
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
-
-    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonPatient
-
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
-
-    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonSNR
-
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
-
-    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonSystem
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
@@ -261,10 +250,6 @@ package "Ressources de base" #palegreen {
  class "integer" as  class157db7df530023575515d366c9b672e8 
 
     class157db7df530023575515d366c9b672e8 --> IdentifiantSysteme
-
- class "Base" as  class095a1b43effec73955e31e790438de49 
-
-    class095a1b43effec73955e31e790438de49 --> LegalAuthenticator
 
  class "integer" as  class157db7df530023575515d366c9b672e8 
 

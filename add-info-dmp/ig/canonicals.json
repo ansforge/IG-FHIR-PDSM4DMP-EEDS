@@ -21,6 +21,41 @@
     "name" : "PDSm4DMP"
   },
   {
+    "id" : "ActorPS",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPS",
+    "version" : "0.1.0",
+    "name" : "ActorPS"
+  },
+  {
+    "id" : "ActorPatient",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient",
+    "version" : "0.1.0",
+    "name" : "ActorPatient"
+  },
+  {
+    "id" : "ActorSNR",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSNR",
+    "version" : "0.1.0",
+    "name" : "ActorSNR"
+  },
+  {
+    "id" : "ActorSystem",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSystem",
+    "version" : "0.1.0",
+    "name" : "ActorSystem"
+  },
+  {
+    "id" : "ActorXDS",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS",
+    "version" : "0.1.0",
+    "name" : "ActorXDS"
+  },
+  {
     "id" : "Author",
     "type" : "StructureDefinition",
     "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author",
@@ -33,41 +68,6 @@
     "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorInstitution",
     "version" : "0.1.0",
     "name" : "AuthorInstitution"
-  },
-  {
-    "id" : "AuthorPerson",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson",
-    "version" : "0.1.0",
-    "name" : "AuthorPerson"
-  },
-  {
-    "id" : "AuthorPersonPS",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPS",
-    "version" : "0.1.0",
-    "name" : "AuthorPersonPS"
-  },
-  {
-    "id" : "AuthorPersonPatient",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPatient",
-    "version" : "0.1.0",
-    "name" : "AuthorPersonPatient"
-  },
-  {
-    "id" : "AuthorPersonSNR",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonSNR",
-    "version" : "0.1.0",
-    "name" : "AuthorPersonSNR"
-  },
-  {
-    "id" : "AuthorPersonSystem",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonSystem",
-    "version" : "0.1.0",
-    "name" : "AuthorPersonSystem"
   },
   {
     "id" : "DocumentEntry",
@@ -89,13 +89,6 @@
     "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/IdentifiantSysteme",
     "version" : "0.1.0",
     "name" : "IdentifiantSysteme"
-  },
-  {
-    "id" : "LegalAuthenticator",
-    "type" : "StructureDefinition",
-    "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/LegalAuthenticator",
-    "version" : "0.1.0",
-    "name" : "LegalAuthenticator"
   },
   {
     "id" : "MatriculeINS",

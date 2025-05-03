@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-03T14:33:40+00:00",
+  "date" : "2025-05-03T15:10:00+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -758,23 +758,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/LegalAuthenticator"
-      },
-      "name" : "LegalAuthenticator (LM)",
-      "description" : "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModelAuthor"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
         "reference" : "StructureDefinition/Author"
       },
       "name" : "Author (LM)",
-      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
+      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -797,10 +784,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/AuthorPerson"
+        "reference" : "StructureDefinition/ActorXDS"
       },
-      "name" : "AuthorPerson (LM)",
-      "description" : "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
+      "name" : "ActorXDS (LM)",
+      "description" : "Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -810,10 +797,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonPS"
+        "reference" : "StructureDefinition/ActorPS"
       },
-      "name" : "AuthorPersonPS (LM)",
-      "description" : "Cet attribut représente l’auteur PS.",
+      "name" : "ActorPS (LM)",
+      "description" : "Cet attribut représente l'acteur  PS.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -823,10 +810,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonPatient"
+        "reference" : "StructureDefinition/ActorPatient"
       },
-      "name" : "AuthorPersonPatient (LM)",
-      "description" : "Cet attribut représente l’auteur Patient.",
+      "name" : "ActorPatient (LM)",
+      "description" : "Cet attribut représente l'acteur  Patient.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -836,10 +823,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonSNR"
+        "reference" : "StructureDefinition/ActorSNR"
       },
-      "name" : "AuthorPersonSNR (LM)",
-      "description" : "Cet attribut représente l’auteur SNR.",
+      "name" : "ActorSNR (LM)",
+      "description" : "Cet attribut représente l'acteur  SNR.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -849,10 +836,10 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonSystem"
+        "reference" : "StructureDefinition/ActorSystem"
       },
-      "name" : "AuthorPersonSystem (LM)",
-      "description" : "Cet attribut représente l’auteur System.",
+      "name" : "ActorSystem (LM)",
+      "description" : "Cet attribut représente l'actteur  System.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -957,7 +944,7 @@
       },
       "name" : "AuthorPatient",
       "description" : "Patient avec un INS",
-      "exampleCanonical" : "StructureDefinition/AuthorPersonPatient",
+      "exampleCanonical" : "StructureDefinition/ActorPatient",
       "groupingId" : "exemple"
     },
     {
@@ -970,7 +957,7 @@
       },
       "name" : "AuthorDispositif",
       "description" : "Dispositif dans une structure de santé FINESS",
-      "exampleCanonical" : "StructureDefinition/AuthorPersonSystem",
+      "exampleCanonical" : "StructureDefinition/ActorSystem",
       "groupingId" : "exemple"
     },
     {
@@ -983,7 +970,7 @@
       },
       "name" : "AuthorStructure",
       "description" : "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne",
-      "exampleCanonical" : "StructureDefinition/AuthorPersonPS",
+      "exampleCanonical" : "StructureDefinition/ActorPS",
       "groupingId" : "exemple"
     },
     {
@@ -996,7 +983,7 @@
       },
       "name" : "AuthorPSCabinetRPPS",
       "description" : "Professionnel en cabinet RPPS libéral",
-      "exampleCanonical" : "StructureDefinition/AuthorPersonPS",
+      "exampleCanonical" : "StructureDefinition/ActorPS",
       "groupingId" : "exemple"
     }],
     "page" : {

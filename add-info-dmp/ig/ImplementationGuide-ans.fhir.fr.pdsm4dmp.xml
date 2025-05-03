@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-03T14:33:40+00:00"/>
+  <date value="2025-05-03T15:10:00+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -581,22 +581,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/LegalAuthenticator"/>
-      </reference>
-      <name value="LegalAuthenticator (LM)"/>
-      <description value="Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : &#xA;-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). &#xA;-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : &#xA;  - système via un SNR responsable du document produit via ce SNR."/>
-      <exampleBoolean value="false"/>
-      <groupingId value="LogicalModelAuthor"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
         <reference value="StructureDefinition/Author"/>
       </reference>
       <name value="Author (LM)"/>
-      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même."/>
+      <description value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -617,10 +605,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/AuthorPerson"/>
+        <reference value="StructureDefinition/ActorXDS"/>
       </reference>
-      <name value="AuthorPerson (LM)"/>
-      <description value="Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient."/>
+      <name value="ActorXDS (LM)"/>
+      <description value="Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -629,10 +617,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/AuthorPersonPS"/>
+        <reference value="StructureDefinition/ActorPS"/>
       </reference>
-      <name value="AuthorPersonPS (LM)"/>
-      <description value="Cet attribut représente l’auteur PS."/>
+      <name value="ActorPS (LM)"/>
+      <description value="Cet attribut représente l'acteur  PS."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -641,10 +629,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/AuthorPersonPatient"/>
+        <reference value="StructureDefinition/ActorPatient"/>
       </reference>
-      <name value="AuthorPersonPatient (LM)"/>
-      <description value="Cet attribut représente l’auteur Patient."/>
+      <name value="ActorPatient (LM)"/>
+      <description value="Cet attribut représente l'acteur  Patient."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -653,10 +641,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/AuthorPersonSNR"/>
+        <reference value="StructureDefinition/ActorSNR"/>
       </reference>
-      <name value="AuthorPersonSNR (LM)"/>
-      <description value="Cet attribut représente l’auteur SNR."/>
+      <name value="ActorSNR (LM)"/>
+      <description value="Cet attribut représente l'acteur  SNR."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -665,10 +653,10 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/AuthorPersonSystem"/>
+        <reference value="StructureDefinition/ActorSystem"/>
       </reference>
-      <name value="AuthorPersonSystem (LM)"/>
-      <description value="Cet attribut représente l’auteur System."/>
+      <name value="ActorSystem (LM)"/>
+      <description value="Cet attribut représente l'actteur  System."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -765,7 +753,7 @@
       </reference>
       <name value="AuthorPatient"/>
       <description value="Patient avec un INS"/>
-      <exampleCanonical value="StructureDefinition/AuthorPersonPatient"/>
+      <exampleCanonical value="StructureDefinition/ActorPatient"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -777,7 +765,7 @@
       </reference>
       <name value="AuthorDispositif"/>
       <description value="Dispositif dans une structure de santé FINESS"/>
-      <exampleCanonical value="StructureDefinition/AuthorPersonSystem"/>
+      <exampleCanonical value="StructureDefinition/ActorSystem"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -789,7 +777,7 @@
       </reference>
       <name value="AuthorStructure"/>
       <description value="Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne"/>
-      <exampleCanonical value="StructureDefinition/AuthorPersonPS"/>
+      <exampleCanonical value="StructureDefinition/ActorPS"/>
       <groupingId value="exemple"/>
     </resource>
     <resource>
@@ -801,7 +789,7 @@
       </reference>
       <name value="AuthorPSCabinetRPPS"/>
       <description value="Professionnel en cabinet RPPS libéral"/>
-      <exampleCanonical value="StructureDefinition/AuthorPersonPS"/>
+      <exampleCanonical value="StructureDefinition/ActorPS"/>
       <groupingId value="exemple"/>
     </resource>
     <page>

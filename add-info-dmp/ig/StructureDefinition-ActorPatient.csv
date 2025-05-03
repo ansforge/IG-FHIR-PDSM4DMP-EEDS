@@ -1,0 +1,21 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null"
+"ActorPatient","ActorPatient","","","",0,*,"","","","null {[]} {[]}
+","ActorPatient (LM)","Cet attribut représente l'acteur  Patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","ActorXDS"
+"ActorPatient.XCN1","ActorPatient.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"",,,,"ActorXDS.XCN1",1,1,"","","author/assignedAuthor/id@extension"
+"ActorPatient.XCN2","ActorPatient.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom du patient","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN2",1,1,"","","author/assignedAuthor/assignedPerson/name/family"
+"ActorPatient.XCN3","ActorPatient.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom du patient","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN3",1,1,"","","author/assignedAuthor/assignedPerson/name/given"
+"ActorPatient.XCN9","ActorPatient.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN9",1,1,"","","NA"
+"ActorPatient.XCN9.composant1","ActorPatient.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN9.composant1",1,1,"","","NA"
+"ActorPatient.XCN9.composant2","ActorPatient.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","Valeur de l'OID de l’autorité d’affectation de l’identifiant","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN9.composant2",1,1,"","","author/assignedAuthor/id@root"
+"ActorPatient.XCN9.composant3","ActorPatient.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN9.composant3",1,1,"","","NA"
+"ActorPatient.XCN10","ActorPatient.XCN10","","","",1,1,"","","","code {[]} {[]}
+","D","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN10",1,1,"","","NA"
+"ActorPatient.XCN13","ActorPatient.XCN13","","","",1,1,"","","","code {[]} {[]}
+","NH","Type d’identifiant","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN13",1,1,"","","Valeur ne provenant pas de l’en-tête CDA"
