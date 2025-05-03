@@ -94,16 +94,16 @@ resources:
 
 #------------ Examples -----------
   Binary/AuthorPSCabinetRPPS:
-    profile: StructureDefinition/Author
+    profile: StructureDefinition/AuthorPersonPS
 
   Binary/AuthorStructure:
-    profile: StructureDefinition/Author
+    profile: StructureDefinition/AuthorPersonPS
 
   Binary/AuthorDispositif:
-    profile: StructureDefinition/Author
+    profile: StructureDefinition/AuthorPersonSystem
 
   Binary/AuthorPatient:
-    profile: StructureDefinition/Author
+    profile: StructureDefinition/AuthorPersonPatient
 
 
 groups:
