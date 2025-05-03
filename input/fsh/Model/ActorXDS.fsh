@@ -1,9 +1,9 @@
-Logical: AuthorPerson
+Logical: ActorXDS
 Parent: Base
-Id: AuthorPerson
-Title: "AuthorPerson (LM)"
+Id: ActorXDS
+Title: "ActorXDS (LM)"
 Description: """
-Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. 
+Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. 
 """
 
 * XCN1 1..1 Reference(PSIdNat or  MatriculeINS or SNR or IdentifiantSysteme) "Identifiant"
@@ -16,11 +16,11 @@ Cet attribut représente l’auteur (humain ou système) ayant contribué au doc
 * XCN10 1..1 code "Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes."
 * XCN13 1..1 code "Type d’identifiant"
 
-Mapping: AuthorPersonCDA
+Mapping: ActorXDSCDA
 Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
-Source: AuthorPerson
-* -> "AuthorPerson"
+Source: ActorXDS
+* -> "ActorXDS"
 * XCN1 -> "author/assignedAuthor/id@extension"
 * XCN2 -> "author/assignedAuthor/assignedPerson/name/family"
 * XCN3 -> "author/assignedAuthor/assignedPerson/name/given"

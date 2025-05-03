@@ -1,9 +1,9 @@
-Logical: AuthorPersonSystem
-Parent: AuthorPerson
-Id: AuthorPersonSystem
-Title: "AuthorPersonSystem (LM)"
+Logical: ActorSystem
+Parent: ActorXDS
+Id: ActorSystem
+Title: "ActorSystem (LM)"
 Description: """
-Cet attribut représente l’auteur System. 
+Cet attribut représente l'actteur  System. 
 """
 
 

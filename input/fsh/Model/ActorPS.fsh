@@ -1,9 +1,9 @@
-Logical: AuthorPersonPS
-Parent: AuthorPerson
-Id: AuthorPersonPS
-Title: "AuthorPersonPS (LM)"
+Logical: ActorPS
+Parent: ActorXDS
+Id: ActorPS
+Title: "ActorPS (LM)"
 Description: """
-Cet attribut représente l’auteur PS. 
+Cet attribut représente l'acteur  PS. 
 """
 
 

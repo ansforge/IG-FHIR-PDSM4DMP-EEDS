@@ -1,9 +1,9 @@
-Logical: AuthorPersonPatient
-Parent: AuthorPerson
-Id: AuthorPersonPatient
-Title: "AuthorPersonPatient (LM)"
+Logical: ActorPatient
+Parent: ActorXDS
+Id: ActorPatient
+Title: "ActorPatient (LM)"
 Description: """
-Cet attribut représente l’auteur Patient. 
+Cet attribut représente l'acteur  Patient. 
 """
 
 * XCN1 only Reference(MatriculeINS)

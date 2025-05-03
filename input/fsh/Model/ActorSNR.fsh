@@ -1,9 +1,9 @@
-Logical: AuthorPersonSNR
-Parent: AuthorPerson
-Id: AuthorPersonSNR
-Title: "AuthorPersonSNR (LM)"
+Logical: ActorSNR
+Parent: ActorXDS
+Id: ActorSNR
+Title: "ActorSNR (LM)"
 Description: """
-Cet attribut représente l’auteur SNR. 
+Cet attribut représente l'acteur  SNR. 
 """
 
 

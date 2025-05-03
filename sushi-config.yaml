@@ -94,16 +94,16 @@ resources:
 
 #------------ Examples -----------
   Binary/AuthorPSCabinetRPPS:
-    profile: StructureDefinition/AuthorPersonPS
+    profile: StructureDefinition/ActorPS
 
   Binary/AuthorStructure:
-    profile: StructureDefinition/AuthorPersonPS
+    profile: StructureDefinition/ActorPS
 
   Binary/AuthorDispositif:
-    profile: StructureDefinition/AuthorPersonSystem
+    profile: StructureDefinition/ActorSystem
 
   Binary/AuthorPatient:
-    profile: StructureDefinition/AuthorPersonPatient
+    profile: StructureDefinition/ActorPatient
 
 
 groups:
@@ -128,14 +128,14 @@ groups:
     name:  Model Logique Author et LegalAuthenticator (XDS)
     description: Model Logique Author et LegalAuthenticator XDS
     resources:
-      - StructureDefinition/LegalAuthenticator
+#      - StructureDefinition/LegalAuthenticator
       - StructureDefinition/Author
       - StructureDefinition/AuthorInstitution
-      - StructureDefinition/AuthorPerson            
-      - StructureDefinition/AuthorPersonPS
-      - StructureDefinition/AuthorPersonPatient
-      - StructureDefinition/AuthorPersonSNR
-      - StructureDefinition/AuthorPersonSystem   
+      - StructureDefinition/ActorXDS            
+      - StructureDefinition/ActorPS
+      - StructureDefinition/ActorPatient
+      - StructureDefinition/ActorSNR
+      - StructureDefinition/ActorSystem   
 
   DataType:
     name:  Data Type 

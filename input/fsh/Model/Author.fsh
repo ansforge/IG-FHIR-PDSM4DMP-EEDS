@@ -12,13 +12,13 @@ L’auteur peut être :
 - Un SNR (Service Numérique Référencé), 
 
 
-author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. 
+author est un ensemble constitué des sous-attributs authorInstitution, ActorXDS, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. 
 """
 
 * institution 0..1 AuthorInstitution "Cet attribut représente la structure de l’auteur."
 
 
-* person 1..1 Reference(AuthorPersonPS or AuthorPersonPatient or AuthorPersonSNR or AuthorPersonSystem) "author"
+* person 1..1 Reference(ActorPS or ActorPatient or ActorSNR or ActorSystem) "author"
 
 
 * role 1..1 CodeableConcept "Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). " "**Author Role**"

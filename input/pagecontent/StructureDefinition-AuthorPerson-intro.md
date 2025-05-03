@@ -11,6 +11,6 @@ réaffectés tel que présenté ci-dessous.
 #### Code d'usage
 
 R (Requis), pour des raisons opérationnelles, le code d'usage de
-**authorPerson** étant R2 (Requis si connu) dans XDS.
+**ActorXDS** étant R2 (Requis si connu) dans XDS.
 
 
