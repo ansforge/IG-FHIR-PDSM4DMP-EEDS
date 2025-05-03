@@ -19,65 +19,71 @@ package IG #DDDDDD{
         class AuthorInstitution{
 
              AuthorInstitution => [None..None]
-             AuthorInstitution.1 => [1..1]
-             AuthorInstitution.6 => [1..1]
-             AuthorInstitution.7 => [1..1]
-             AuthorInstitution.10 => [1..1]
+             AuthorInstitution.XON1 => [1..1]
+             AuthorInstitution.XON6 => [1..1]
+             AuthorInstitution.XON6.composant1 => [1..1]
+             AuthorInstitution.XON6.composant2 => [1..1]
+             AuthorInstitution.XON6.composant3 => [1..1]
+             AuthorInstitution.XON7 => [1..1]
+             AuthorInstitution.XON10 => [1..1]
         } 
 
         class AuthorPerson{
 
              AuthorPerson => [None..None]
-             AuthorPerson.1 => [1..1]
-             AuthorPerson.2 => [1..1]
-             AuthorPerson.3 => [1..1]
-             AuthorPerson.9 => [1..1]
-             AuthorPerson.10 => [1..1]
-             AuthorPerson.13 => [1..1]
+             AuthorPerson.XCN1 => [1..1]
+             AuthorPerson.XCN2 => [1..1]
+             AuthorPerson.XCN3 => [1..1]
+             AuthorPerson.XCN9 => [1..1]
+             AuthorPerson.XCN9.composant1 => [1..1]
+             AuthorPerson.XCN9.composant2 => [1..1]
+             AuthorPerson.XCN9.composant3 => [1..1]
+             AuthorPerson.XCN10 => [1..1]
+             AuthorPerson.XCN13 => [1..1]
         } 
 
         class AuthorPersonPS{
 
              AuthorPersonPS => [None..None]
-             AuthorPersonPS.1 => [1..1]
-             AuthorPersonPS.2 => [1..1]
-             AuthorPersonPS.3 => [1..1]
-             AuthorPersonPS.9 => [1..1]
-             AuthorPersonPS.10 => [1..1]
-             AuthorPersonPS.13 => [1..1]
+             AuthorPersonPS.XCN1 => [None..None]
+             AuthorPersonPS.XCN2 => [None..None]
+             AuthorPersonPS.XCN3 => [None..None]
+             AuthorPersonPS.XCN9.composant2 => [None..None]
+             AuthorPersonPS.XCN10 => [None..None]
+             AuthorPersonPS.XCN13 => [None..None]
         } 
 
         class AuthorPersonPatient{
 
              AuthorPersonPatient => [None..None]
-             AuthorPersonPatient.1 => [1..1]
-             AuthorPersonPatient.2 => [1..1]
-             AuthorPersonPatient.3 => [1..1]
-             AuthorPersonPatient.9 => [1..1]
-             AuthorPersonPatient.10 => [1..1]
-             AuthorPersonPatient.13 => [1..1]
+             AuthorPersonPatient.XCN1 => [None..None]
+             AuthorPersonPatient.XCN2 => [None..None]
+             AuthorPersonPatient.XCN3 => [None..None]
+             AuthorPersonPatient.XCN9.composant2 => [None..None]
+             AuthorPersonPatient.XCN10 => [None..None]
+             AuthorPersonPatient.XCN13 => [None..None]
         } 
 
         class AuthorPersonSNR{
 
              AuthorPersonSNR => [None..None]
-             AuthorPersonSNR.1 => [1..1]
-             AuthorPersonSNR.2 => [1..1]
-             AuthorPersonSNR.3 => [1..1]
-             AuthorPersonSNR.9 => [1..1]
-             AuthorPersonSNR.10 => [1..1]
-             AuthorPersonSNR.13 => [1..1]
+             AuthorPersonSNR.XCN1 => [None..None]
+             AuthorPersonSNR.XCN2 => [None..None]
+             AuthorPersonSNR.XCN3 => [None..None]
+             AuthorPersonSNR.XCN9.composant2 => [None..None]
+             AuthorPersonSNR.XCN10 => [None..None]
+             AuthorPersonSNR.XCN13 => [None..None]
         } 
 
         class AuthorPersonSystem{
 
              AuthorPersonSystem => [None..None]
-             AuthorPersonSystem.1 => [1..1]
-             AuthorPersonSystem.2 => [1..1]
-             AuthorPersonSystem.3 => [1..1]
-             AuthorPersonSystem.9 => [1..1]
-             AuthorPersonSystem.10 => [1..1]
-             AuthorPersonSystem.13 => [1..1]
+             AuthorPersonSystem.XCN1 => [None..None]
+             AuthorPersonSystem.XCN2 => [None..None]
+             AuthorPersonSystem.XCN3 => [None..None]
+             AuthorPersonSystem.XCN9.composant2 => [None..None]
+             AuthorPersonSystem.XCN10 => [None..None]
+             AuthorPersonSystem.XCN13 => [None..None]
         } 
 
         class DocumentEntry{
@@ -132,12 +138,12 @@ package IG #DDDDDD{
         class LegalAuthenticator{
 
              LegalAuthenticator => [None..None]
-             LegalAuthenticator.1 => [1..1]
-             LegalAuthenticator.2 => [1..1]
-             LegalAuthenticator.3 => [1..1]
-             LegalAuthenticator.9 => [1..1]
-             LegalAuthenticator.10 => [1..1]
-             LegalAuthenticator.13 => [1..1]
+             LegalAuthenticator.XCN1 => [1..1]
+             LegalAuthenticator.XCN2 => [1..1]
+             LegalAuthenticator.XCN3 => [1..1]
+             LegalAuthenticator.XCN9 => [1..1]
+             LegalAuthenticator.XCN10 => [1..1]
+             LegalAuthenticator.XCN13 => [1..1]
         } 
 
         class MatriculeINS{
@@ -151,9 +157,9 @@ package IG #DDDDDD{
         class PatientId{
 
              PatientId => [None..None]
-             PatientId.1 => [1..1]
-             PatientId.4 => [1..1]
-             PatientId.5 => [1..1]
+             PatientId.CX1 => [1..1]
+             PatientId.CX4 => [1..1]
+             PatientId.CX5 => [1..1]
         } 
 
         class SNR{
@@ -163,26 +169,25 @@ package IG #DDDDDD{
         class SourcePatientId{
 
              SourcePatientId => [None..None]
-             SourcePatientId.1 => [1..1]
-             SourcePatientId.4 => [1..1]
-             SourcePatientId.5 => [1..1]
+             SourcePatientId.CX1 => [1..1]
+             SourcePatientId.CX4 => [1..1]
+             SourcePatientId.CX5 => [1..1]
         } 
 
         class SourcePatientInfo{
 
              SourcePatientInfo => [None..None]
-             SourcePatientInfo.PID => [1..1]
-             SourcePatientInfo.PID.3 => [0..1]
-             SourcePatientInfo.PID.5 => [1..*]
-             SourcePatientInfo.PID.7 => [0..1]
-             SourcePatientInfo.PID.8 => [0..1]
-             SourcePatientInfo.PID.11 => [0..1]
-             SourcePatientInfo.PID.13 => [0..1]
-             SourcePatientInfo.PID.14 => [0..1]
-             SourcePatientInfo.PID.15 => [0..1]
-             SourcePatientInfo.PID.16 => [0..1]
-             SourcePatientInfo.PID.18 => [0..1]
-             SourcePatientInfo.PID.21 => [0..1]
+             SourcePatientInfo.PID3 => [0..1]
+             SourcePatientInfo.PID5 => [1..*]
+             SourcePatientInfo.PID7 => [0..1]
+             SourcePatientInfo.PID8 => [0..1]
+             SourcePatientInfo.PID11 => [0..1]
+             SourcePatientInfo.PID13 => [0..1]
+             SourcePatientInfo.PID14 => [0..1]
+             SourcePatientInfo.PID15 => [0..1]
+             SourcePatientInfo.PID16 => [0..1]
+             SourcePatientInfo.PID18 => [0..1]
+             SourcePatientInfo.PID21 => [0..1]
         } 
 
         class StructIdNat{
@@ -229,21 +234,21 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> AuthorPerson
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
 
-    class095a1b43effec73955e31e790438de49 --> AuthorPersonPS
+    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonPS
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
 
-    class095a1b43effec73955e31e790438de49 --> AuthorPersonPatient
+    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonPatient
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
 
-    class095a1b43effec73955e31e790438de49 --> AuthorPersonSNR
+    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonSNR
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPerson" as  class13efa5e33f55644d6cfbc450d7ab19ac 
 
-    class095a1b43effec73955e31e790438de49 --> AuthorPersonSystem
+    class13efa5e33f55644d6cfbc450d7ab19ac --> AuthorPersonSystem
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

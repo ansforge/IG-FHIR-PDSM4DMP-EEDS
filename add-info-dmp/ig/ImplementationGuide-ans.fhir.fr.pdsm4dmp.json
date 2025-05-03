@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-02T17:24:18+00:00",
+  "date" : "2025-05-03T11:17:55+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -646,8 +646,23 @@
     }],
     "grouping" : [{
       "id" : "LogicalModel",
-      "name" : "Model Logique",
-      "description" : "Model Logique XDS"
+      "name" : "Model Logique SubmissionSet et  DocumentEntry (XDS)",
+      "description" : "Model Logique  SubmissionSet et  DocumentEntry XDS"
+    },
+    {
+      "id" : "LogicalModelPatient",
+      "name" : "Model Logique Patient (XDS)",
+      "description" : "Model Logique Patient XDS"
+    },
+    {
+      "id" : "LogicalModelAuthor",
+      "name" : "Model Logique Author et LegalAuthenticator (XDS)",
+      "description" : "Model Logique Author et LegalAuthenticator XDS"
+    },
+    {
+      "id" : "DataType",
+      "name" : "Data Type",
+      "description" : "Type de base du Model Logique"
     },
     {
       "id" : "mapping",
@@ -657,175 +672,15 @@
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/IdentifiantSysteme"
-      },
-      "name" : " IdentifiantSysteme",
-      "description" : "Identification d'un systeme\n\nL’identification du ssyteme  est construite selon le tableau dessous :\n- 1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure \n- 3 + FINESS/Identifiant interne du système dans la structure  \n- 4 + SIREN/Identifiant interne du système dans la structure \n- 5 + SIRET/Identifiant interne du système dans la structure \n- 6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/MatriculeINS"
-      },
-      "name" : " MatriculeINS",
-      "description" : "Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/PSIdNat"
-      },
-      "name" : " PSIdNat",
-      "description" : "Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) \n\nL’identification nationale du PS est construite selon le tableau dessous :\n-  0 + N° ADELI \n- 1 + Identifiant cabinet ADELI/identifiant interne \n- 3 + FINESS/identifiant interne \n- 4 + SIREN/identifiant interne \n- 5 + SIRET/identifiant interne \n- 6 + Identifiant cabinet RPPS/identifiant interne \n- 8 + N° RPPS",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/SNR"
-      },
-      "name" : " SNR",
-      "description" : "Identifiant interne de l’instance de la solution ayant produit le document au format OID",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SourcePatientId"
+        "reference" : "StructureDefinition/SubmissionSet"
       },
-      "name" : " SourcePatientId (LM)",
-      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
+      "name" : "SubmissionSet (LM)",
+      "description" : "Model logique d'un lot de soummission.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/SourcePatientInfo"
-      },
-      "name" : " SourcePatientInfo (LM)",
-      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/StructIdNat"
-      },
-      "name" : " StructIdNat",
-      "description" : "Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. \n\nL’identification nationale d’une structure est construite selon le tableau dessous :\n-  0 + Identifiant cabinet ADELI \n- 1 + N° FINESS 2 + N° SIREN \n- 3 + N° SIRET \n- 4 + N° RPPS-rang \n- Néant + N° technique",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/Author"
-      },
-      "name" : "Author (LM)",
-      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorInstitution"
-      },
-      "name" : "AuthorInstitution (LM)",
-      "description" : "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPerson"
-      },
-      "name" : "AuthorPerson (LM)",
-      "description" : "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
-      "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonPatient"
-      },
-      "name" : "AuthorPersonPatient (LM)",
-      "description" : "Cet attribut représente l’auteur Patient.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonPS"
-      },
-      "name" : "AuthorPersonPS (LM)",
-      "description" : "Cet attribut représente l’auteur PS.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonSNR"
-      },
-      "name" : "AuthorPersonSNR (LM)",
-      "description" : "Cet attribut représente l’auteur SNR.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/AuthorPersonSystem"
-      },
-      "name" : "AuthorPersonSystem (LM)",
-      "description" : "Cet attribut représente l’auteur System.",
-      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -856,15 +711,41 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ConceptMap"
+        "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "ConceptMap/documentReferenceToPDSM"
+        "reference" : "StructureDefinition/PatientId"
       },
-      "name" : "ficheXDStoPDSM",
-      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
+      "name" : "PatientId (LM)",
+      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
       "exampleBoolean" : false,
-      "groupingId" : "mapping"
+      "groupingId" : "LogicalModelPatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SourcePatientId"
+      },
+      "name" : " SourcePatientId (LM)",
+      "description" : "Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelPatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SourcePatientInfo"
+      },
+      "name" : " SourcePatientInfo (LM)",
+      "description" : "Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelPatient"
     },
     {
       "extension" : [{
@@ -877,7 +758,7 @@
       "name" : "LegalAuthenticator (LM)",
       "description" : "Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document : \n-  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). \n-  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : \n  - système via un SNR responsable du document produit via ce SNR.",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
+      "groupingId" : "LogicalModelAuthor"
     },
     {
       "extension" : [{
@@ -885,12 +766,12 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/PatientId"
+        "reference" : "StructureDefinition/Author"
       },
-      "name" : "PatientId (LM)",
-      "description" : "Modèle logique de patientID.\nPatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.",
+      "name" : "Author (LM)",
+      "description" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
+      "groupingId" : "LogicalModelAuthor"
     },
     {
       "extension" : [{
@@ -898,12 +779,155 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SubmissionSet"
+        "reference" : "StructureDefinition/AuthorInstitution"
       },
-      "name" : "SubmissionSet (LM)",
-      "description" : "Model logique d'un lot de soummission.",
+      "name" : "AuthorInstitution (LM)",
+      "description" : "Cet attribut représente la structure de l’auteur. \nPour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis.",
       "exampleBoolean" : false,
-      "groupingId" : "LogicalModel"
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPerson"
+      },
+      "name" : "AuthorPerson (LM)",
+      "description" : "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPersonPS"
+      },
+      "name" : "AuthorPersonPS (LM)",
+      "description" : "Cet attribut représente l’auteur PS.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPersonPatient"
+      },
+      "name" : "AuthorPersonPatient (LM)",
+      "description" : "Cet attribut représente l’auteur Patient.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPersonSNR"
+      },
+      "name" : "AuthorPersonSNR (LM)",
+      "description" : "Cet attribut représente l’auteur SNR.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AuthorPersonSystem"
+      },
+      "name" : "AuthorPersonSystem (LM)",
+      "description" : "Cet attribut représente l’auteur System.",
+      "exampleBoolean" : false,
+      "groupingId" : "LogicalModelAuthor"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/IdentifiantSysteme"
+      },
+      "name" : " IdentifiantSysteme",
+      "description" : "Identification d'un systeme\n\nL’identification du ssyteme  est construite selon le tableau dessous :\n- 1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure \n- 3 + FINESS/Identifiant interne du système dans la structure  \n- 4 + SIREN/Identifiant interne du système dans la structure \n- 5 + SIRET/Identifiant interne du système dans la structure \n- 6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure",
+      "exampleBoolean" : false,
+      "groupingId" : "DataType"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/MatriculeINS"
+      },
+      "name" : " MatriculeINS",
+      "description" : "Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)",
+      "exampleBoolean" : false,
+      "groupingId" : "DataType"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/PSIdNat"
+      },
+      "name" : " PSIdNat",
+      "description" : "Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) \n\nL’identification nationale du PS est construite selon le tableau dessous :\n-  0 + N° ADELI \n- 1 + Identifiant cabinet ADELI/identifiant interne \n- 3 + FINESS/identifiant interne \n- 4 + SIREN/identifiant interne \n- 5 + SIRET/identifiant interne \n- 6 + Identifiant cabinet RPPS/identifiant interne \n- 8 + N° RPPS",
+      "exampleBoolean" : false,
+      "groupingId" : "DataType"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/SNR"
+      },
+      "name" : " SNR",
+      "description" : "Identifiant interne de l’instance de la solution ayant produit le document au format OID",
+      "exampleBoolean" : false,
+      "groupingId" : "DataType"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:primitive-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/StructIdNat"
+      },
+      "name" : " StructIdNat",
+      "description" : "Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. \n\nL’identification nationale d’une structure est construite selon le tableau dessous :\n-  0 + Identifiant cabinet ADELI \n- 1 + N° FINESS 2 + N° SIREN \n- 3 + N° SIRET \n- 4 + N° RPPS-rang \n- Néant + N° technique",
+      "exampleBoolean" : false,
+      "groupingId" : "DataType"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ConceptMap"
+      }],
+      "reference" : {
+        "reference" : "ConceptMap/documentReferenceToPDSM"
+      },
+      "name" : "ficheXDStoPDSM",
+      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
+      "exampleBoolean" : false,
+      "groupingId" : "mapping"
     },
     {
       "extension" : [{

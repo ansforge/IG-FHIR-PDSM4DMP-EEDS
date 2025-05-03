@@ -184,7 +184,7 @@
 
             <a href="#bottom">bottom</a>
 
-          | <a href="StructureDefinition-SourcePatientId.html">next&gt;</a>
+          | <a href="StructureDefinition-SubmissionSet.html">next&gt;</a>
 
           </span>
 
@@ -218,16 +218,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
    <p>Contents:</p>
    <ul>
       <li>
-         <a href="#1">Model Logique</a>
+         <a href="#1">Model Logique SubmissionSet et  DocumentEntry (XDS)</a>
       </li>
       <li>
-         <a href="#2">Mapping Volet partage vers PDSM</a>
+         <a href="#2">Model Logique Patient (XDS)</a>
       </li>
       <li>
-         <a href="#3">Structures: Logical Models</a>
+         <a href="#3">Model Logique Author et LegalAuthenticator (XDS)</a>
       </li>
       <li>
-         <a href="#4">Structures: Data Type Profiles</a>
+         <a href="#4">Data Type</a>
+      </li>
+      <li>
+         <a href="#5">Mapping Volet partage vers PDSM</a>
       </li>
    </ul>
 </div>
@@ -236,11 +239,62 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
      xmlns:html="http://www.w3.org/1999/xhtml">
    <p>This page provides a list of the FHIR artifacts defined as part of this implementation guide.</p>
    <a name="1"> </a>
-   <h3>Model Logique </h3>
-    <p>Model Logique XDS</p>
+   <h3>Model Logique SubmissionSet et  DocumentEntry (XDS) </h3>
+    <p>Model Logique  SubmissionSet et  DocumentEntry XDS</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-SubmissionSet.html"
+                  title="StructureDefinition/SubmissionSet">SubmissionSet (LM)</a>
+            </td>
+            <td>
+<p>Model logique d'un lot de soummission.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-DocumentEntry.html"
+                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
+            </td>
+            <td>
+<p>Model logique  d’une fiche</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-EventCode.html"
+                  title="StructureDefinition/EventCode">EventCode (LM)</a>
+            </td>
+            <td>
+<p>Model logique d'un eventCode.
+Un EventCode peut contenir le code représentant :</p>
+<ul>
+  <li>un évènement documenté (acte, traitement, diagnostic, etc…),</li>
+  <li>une modalité d’acquisition,</li>
+  <li>une région anatomique.</li>
+</ul>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="2"> </a>
+   <h3>Model Logique Patient (XDS) </h3>
+    <p>Model Logique Patient XDS</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-PatientId.html"
+                  title="StructureDefinition/PatientId">PatientId (LM)</a>
+            </td>
+            <td>
+<p>Modèle logique de patientID.
+PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-SourcePatientId.html"
@@ -257,6 +311,28 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Model Logique Author et LegalAuthenticator (XDS) </h3>
+    <p>Model Logique Author et LegalAuthenticator XDS</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-LegalAuthenticator.html"
+                  title="StructureDefinition/LegalAuthenticator">LegalAuthenticator (LM)</a>
+            </td>
+            <td>
+<p>Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document :</p>
+<ul>
+  <li>soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …).</li>
+  <li>soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous :</li>
+  <li>système via un SNR responsable du document produit via ce SNR.</li>
+</ul>
 </td>
          </tr>
          <tr>
@@ -284,7 +360,8 @@ L’auteur peut être :</p>
                   title="StructureDefinition/AuthorInstitution">AuthorInstitution (LM)</a>
             </td>
             <td>
-<p>Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML &lt;rim:Slot name='authorInstitution'&gt; n’est pas transmis.</p>
+<p>Cet attribut représente la structure de l’auteur. 
+Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML &lt;rim:Slot name='authorInstitution'&gt; n’est pas transmis.</p>
 </td>
          </tr>
          <tr>
@@ -296,97 +373,6 @@ L’auteur peut être :</p>
 <p>Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.</p>
 </td>
          </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-DocumentEntry.html"
-                  title="StructureDefinition/DocumentEntry">Document Entry (LM)</a>
-            </td>
-            <td>
-<p>Model logique  d’une fiche</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-EventCode.html"
-                  title="StructureDefinition/EventCode">EventCode (LM)</a>
-            </td>
-            <td>
-<p>Model logique d'un eventCode.
-Un EventCode peut contenir le code représentant :</p>
-<ul>
-  <li>un évènement documenté (acte, traitement, diagnostic, etc…),</li>
-  <li>une modalité d’acquisition,</li>
-  <li>une région anatomique.</li>
-</ul>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-LegalAuthenticator.html"
-                  title="StructureDefinition/LegalAuthenticator">LegalAuthenticator (LM)</a>
-            </td>
-            <td>
-<p>Cette métadonnée représente l’acteur prenant la responsabilité du contenu médical du document :</p>
-<ul>
-  <li>soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …).</li>
-  <li>soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous :</li>
-  <li>système via un SNR responsable du document produit via ce SNR.</li>
-</ul>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-PatientId.html"
-                  title="StructureDefinition/PatientId">PatientId (LM)</a>
-            </td>
-            <td>
-<p>Modèle logique de patientID.
-PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-SubmissionSet.html"
-                  title="StructureDefinition/SubmissionSet">SubmissionSet (LM)</a>
-            </td>
-            <td>
-<p>Model logique d'un lot de soummission.</p>
-</td>
-         </tr>
-      </tbody>
-   </table>
-   <a name="2"> </a>
-   <h3>Mapping Volet partage vers PDSM </h3>
-    <p>Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""</p>
-<table class="grid">
-      <col style="width:20%"/>
-      <tbody>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ConceptMap-documentReferenceToPDSM.html"
-                  title="ConceptMap/documentReferenceToPDSM">ficheXDStoPDSM</a>
-            </td>
-            <td>
-<p>Relation entre une  fiche  du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ConceptMap-submissionSetToPDSM.html"
-                  title="ConceptMap/submissionSetToPDSM">submissionSetXXDSToPDSM</a>
-            </td>
-            <td>
-<p>Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
-</td>
-         </tr>
-      </tbody>
-   </table>
-   <a name="3"> </a>
-   <h3>Structures: Logical Models </h3>
-    <p>These define data models that represent the domain covered by this implementation guide in more business-friendly terms than the underlying FHIR resources.</p>
-<table class="grid">
-      <col style="width:20%"/>
-      <tbody>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-AuthorPersonPS.html"
@@ -426,8 +412,8 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
       </tbody>
    </table>
    <a name="4"> </a>
-   <h3>Structures: Data Type Profiles </h3>
-    <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
+   <h3>Data Type </h3>
+    <p>Type de base du Model Logique</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
@@ -506,6 +492,32 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
          </tr>
       </tbody>
    </table>
+   <a name="5"> </a>
+   <h3>Mapping Volet partage vers PDSM </h3>
+    <p>Mapping du "Volet Partage de Documents de Santé"   vers "Partage de Documents de Santé en mobilité (PDSm)""</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-documentReferenceToPDSM.html"
+                  title="ConceptMap/documentReferenceToPDSM">ficheXDStoPDSM</a>
+            </td>
+            <td>
+<p>Relation entre une  fiche  du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-submissionSetToPDSM.html"
+                  title="ConceptMap/submissionSetToPDSM">submissionSetXXDSToPDSM</a>
+            </td>
+            <td>
+<p>Relation entre un lot de soummission   du "Volet Partage de Documents de Santé" et  documentReference du "Volet Partage de Documents de Santé en mobilité"</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
 </div>
 
 </div>
@@ -536,7 +548,7 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
               </td>
               <td style="text-align:right">&#xA0;
 
-                <a href="StructureDefinition-SourcePatientId.html">next&gt;</a>
+                <a href="StructureDefinition-SubmissionSet.html">next&gt;</a>
 
               </td>
             </tr>
@@ -546,7 +558,7 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, May 2, 2025 17:25+0000">2025-05-02</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, May 3, 2025 11:19+0000">2025-05-03</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

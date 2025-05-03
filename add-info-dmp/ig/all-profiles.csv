@@ -19,85 +19,122 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
 "Author","Author.specialty","Author.specialty","","","",0,1,"","","","CodeableConcept {[]} {[]}
 ","Cet attribut représente la profession éventuellement associée au savoir-faire de l’auteur professionnel caractérisé par sa profession ou la profession associée au genre d’activité pour l’auteur professionnel caractérisé par son rôle. ","**AutorSpecialty**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP","",,,,"Author.specialty",0,1,"",""
 "AuthorInstitution","AuthorInstitution","AuthorInstitution","","","",0,*,"","","","null {[]} {[]}
-","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorInstitution","AuthorInstitution.1","AuthorInstitution.1","","","",1,1,"","","","string {[]} {[]}
-","Nom de la structure","Nom de la structure","","","","","","","","","",,,,,"",,,,"AuthorInstitution.1",1,1,"",""
-"AuthorInstitution","AuthorInstitution.6","AuthorInstitution.6","","","",1,1,"","","","string {[]} {[]}
-","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.6",1,1,"",""
-"AuthorInstitution","AuthorInstitution.7","AuthorInstitution.7","","","",1,1,"","","","string {[]} {[]}
-","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorInstitution.7",1,1,"",""
-"AuthorInstitution","AuthorInstitution.10","AuthorInstitution.10","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/StructIdNat]]} {[]}
-"," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.10",1,1,"",""
+","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. 
+Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"AuthorInstitution","AuthorInstitution.XON1","AuthorInstitution.XON1","","","",1,1,"","","","string {[]} {[]}
+","Nom de la structure","Nom de la structure","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""NOM EDITEUR ""/>","","",,,,,"",,,,"AuthorInstitution.XON1",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON6","AuthorInstitution.XON6","","","",1,1,"","","","Base {[]} {[]}
+","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON6.composant1","AuthorInstitution.XON6.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant1",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON6.composant2","AuthorInstitution.XON6.composant2","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID","Valeur de Universal ID","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""1.3.2 (OID SIRENE)""/>","","",,,,,"",,,,"AuthorInstitution.XON6.composant2",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON6.composant3","AuthorInstitution.XON6.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant3",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON7","AuthorInstitution.XON7","","","",1,1,"","","","code {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""SIREN""/>","","",,,,,"",,,,"AuthorInstitution.XON7",1,1,"",""
+"AuthorInstitution","AuthorInstitution.XON10","AuthorInstitution.XON10","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/StructIdNat]]} {[]}
+"," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON10",1,1,"",""
 "AuthorPerson","AuthorPerson","AuthorPerson","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPerson (LM)","Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPerson","AuthorPerson.1","AuthorPerson.1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/IdentifiantSysteme]]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.1",1,1,"",""
-"AuthorPerson","AuthorPerson.2","AuthorPerson.2","","","",1,1,"","","","string {[]} {[]}
-","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.2",1,1,"",""
-"AuthorPerson","AuthorPerson.3","AuthorPerson.3","","","",1,1,"","","","string {[]} {[]}
-","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.3",1,1,"",""
-"AuthorPerson","AuthorPerson.9","AuthorPerson.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation "," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.9",1,1,"",""
-"AuthorPerson","AuthorPerson.10","AuthorPerson.10","","","",1,1,"","","","string {[]} {[]}
-","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.10",1,1,"",""
-"AuthorPerson","AuthorPerson.13","AuthorPerson.13","","","",1,1,"","","","string {[]} {[]}
-","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.13",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN1","AuthorPerson.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/IdentifiantSysteme]]}
+","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN2","AuthorPerson.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN3","AuthorPerson.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN9","AuthorPerson.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN9.composant1","AuthorPerson.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN9.composant2","AuthorPerson.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN9.composant3","AuthorPerson.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN10","AuthorPerson.XCN10","","","",1,1,"","","","code {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"",""
+"AuthorPerson","AuthorPerson.XCN13","AuthorPerson.XCN13","","","",1,1,"","","","code {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"",""
 "AuthorPersonPS","AuthorPersonPS","AuthorPersonPS","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPersonPS (LM)","Cet attribut représente l’auteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPersonPS","AuthorPersonPS.1","AuthorPersonPS.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.1",1,1,"",""
-"AuthorPersonPS","AuthorPersonPS.2","AuthorPersonPS.2","","","",1,1,"","","","string {[]} {[]}
-","Nom d'exercice du professionnel, nom du patient","Nom d'exercice du professionnel, nom du patient","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.2",1,1,"",""
-"AuthorPersonPS","AuthorPersonPS.3","AuthorPersonPS.3","","","",1,1,"","","","string {[]} {[]}
-","Prénom usuel de la personne (par défaut le premier prénom)","Prénom usuel de la personne (par défaut le premier prénom)","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.3",1,1,"",""
-"AuthorPersonPS","AuthorPersonPS.9","AuthorPersonPS.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation 1.2.250.1.71.4.2.1  "," Autorité d’affectation 1.2.250.1.71.4.2.1","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.9",1,1,"",""
-"AuthorPersonPS","AuthorPersonPS.10","AuthorPersonPS.10","","","",1,1,"","","","string {[]} {[]}
-","D","","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.10",1,1,"",""
-"AuthorPersonPS","AuthorPersonPS.13","AuthorPersonPS.13","","","",1,1,"","","","string {[]} {[]}
-","IDNPS","IDNPS","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.13",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN1","AuthorPersonPS.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""3750100125/1453""/>","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN2","AuthorPersonPS.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN3","AuthorPersonPS.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN9","AuthorPersonPS.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN9.composant1","AuthorPersonPS.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN9.composant2","AuthorPersonPS.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","1.2.250.1.71.4.2.1 (OID de gestion de personnes)","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN9.composant3","AuthorPersonPS.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN10","AuthorPersonPS.XCN10","","","",1,1,"","","","code {[]} {[]}
+","D","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"",""
+"AuthorPersonPS","AuthorPersonPS.XCN13","AuthorPersonPS.XCN13","","","",1,1,"","","","code {[]} {[]}
+","IDNPS","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"",""
 "AuthorPersonPatient","AuthorPersonPatient","AuthorPersonPatient","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPersonPatient (LM)","Cet attribut représente l’auteur Patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPersonPatient","AuthorPersonPatient.1","AuthorPersonPatient.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS]]} {[]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.1",1,1,"",""
-"AuthorPersonPatient","AuthorPersonPatient.2","AuthorPersonPatient.2","","","",1,1,"","","","string {[]} {[]}
-","Nom du patient","Nom du patient","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.2",1,1,"",""
-"AuthorPersonPatient","AuthorPersonPatient.3","AuthorPersonPatient.3","","","",1,1,"","","","string {[]} {[]}
-","Prénom du Patient","Prénom du Patient","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.3",1,1,"",""
-"AuthorPersonPatient","AuthorPersonPatient.9","AuthorPersonPatient.9","","","",1,1,"","","","string {[]} {[]}
-"," Valeur de l'OID de l’autorité d’affectation de l’identifiant ( "," Valeur de l'OID de l’autorité d’affectation de l’identifiant (","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.9",1,1,"",""
-"AuthorPersonPatient","AuthorPersonPatient.10","AuthorPersonPatient.10","","","",1,1,"","","","string {[]} {[]}
-","D","","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.10",1,1,"",""
-"AuthorPersonPatient","AuthorPersonPatient.13","AuthorPersonPatient.13","","","",1,1,"","","","string {[]} {[]}
-","IDNPS","IDNPS","","","","","","","","","",,,,,"",,,,"AuthorPersonPatient.13",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN1","AuthorPersonPatient.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN2","AuthorPersonPatient.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom du patient","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN3","AuthorPersonPatient.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom du patient","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN9","AuthorPersonPatient.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN9.composant1","AuthorPersonPatient.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN9.composant2","AuthorPersonPatient.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","Valeur de l'OID de l’autorité d’affectation de l’identifiant","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN9.composant3","AuthorPersonPatient.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN10","AuthorPersonPatient.XCN10","","","",1,1,"","","","code {[]} {[]}
+","D","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"",""
+"AuthorPersonPatient","AuthorPersonPatient.XCN13","AuthorPersonPatient.XCN13","","","",1,1,"","","","code {[]} {[]}
+","NH","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"",""
 "AuthorPersonSNR","AuthorPersonSNR","AuthorPersonSNR","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPersonSNR (LM)","Cet attribut représente l’auteur SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPersonSNR","AuthorPersonSNR.1","AuthorPersonSNR.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR]]} {[]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.1",1,1,"",""
-"AuthorPersonSNR","AuthorPersonSNR.2","AuthorPersonSNR.2","","","",1,1,"","","","string {[]} {[]}
-","Nom du système","Nom du système","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.2",1,1,"",""
-"AuthorPersonSNR","AuthorPersonSNR.3","AuthorPersonSNR.3","","","",1,1,"","","","string {[]} {[]}
-"," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.3",1,1,"",""
-"AuthorPersonSNR","AuthorPersonSNR.9","AuthorPersonSNR.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation : OID de l'éditeur   "," Autorité d’affectation : OID de l'éditeur","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.9",1,1,"",""
-"AuthorPersonSNR","AuthorPersonSNR.10","AuthorPersonSNR.10","","","",1,1,"","","","string {[]} {[]}
-","U","","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.10",1,1,"",""
-"AuthorPersonSNR","AuthorPersonSNR.13","AuthorPersonSNR.13","","","",1,1,"","","","string {[]} {[]}
-","RI","RI","","","","","","","","","",,,,,"",,,,"AuthorPersonSNR.13",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN1","AuthorPersonSNR.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""9.8.7.6.5.4.3.2.1""/>","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN2","AuthorPersonSNR.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom du système","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN3","AuthorPersonSNR.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN9","AuthorPersonSNR.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN9.composant1","AuthorPersonSNR.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN9.composant2","AuthorPersonSNR.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","OID de l'éditeur","Valeur de Universal ID","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""9.8.7.6.5.4.3.2.1.""/>","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN9.composant3","AuthorPersonSNR.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN10","AuthorPersonSNR.XCN10","","","",1,1,"","","","code {[]} {[]}
+","U","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"",""
+"AuthorPersonSNR","AuthorPersonSNR.XCN13","AuthorPersonSNR.XCN13","","","",1,1,"","","","code {[]} {[]}
+","RI","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"",""
 "AuthorPersonSystem","AuthorPersonSystem","AuthorPersonSystem","","","",0,*,"","","","null {[]} {[]}
 ","AuthorPersonSystem (LM)","Cet attribut représente l’auteur System. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPersonSystem","AuthorPersonSystem.1","AuthorPersonSystem.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/IdentifiantSysteme]]} {[]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.1",1,1,"",""
-"AuthorPersonSystem","AuthorPersonSystem.2","AuthorPersonSystem.2","","","",1,1,"","","","string {[]} {[]}
-","Nom du système","Nom du système","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.2",1,1,"",""
-"AuthorPersonSystem","AuthorPersonSystem.3","AuthorPersonSystem.3","","","",1,1,"","","","string {[]} {[]}
-"," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."," nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.3",1,1,"",""
-"AuthorPersonSystem","AuthorPersonSystem.9","AuthorPersonSystem.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation : 1.2.250.1.71.4.2.1    "," Autorité d’affectation : 1.2.250.1.71.4.2.1","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.9",1,1,"",""
-"AuthorPersonSystem","AuthorPersonSystem.10","AuthorPersonSystem.10","","","",1,1,"","","","string {[]} {[]}
-","U","","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.10",1,1,"",""
-"AuthorPersonSystem","AuthorPersonSystem.13","AuthorPersonSystem.13","","","",1,1,"","","","string {[]} {[]}
-","RI","RI","","","","","","","","","",,,,,"",,,,"AuthorPersonSystem.13",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN1","AuthorPersonSystem.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/IdentifiantSysteme]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""3750100125/88""/>","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN2","AuthorPersonSystem.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom du système","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN3","AuthorPersonSystem.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN9","AuthorPersonSystem.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN9.composant1","AuthorPersonSystem.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN9.composant2","AuthorPersonSystem.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","1.2.250.1.71.4.2.1 (OID de gestion de personnes/systèmes)","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN9.composant3","AuthorPersonSystem.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN10","AuthorPersonSystem.XCN10","","","",1,1,"","","","code {[]} {[]}
+","U","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"",""
+"AuthorPersonSystem","AuthorPersonSystem.XCN13","AuthorPersonSystem.XCN13","","","",1,1,"","","","code {[]} {[]}
+","RI","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"",""
 "DocumentEntry","DocumentEntry","DocumentEntry","","","",0,*,"","","","null {[]} {[]}
 ","Document Entry (LM)","Model logique  d’une fiche","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "DocumentEntry","DocumentEntry.entryUUID","DocumentEntry.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
@@ -192,18 +229,18 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 -  soit le professionnel qui prend la responsabilité du document (CDA ou DICOM KOS) produit par un professionnel (lui-même ou un autre) ou par un système rattaché à une structure (ES, …). 
 -  soit le patient/usager responsable du document d'expression personnelle • soit un système : exceptionnellement et uniquement pour le cas ci-dessous : 
   - système via un SNR responsable du document produit via ce SNR. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"LegalAuthenticator","LegalAuthenticator.1","LegalAuthenticator.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
-","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.1",1,1,"",""
-"LegalAuthenticator","LegalAuthenticator.2","LegalAuthenticator.2","","","",1,1,"","","","string {[]} {[]}
-","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.2",1,1,"",""
-"LegalAuthenticator","LegalAuthenticator.3","LegalAuthenticator.3","","","",1,1,"","","","string {[]} {[]}
-","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.3",1,1,"",""
-"LegalAuthenticator","LegalAuthenticator.9","LegalAuthenticator.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation "," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.9",1,1,"",""
-"LegalAuthenticator","LegalAuthenticator.10","LegalAuthenticator.10","","","",1,1,"","","","string {[]} {[]}
-","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.10",1,1,"",""
-"LegalAuthenticator","LegalAuthenticator.13","LegalAuthenticator.13","","","",1,1,"","","","string {[]} {[]}
-","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.13",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN1","LegalAuthenticator.XCN1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
+","Identifiant (PS_IdNat)","Identifiant (PS_IdNat)","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN1",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN2","LegalAuthenticator.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel, nom du patient, nom du système.","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN2",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN3","LegalAuthenticator.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN3",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN9","LegalAuthenticator.XCN9","","","",1,1,"","","","string {[]} {[]}
+"," Autorité d’affectation "," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN9",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN10","LegalAuthenticator.XCN10","","","",1,1,"","","","string {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : • D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN10",1,1,"",""
+"LegalAuthenticator","LegalAuthenticator.XCN13","LegalAuthenticator.XCN13","","","",1,1,"","","","string {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"LegalAuthenticator.XCN13",1,1,"",""
 "MatriculeINS","integer","integer","","","",0,*,"","","","null {[]} {[]}
 ","Primitive Type integer","A whole number","32 bit number; for values larger than this, use decimal","","","","","","","","",,,,,"",,,,"integer",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -229,12 +266,12 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 "PatientId","PatientId","PatientId","","","",0,*,"","","","null {[]} {[]}
 ","PatientId (LM)","Modèle logique de patientID.
 PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"PatientId","PatientId.1","PatientId.1","","","",1,1,"","","","Identifier {[]} {[]}
-","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.1",1,1,"",""
-"PatientId","PatientId.4","PatientId.4","","","",1,1,"","","","string {[]} {[]}
-","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"PatientId.4",1,1,"",""
-"PatientId","PatientId.5","PatientId.5","","","",1,1,"","","","string {[]} {[]}
-"," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.5",1,1,"",""
+"PatientId","PatientId.CX1","PatientId.CX1","","","",1,1,"","","","Identifier {[]} {[]}
+","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.CX1",1,1,"",""
+"PatientId","PatientId.CX4","PatientId.CX4","","","",1,1,"","","","string {[]} {[]}
+","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"PatientId.CX4",1,1,"",""
+"PatientId","PatientId.CX5","PatientId.CX5","","","",1,1,"","","","string {[]} {[]}
+"," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.CX5",1,1,"",""
 "SNR","integer","integer","","","",0,*,"","","","null {[]} {[]}
 ","Primitive Type integer","A whole number","32 bit number; for values larger than this, use decimal","","","","","","","","",,,,,"",,,,"integer",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -248,39 +285,37 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Primitive value for integer","The actual value","","","","","","","","<valueInteger xmlns=""http://hl7.org/fhir"" value=""-2147483648""/>","<valueInteger xmlns=""http://hl7.org/fhir"" value=""2147483647""/>",,,,,"",,,,"integer.value",0,1,"",""
 "SourcePatientId","SourcePatientId","SourcePatientId","","","",0,*,"","","","null {[]} {[]}
 "," SourcePatientId (LM)","Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"SourcePatientId","SourcePatientId.1","SourcePatientId.1","","","",1,1,"","","","Identifier {[]} {[]}
-","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.1",1,1,"",""
-"SourcePatientId","SourcePatientId.4","SourcePatientId.4","","","",1,1,"","","","string {[]} {[]}
-","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"SourcePatientId.4",1,1,"",""
-"SourcePatientId","SourcePatientId.5","SourcePatientId.5","","","",1,1,"","","","string {[]} {[]}
-"," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.5",1,1,"",""
+"SourcePatientId","SourcePatientId.CX1","SourcePatientId.CX1","","","",1,1,"","","","Identifier {[]} {[]}
+","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.CX1",1,1,"",""
+"SourcePatientId","SourcePatientId.CX4","SourcePatientId.CX4","","","",1,1,"","","","string {[]} {[]}
+","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"SourcePatientId.CX4",1,1,"",""
+"SourcePatientId","SourcePatientId.CX5","SourcePatientId.CX5","","","",1,1,"","","","string {[]} {[]}
+"," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"SourcePatientId.CX5",1,1,"",""
 "SourcePatientInfo","SourcePatientInfo","SourcePatientInfo","","","",0,*,"","","","null {[]} {[]}
 "," SourcePatientInfo (LM)","Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document. 
 ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"SourcePatientInfo","SourcePatientInfo.PID","SourcePatientInfo.PID","","","",1,1,"","","","Base {[]} {[]}
-","type PID","type PID","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID",1,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.3","SourcePatientInfo.PID.3","","","",0,1,"","","","Identifier {[]} {[]}
-","Liste des identifiants du patient","Liste des identifiants du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.3",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.5","SourcePatientInfo.PID.5","","","",1,*,"","","","string {[]} {[]}
-","Nom et prénoms du patient","Nom et prénoms du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.5",1,*,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.7","SourcePatientInfo.PID.7","","","",0,1,"","","","string {[]} {[]}
-","Date/heure de naissance du patient","Date/heure de naissance du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.7",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.8","SourcePatientInfo.PID.8","","","",0,1,"","","","string {[]} {[]}
-","Sexe du patient","Sexe du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.8",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.11","SourcePatientInfo.PID.11","","","",0,1,"","","","string {[]} {[]}
-","Adresse du patient","Adresse du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.11",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.13","SourcePatientInfo.PID.13","","","",0,1,"","","","string {[]} {[]}
-","Téléphone de la résidence du patient","Téléphone de la résidence du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.13",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.14","SourcePatientInfo.PID.14","","","",0,1,"","","","string {[]} {[]}
-","Téléphone professionnel du patient","Téléphone professionnel du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.14",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.15","SourcePatientInfo.PID.15","","","",0,1,"","","","string {[]} {[]}
-","Langue du patient","Langue du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.15",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.16","SourcePatientInfo.PID.16","","","",0,1,"","","","string {[]} {[]}
-","Statut marital du patient","Statut marital du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.16",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.18","SourcePatientInfo.PID.18","","","",0,1,"","","","string {[]} {[]}
-","Numéro de compte du patient","Numéro de compte du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.18",0,1,"",""
-"SourcePatientInfo","SourcePatientInfo.PID.21","SourcePatientInfo.PID.21","","","",0,1,"","","","string {[]} {[]}
-","Identifiant de la mère du patient","Identifiant de la mère du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.21",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID3","SourcePatientInfo.PID3","","","",0,1,"","","","Identifier {[]} {[]}
+","Liste des identifiants du patient","Liste des identifiants du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID3",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID5","SourcePatientInfo.PID5","","","",1,*,"","","","string {[]} {[]}
+","Nom et prénoms du patient","Nom et prénoms du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID5",1,*,"",""
+"SourcePatientInfo","SourcePatientInfo.PID7","SourcePatientInfo.PID7","","","",0,1,"","","","string {[]} {[]}
+","Date/heure de naissance du patient","Date/heure de naissance du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID7",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID8","SourcePatientInfo.PID8","","","",0,1,"","","","string {[]} {[]}
+","Sexe du patient","Sexe du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID8",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID11","SourcePatientInfo.PID11","","","",0,1,"","","","string {[]} {[]}
+","Adresse du patient","Adresse du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID11",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID13","SourcePatientInfo.PID13","","","",0,1,"","","","string {[]} {[]}
+","Téléphone de la résidence du patient","Téléphone de la résidence du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID13",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID14","SourcePatientInfo.PID14","","","",0,1,"","","","string {[]} {[]}
+","Téléphone professionnel du patient","Téléphone professionnel du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID14",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID15","SourcePatientInfo.PID15","","","",0,1,"","","","string {[]} {[]}
+","Langue du patient","Langue du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID15",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID16","SourcePatientInfo.PID16","","","",0,1,"","","","string {[]} {[]}
+","Statut marital du patient","Statut marital du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID16",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID18","SourcePatientInfo.PID18","","","",0,1,"","","","string {[]} {[]}
+","Numéro de compte du patient","Numéro de compte du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID18",0,1,"",""
+"SourcePatientInfo","SourcePatientInfo.PID21","SourcePatientInfo.PID21","","","",0,1,"","","","string {[]} {[]}
+","Identifiant de la mère du patient","Identifiant de la mère du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID21",0,1,"",""
 "StructIdNat","integer","integer","","","",0,*,"","","","null {[]} {[]}
 ","Primitive Type integer","A whole number","32 bit number; for values larger than this, use decimal","","","","","","","","",,,,,"",,,,"integer",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "

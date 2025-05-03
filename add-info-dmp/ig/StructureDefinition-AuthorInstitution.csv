@@ -1,11 +1,18 @@
-"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null","Mapping: null"
 "AuthorInstitution","AuthorInstitution","","","",0,*,"","","","null {[]} {[]}
-","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorInstitution.1","AuthorInstitution.1","","","",1,1,"","","","string {[]} {[]}
-","Nom de la structure","Nom de la structure","","","","","","","","","",,,,,"",,,,"AuthorInstitution.1",1,1,"",""
-"AuthorInstitution.6","AuthorInstitution.6","","","",1,1,"","","","string {[]} {[]}
-","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.6",1,1,"",""
-"AuthorInstitution.7","AuthorInstitution.7","","","",1,1,"","","","string {[]} {[]}
-","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorInstitution.7",1,1,"",""
-"AuthorInstitution.10","AuthorInstitution.10","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/StructIdNat]]} {[]}
-"," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.10",1,1,"",""
+","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. 
+Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","AuthorInstitution","AuthorInstitution"
+"AuthorInstitution.XON1","AuthorInstitution.XON1","","","",1,1,"","","","string {[]} {[]}
+","Nom de la structure","Nom de la structure","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""NOM EDITEUR ""/>","","",,,,,"",,,,"AuthorInstitution.XON1",1,1,"","","author/assignedAuthor/representedOrganization/name","NA"
+"AuthorInstitution.XON6","AuthorInstitution.XON6","","","",1,1,"","","","Base {[]} {[]}
+","Autorité d’affectation","Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6",1,1,"",""
+"AuthorInstitution.XON6.composant1","AuthorInstitution.XON6.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant1",1,1,"","","NA","NA"
+"AuthorInstitution.XON6.composant2","AuthorInstitution.XON6.composant2","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID","Valeur de Universal ID","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""1.3.2 (OID SIRENE)""/>","","",,,,,"",,,,"AuthorInstitution.XON6.composant2",1,1,"","","author/assignedAuthor/representedOrganization/id@root","NA"
+"AuthorInstitution.XON6.composant3","AuthorInstitution.XON6.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant3",1,1,"","","NA","NA"
+"AuthorInstitution.XON7","AuthorInstitution.XON7","","","",1,1,"","","","code {[]} {[]}
+","Type d’identifiant","Type d’identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""SIREN""/>","","",,,,,"",,,,"AuthorInstitution.XON7",1,1,"","","Valeur ne provenant pas de l’en-tête CDA","NA"
+"AuthorInstitution.XON10","AuthorInstitution.XON10","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/StructIdNat]]} {[]}
+"," Identifiant de la structure (Struct_IdNat)"," Identifiant de la structure (Struct_IdNat)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON10",1,1,"","","author/assignedAuthor/representedOrganization/id@extension","NA"

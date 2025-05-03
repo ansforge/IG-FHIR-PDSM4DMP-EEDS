@@ -10,7 +10,7 @@
   "name" : "Author",
   "title" : "Author (LM)",
   "status" : "draft",
-  "date" : "2025-05-02T17:24:18+00:00",
+  "date" : "2025-05-03T11:17:55+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -28,6 +28,16 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "AuthorCDA",
+    "uri" : "http://hl7.org/v3/cda",
+    "comment" : "Mapping CDA"
+  },
+  {
+    "identity" : "KOS",
+    "uri" : "https://www.dicomstandard.org/",
+    "comment" : "Mapping DICOM KOS"
+  }],
   "kind" : "logical",
   "abstract" : false,
   "type" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author",
@@ -50,7 +60,15 @@
         "min" : 0,
         "max" : "*"
       },
-      "isModifier" : false
+      "isModifier" : false,
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "Author"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Author"
+      }]
     },
     {
       "id" : "Author.institution",
@@ -106,7 +124,15 @@
       "binding" : {
         "strength" : "required",
         "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"
-      }
+      },
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "author/functionCode@displayName"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"
+      }]
     },
     {
       "id" : "Author.specialty",
@@ -126,7 +152,15 @@
       "binding" : {
         "strength" : "required",
         "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"
-      }
+      },
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "author/assignedAuthor/code@code"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"
+      }]
     }]
   },
   "differential" : {
@@ -134,7 +168,15 @@
       "id" : "Author",
       "path" : "Author",
       "short" : "Author (LM)",
-      "definition" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. "
+      "definition" : "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. ",
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "Author"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Author"
+      }]
     },
     {
       "id" : "Author.institution",
@@ -175,7 +217,15 @@
       "binding" : {
         "strength" : "required",
         "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"
-      }
+      },
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "author/functionCode@displayName"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"
+      }]
     },
     {
       "id" : "Author.specialty",
@@ -190,7 +240,15 @@
       "binding" : {
         "strength" : "required",
         "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"
-      }
+      },
+      "mapping" : [{
+        "identity" : "AuthorCDA",
+        "map" : "author/assignedAuthor/code@code"
+      },
+      {
+        "identity" : "KOS",
+        "map" : "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"
+      }]
     }]
   }
 }

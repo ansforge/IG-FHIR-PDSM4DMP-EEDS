@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "Author"] ; # 
   fhir:title [ fhir:v "Author (LM)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-02T17:24:18+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-03T11:17:55+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -36,6 +36,15 @@
      ] )
   ] ) ; # 
   fhir:fhirVersion [ fhir:v "4.0.1"] ; # 
+  fhir:mapping ( [
+     fhir:identity [ fhir:v "AuthorCDA" ] ;
+     fhir:uri [ fhir:v "http://hl7.org/v3/cda"^^xsd:anyURI ] ;
+     fhir:comment [ fhir:v "Mapping CDA" ]
+  ] [
+     fhir:identity [ fhir:v "KOS" ] ;
+     fhir:uri [ fhir:v "https://www.dicomstandard.org/"^^xsd:anyURI ] ;
+     fhir:comment [ fhir:v "Mapping DICOM KOS" ]
+  ] ) ; # 
   fhir:kind [ fhir:v "logical"] ; # 
   fhir:abstract [ fhir:v false] ; # 
   fhir:type [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author"^^xsd:anyURI] ; # 
@@ -64,7 +73,14 @@
          fhir:min [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
          fhir:max [ fhir:v "*" ]
        ] ;
-       fhir:isModifier [ fhir:v false ]
+       fhir:isModifier [ fhir:v false ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "Author" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Author" ]
+       ] )
      ] [
        fhir:id [ fhir:v "Author.institution" ] ;
        fhir:path [ fhir:v "Author.institution" ] ;
@@ -129,7 +145,14 @@
            fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"^^xsd:anyURI ;
            fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS>
          ]
-       ]
+       ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "author/functionCode@displayName" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS" ]
+       ] )
      ] [
        fhir:id [ fhir:v "Author.specialty" ] ;
        fhir:path [ fhir:v "Author.specialty" ] ;
@@ -151,7 +174,14 @@
            fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"^^xsd:anyURI ;
            fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP>
          ]
-       ]
+       ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "author/assignedAuthor/code@code" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS" ]
+       ] )
      ] )
   ] ; # 
   fhir:differential [
@@ -159,7 +189,14 @@
        fhir:id [ fhir:v "Author" ] ;
        fhir:path [ fhir:v "Author" ] ;
        fhir:short [ fhir:v "Author (LM)" ] ;
-       fhir:definition [ fhir:v "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. " ]
+       fhir:definition [ fhir:v "Modèle logique d'un auteur.\nReprésente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. \nL’auteur peut être : \n- Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n- Un système de structure (dispositif, automate, appareil connecté…), \n- Un SNR (Service Numérique Référencé), \n\n\nauthor est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. " ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "Author" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Author" ]
+       ] )
      ] [
        fhir:id [ fhir:v "Author.institution" ] ;
        fhir:path [ fhir:v "Author.institution" ] ;
@@ -209,7 +246,14 @@
            fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"^^xsd:anyURI ;
            fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS>
          ]
-       ]
+       ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "author/functionCode@displayName" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS" ]
+       ] )
      ] [
        fhir:id [ fhir:v "Author.specialty" ] ;
        fhir:path [ fhir:v "Author.specialty" ] ;
@@ -226,7 +270,14 @@
            fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"^^xsd:anyURI ;
            fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP>
          ]
-       ]
+       ] ;
+       fhir:mapping ( [
+         fhir:identity [ fhir:v "AuthorCDA" ] ;
+         fhir:map [ fhir:v "author/assignedAuthor/code@code" ]
+       ] [
+         fhir:identity [ fhir:v "KOS" ] ;
+         fhir:map [ fhir:v "Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS" ]
+       ] )
      ] )
   ] . # 
 

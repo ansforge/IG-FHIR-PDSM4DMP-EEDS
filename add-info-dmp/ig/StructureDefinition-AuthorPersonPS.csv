@@ -1,15 +1,21 @@
-"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null"
 "AuthorPersonPS","AuthorPersonPS","","","",0,*,"","","","null {[]} {[]}
-","AuthorPersonPS (LM)","Cet attribut représente l’auteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"AuthorPersonPS.1","AuthorPersonPS.1","","","",1,1,"","","","integer {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]} {[]}
-","Identifiant","Identifiant","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.1",1,1,"",""
-"AuthorPersonPS.2","AuthorPersonPS.2","","","",1,1,"","","","string {[]} {[]}
-","Nom d'exercice du professionnel, nom du patient","Nom d'exercice du professionnel, nom du patient","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.2",1,1,"",""
-"AuthorPersonPS.3","AuthorPersonPS.3","","","",1,1,"","","","string {[]} {[]}
-","Prénom usuel de la personne (par défaut le premier prénom)","Prénom usuel de la personne (par défaut le premier prénom)","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.3",1,1,"",""
-"AuthorPersonPS.9","AuthorPersonPS.9","","","",1,1,"","","","string {[]} {[]}
-"," Autorité d’affectation 1.2.250.1.71.4.2.1  "," Autorité d’affectation 1.2.250.1.71.4.2.1","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.9",1,1,"",""
-"AuthorPersonPS.10","AuthorPersonPS.10","","","",1,1,"","","","string {[]} {[]}
-","D","","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.10",1,1,"",""
-"AuthorPersonPS.13","AuthorPersonPS.13","","","",1,1,"","","","string {[]} {[]}
-","IDNPS","IDNPS","","","","","","","","","",,,,,"",,,,"AuthorPersonPS.13",1,1,"",""
+","AuthorPersonPS (LM)","Cet attribut représente l’auteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","AuthorPerson"
+"AuthorPersonPS.XCN1","AuthorPersonPS.XCN1","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat]]}
+","Identifiant","Identifiant","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""3750100125/1453""/>","","",,,,,"",,,,"AuthorPerson.XCN1",1,1,"","","author/assignedAuthor/id@extension"
+"AuthorPersonPS.XCN2","AuthorPersonPS.XCN2","","","",1,1,"","","","string {[]} {[]}
+","Nom d'exercice du professionnel","Nom d'exercice du professionnel, nom du patient, nom du système.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN2",1,1,"","","author/assignedAuthor/assignedPerson/name/family"
+"AuthorPersonPS.XCN3","AuthorPersonPS.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN3",1,1,"","","author/assignedAuthor/assignedPerson/name/given"
+"AuthorPersonPS.XCN9","AuthorPersonPS.XCN9","","","",1,1,"","","","Base {[]} {[]}
+"," Autorité d’affectation"," Autorité d’affectation","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9",1,1,"","","NA"
+"AuthorPersonPS.XCN9.composant1","AuthorPersonPS.XCN9.composant1","","","",1,1,"","","","string {[]} {[]}
+","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant1",1,1,"","","NA"
+"AuthorPersonPS.XCN9.composant2","AuthorPersonPS.XCN9.composant2","","","",1,1,"","","","string {[]} {[]}
+","1.2.250.1.71.4.2.1 (OID de gestion de personnes)","Valeur de Universal ID","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant2",1,1,"","","author/assignedAuthor/id@root"
+"AuthorPersonPS.XCN9.composant3","AuthorPersonPS.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
+","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN9.composant3",1,1,"","","NA"
+"AuthorPersonPS.XCN10","AuthorPersonPS.XCN10","","","",1,1,"","","","code {[]} {[]}
+","D","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN10",1,1,"","","NA"
+"AuthorPersonPS.XCN13","AuthorPersonPS.XCN13","","","",1,1,"","","","code {[]} {[]}
+","IDNPS","Type d’identifiant","","","","","","","","","",,,,,"",,,,"AuthorPerson.XCN13",1,1,"","","Valeur ne provenant pas de l’en-tête CDA"

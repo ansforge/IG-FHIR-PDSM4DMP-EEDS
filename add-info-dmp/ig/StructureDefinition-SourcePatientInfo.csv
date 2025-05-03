@@ -2,27 +2,25 @@
 "SourcePatientInfo","SourcePatientInfo","","","",0,*,"","","","null {[]} {[]}
 "," SourcePatientInfo (LM)","Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document. 
 ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
-"SourcePatientInfo.PID","SourcePatientInfo.PID","","","",1,1,"","","","Base {[]} {[]}
-","type PID","type PID","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID",1,1,"",""
-"SourcePatientInfo.PID.3","SourcePatientInfo.PID.3","","","",0,1,"","","","Identifier {[]} {[]}
-","Liste des identifiants du patient","Liste des identifiants du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.3",0,1,"",""
-"SourcePatientInfo.PID.5","SourcePatientInfo.PID.5","","","",1,*,"","","","string {[]} {[]}
-","Nom et prénoms du patient","Nom et prénoms du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.5",1,*,"",""
-"SourcePatientInfo.PID.7","SourcePatientInfo.PID.7","","","",0,1,"","","","string {[]} {[]}
-","Date/heure de naissance du patient","Date/heure de naissance du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.7",0,1,"",""
-"SourcePatientInfo.PID.8","SourcePatientInfo.PID.8","","","",0,1,"","","","string {[]} {[]}
-","Sexe du patient","Sexe du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.8",0,1,"",""
-"SourcePatientInfo.PID.11","SourcePatientInfo.PID.11","","","",0,1,"","","","string {[]} {[]}
-","Adresse du patient","Adresse du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.11",0,1,"",""
-"SourcePatientInfo.PID.13","SourcePatientInfo.PID.13","","","",0,1,"","","","string {[]} {[]}
-","Téléphone de la résidence du patient","Téléphone de la résidence du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.13",0,1,"",""
-"SourcePatientInfo.PID.14","SourcePatientInfo.PID.14","","","",0,1,"","","","string {[]} {[]}
-","Téléphone professionnel du patient","Téléphone professionnel du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.14",0,1,"",""
-"SourcePatientInfo.PID.15","SourcePatientInfo.PID.15","","","",0,1,"","","","string {[]} {[]}
-","Langue du patient","Langue du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.15",0,1,"",""
-"SourcePatientInfo.PID.16","SourcePatientInfo.PID.16","","","",0,1,"","","","string {[]} {[]}
-","Statut marital du patient","Statut marital du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.16",0,1,"",""
-"SourcePatientInfo.PID.18","SourcePatientInfo.PID.18","","","",0,1,"","","","string {[]} {[]}
-","Numéro de compte du patient","Numéro de compte du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.18",0,1,"",""
-"SourcePatientInfo.PID.21","SourcePatientInfo.PID.21","","","",0,1,"","","","string {[]} {[]}
-","Identifiant de la mère du patient","Identifiant de la mère du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID.21",0,1,"",""
+"SourcePatientInfo.PID3","SourcePatientInfo.PID3","","","",0,1,"","","","Identifier {[]} {[]}
+","Liste des identifiants du patient","Liste des identifiants du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID3",0,1,"",""
+"SourcePatientInfo.PID5","SourcePatientInfo.PID5","","","",1,*,"","","","string {[]} {[]}
+","Nom et prénoms du patient","Nom et prénoms du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID5",1,*,"",""
+"SourcePatientInfo.PID7","SourcePatientInfo.PID7","","","",0,1,"","","","string {[]} {[]}
+","Date/heure de naissance du patient","Date/heure de naissance du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID7",0,1,"",""
+"SourcePatientInfo.PID8","SourcePatientInfo.PID8","","","",0,1,"","","","string {[]} {[]}
+","Sexe du patient","Sexe du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID8",0,1,"",""
+"SourcePatientInfo.PID11","SourcePatientInfo.PID11","","","",0,1,"","","","string {[]} {[]}
+","Adresse du patient","Adresse du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID11",0,1,"",""
+"SourcePatientInfo.PID13","SourcePatientInfo.PID13","","","",0,1,"","","","string {[]} {[]}
+","Téléphone de la résidence du patient","Téléphone de la résidence du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID13",0,1,"",""
+"SourcePatientInfo.PID14","SourcePatientInfo.PID14","","","",0,1,"","","","string {[]} {[]}
+","Téléphone professionnel du patient","Téléphone professionnel du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID14",0,1,"",""
+"SourcePatientInfo.PID15","SourcePatientInfo.PID15","","","",0,1,"","","","string {[]} {[]}
+","Langue du patient","Langue du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID15",0,1,"",""
+"SourcePatientInfo.PID16","SourcePatientInfo.PID16","","","",0,1,"","","","string {[]} {[]}
+","Statut marital du patient","Statut marital du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID16",0,1,"",""
+"SourcePatientInfo.PID18","SourcePatientInfo.PID18","","","",0,1,"","","","string {[]} {[]}
+","Numéro de compte du patient","Numéro de compte du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID18",0,1,"",""
+"SourcePatientInfo.PID21","SourcePatientInfo.PID21","","","",0,1,"","","","string {[]} {[]}
+","Identifiant de la mère du patient","Identifiant de la mère du patient","","","","","","","","","",,,,,"",,,,"SourcePatientInfo.PID21",0,1,"",""

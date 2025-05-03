@@ -24,7 +24,7 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
   <name value="Author"/>
   <title value="Author (LM)"/>
   <status value="draft"/>
-  <date value="2025-05-02T17:24:18+00:00"/>
+  <date value="2025-05-03T11:17:55+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -42,6 +42,16 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
     </coding>
   </jurisdiction>
   <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="AuthorCDA"/>
+    <uri value="http://hl7.org/v3/cda"/>
+    <comment value="Mapping CDA"/>
+  </mapping>
+  <mapping>
+    <identity value="KOS"/>
+    <uri value="https://www.dicomstandard.org/"/>
+    <comment value="Mapping DICOM KOS"/>
+  </mapping>
   <kind value="logical"/>
   <abstract value="false"/>
   <type value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author"/>
@@ -63,6 +73,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
         <max value="*"/>
       </base>
       <isModifier value="false"/>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="Author"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Author"/>
+      </mapping>
     </element>
     <element id="Author.institution">
       <path value="Author.institution"/>
@@ -116,6 +134,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
         <strength value="required"/>
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"/>
       </binding>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="author/functionCode@displayName"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"/>
+      </mapping>
     </element>
     <element id="Author.specialty">
       <path value="Author.specialty"/>
@@ -135,6 +161,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
         <strength value="required"/>
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"/>
       </binding>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="author/assignedAuthor/code@code"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"/>
+      </mapping>
     </element>
   </snapshot>
   <differential>
@@ -142,6 +176,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
       <path value="Author"/>
       <short value="Author (LM)"/>
       <definition value="Modèle logique d'un auteur.&#xA;Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. &#xA;L’auteur peut être : &#xA;- Un professionnel (personne physique) via son logiciel de professionnel, &#xA;- Le patient/usager (personne physique) via Mon espace Santé, &#xA;- Un système de structure (dispositif, automate, appareil connecté…), &#xA;- Un SNR (Service Numérique Référencé), &#xA;&#xA;&#xA;author est un ensemble constitué des sous-attributs authorInstitution, authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. "/>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="Author"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Author"/>
+      </mapping>
     </element>
     <element id="Author.institution">
       <path value="Author.institution"/>
@@ -180,6 +222,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
         <strength value="required"/>
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"/>
       </binding>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="author/functionCode@displayName"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Cet attribut n'a pas besoin d’être alimenté par un élément du DICOM KOS"/>
+      </mapping>
     </element>
     <element id="Author.specialty">
       <path value="Author.specialty"/>
@@ -194,6 +244,14 @@ author est un ensemble constitué des sous-attributs authorInstitution, authorPe
         <strength value="required"/>
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"/>
       </binding>
+      <mapping>
+        <identity value="AuthorCDA"/>
+        <map value="author/assignedAuthor/code@code"/>
+      </mapping>
+      <mapping>
+        <identity value="KOS"/>
+        <map value="Cette métadonnée peut ne pas être renseignée dans le cas d’un DICOM KOS.   Si elle contient une valeur, elle devra contenir le code : 'DISPOSITIF' du JDV_J01_XdsAuthorSpecialty_CISIS"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
