@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-03T14:02:53+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-03T14:33:40+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -1320,8 +1320,8 @@
        fhir:description [ fhir:v "Patient avec un INS" ] ;
        fhir:example [
          a fhir:canonical ;
-         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+         fhir:v "StructureDefinition/AuthorPersonPatient"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPatient>
        ] ;
        fhir:groupingId [ fhir:v "exemple" ]
      ] [
@@ -1340,8 +1340,8 @@
        fhir:description [ fhir:v "Dispositif dans une structure de santé FINESS" ] ;
        fhir:example [
          a fhir:canonical ;
-         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+         fhir:v "StructureDefinition/AuthorPersonSystem"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonSystem>
        ] ;
        fhir:groupingId [ fhir:v "exemple" ]
      ] [
@@ -1360,8 +1360,8 @@
        fhir:description [ fhir:v "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne" ] ;
        fhir:example [
          a fhir:canonical ;
-         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+         fhir:v "StructureDefinition/AuthorPersonPS"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPS>
        ] ;
        fhir:groupingId [ fhir:v "exemple" ]
      ] [
@@ -1380,8 +1380,8 @@
        fhir:description [ fhir:v "Professionnel en cabinet RPPS libéral" ] ;
        fhir:example [
          a fhir:canonical ;
-         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+         fhir:v "StructureDefinition/AuthorPersonPS"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorPersonPS>
        ] ;
        fhir:groupingId [ fhir:v "exemple" ]
      ] ) ;

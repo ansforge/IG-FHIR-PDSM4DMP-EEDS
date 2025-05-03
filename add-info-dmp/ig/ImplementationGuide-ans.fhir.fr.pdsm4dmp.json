@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-03T14:02:53+00:00",
+  "date" : "2025-05-03T14:33:40+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -957,7 +957,7 @@
       },
       "name" : "AuthorPatient",
       "description" : "Patient avec un INS",
-      "exampleCanonical" : "StructureDefinition/Author",
+      "exampleCanonical" : "StructureDefinition/AuthorPersonPatient",
       "groupingId" : "exemple"
     },
     {
@@ -970,7 +970,7 @@
       },
       "name" : "AuthorDispositif",
       "description" : "Dispositif dans une structure de santé FINESS",
-      "exampleCanonical" : "StructureDefinition/Author",
+      "exampleCanonical" : "StructureDefinition/AuthorPersonSystem",
       "groupingId" : "exemple"
     },
     {
@@ -983,7 +983,7 @@
       },
       "name" : "AuthorStructure",
       "description" : "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne",
-      "exampleCanonical" : "StructureDefinition/Author",
+      "exampleCanonical" : "StructureDefinition/AuthorPersonPS",
       "groupingId" : "exemple"
     },
     {
@@ -996,7 +996,7 @@
       },
       "name" : "AuthorPSCabinetRPPS",
       "description" : "Professionnel en cabinet RPPS libéral",
-      "exampleCanonical" : "StructureDefinition/Author",
+      "exampleCanonical" : "StructureDefinition/AuthorPersonPS",
       "groupingId" : "exemple"
     }],
     "page" : {

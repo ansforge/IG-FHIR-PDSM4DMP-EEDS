@@ -4,7 +4,7 @@
 ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "SubmissionSet.entryUUID","SubmissionSet.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
 ","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe.","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe.","","","","","","","","","",,,,,"",,,,"SubmissionSet.entryUUID",1,1,"",""
-"SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+"SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",1,1,"","","","code {[]} {[]}
 ","Cette métadonnée représente la pertinence d'un lot de soumission. ","Cette métadonnée représente la pertinence d'un lot de soumission.","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""'urn:oasis:names:tc:ebxml-regrep:StatusType:Approved': version à jour du lot de soumission. 'urn:asip:ci-sis:2010:StatusType:Archived': version archivée du lot de soumission, dans le cas où toutes les fiches du lot ont leur métadonnée availabilityStatus prenant la valeur  'urn:asip:ci-sis:2010:StatusType:Archived'. ""/>","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"SubmissionSet.availabilityStatus",1,1,"",""
 "SubmissionSet.submissionTime","SubmissionSet.submissionTime","","","",1,1,"","","","dateTime {[]} {[]}
 ","Représente la date et heure de soumission.","Représente la date et heure de soumission.","","","","","","","","","",,,,,"",,,,"SubmissionSet.submissionTime",1,1,"",""
