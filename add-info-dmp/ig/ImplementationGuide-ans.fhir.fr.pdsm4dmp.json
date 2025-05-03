@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-03T11:17:55+00:00",
+  "date" : "2025-05-03T14:02:53+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -668,6 +668,11 @@
       "id" : "mapping",
       "name" : "Mapping Volet partage vers PDSM",
       "description" : "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\""
+    },
+    {
+      "id" : "exemple",
+      "name" : "Liste d'exemples",
+      "description" : "Liste des exemples"
     }],
     "resource" : [{
       "extension" : [{
@@ -924,8 +929,8 @@
       "reference" : {
         "reference" : "ConceptMap/documentReferenceToPDSM"
       },
-      "name" : "ficheXDStoPDSM",
-      "description" : "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
+      "name" : "documentReferenceToPDSM",
+      "description" : "Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'",
       "exampleBoolean" : false,
       "groupingId" : "mapping"
     },
@@ -937,10 +942,62 @@
       "reference" : {
         "reference" : "ConceptMap/submissionSetToPDSM"
       },
-      "name" : "submissionSetXXDSToPDSM",
-      "description" : "Relation entre un lot de soummission   du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"",
+      "name" : "submissionSetToPDSM",
+      "description" : "Relation entre un lot de soummission   du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'",
       "exampleBoolean" : false,
       "groupingId" : "mapping"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Binary"
+      }],
+      "reference" : {
+        "reference" : "Binary/AuthorPatient"
+      },
+      "name" : "AuthorPatient",
+      "description" : "Patient avec un INS",
+      "exampleCanonical" : "StructureDefinition/Author",
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Binary"
+      }],
+      "reference" : {
+        "reference" : "Binary/AuthorDispositif"
+      },
+      "name" : "AuthorDispositif",
+      "description" : "Dispositif dans une structure de santé FINESS",
+      "exampleCanonical" : "StructureDefinition/Author",
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Binary"
+      }],
+      "reference" : {
+        "reference" : "Binary/AuthorStructure"
+      },
+      "name" : "AuthorStructure",
+      "description" : "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne",
+      "exampleCanonical" : "StructureDefinition/Author",
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Binary"
+      }],
+      "reference" : {
+        "reference" : "Binary/AuthorPSCabinetRPPS"
+      },
+      "name" : "AuthorPSCabinetRPPS",
+      "description" : "Professionnel en cabinet RPPS libéral",
+      "exampleCanonical" : "StructureDefinition/Author",
+      "groupingId" : "exemple"
     }],
     "page" : {
       "extension" : [{
@@ -1124,7 +1181,7 @@
     },
     "parameter" : [{
       "code" : "path-resource",
-      "value" : "input/fsh/V2"
+      "value" : "input/Examples"
     },
     {
       "code" : "path-resource",

@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-03T11:17:55+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-03T14:02:53+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -900,6 +900,10 @@
        fhir:id [ fhir:v "mapping" ] ;
        fhir:name [ fhir:v "Mapping Volet partage vers PDSM" ] ;
        fhir:description [ fhir:v "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\"" ]
+     ] [
+       fhir:id [ fhir:v "exemple" ] ;
+       fhir:name [ fhir:v "Liste d'exemples" ] ;
+       fhir:description [ fhir:v "Liste des exemples" ]
      ] ) ;
      fhir:resource ( [
        fhir:extension ( [
@@ -1274,8 +1278,8 @@
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM> ;
          fhir:reference [ fhir:v "ConceptMap/documentReferenceToPDSM" ]
        ] ;
-       fhir:name [ fhir:v "ficheXDStoPDSM" ] ;
-       fhir:description [ fhir:v "Relation entre une  fiche  du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"" ] ;
+       fhir:name [ fhir:v "documentReferenceToPDSM" ] ;
+       fhir:description [ fhir:v "Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1293,13 +1297,93 @@
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM> ;
          fhir:reference [ fhir:v "ConceptMap/submissionSetToPDSM" ]
        ] ;
-       fhir:name [ fhir:v "submissionSetXXDSToPDSM" ] ;
-       fhir:description [ fhir:v "Relation entre un lot de soummission   du \"Volet Partage de Documents de Santé\" et  documentReference du \"Volet Partage de Documents de Santé en mobilité\"" ] ;
+       fhir:name [ fhir:v "submissionSetToPDSM" ] ;
+       fhir:description [ fhir:v "Relation entre un lot de soummission   du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
        ] ;
        fhir:groupingId [ fhir:v "mapping" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Binary"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Binary/AuthorPatient> ;
+         fhir:reference [ fhir:v "Binary/AuthorPatient" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorPatient" ] ;
+       fhir:description [ fhir:v "Patient avec un INS" ] ;
+       fhir:example [
+         a fhir:canonical ;
+         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+       ] ;
+       fhir:groupingId [ fhir:v "exemple" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Binary"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Binary/AuthorDispositif> ;
+         fhir:reference [ fhir:v "Binary/AuthorDispositif" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorDispositif" ] ;
+       fhir:description [ fhir:v "Dispositif dans une structure de santé FINESS" ] ;
+       fhir:example [
+         a fhir:canonical ;
+         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+       ] ;
+       fhir:groupingId [ fhir:v "exemple" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Binary"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Binary/AuthorStructure> ;
+         fhir:reference [ fhir:v "Binary/AuthorStructure" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorStructure" ] ;
+       fhir:description [ fhir:v "Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne" ] ;
+       fhir:example [
+         a fhir:canonical ;
+         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+       ] ;
+       fhir:groupingId [ fhir:v "exemple" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Binary"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Binary/AuthorPSCabinetRPPS> ;
+         fhir:reference [ fhir:v "Binary/AuthorPSCabinetRPPS" ]
+       ] ;
+       fhir:name [ fhir:v "AuthorPSCabinetRPPS" ] ;
+       fhir:description [ fhir:v "Professionnel en cabinet RPPS libéral" ] ;
+       fhir:example [
+         a fhir:canonical ;
+         fhir:v "StructureDefinition/Author"^^xsd:anyURI ;
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author>
+       ] ;
+       fhir:groupingId [ fhir:v "exemple" ]
      ] ) ;
      fhir:page [
        fhir:extension ( [
@@ -1587,7 +1671,7 @@
      ] ;
      fhir:parameter ( [
        fhir:code [ fhir:v "path-resource" ] ;
-       fhir:value [ fhir:v "input/fsh/V2" ]
+       fhir:value [ fhir:v "input/Examples" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/capabilities" ]

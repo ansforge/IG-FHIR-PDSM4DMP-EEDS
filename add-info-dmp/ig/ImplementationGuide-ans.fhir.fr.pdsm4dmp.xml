@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-03T11:17:55+00:00"/>
+  <date value="2025-05-03T14:02:53+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -500,6 +500,10 @@
       <name value="Mapping Volet partage vers PDSM"/>
       <description value="Mapping du &quot;Volet Partage de Documents de Santé&quot;   vers &quot;Partage de Documents de Santé en mobilité (PDSm)&quot;&quot;"/>
     </grouping>
+    <grouping id="exemple">
+      <name value="Liste d'exemples"/>
+      <description value="Liste des exemples"/>
+    </grouping>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:logical"/>
@@ -735,8 +739,8 @@
       <reference>
         <reference value="ConceptMap/documentReferenceToPDSM"/>
       </reference>
-      <name value="ficheXDStoPDSM"/>
-      <description value="Relation entre une  fiche  du &quot;Volet Partage de Documents de Santé&quot; et  documentReference du &quot;Volet Partage de Documents de Santé en mobilité&quot;"/>
+      <name value="documentReferenceToPDSM"/>
+      <description value="Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'"/>
       <exampleBoolean value="false"/>
       <groupingId value="mapping"/>
     </resource>
@@ -747,10 +751,58 @@
       <reference>
         <reference value="ConceptMap/submissionSetToPDSM"/>
       </reference>
-      <name value="submissionSetXXDSToPDSM"/>
-      <description value="Relation entre un lot de soummission   du &quot;Volet Partage de Documents de Santé&quot; et  documentReference du &quot;Volet Partage de Documents de Santé en mobilité&quot;"/>
+      <name value="submissionSetToPDSM"/>
+      <description value="Relation entre un lot de soummission   du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'"/>
       <exampleBoolean value="false"/>
       <groupingId value="mapping"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Binary"/>
+      </extension>
+      <reference>
+        <reference value="Binary/AuthorPatient"/>
+      </reference>
+      <name value="AuthorPatient"/>
+      <description value="Patient avec un INS"/>
+      <exampleCanonical value="StructureDefinition/Author"/>
+      <groupingId value="exemple"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Binary"/>
+      </extension>
+      <reference>
+        <reference value="Binary/AuthorDispositif"/>
+      </reference>
+      <name value="AuthorDispositif"/>
+      <description value="Dispositif dans une structure de santé FINESS"/>
+      <exampleCanonical value="StructureDefinition/Author"/>
+      <groupingId value="exemple"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Binary"/>
+      </extension>
+      <reference>
+        <reference value="Binary/AuthorStructure"/>
+      </reference>
+      <name value="AuthorStructure"/>
+      <description value="Professionnel en structure de santé FINESS sans CPS, avec un identifiant interne"/>
+      <exampleCanonical value="StructureDefinition/Author"/>
+      <groupingId value="exemple"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Binary"/>
+      </extension>
+      <reference>
+        <reference value="Binary/AuthorPSCabinetRPPS"/>
+      </reference>
+      <name value="AuthorPSCabinetRPPS"/>
+      <description value="Professionnel en cabinet RPPS libéral"/>
+      <exampleCanonical value="StructureDefinition/Author"/>
+      <groupingId value="exemple"/>
     </resource>
     <page>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
@@ -914,7 +966,7 @@
     </page>
     <parameter>
       <code value="path-resource"/>
-      <value value="input/fsh/V2"/>
+      <value value="input/Examples"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>

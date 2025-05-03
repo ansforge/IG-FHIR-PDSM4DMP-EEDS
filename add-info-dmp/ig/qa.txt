@@ -1,13 +1,17 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 28, warn = 242, info = 2
+err = 36, warn = 244, info = 2
 IG Publisher Version: 1.8.25
-Generated Sat May 03 11:21:04 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 8 / 2 / 0
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 2 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 2 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 0 / 7 / 1
+Generated Sat May 03 14:05:53 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+ Build Errors : 2 / 2 / 0
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPSCabinetRPPS : 1 / 0 / 0
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPatient : 1 / 0 / 0
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure : 1 / 0 / 0
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 4 / 11 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Author : 8 / 8 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-AuthorInstitution : 0 / 20 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-AuthorPerson : 8 / 20 / 1
@@ -31,24 +35,24 @@ Generated Sat May 03 11:21:04 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4
 == n/a ==
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/construction_des_flux.html#/html/body/div/div/div/div/div/p/a at Line 234, column 67: The link './st_flux1.html' for "flux 01" cannot be resolved
 ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/construction_des_flux.html#/html/body/div/div/div/div/div/p/a at Line 238, column 67: The link './st_flux2.html' for "flux 02" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 248, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 249, column 8: The link 'definitions.xml.zip' for "Définitions XML (zip)" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 250, column 8: The link 'definitions.ttl.zip' for "Définitions Turtle (zip)" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 256, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 257, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
-ERROR: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 258, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated/resources/Binary-AuthorDispositif.json ==
+ERROR: Binary/AuthorDispositif: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0', but found type 'Binary'
+== fsh-generated/resources/Binary-AuthorPSCabinetRPPS.json ==
+ERROR: Binary/AuthorPSCabinetRPPS: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0', but found type 'Binary'
+== fsh-generated/resources/Binary-AuthorPatient.json ==
+ERROR: Binary/AuthorPatient: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0', but found type 'Binary'
+== fsh-generated/resources/Binary-AuthorStructure.json ==
+ERROR: Binary/AuthorStructure: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0', but found type 'Binary'
 == fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json ==
 WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
 ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.source: Reference must be to a ValueSet, but found a StructureDefinition instead
 ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.target: Reference must be to a ValueSet, but found a StructureDefinition instead
-WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present
 == fsh-generated/resources/ConceptMap-submissionSetToPDSM.json ==
 WARNING: ConceptMap/submissionSetToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.source: Reference must be to a ValueSet, but found a StructureDefinition instead
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.target: Reference must be to a ValueSet, but found a StructureDefinition instead
-WARNING: ConceptMap/submissionSetToPDSM: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present
 == fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json ==
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[4].name: value should not start or finish with whitespace ' SourcePatientId (LM)'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[5].name: value should not start or finish with whitespace ' SourcePatientInfo (LM)'
@@ -57,6 +61,14 @@ WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definitio
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[16].name: value should not start or finish with whitespace ' PSIdNat'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].name: value should not start or finish with whitespace ' SNR'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[18].name: value should not start or finish with whitespace ' StructIdNat'
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[21].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/Author)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[21].example.ofType(canonical): Canonical URL 'StructureDefinition/Author' does not resolve
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[22].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/Author)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[22].example.ofType(canonical): Canonical URL 'StructureDefinition/Author' does not resolve
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[23].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/Author)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[23].example.ofType(canonical): Canonical URL 'StructureDefinition/Author' does not resolve
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[24].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/Author)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[24].example.ofType(canonical): Canonical URL 'StructureDefinition/Author' does not resolve
 == fsh-generated/resources/StructureDefinition-Author.json ==
 WARNING: StructureDefinition/Author: StructureDefinition.snapshot.element[3].short: value should not start or finish with whitespace 'Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). '
 WARNING: StructureDefinition/Author: StructureDefinition.snapshot.element[3].binding.valueSet: There are multiple different potential matches for the url 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '20241213120000', found versions: 1.2.0, 1.3.0, 20241213120000. Suggested fix: change the canonical reference from 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS' to 'https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS|20241213120000'
