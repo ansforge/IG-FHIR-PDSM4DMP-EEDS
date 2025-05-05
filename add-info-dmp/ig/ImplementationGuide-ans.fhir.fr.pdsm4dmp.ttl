@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-05T07:27:11+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-05T07:53:58+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -882,28 +882,28 @@
      ] ) ;
      fhir:grouping ( [
        fhir:id [ fhir:v "LogicalModel" ] ;
-       fhir:name [ fhir:v "Model Logique SubmissionSet et  DocumentEntry (XDS)" ] ;
-       fhir:description [ fhir:v "Model Logique  SubmissionSet et  DocumentEntry XDS" ]
+       fhir:name [ fhir:v "Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)" ] ;
+       fhir:description [ fhir:v "Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)" ]
      ] [
        fhir:id [ fhir:v "LogicalModelPatient" ] ;
-       fhir:name [ fhir:v "Model Logique Patient (XDS)" ] ;
-       fhir:description [ fhir:v "Model Logique Patient XDS" ]
+       fhir:name [ fhir:v "Modèle logique Patient (XDS)" ] ;
+       fhir:description [ fhir:v "Modèle logique Patient XDS" ]
      ] [
        fhir:id [ fhir:v "LogicalModelAuthor" ] ;
-       fhir:name [ fhir:v "Model Logique Author et LegalAuthenticator (XDS)" ] ;
-       fhir:description [ fhir:v "Model Logique Author et LegalAuthenticator XDS" ]
+       fhir:name [ fhir:v "Modèle logique de l'auteur (Author) et du LegalAuthenticator (XDS)" ] ;
+       fhir:description [ fhir:v "Modèle logique l'auteur (Author) et du LegalAuthenticator XDS" ]
      ] [
        fhir:id [ fhir:v "DataType" ] ;
        fhir:name [ fhir:v "Data Type" ] ;
-       fhir:description [ fhir:v "Type de base du Model Logique" ]
+       fhir:description [ fhir:v "Types de base du Modèle logique" ]
      ] [
        fhir:id [ fhir:v "mapping" ] ;
        fhir:name [ fhir:v "Mapping Volet partage vers PDSM" ] ;
-       fhir:description [ fhir:v "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\"" ]
+       fhir:description [ fhir:v "Mapping du \"Volet Partage de Documents de Santé\" vers \"Partage de Documents de Santé en mobilité (PDSm)\"\"" ]
      ] [
        fhir:id [ fhir:v "exemple" ] ;
        fhir:name [ fhir:v "Liste d'exemples" ] ;
-       fhir:description [ fhir:v "Liste des exemples" ]
+       fhir:description [ fhir:v "Liste d'exemples" ]
      ] ) ;
      fhir:resource ( [
        fhir:extension ( [

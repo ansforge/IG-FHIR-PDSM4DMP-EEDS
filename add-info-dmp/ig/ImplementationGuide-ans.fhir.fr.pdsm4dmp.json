@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-05T07:27:11+00:00",
+  "date" : "2025-05-05T07:53:58+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -646,33 +646,33 @@
     }],
     "grouping" : [{
       "id" : "LogicalModel",
-      "name" : "Model Logique SubmissionSet et  DocumentEntry (XDS)",
-      "description" : "Model Logique  SubmissionSet et  DocumentEntry XDS"
+      "name" : "Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)",
+      "description" : "Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)"
     },
     {
       "id" : "LogicalModelPatient",
-      "name" : "Model Logique Patient (XDS)",
-      "description" : "Model Logique Patient XDS"
+      "name" : "Modèle logique Patient (XDS)",
+      "description" : "Modèle logique Patient XDS"
     },
     {
       "id" : "LogicalModelAuthor",
-      "name" : "Model Logique Author et LegalAuthenticator (XDS)",
-      "description" : "Model Logique Author et LegalAuthenticator XDS"
+      "name" : "Modèle logique de l'auteur (Author) et du LegalAuthenticator (XDS)",
+      "description" : "Modèle logique l'auteur (Author) et du LegalAuthenticator XDS"
     },
     {
       "id" : "DataType",
       "name" : "Data Type",
-      "description" : "Type de base du Model Logique"
+      "description" : "Types de base du Modèle logique"
     },
     {
       "id" : "mapping",
       "name" : "Mapping Volet partage vers PDSM",
-      "description" : "Mapping du \"Volet Partage de Documents de Santé\"   vers \"Partage de Documents de Santé en mobilité (PDSm)\"\""
+      "description" : "Mapping du \"Volet Partage de Documents de Santé\" vers \"Partage de Documents de Santé en mobilité (PDSm)\"\""
     },
     {
       "id" : "exemple",
       "name" : "Liste d'exemples",
-      "description" : "Liste des exemples"
+      "description" : "Liste d'exemples"
     }],
     "resource" : [{
       "extension" : [{
