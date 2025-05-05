@@ -1,6 +1,6 @@
-Alias: $integer = http://hl7.org/fhir/StructureDefinition/integer
+
 Profile: PSIdNat 
-Parent: integer
+Parent: string
 Id:  PSIdNat 
 Title: " PSIdNat"
 Description: """
@@ -16,4 +16,9 @@ L’identification nationale du PS est construite selon le tableau dessous :
 - 8 + N° RPPS 
 
 """
+* . obeys PSIdNat-invariant
 
+Invariant:   PSIdNat-invariant
+Description: "Le numéro PSIdNat doit être un entier commençant par 0, 1, 3, 4, 5, 6 ou 8"
+Expression:  "$this.matches('^(0|1|3|4|5|6|8)\d*$')"
+Severity:    #error
