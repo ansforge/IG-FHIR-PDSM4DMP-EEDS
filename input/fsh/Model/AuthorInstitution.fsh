@@ -3,40 +3,40 @@ Parent: Base
 Id: AuthorInstitution
 Title: "AuthorInstitution (LM)"
 Description: """
-Cette métadonnée représente la structure émettrice du lot de soumission. 
+Cet attribut représente la structure de l’auteur. 
 Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. 
 """
 
 * XON1 1..1 string "Nom de la structure"
-* XON1 ^example.label = "Structure hospitalière"
-* XON1 ^example.valueString = "Groupe Pitié Salpêtrière"
-* XON1 ^example.label = "Cabinet libéral"
-* XON1 ^example.valueString = "CABINET MEDICAL DR DURANT "
-* XON1 ^example.label = "SNR"
-* XON1 ^example.valueString = "NOM EDITEUR "
+* XON1 ^example[0].label = "Structure hospitalière"
+* XON1 ^example[=].valueString = "Groupe Pitié Salpêtrière"
+* XON1 ^example[+].label = "Cabinet libéral"
+* XON1 ^example[=].valueString = "CABINET MEDICAL DR DURANT "
+* XON1 ^example[+].label = "SNR"
+* XON1 ^example[=].valueString = "NOM EDITEUR "
 
 
-* XON6 1..1 Base "Autorité d’affectation"
-* XON6.composant1  1..1 string "Vide, pas de valeur"
+* XON6 1..1 Base "Autorité d’affectation" """Identifiant de l’organisme gérant l’identifiant de la structure. Cet identifiant, au format HL7 v.2.5 est constitué de trois sous-composants qui prennent les valeurs suivantes. """
+* XON6.composant1  0..0 string "Vide, pas de valeur"
 
 * XON6.composant2  1..1 string "Valeur de Universal ID"
-* XON6.composant2  ^example.label = "Professionnel"
-* XON6.composant2  ^example.valueString = "1.2.250.1.71.4.2.2"
-* XON6.composant2  ^example.label = "Système de structure"
-* XON6.composant2  ^example.valueString = "1.2.250.1.71.4.2.2"
-* XON6.composant2  ^example.label = "SNR"
-* XON6.composant2  ^example.valueString = "1.3.2 (OID SIRENE)"
+* XON6.composant2  ^example[0].label = "Professionnel"
+* XON6.composant2  ^example[=].valueString = "1.2.250.1.71.4.2.2"
+* XON6.composant2  ^example[+].label = "Système de structure"
+* XON6.composant2  ^example[=].valueString = "1.2.250.1.71.4.2.2"
+* XON6.composant2  ^example[+].label = "SNR"
+* XON6.composant2  ^example[=].valueString = "1.3.2 (OID SIRENE)"
 
 * XON6.composant3  1..1 string "Valeur de Universal ID type (ID)"
 
 
 * XON7 1..1 code "Type d’identifiant"
-* XON7  ^example.label = "Professionnel"
-* XON7  ^example.valueString = "IDNST"
-* XON7  ^example.label = "Système de structure"
-* XON7  ^example.valueString = "IDNST"
-* XON7  ^example.label = "SNR"
-* XON7  ^example.valueString = "SIREN"
+* XON7  ^example[0].label = "Professionnel"
+* XON7  ^example[=].valueString = "IDNST"
+* XON7  ^example[1].label = "Système de structure"
+* XON7  ^example[=].valueString = "IDNST"
+* XON7  ^example[2].label = "SNR"
+* XON7  ^example[=].valueString = "SIREN"
 
 * XON10 1..1 StructIdNat " Identifiant de la structure (Struct_IdNat)"
 

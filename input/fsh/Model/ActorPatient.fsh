@@ -5,6 +5,7 @@ Title: "ActorPatient (LM)"
 Description: """
 Cet attribut représente l'acteur Patient. 
 """
+Characteristics: #can-be-target
 
 * XCN1 only Reference(MatriculeINS)
 * XCN1 ^example.label = "General"

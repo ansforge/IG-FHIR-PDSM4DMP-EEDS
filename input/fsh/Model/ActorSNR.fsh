@@ -5,7 +5,7 @@ Title: "ActorSNR (LM)"
 Description: """
 Cet attribut représente l'acteur SNR. 
 """
-
+Characteristics: #can-be-target
 
 * XCN1 only Reference(SNR)
 * XCN1 ^example.label = "General"
