@@ -6,7 +6,7 @@ Description: """
 Modèle logique  d’une fiche
 """
 
-* entryUUID 1..1 uuid "Identifiant unique affecté à la version de la fiche référençant le document."
+* entryUUID 1..1 uuid "Identifiant unique affecté à la version de la fiche référençant le document." """Les valeurs possibles pour cette métadonnée doivent être un code provenant du jeu de valeurs mis à disposition par le projet. En l’absence de spécifications complémentaires, le jeu de valeurs JDV_J52_AvailabilityStatus_CISIS peut être utilisé."""
 * logicalId 1..1 Identifier "Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche"
 * mimeType 1..1 CodeableConcept "Cette métadonnée représente le type de contenu du document, défini par le standard MIME."
 * availabilityStatus 1..1 CodeableConcept "Cette métadonnée représente la pertinence de la version de la fiche d'un document. " "**Availability Status**"
@@ -26,7 +26,28 @@ Modèle logique  d’une fiche
 * comments 0..1 string "Cette métadonnée contient le commentaire associé au document."
 * patientID 1..1 PatientId "Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient."
 * uniqueId 1..1 Identifier "Identifiant unique affecté au document par son créateur. "
-* class 1..1 CodeableConcept "class représente la classe du document (compte rendu, imagerie médicale, traitement, certificat, etc.)." "**Class Code**"
+* class 1..1 CodeableConcept "class représente la classe du document (compte rendu, imagerie médicale, traitement, certificat, etc.)." """
+class est constitué des attributs : 
+- **classCode**
+- **classCodeDisplayName**
+- **codingScheme***
+
+**classCode**
+- Type : Non contraint
+- Contenu : Les valeurs possibles doivent être un code provenant du jeu de valeurs mis à disposition par le projet (exemple : JDV_J57_ClassCode_DMP). En l’absence de spécifications complémentaires, le JDV_J06_XdsClassCode_CISIS peut être utilisé. 
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant). 
+
+**classCodeDisplayName**
+- Type : Non contraint
+- Contenu : L’intitulé de la classe de document correspond au libellé associé au code de **classCode**.
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant). 
+
+**codingScheme**
+- Type : OID
+- Le code système de la classe de document correspond à l’OID associé au code de classCode. 
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant). 
+
+"""
 * class from https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS (preferred)
 * confidentiality 1..4 CodeableConcept "Métadonnée contenant les informations définissant le niveau de confidentialité d'un document déposé dans l'entrepôt. Dans le cadre de la mise en œuvre du masquage et de la non-visibilité, ces métadonnées sont utilisées pour rendre inaccessible un document à l'utilisateur" "**Confidentiality Code**"
 * confidentiality from https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP (preferred)
@@ -47,7 +68,15 @@ Modèle logique  d’une fiche
 * referenceIdList.CX4 1..1 identifier "Identifiant de l’organisme ayant attribué l’identifiant de l'objet référencé"
 * referenceIdList.CX5 1..1 CodeableConcept "Type d’identifiant"
 * referenceIdList.CX5 from https://mos.esante.gouv.fr/NOS/JDV_J197-XdsTypesIdentifiantsReferenceId-CISIS/FHIR/JDV-J197-XdsTypesIdentifiantsReferenceId-CISIS (preferred)
-
-
 * version 0..1 integer "Cette métadonnée représente le numéro de version de la fiche d’un document."
 
+
+
+
+Mapping: DocumentEntryCDA
+Target : "http://hl7.org/v3/cda"
+Description : "Mapping CDA"
+Source: DocumentEntry
+* -> "DocumentEntry"
+* availabilityStatus -> "Non applicable, cette métadonnée n'est pas soumise par le système initiateur. Le registre du système cible gère cette information et fournit sa valeur en réponse à une requête stockée."
+* class -> "code@code (classCode est déduit de typeCode selon la table de correspondance entre ces deux métadonnées référencée dans les Nomenclatures des Objets de Santé (NOS) : ASS_X04-CorrespondanceType-Classe)"

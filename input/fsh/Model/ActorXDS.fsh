@@ -8,7 +8,7 @@ Cet attribut représente un acteur (humain ou système) ayant contribué au docu
 XCN de HL7 v2.5
 """
 
-* XCN1 1..1 Reference(PSIdNat or  MatriculeINS or SNR or IdentifiantSysteme) "Identifiant"
+* XCN1[x] 1..1  PSIdNat or  MatriculeINS or SNR or IdentifiantSysteme "Identifiant de l'acteur"
 * XCN2 1..1 string "Nom d'exercice du professionnel, nom du patient, nom du système."
 * XCN3 1..1 string "Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
 * XCN9 1..1 Base " Autorité d’affectation"
@@ -23,7 +23,7 @@ Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
 Source: ActorXDS
 * -> "ActorXDS"
-* XCN1 -> "author/assignedAuthor/id@extension"
+* XCN1[x] -> "author/assignedAuthor/id@extension"
 * XCN2 -> "author/assignedAuthor/assignedPerson/name/family"
 * XCN3 -> "author/assignedAuthor/assignedPerson/name/given"
 * XCN9 -> "NA"

@@ -1,6 +1,6 @@
 Alias: $integer = http://hl7.org/fhir/StructureDefinition/integer
 Profile: IdentifiantSysteme
-Parent: integer
+Parent: string
 Id:  IdentifiantSysteme 
 Title: " IdentifiantSysteme"
 Description: """
