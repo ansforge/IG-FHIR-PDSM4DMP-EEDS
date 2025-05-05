@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-05T14:44:38+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-05T16:33:44+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -1032,7 +1032,7 @@
          fhir:reference [ fhir:v "StructureDefinition/ActorPS" ]
        ] ;
        fhir:name [ fhir:v "ActorPS (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l'acteur PS." ] ;
+       fhir:description [ fhir:v "Cet attribut représente un acteur PS." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false

@@ -10,7 +10,7 @@ package IG #DDDDDD{
         class ActorPS{
 
              ActorPS => [None..None]
-             ActorPS.XCN1 => [None..None]
+             ActorPS.XCN1[x] => [None..None]
              ActorPS.XCN2 => [None..None]
              ActorPS.XCN3 => [None..None]
              ActorPS.XCN9.composant2 => [None..None]
@@ -21,7 +21,7 @@ package IG #DDDDDD{
         class ActorPatient{
 
              ActorPatient => [None..None]
-             ActorPatient.XCN1 => [None..None]
+             ActorPatient.XCN1[x] => [None..None]
              ActorPatient.XCN2 => [None..None]
              ActorPatient.XCN3 => [None..None]
              ActorPatient.XCN9.composant2 => [None..None]
@@ -32,7 +32,7 @@ package IG #DDDDDD{
         class ActorSNR{
 
              ActorSNR => [None..None]
-             ActorSNR.XCN1 => [None..None]
+             ActorSNR.XCN1[x] => [None..None]
              ActorSNR.XCN2 => [None..None]
              ActorSNR.XCN3 => [None..None]
              ActorSNR.XCN9.composant2 => [None..None]
@@ -43,7 +43,7 @@ package IG #DDDDDD{
         class ActorSystem{
 
              ActorSystem => [None..None]
-             ActorSystem.XCN1 => [None..None]
+             ActorSystem.XCN1[x] => [None..None]
              ActorSystem.XCN2 => [None..None]
              ActorSystem.XCN3 => [None..None]
              ActorSystem.XCN9.composant2 => [None..None]
@@ -54,7 +54,7 @@ package IG #DDDDDD{
         class ActorXDS{
 
              ActorXDS => [None..None]
-             ActorXDS.XCN1 => [1..1]
+             ActorXDS.XCN1[x] => [1..1]
              ActorXDS.XCN2 => [1..1]
              ActorXDS.XCN3 => [1..1]
              ActorXDS.XCN9 => [1..1]
@@ -272,13 +272,13 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> EventCode
 
- class "integer" as  class157db7df530023575515d366c9b672e8 
+ class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
-    class157db7df530023575515d366c9b672e8 --> IdentifiantSysteme
+    classb45cffe084dd3d20d928bee85e7b0f21 --> IdentifiantSysteme
 
- class "integer" as  class157db7df530023575515d366c9b672e8 
+ class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
-    class157db7df530023575515d366c9b672e8 --> MatriculeINS
+    classb45cffe084dd3d20d928bee85e7b0f21 --> MatriculeINS
 
  class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
@@ -288,9 +288,9 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> PatientId
 
- class "integer" as  class157db7df530023575515d366c9b672e8 
+ class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
-    class157db7df530023575515d366c9b672e8 --> SNR
+    classb45cffe084dd3d20d928bee85e7b0f21 --> SNR
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

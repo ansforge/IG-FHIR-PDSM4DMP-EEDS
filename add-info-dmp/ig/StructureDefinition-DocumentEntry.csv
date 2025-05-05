@@ -1,14 +1,14 @@
-"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null"
 "DocumentEntry","DocumentEntry","","","",0,*,"","","","null {[]} {[]}
-","Document Entry (LM)","Modèle logique  d’une fiche","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+","Document Entry (LM)","Modèle logique  d’une fiche","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","DocumentEntry"
 "DocumentEntry.entryUUID","DocumentEntry.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
-","Identifiant unique affecté à la version de la fiche référençant le document.","Identifiant unique affecté à la version de la fiche référençant le document.","","","","","","","","","",,,,,"",,,,"DocumentEntry.entryUUID",1,1,"",""
+","Identifiant unique affecté à la version de la fiche référençant le document.","Les valeurs possibles pour cette métadonnée doivent être un code provenant du jeu de valeurs mis à disposition par le projet. En l’absence de spécifications complémentaires, le jeu de valeurs JDV_J52_AvailabilityStatus_CISIS peut être utilisé.","","","","","","","","","",,,,,"",,,,"DocumentEntry.entryUUID",1,1,"",""
 "DocumentEntry.logicalId","DocumentEntry.logicalId","","","",1,1,"","","","Identifier {[]} {[]}
 ","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","","","","","","","","","",,,,,"",,,,"DocumentEntry.logicalId",1,1,"",""
 "DocumentEntry.mimeType","DocumentEntry.mimeType","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","","","","","","","","","",,,,,"",,,,"DocumentEntry.mimeType",1,1,"",""
 "DocumentEntry.availabilityStatus","DocumentEntry.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",1,1,"",""
+","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",1,1,"","","Non applicable, cette métadonnée n'est pas soumise par le système initiateur. Le registre du système cible gère cette information et fournit sa valeur en réponse à une requête stockée."
 "DocumentEntry.hash","DocumentEntry.hash","","","",1,1,"","","","string {[]} {[]}
 ","Cette métadonnée contient le résultat du hachage du document déposé","Cette métadonnée contient le résultat du hachage du document déposé","","","","","","","","","",,,,,"",,,,"DocumentEntry.hash",1,1,"",""
 "DocumentEntry.size","DocumentEntry.size","","","",1,1,"","","","integer {[]} {[]}
@@ -40,7 +40,25 @@ https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient
 "DocumentEntry.uniqueId","DocumentEntry.uniqueId","","","",1,1,"","","","Identifier {[]} {[]}
 ","Identifiant unique affecté au document par son créateur. ","Identifiant unique affecté au document par son créateur.","","","","","","","","","",,,,,"",,,,"DocumentEntry.uniqueId",1,1,"",""
 "DocumentEntry.class","DocumentEntry.class","","","",1,1,"","","","CodeableConcept {[]} {[]}
-","class représente la classe du document (compte rendu, imagerie médicale, traitement, certificat, etc.).","**Class Code**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS","",,,,"DocumentEntry.class",1,1,"",""
+","class représente la classe du document (compte rendu, imagerie médicale, traitement, certificat, etc.).","class est constitué des attributs : 
+- **classCode**
+- **classCodeDisplayName**
+- **codingScheme***
+
+**classCode**
+- Type : Non contraint
+- Contenu : Les valeurs possibles doivent être un code provenant du jeu de valeurs mis à disposition par le projet (exemple : JDV_J57_ClassCode_DMP). En l’absence de spécifications complémentaires, le JDV_J06_XdsClassCode_CISIS peut être utilisé. 
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant). 
+
+**classCodeDisplayName**
+- Type : Non contraint
+- Contenu : L’intitulé de la classe de document correspond au libellé associé au code de **classCode**.
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant). 
+
+**codingScheme**
+- Type : OID
+- Le code système de la classe de document correspond à l’OID associé au code de classCode. 
+- Source : En fonction de l’interface fournie (ex. paramétrage fixe ou choix dans un menu déroulant).","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS","",,,,"DocumentEntry.class",1,1,"","","code@code (classCode est déduit de typeCode selon la table de correspondance entre ces deux métadonnées référencée dans les Nomenclatures des Objets de Santé (NOS) : ASS_X04-CorrespondanceType-Classe)"
 "DocumentEntry.confidentiality","DocumentEntry.confidentiality","","","",1,4,"","","","CodeableConcept {[]} {[]}
 ","Métadonnée contenant les informations définissant le niveau de confidentialité d'un document déposé dans l'entrepôt. Dans le cadre de la mise en œuvre du masquage et de la non-visibilité, ces métadonnées sont utilisées pour rendre inaccessible un document à l'utilisateur","**Confidentiality Code**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP","",,,,"DocumentEntry.confidentiality",1,4,"",""
 "DocumentEntry.eventCodeList","DocumentEntry.eventCodeList","","","",0,*,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/EventCode {[]} {[]}
