@@ -10,7 +10,7 @@
   "name" : "AuthorInstitution",
   "title" : "AuthorInstitution (LM)",
   "status" : "draft",
-  "date" : "2025-05-05T11:54:16+00:00",
+  "date" : "2025-05-05T14:17:01+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -99,7 +99,7 @@
       }],
       "mapping" : [{
         "identity" : "AuthorInstitutionCDA",
-        "map" : "author/assignedAuthor/representedOrganization/name"
+        "map" : "author/assignedAuthor/representedOrganization/name (Si l’élément name fait l’objet d’un nullFlavor dans l’en-tête CDA, le composant 1 de la métadonnée authorInstitution doit être vide)"
       },
       {
         "identity" : "KOS",
@@ -175,7 +175,7 @@
       }],
       "mapping" : [{
         "identity" : "AuthorInstitutionCDA",
-        "map" : "author/assignedAuthor/representedOrganization/id@root"
+        "map" : "author/assignedAuthor/representedOrganization/id@root (Si l’élément id fait l’objet d’un nullFlavor dans l’en-tête CDA, les composants 6, 7 et 10 de la métadonnée authorInstitution doivent être vides)"
       },
       {
         "identity" : "KOS",
@@ -307,7 +307,7 @@
       }],
       "mapping" : [{
         "identity" : "AuthorInstitutionCDA",
-        "map" : "author/assignedAuthor/representedOrganization/name"
+        "map" : "author/assignedAuthor/representedOrganization/name (Si l’élément name fait l’objet d’un nullFlavor dans l’en-tête CDA, le composant 1 de la métadonnée authorInstitution doit être vide)"
       },
       {
         "identity" : "KOS",
@@ -368,7 +368,7 @@
       }],
       "mapping" : [{
         "identity" : "AuthorInstitutionCDA",
-        "map" : "author/assignedAuthor/representedOrganization/id@root "
+        "map" : "author/assignedAuthor/representedOrganization/id@root (Si l’élément id fait l’objet d’un nullFlavor dans l’en-tête CDA, les composants 6, 7 et 10 de la métadonnée authorInstitution doivent être vides)"
       },
       {
         "identity" : "KOS",

@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "AuthorSubmissionSet"] ; # 
   fhir:title [ fhir:v "AuthorSubmissionSet (LM)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-05T11:54:16+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-05T14:17:01+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -117,7 +117,7 @@
          fhir:code [ fhir:v "CodeableConcept"^^xsd:anyURI ]
        ] ) ;
        fhir:binding [
-         fhir:strength [ fhir:v "required" ] ;
+         fhir:strength [ fhir:v "preferred" ] ;
          fhir:valueSet [
            fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"^^xsd:anyURI ;
            fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS>
@@ -139,10 +139,10 @@
          fhir:code [ fhir:v "CodeableConcept"^^xsd:anyURI ]
        ] ) ;
        fhir:binding [
-         fhir:strength [ fhir:v "required" ] ;
+         fhir:strength [ fhir:v "preferred" ] ;
          fhir:valueSet [
-           fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"^^xsd:anyURI ;
-           fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP>
+           fhir:v "https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS"^^xsd:anyURI ;
+           fhir:link <https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS>
          ]
        ]
      ] )

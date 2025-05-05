@@ -3,13 +3,13 @@
 ","AuthorInstitution (LM)","Cet attribut représente la structure de l’auteur. 
 Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML <rim:Slot name='authorInstitution'> n’est pas transmis. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","AuthorInstitution","AuthorInstitution"
 "AuthorInstitution.XON1","AuthorInstitution.XON1","","","",1,1,"","","","string {[]} {[]}
-","Nom de la structure","Nom de la structure","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""Groupe Pitié Salpêtrière""/>","","",,,,,"",,,,"AuthorInstitution.XON1",1,1,"","","author/assignedAuthor/representedOrganization/name","NA"
+","Nom de la structure","Nom de la structure","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""Groupe Pitié Salpêtrière""/>","","",,,,,"",,,,"AuthorInstitution.XON1",1,1,"","","author/assignedAuthor/representedOrganization/name (Si l’élément name fait l’objet d’un nullFlavor dans l’en-tête CDA, le composant 1 de la métadonnée authorInstitution doit être vide)","NA"
 "AuthorInstitution.XON6","AuthorInstitution.XON6","","","",1,1,"","","","Base {[]} {[]}
 ","Autorité d’affectation","Identifiant de l’organisme gérant l’identifiant de la structure. Cet identifiant, au format HL7 v.2.5 est constitué de trois sous-composants qui prennent les valeurs suivantes. ","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6",1,1,"",""
 "AuthorInstitution.XON6.composant1","AuthorInstitution.XON6.composant1","","","",0,0,"","","","string {[]} {[]}
 ","Vide, pas de valeur","Vide, pas de valeur","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant1",0,0,"","","NA","NA"
 "AuthorInstitution.XON6.composant2","AuthorInstitution.XON6.composant2","","","",1,1,"","","","string {[]} {[]}
-","Valeur de Universal ID","Valeur de Universal ID","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""1.2.250.1.71.4.2.2""/>","","",,,,,"",,,,"AuthorInstitution.XON6.composant2",1,1,"","","author/assignedAuthor/representedOrganization/id@root","NA"
+","Valeur de Universal ID","Valeur de Universal ID","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""1.2.250.1.71.4.2.2""/>","","",,,,,"",,,,"AuthorInstitution.XON6.composant2",1,1,"","","author/assignedAuthor/representedOrganization/id@root (Si l’élément id fait l’objet d’un nullFlavor dans l’en-tête CDA, les composants 6, 7 et 10 de la métadonnée authorInstitution doivent être vides)","NA"
 "AuthorInstitution.XON6.composant3","AuthorInstitution.XON6.composant3","","","",1,1,"","","","string {[]} {[]}
 ","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"AuthorInstitution.XON6.composant3",1,1,"","","NA","NA"
 "AuthorInstitution.XON7","AuthorInstitution.XON7","","","",1,1,"","","","code {[]} {[]}

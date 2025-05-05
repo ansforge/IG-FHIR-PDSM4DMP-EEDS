@@ -114,7 +114,7 @@ package IG #DDDDDD{
              DocumentEntry.size => [1..1]
              DocumentEntry.languageCode => [1..1]
              DocumentEntry.author => [1..*]
-             DocumentEntry.legalAuthenticator => [1..1]
+             DocumentEntry.legalAuthenticator[x] => [1..1]
              DocumentEntry.repositoryUniqueId => [1..1]
              DocumentEntry.serviceStartTime => [1..1]
              DocumentEntry.serviceEndTime => [0..1]

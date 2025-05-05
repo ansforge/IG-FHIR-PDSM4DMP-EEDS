@@ -10,7 +10,7 @@
   "name" : "AuthorDocumentEntry",
   "title" : "AuthorDocumentEntry (LM)",
   "status" : "draft",
-  "date" : "2025-05-05T11:54:16+00:00",
+  "date" : "2025-05-05T14:17:01+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -127,7 +127,7 @@
         "code" : "CodeableConcept"
       }],
       "binding" : {
-        "strength" : "required",
+        "strength" : "preferred",
         "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"
       },
       "mapping" : [{
@@ -155,8 +155,8 @@
         "code" : "CodeableConcept"
       }],
       "binding" : {
-        "strength" : "required",
-        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"
+        "strength" : "preferred",
+        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS"
       },
       "mapping" : [{
         "identity" : "AuthorDocumentEntryCDA",

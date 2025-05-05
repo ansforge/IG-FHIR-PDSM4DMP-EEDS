@@ -16,7 +16,7 @@ Constituée des sous-attributs **authorInstitution**, **authorPerson**, **author
   <name value="AuthorSubmissionSet"/>
   <title value="AuthorSubmissionSet (LM)"/>
   <status value="draft"/>
-  <date value="2025-05-05T11:54:16+00:00"/>
+  <date value="2025-05-05T14:17:01+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -110,7 +110,7 @@ Constituée des sous-attributs **authorInstitution**, **authorPerson**, **author
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS"/>
       </binding>
     </element>
@@ -129,8 +129,8 @@ Constituée des sous-attributs **authorInstitution**, **authorPerson**, **author
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <strength value="required"/>
-        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP"/>
+        <strength value="preferred"/>
+        <valueSet value="https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS"/>
       </binding>
     </element>
   </snapshot>

@@ -1,6 +1,45 @@
 {
   "codeSystems" : [
     {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS",
+      "version" : "20250328120000",
+      "status" : "active",
+      "name" : "JDV_J01_XdsAuthorSpecialty_CISIS",
+      "title" : null,
+      "description" : "XDS authorSpecialty CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
+        "https://mos.esante.gouv.fr/NOS/TRE_A02-ProfessionSavFaire-CISIS/FHIR/TRE-A02-ProfessionSavFaire-CISIS",
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre/FHIR/TRE-R95-UsagerTitre",
+        "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.461"],
+      "sources" : ["1.2.250.1.213.1.1.5.461"],
+      "uses" : {
+      },
+      "StructureDefinition-Author.html" : "Author (LM)",
+      "StructureDefinition-AuthorDocumentEntry.html" : "AuthorDocumentEntry (LM)",
+      "StructureDefinition-AuthorSubmissionSet.html" : "AuthorSubmissionSet (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS",
+      "version" : "20241213120000",
+      "status" : "active",
+      "name" : "JDV_J02_XdsHealthcareFacilityTypeCode_CISIS",
+      "title" : null,
+      "description" : "XDS healthcareFacilityTypeCode CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
+        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.466"],
+      "sources" : ["1.2.250.1.213.1.1.5.466"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J03-XdsContentTypeCode-CISIS/FHIR/JDV-J03-XdsContentTypeCode-CISIS",
       "version" : "20241213120000",
       "status" : "active",
@@ -20,17 +59,88 @@
       "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
     },
     {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J231-XdsTypesIdentifiantsReferenceId-DMP/FHIR/JDV-J231-XdsTypesIdentifiantsReferenceId-DMP",
-      "version" : "20221216120000",
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS",
+      "version" : "20240927120000",
       "status" : "active",
-      "name" : "JDV_J231_XdsTypesIdentifiantsReferenceId_DMP",
+      "name" : "JDV_J04_XdsPracticeSettingCode_CISIS",
       "title" : null,
-      "description" : "Types d'identifiants utilisés dans la métadonnée XDS referenceIdList de la fiche du document dans le cadre du DMP",
+      "description" : "XDS practiceSettingCode CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
+        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.467"],
+      "sources" : ["1.2.250.1.213.1.1.5.467"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS",
+      "version" : "20230922120000",
+      "status" : "active",
+      "name" : "JDV_J06_XdsClassCode_CISIS",
+      "title" : null,
+      "description" : "XDS classCode CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
+        "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.462"],
+      "sources" : ["1.2.250.1.213.1.1.5.462"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS",
+      "version" : "20240927120000",
+      "status" : "active",
+      "name" : "JDV_J07_XdsTypeCode_CISIS",
+      "title" : null,
+      "description" : "XDS typeCode CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM",
+        "http://loinc.org",
+        "https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.471"],
+      "sources" : ["1.2.250.1.213.1.1.5.471"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS",
+      "version" : "20240726120000",
+      "status" : "active",
+      "name" : "JDV_J10_XdsFormatCode_CISIS",
+      "title" : null,
+      "description" : "XDS formatCode documents CI-SIS",
+      "systems" : [
+        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
+        "https://mos.esante.gouv.fr/NOS/TRE_A06-FormatCodeComplementaire/FHIR/TRE-A06-FormatCodeComplementaire",
+        "https://mos.esante.gouv.fr/NOS/TRE_A11-IheFormatCode/FHIR/TRE-A11-IheFormatCode",
+        "https://mos.esante.gouv.fr/NOS/TRE_A09-DICOMuidRegistry/FHIR/TRE-A09-DICOMuidRegistry"
+      ],
+      "oids" : ["1.2.250.1.213.1.1.5.465"],
+      "sources" : ["1.2.250.1.213.1.1.5.465"],
+      "uses" : {
+      },
+      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
+    },
+    {
+      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J197-XdsTypesIdentifiantsReferenceId-CISIS/FHIR/JDV-J197-XdsTypesIdentifiantsReferenceId-CISIS",
+      "version" : "20220624120000",
+      "status" : "active",
+      "name" : "JDV_J197_XdsTypesIdentifiantsReferenceId_CISIS",
+      "title" : null,
+      "description" : "Types d'identifiants utilisés dans la métadonnée XDS referenceIdList de la fiche du document dans le cadre du CISIS",
       "systems" : [
         "https://mos.esante.gouv.fr/NOS/TRE_R342-XdsTypesIdentifiantsReferenceId/FHIR/TRE-R342-XdsTypesIdentifiantsReferenceId"
       ],
-      "oids" : ["1.2.250.1.213.1.1.5.693"],
-      "sources" : ["1.2.250.1.213.1.1.5.693"],
+      "oids" : ["1.2.250.1.213.1.1.5.692"],
+      "sources" : ["1.2.250.1.213.1.1.5.692"],
       "uses" : {
       },
       "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
@@ -74,45 +184,6 @@
       "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
     },
     {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J56-AuthorSpecialty-DMP/FHIR/JDV-J56-AuthorSpecialty-DMP",
-      "version" : "20240927120000",
-      "status" : "active",
-      "name" : "JDV_J56_AuthorSpecialty_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour authorSpecialty",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
-        "https://mos.esante.gouv.fr/NOS/TRE_A02-ProfessionSavFaire-CISIS/FHIR/TRE-A02-ProfessionSavFaire-CISIS",
-        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
-        "https://mos.esante.gouv.fr/NOS/TRE_R95-UsagerTitre/FHIR/TRE-R95-UsagerTitre",
-        "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.1"],
-      "sources" : ["1.2.250.1.213.1.1.5.1"],
-      "uses" : {
-      },
-      "StructureDefinition-Author.html" : "Author (LM)",
-      "StructureDefinition-AuthorDocumentEntry.html" : "AuthorDocumentEntry (LM)",
-      "StructureDefinition-AuthorSubmissionSet.html" : "AuthorSubmissionSet (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J57-ClassCode-DMP/FHIR/JDV-J57-ClassCode-DMP",
-      "version" : "20230922120000",
-      "status" : "active",
-      "name" : "JDV_J57_ClassCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour métadonnée classCode",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
-        "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.6"],
-      "sources" : ["1.2.250.1.213.1.1.5.6"],
-      "uses" : {
-      },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP",
       "version" : "20200424120000",
       "status" : "active",
@@ -125,77 +196,6 @@
       ],
       "oids" : ["1.2.250.1.213.1.1.5.9"],
       "sources" : ["1.2.250.1.213.1.1.5.9"],
-      "uses" : {
-      },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J60-FormatCode-DMP/FHIR/JDV-J60-FormatCode-DMP",
-      "version" : "20240927120000",
-      "status" : "active",
-      "name" : "JDV_J60_FormatCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour métadonnée formatCode",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A10-NomenclatureURN/FHIR/TRE-A10-NomenclatureURN",
-        "https://mos.esante.gouv.fr/NOS/TRE_A06-FormatCodeComplementaire/FHIR/TRE-A06-FormatCodeComplementaire",
-        "https://mos.esante.gouv.fr/NOS/TRE_A11-IheFormatCode/FHIR/TRE-A11-IheFormatCode",
-        "https://mos.esante.gouv.fr/NOS/TRE_A09-DICOMuidRegistry/FHIR/TRE-A09-DICOMuidRegistry"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.8"],
-      "sources" : ["1.2.250.1.213.1.1.5.8"],
-      "uses" : {
-      },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J61-HealthcareFacilityTypeCode-DMP/FHIR/JDV-J61-HealthcareFacilityTypeCode-DMP",
-      "version" : "20240927120000",
-      "status" : "active",
-      "name" : "JDV_J61_HealthcareFacilityTypeCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour healthcareFacilityTypeCode",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS",
-        "https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.3"],
-      "sources" : ["1.2.250.1.213.1.1.5.3"],
-      "uses" : {
-      },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J62-PracticeSettingCode-DMP/FHIR/JDV-J62-PracticeSettingCode-DMP",
-      "version" : "20230922120000",
-      "status" : "active",
-      "name" : "JDV_J62_PracticeSettingCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour practiceSettingCode",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice",
-        "https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.4"],
-      "sources" : ["1.2.250.1.213.1.1.5.4"],
-      "uses" : {
-      },
-      "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"
-    },
-    {
-      "url" : "https://mos.esante.gouv.fr/NOS/JDV_J66-TypeCode-DMP/FHIR/JDV-J66-TypeCode-DMP",
-      "version" : "20240927120000",
-      "status" : "active",
-      "name" : "JDV_J66_TypeCode_DMP",
-      "title" : null,
-      "description" : "Jeu de valeurs pour métadonnée typeCode DMP",
-      "systems" : [
-        "https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM",
-        "http://loinc.org",
-        "https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire"
-      ],
-      "oids" : ["1.2.250.1.213.1.1.5.7"],
-      "sources" : ["1.2.250.1.213.1.1.5.7"],
       "uses" : {
       },
       "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)"

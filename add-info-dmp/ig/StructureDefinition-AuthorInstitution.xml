@@ -19,7 +19,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
   <name value="AuthorInstitution"/>
   <title value="AuthorInstitution (LM)"/>
   <status value="draft"/>
-  <date value="2025-05-05T11:54:16+00:00"/>
+  <date value="2025-05-05T14:17:01+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -105,7 +105,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
       </example>
       <mapping>
         <identity value="AuthorInstitutionCDA"/>
-        <map value="author/assignedAuthor/representedOrganization/name"/>
+        <map value="author/assignedAuthor/representedOrganization/name (Si l’élément name fait l’objet d’un nullFlavor dans l’en-tête CDA, le composant 1 de la métadonnée authorInstitution doit être vide)"/>
       </mapping>
       <mapping>
         <identity value="KOS"/>
@@ -178,7 +178,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
       </example>
       <mapping>
         <identity value="AuthorInstitutionCDA"/>
-        <map value="author/assignedAuthor/representedOrganization/id@root"/>
+        <map value="author/assignedAuthor/representedOrganization/id@root (Si l’élément id fait l’objet d’un nullFlavor dans l’en-tête CDA, les composants 6, 7 et 10 de la métadonnée authorInstitution doivent être vides)"/>
       </mapping>
       <mapping>
         <identity value="KOS"/>
@@ -305,7 +305,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
       </example>
       <mapping>
         <identity value="AuthorInstitutionCDA"/>
-        <map value="author/assignedAuthor/representedOrganization/name"/>
+        <map value="author/assignedAuthor/representedOrganization/name (Si l’élément name fait l’objet d’un nullFlavor dans l’en-tête CDA, le composant 1 de la métadonnée authorInstitution doit être vide)"/>
       </mapping>
       <mapping>
         <identity value="KOS"/>
@@ -363,7 +363,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
       </example>
       <mapping>
         <identity value="AuthorInstitutionCDA"/>
-        <map value="author/assignedAuthor/representedOrganization/id@root "/>
+        <map value="author/assignedAuthor/representedOrganization/id@root (Si l’élément id fait l’objet d’un nullFlavor dans l’en-tête CDA, les composants 6, 7 et 10 de la métadonnée authorInstitution doivent être vides)"/>
       </mapping>
       <mapping>
         <identity value="KOS"/>
