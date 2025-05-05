@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-05T07:53:58+00:00",
+  "date" : "2025-05-05T08:00:51+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -683,7 +683,7 @@
         "reference" : "StructureDefinition/SubmissionSet"
       },
       "name" : "SubmissionSet (LM)",
-      "description" : "Model logique d'un lot de soummission.",
+      "description" : "Modèle logique d'un lot de soummission (SubmissionSet).",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
@@ -696,7 +696,7 @@
         "reference" : "StructureDefinition/DocumentEntry"
       },
       "name" : "Document Entry (LM)",
-      "description" : "Model logique  d’une fiche",
+      "description" : "Modèle logique  d’une fiche",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
@@ -709,7 +709,7 @@
         "reference" : "StructureDefinition/EventCode"
       },
       "name" : "EventCode (LM)",
-      "description" : "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
+      "description" : "Modèle logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModel"
     },
@@ -774,7 +774,7 @@
         "reference" : "StructureDefinition/AuthorDocumentEntry"
       },
       "name" : "AuthorDocumentEntry (LM)",
-      "description" : "Modèle logique d'un auteur d'un documeny\nCette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. \nL’auteur peut être : \n-  Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n-  Un système de structure (dispositif, automate, appareil connecté…), \n-  Un SNR (Service Numérique Référencé),",
+      "description" : "Modèle logique d'un auteur d'un document\nCette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. \nL’auteur peut être : \n-  Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n-  Un système de structure (dispositif, automate, appareil connecté…), \n-  Un SNR (Service Numérique Référencé),",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -826,7 +826,7 @@
         "reference" : "StructureDefinition/ActorPS"
       },
       "name" : "ActorPS (LM)",
-      "description" : "Cet attribut représente l'acteur  PS.",
+      "description" : "Cet attribut représente l'acteur PS.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -839,7 +839,7 @@
         "reference" : "StructureDefinition/ActorPatient"
       },
       "name" : "ActorPatient (LM)",
-      "description" : "Cet attribut représente l'acteur  Patient.",
+      "description" : "Cet attribut représente l'acteur Patient.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -852,7 +852,7 @@
         "reference" : "StructureDefinition/ActorSNR"
       },
       "name" : "ActorSNR (LM)",
-      "description" : "Cet attribut représente l'acteur  SNR.",
+      "description" : "Cet attribut représente l'acteur SNR.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -865,7 +865,7 @@
         "reference" : "StructureDefinition/ActorSystem"
       },
       "name" : "ActorSystem (LM)",
-      "description" : "Cet attribut représente l'actteur  System.",
+      "description" : "Cet attribut représente l'acteur System.",
       "exampleBoolean" : false,
       "groupingId" : "LogicalModelAuthor"
     },
@@ -890,8 +890,8 @@
       "reference" : {
         "reference" : "StructureDefinition/MatriculeINS"
       },
-      "name" : " MatriculeINS",
-      "description" : "Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)",
+      "name" : "MatriculeINS",
+      "description" : "Matricule de l'Identité Nationale de Santé (INS). Il correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu).",
       "exampleBoolean" : false,
       "groupingId" : "DataType"
     },

@@ -1,7 +1,6 @@
 "Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
 "SubmissionSet","SubmissionSet","","","",0,*,"","","","null {[]} {[]}
-","SubmissionSet (LM)","Model logique d'un lot de soummission.
-","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+","SubmissionSet (LM)","Modèle logique d'un lot de soummission (SubmissionSet).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "SubmissionSet.entryUUID","SubmissionSet.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
 ","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe.","Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe.","","","","","","","","","",,,,,"",,,,"SubmissionSet.entryUUID",1,1,"",""
 "SubmissionSet.availabilityStatus","SubmissionSet.availabilityStatus","","","",1,1,"","","","code {[]} {[]}

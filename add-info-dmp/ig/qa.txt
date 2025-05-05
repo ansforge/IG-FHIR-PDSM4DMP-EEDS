@@ -1,9 +1,9 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 50, warn = 240, info = 2
+err = 50, warn = 238, info = 2
 IG Publisher Version: 1.8.25
-Generated Mon May 05 07:57:19 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+Generated Mon May 05 08:04:13 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 2 / 2 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPSCabinetRPPS : 1 / 0 / 0
@@ -11,7 +11,7 @@ Generated Mon May 05 07:57:19 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 1 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 1 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 4 / 11 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 4 / 10 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorPS : 2 / 16 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorPatient : 2 / 16 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorSNR : 2 / 16 / 1
@@ -24,7 +24,7 @@ Generated Mon May 05 07:57:19 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-DocumentEntry : 6 / 38 / 2
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-EventCode : 0 / 2 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-IdentifiantSysteme : 0 / 1 / 2
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-MatriculeINS : 0 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-MatriculeINS : 0 / 0 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-PSIdNat : 0 / 1 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-PatientId : 0 / 8 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SNR : 0 / 1 / 1
@@ -58,7 +58,6 @@ ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.target: Reference must be to a
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[4].name: value should not start or finish with whitespace ' SourcePatientId (LM)'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[5].name: value should not start or finish with whitespace ' SourcePatientInfo (LM)'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[15].name: value should not start or finish with whitespace ' IdentifiantSysteme'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[16].name: value should not start or finish with whitespace ' MatriculeINS'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].name: value should not start or finish with whitespace ' PSIdNat'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[18].name: value should not start or finish with whitespace ' SNR'
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[19].name: value should not start or finish with whitespace ' StructIdNat'
@@ -286,7 +285,6 @@ WARNING: StructureDefinition/EventCode: StructureDefinition.differential.element
 WARNING: StructureDefinition/IdentifiantSysteme: StructureDefinition.title: value should not start or finish with whitespace ' IdentifiantSysteme'
 INFORMATION: StructureDefinition/IdentifiantSysteme: StructureDefinition.snapshot.element[3].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex
 == fsh-generated/resources/StructureDefinition-MatriculeINS.json ==
-WARNING: StructureDefinition/MatriculeINS: StructureDefinition.title: value should not start or finish with whitespace ' MatriculeINS'
 == fsh-generated/resources/StructureDefinition-PSIdNat.json ==
 WARNING: StructureDefinition/PSIdNat: StructureDefinition.title: value should not start or finish with whitespace ' PSIdNat'
 == fsh-generated/resources/StructureDefinition-PatientId.json ==

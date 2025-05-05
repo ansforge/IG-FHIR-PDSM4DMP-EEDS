@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-05T07:53:58+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-05T08:00:51+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -918,7 +918,7 @@
          fhir:reference [ fhir:v "StructureDefinition/SubmissionSet" ]
        ] ;
        fhir:name [ fhir:v "SubmissionSet (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un lot de soummission." ] ;
+       fhir:description [ fhir:v "Modèle logique d'un lot de soummission (SubmissionSet)." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -937,7 +937,7 @@
          fhir:reference [ fhir:v "StructureDefinition/DocumentEntry" ]
        ] ;
        fhir:name [ fhir:v "Document Entry (LM)" ] ;
-       fhir:description [ fhir:v "Model logique  d’une fiche" ] ;
+       fhir:description [ fhir:v "Modèle logique  d’une fiche" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -956,7 +956,7 @@
          fhir:reference [ fhir:v "StructureDefinition/EventCode" ]
        ] ;
        fhir:name [ fhir:v "EventCode (LM)" ] ;
-       fhir:description [ fhir:v "Model logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique." ] ;
+       fhir:description [ fhir:v "Modèle logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1051,7 +1051,7 @@
          fhir:reference [ fhir:v "StructureDefinition/AuthorDocumentEntry" ]
        ] ;
        fhir:name [ fhir:v "AuthorDocumentEntry (LM)" ] ;
-       fhir:description [ fhir:v "Modèle logique d'un auteur d'un documeny\nCette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. \nL’auteur peut être : \n-  Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n-  Un système de structure (dispositif, automate, appareil connecté…), \n-  Un SNR (Service Numérique Référencé)," ] ;
+       fhir:description [ fhir:v "Modèle logique d'un auteur d'un document\nCette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. \nL’auteur peut être : \n-  Un professionnel (personne physique) via son logiciel de professionnel, \n- Le patient/usager (personne physique) via Mon espace Santé, \n-  Un système de structure (dispositif, automate, appareil connecté…), \n-  Un SNR (Service Numérique Référencé)," ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1127,7 +1127,7 @@
          fhir:reference [ fhir:v "StructureDefinition/ActorPS" ]
        ] ;
        fhir:name [ fhir:v "ActorPS (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l'acteur  PS." ] ;
+       fhir:description [ fhir:v "Cet attribut représente l'acteur PS." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1146,7 +1146,7 @@
          fhir:reference [ fhir:v "StructureDefinition/ActorPatient" ]
        ] ;
        fhir:name [ fhir:v "ActorPatient (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l'acteur  Patient." ] ;
+       fhir:description [ fhir:v "Cet attribut représente l'acteur Patient." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1165,7 +1165,7 @@
          fhir:reference [ fhir:v "StructureDefinition/ActorSNR" ]
        ] ;
        fhir:name [ fhir:v "ActorSNR (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l'acteur  SNR." ] ;
+       fhir:description [ fhir:v "Cet attribut représente l'acteur SNR." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1184,7 +1184,7 @@
          fhir:reference [ fhir:v "StructureDefinition/ActorSystem" ]
        ] ;
        fhir:name [ fhir:v "ActorSystem (LM)" ] ;
-       fhir:description [ fhir:v "Cet attribut représente l'actteur  System." ] ;
+       fhir:description [ fhir:v "Cet attribut représente l'acteur System." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
@@ -1221,8 +1221,8 @@
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS> ;
          fhir:reference [ fhir:v "StructureDefinition/MatriculeINS" ]
        ] ;
-       fhir:name [ fhir:v " MatriculeINS" ] ;
-       fhir:description [ fhir:v "Matricule INS (correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)" ] ;
+       fhir:name [ fhir:v "MatriculeINS" ] ;
+       fhir:description [ fhir:v "Matricule de l'Identité Nationale de Santé (INS). Il correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false
