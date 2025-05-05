@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-05T14:17:01+00:00"/>
+  <date value="2025-05-05T14:44:38+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -521,18 +521,6 @@
         <valueString value="StructureDefinition:primitive-type"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/PSIdNat"/>
-      </reference>
-      <name value=" PSIdNat"/>
-      <description value="Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) &#xA;&#xA;L’identification nationale du PS est construite selon le tableau dessous :&#xA;-  0 + N° ADELI &#xA;- 1 + Identifiant cabinet ADELI/identifiant interne &#xA;- 3 + FINESS/identifiant interne &#xA;- 4 + SIREN/identifiant interne &#xA;- 5 + SIRET/identifiant interne &#xA;- 6 + Identifiant cabinet RPPS/identifiant interne &#xA;- 8 + N° RPPS"/>
-      <exampleBoolean value="false"/>
-      <groupingId value="DataType"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:primitive-type"/>
-      </extension>
-      <reference>
         <reference value="StructureDefinition/SNR"/>
       </reference>
       <name value=" SNR"/>
@@ -824,6 +812,18 @@
       <description value="Modèle logique de patientID.&#xA;PatientID représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelPatient"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:primitive-type"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PSIdNat"/>
+      </reference>
+      <name value="PSIdNat"/>
+      <description value="Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) &#xA;&#xA;L’identification nationale du PS est construite selon le tableau dessous :&#xA;-  0 + N° ADELI &#xA;- 1 + Identifiant cabinet ADELI/identifiant interne &#xA;- 3 + FINESS/identifiant interne &#xA;- 4 + SIREN/identifiant interne &#xA;- 5 + SIRET/identifiant interne &#xA;- 6 + Identifiant cabinet RPPS/identifiant interne &#xA;- 8 + N° RPPS"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DataType"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">

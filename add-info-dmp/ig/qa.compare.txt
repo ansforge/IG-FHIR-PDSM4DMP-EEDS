@@ -1,7 +1,7 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 34, warn = 242, info = 2
+err = 35, warn = 240, info = 2
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 2 / 2 / 0
@@ -14,7 +14,7 @@ Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https:
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 1 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 1 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 7 / 13 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 7 / 12 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorPS : 2 / 16 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorPatient : 2 / 16 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorSNR : 2 / 16 / 1
@@ -28,7 +28,7 @@ Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https:
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-EventCode : 0 / 2 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-IdentifiantSysteme : 0 / 1 / 2
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-MatriculeINS : 0 / 0 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-PSIdNat : 0 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-PSIdNat : 1 / 0 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-PatientId : 0 / 8 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SNR : 0 / 1 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SourcePatientId : 0 / 11 / 1
@@ -65,25 +65,24 @@ ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.source: Reference must be to a
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.target: Reference must be to a ValueSet, but found a StructureDefinition instead
 == fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json ==
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[0].name: value should not start or finish with whitespace ' IdentifiantSysteme'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[1].name: value should not start or finish with whitespace ' PSIdNat'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[2].name: value should not start or finish with whitespace ' SNR'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[3].name: value should not start or finish with whitespace ' SourcePatientId (LM)'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[4].name: value should not start or finish with whitespace ' SourcePatientInfo (LM)'
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[5].name: value should not start or finish with whitespace ' StructIdNat'
-ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[12].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[12].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[1].name: value should not start or finish with whitespace ' SNR'
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[2].name: value should not start or finish with whitespace ' SourcePatientId (LM)'
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[3].name: value should not start or finish with whitespace ' SourcePatientInfo (LM)'
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[4].name: value should not start or finish with whitespace ' StructIdNat'
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[11].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[11].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[14].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorInstitution)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[14].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorInstitution' does not resolve
 ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[15].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorInstitution)
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[15].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorInstitution' does not resolve
 ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[16].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorInstitution)
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[16].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorInstitution' does not resolve
-ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorInstitution)
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorInstitution' does not resolve
+ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
+WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[17].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
 ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[18].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[18].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
 ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[19].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[19].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
-ERROR: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[20].example.ofType(canonical): Canonical URLs must be absolute URLs if they are not fragment references (StructureDefinition/AuthorDocumentEntry)
-WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[20].example.ofType(canonical): Canonical URL 'StructureDefinition/AuthorDocumentEntry' does not resolve
 == fsh-generated/resources/StructureDefinition-ActorPS.json ==
 WARNING: StructureDefinition/ActorPS: StructureDefinition.snapshot.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorPS: StructureDefinition.snapshot.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
@@ -280,7 +279,7 @@ WARNING: StructureDefinition/IdentifiantSysteme: StructureDefinition.title: valu
 INFORMATION: StructureDefinition/IdentifiantSysteme: StructureDefinition.snapshot.element[3].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex
 == fsh-generated/resources/StructureDefinition-MatriculeINS.json ==
 == fsh-generated/resources/StructureDefinition-PSIdNat.json ==
-WARNING: StructureDefinition/PSIdNat: StructureDefinition.title: value should not start or finish with whitespace ' PSIdNat'
+ERROR: StructureDefinition/PSIdNat: StructureDefinition.snapshot.element[0].constraint[1]: Error in constraint 'PSIdNat-invariant' with expression '$this.matches('^(0|1|3|4|5|6|8)\d*$')': Error @1, 38: Unknown FHIRPath character escape \d
 == fsh-generated/resources/StructureDefinition-PatientId.json ==
 WARNING: StructureDefinition/PatientId: StructureDefinition.snapshot.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/PatientId: StructureDefinition.snapshot.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
