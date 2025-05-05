@@ -2,7 +2,7 @@
 Profile: PSIdNat 
 Parent: string
 Id:  PSIdNat 
-Title: " PSIdNat"
+Title: "PSIdNat"
 Description: """
 Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) 
 
@@ -20,5 +20,5 @@ L’identification nationale du PS est construite selon le tableau dessous :
 
 Invariant:   PSIdNat-invariant
 Description: "Le numéro PSIdNat doit être un entier commençant par 0, 1, 3, 4, 5, 6 ou 8"
-Expression:  "$this.matches('^(0|1|3|4|5|6|8)\d*$')"
+Expression: "$this.matches('^(0|1|3|4|5|6|8)\\d*$')"
 Severity:    #error
