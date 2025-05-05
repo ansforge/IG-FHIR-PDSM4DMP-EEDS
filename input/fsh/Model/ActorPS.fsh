@@ -3,7 +3,7 @@ Parent: ActorXDS
 Id: ActorPS
 Title: "ActorPS (LM)"
 Description: """
-Cet attribut représente l'acteur  PS. 
+Cet attribut représente l'acteur PS. 
 """
 
 

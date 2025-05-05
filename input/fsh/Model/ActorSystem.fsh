@@ -3,7 +3,7 @@ Parent: ActorXDS
 Id: ActorSystem
 Title: "ActorSystem (LM)"
 Description: """
-Cet attribut représente l'actteur  System. 
+Cet attribut représente l'acteur System. 
 """
 
 

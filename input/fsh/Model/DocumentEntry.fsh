@@ -3,7 +3,7 @@ Parent: Base
 Id: DocumentEntry
 Title: "Document Entry (LM)"
 Description: """
-Model logique  d’une fiche
+Modèle logique  d’une fiche
 """
 
 * entryUUID 1..1 uuid "Identifiant unique affecté à la version de la fiche référençant le document."

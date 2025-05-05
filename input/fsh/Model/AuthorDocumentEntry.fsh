@@ -3,7 +3,7 @@ Parent: Author
 Id: AuthorDocumentEntry
 Title: "AuthorDocumentEntry (LM)"
 Description: """
-Modèle logique d'un auteur d'un documeny
+Modèle logique d'un auteur d'un document
 Cette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document. 
 L’auteur peut être : 
 -  Un professionnel (personne physique) via son logiciel de professionnel, 

@@ -3,7 +3,7 @@ Parent: Base
 Id: EventCode
 Title: "EventCode (LM)"
 Description: """
-Model logique d'un eventCode.
+Modèle logique d'un eventCode.
 Un EventCode peut contenir le code représentant : 
 -  un évènement documenté (acte, traitement, diagnostic, etc…),  
 -  une modalité d’acquisition, 

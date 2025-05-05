@@ -2,10 +2,7 @@ Logical: SubmissionSet
 Parent: Base
 Id: SubmissionSet
 Title: "SubmissionSet (LM)"
-Description: """
-Model logique d'un lot de soummission.
-
-"""
+Description: """Modèle logique d'un lot de soummission (SubmissionSet)."""
 
 * entryUUID 1..1 uuid "Identifiant unique du lot de soumission. Cet attribut est destiné à des fins de gestion interne alors que uniqueId est utilisé à des fins de référence externe."
 * availabilityStatus 1..1 code  "Cette métadonnée représente la pertinence d'un lot de soumission. "

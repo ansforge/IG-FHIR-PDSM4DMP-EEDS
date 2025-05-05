@@ -3,7 +3,7 @@ Parent: ActorXDS
 Id: ActorSNR
 Title: "ActorSNR (LM)"
 Description: """
-Cet attribut représente l'acteur  SNR. 
+Cet attribut représente l'acteur SNR. 
 """
 
 
