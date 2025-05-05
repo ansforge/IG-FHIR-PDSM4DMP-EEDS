@@ -10,12 +10,12 @@ Modèle logique  d’une fiche
 * logicalId 1..1 Identifier "Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche"
 * mimeType 1..1 CodeableConcept "Cette métadonnée représente le type de contenu du document, défini par le standard MIME."
 * availabilityStatus 1..1 CodeableConcept "Cette métadonnée représente la pertinence de la version de la fiche d'un document. " "**Availability Status**"
-* availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (required)
+* availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (preferred)
 * hash 1..1 string "Cette métadonnée contient le résultat du hachage du document déposé" 
 * size 1..1 integer "Cette métadonnée correspond à la taille du document déposé."
 * languageCode 1..1 string "Cette métadonnée représente le code de la langue dans laquelle le document est rédigé." "Pour tous les documents produits système initiateur français : 'fr-FR'" 
 * author 1..* AuthorDocumentEntry "Cette métadonnée représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document."
-* legalAuthenticator 1..1 Reference(ActorPS or ActorPatient  or ActorSystem) "Cette métadonnée représente l'acteur prenant la responsabilité du contenu médical du document" "XCN"
+* legalAuthenticator[x] 1..1 ActorPS or ActorPatient  or ActorSystem "Cette métadonnée représente l'acteur prenant la responsabilité du contenu médical du document" "XCN"
 * repositoryUniqueId 1..1 oid "Cette métadonnée représente l'identifiant unique global de l'entrepôt de documents dans lequel est stocké le document"
 * serviceStartTime 1..1 dateTime "Cette métadonnée représente la date de début de l'acte de référence."
 * serviceEndTime 0..1 dateTime "Cette métadonnée correspond à la date de fin de l'acte de référence, si connue."
