@@ -330,9 +330,11 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
                   title="StructureDefinition/Author">Author (LM)</a>
             </td>
             <td>
-<p>Modèle logique d'un auteur.
-Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. 
-L’auteur peut être :</p>
+<p>Modèle logique d'un auteur.</p>
+
+<p>Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission.</p>
+
+<p>L’auteur peut être :</p>
 <ul>
   <li>Un professionnel (personne physique) via son logiciel de professionnel,</li>
   <li>Le patient/usager (personne physique) via Mon espace Santé,</li>
@@ -340,7 +342,7 @@ L’auteur peut être :</p>
   <li>Un SNR (Service Numérique Référencé),</li>
 </ul>
 
-<p>author est un ensemble constitué des sous-attributs authorInstitution , authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même.</p>
+<p><strong>author</strong> est un ensemble constitué des sous-attributs <strong>authorInstitution</strong> , <strong>authorPerson</strong>, <strong>authorRole</strong> et <strong>authorSpecialty</strong> et ne porte pas de valeur par lui-même.</p>
 </td>
          </tr>
          <tr>
@@ -377,7 +379,7 @@ Constituée des sous-attributs <strong>authorInstitution</strong>, <strong>autho
                   title="StructureDefinition/AuthorInstitution">AuthorInstitution (LM)</a>
             </td>
             <td>
-<p>Cette métadonnée représente la structure émettrice du lot de soumission. 
+<p>Cet attribut représente la structure de l’auteur. 
 Pour les documents d’expression personnelle du patient, cette métadonnée est absente, cela signifie que l’élément XML &lt;rim:Slot name='authorInstitution'&gt; n’est pas transmis.</p>
 </td>
          </tr>
@@ -616,7 +618,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, May 5, 2025 08:02+0000">2025-05-05</span>
+          IG &#169; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, May 5, 2025 11:55+0000">2025-05-05</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
             Liens: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table des matières </a> |

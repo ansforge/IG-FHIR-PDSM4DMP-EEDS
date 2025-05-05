@@ -58,7 +58,7 @@ package IG #DDDDDD{
              ActorXDS.XCN2 => [1..1]
              ActorXDS.XCN3 => [1..1]
              ActorXDS.XCN9 => [1..1]
-             ActorXDS.XCN9.composant1 => [1..1]
+             ActorXDS.XCN9.composant1 => [0..0]
              ActorXDS.XCN9.composant2 => [1..1]
              ActorXDS.XCN9.composant3 => [1..1]
              ActorXDS.XCN10 => [1..1]
@@ -69,7 +69,7 @@ package IG #DDDDDD{
 
              Author => [None..None]
              Author.institution => [0..1]
-             Author.person => [1..1]
+             Author.person[x] => [1..1]
              Author.role => [0..*]
              Author.specialty => [0..1]
         } 
@@ -78,7 +78,7 @@ package IG #DDDDDD{
 
              AuthorDocumentEntry => [None..None]
              AuthorDocumentEntry.institution => [None..None]
-             AuthorDocumentEntry.person => [None..None]
+             AuthorDocumentEntry.person[x] => [None..None]
              AuthorDocumentEntry.role => [None..None]
              AuthorDocumentEntry.specialty => [None..None]
         } 
@@ -88,7 +88,7 @@ package IG #DDDDDD{
              AuthorInstitution => [None..None]
              AuthorInstitution.XON1 => [1..1]
              AuthorInstitution.XON6 => [1..1]
-             AuthorInstitution.XON6.composant1 => [1..1]
+             AuthorInstitution.XON6.composant1 => [0..0]
              AuthorInstitution.XON6.composant2 => [1..1]
              AuthorInstitution.XON6.composant3 => [1..1]
              AuthorInstitution.XON7 => [1..1]
@@ -99,7 +99,7 @@ package IG #DDDDDD{
 
              AuthorSubmissionSet => [None..None]
              AuthorSubmissionSet.institution => [None..None]
-             AuthorSubmissionSet.person => [None..None]
+             AuthorSubmissionSet.person[x] => [None..None]
              AuthorSubmissionSet.role => [None..None]
         } 
 
@@ -280,9 +280,9 @@ package "Ressources de base" #palegreen {
 
     class157db7df530023575515d366c9b672e8 --> MatriculeINS
 
- class "integer" as  class157db7df530023575515d366c9b672e8 
+ class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
-    class157db7df530023575515d366c9b672e8 --> PSIdNat
+    classb45cffe084dd3d20d928bee85e7b0f21 --> PSIdNat
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
@@ -300,9 +300,9 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> SourcePatientInfo
 
- class "integer" as  class157db7df530023575515d366c9b672e8 
+ class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
-    class157db7df530023575515d366c9b672e8 --> StructIdNat
+    classb45cffe084dd3d20d928bee85e7b0f21 --> StructIdNat
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

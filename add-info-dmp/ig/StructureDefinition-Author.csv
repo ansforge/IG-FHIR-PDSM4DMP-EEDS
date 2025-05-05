@@ -1,7 +1,9 @@
 "Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
 "Author","Author","","","",0,*,"","","","null {[]} {[]}
 ","Author (LM)","Modèle logique d'un auteur.
+
 Représente les personnes physiques et/ou les systèmes (dispositifs, automates, services numériques référencés…) auteurs d’un document ou d'un lot de soummission. 
+
 L’auteur peut être : 
 - Un professionnel (personne physique) via son logiciel de professionnel, 
 - Le patient/usager (personne physique) via Mon espace Santé, 
@@ -9,11 +11,11 @@ L’auteur peut être :
 - Un SNR (Service Numérique Référencé), 
 
 
-author est un ensemble constitué des sous-attributs authorInstitution , authorPerson, authorRole et authorSpecialty et ne porte pas de valeur par lui-même. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+**author** est un ensemble constitué des sous-attributs **authorInstitution** , **authorPerson**, **authorRole** et **authorSpecialty** et ne porte pas de valeur par lui-même. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "Author.institution","Author.institution","","","",0,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorInstitution {[]} {[]}
 ","Cet attribut représente la structure de l’auteur.","Cet attribut représente la structure de l’auteur.","","","","","","","","","",,,,,"",,,,"Author.institution",0,1,"",""
-"Author.person","Author.person","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPS], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSNR], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSystem]]}
-","author","author","","","","","","","","","",,,,,"",,,,"Author.person",1,1,"",""
+"Author.person[x]","Author.person[x]","","","",1,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPS {[]} {[]}
+https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient {[]} {[]}https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSNR {[]} {[]}https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorSystem {[]} {[]}","Author","Author","","","","","","","","","",,,,,"",,,,"Author.person[x]",1,1,"",""
 "Author.role","Author.role","","","",0,*,"","","","CodeableConcept {[]} {[]}
 ","Cet attribut représente le rôle fonctionnel joué par l’auteur vis-à-vis du patient/usager lors de la création du document, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.). ","**Author Role**","","","","","","","","","",,"required","","https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS","",,,,"Author.role",0,*,"",""
 "Author.specialty","Author.specialty","","","",0,1,"","","","CodeableConcept {[]} {[]}
