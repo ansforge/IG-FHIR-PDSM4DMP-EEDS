@@ -5,7 +5,7 @@ Title: "ActorPS (LM)"
 Description: """
 Cet attribut représente l'acteur PS. 
 """
-
+Characteristics: #can-be-target
 
 * XCN1 only Reference(PSIdNat)
 * XCN1 ^example.label = "Professionnel avec un identifiant national RPPS (préfixe 8)"

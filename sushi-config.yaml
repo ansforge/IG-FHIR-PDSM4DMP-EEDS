@@ -106,6 +106,17 @@ resources:
     profile: StructureDefinition/AuthorDocumentEntry
 
 
+  Binary/AuthorInstitutionStructure:
+    profile: StructureDefinition/AuthorInstitution
+
+  Binary/AuthorInstitutionCabinetRPPS:
+    profile: StructureDefinition/AuthorInstitution
+
+  Binary/AuthorInstitutionSNR:
+    profile: StructureDefinition/AuthorInstitution
+
+
+
 groups:
   LogicalModel:
     name:  Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)

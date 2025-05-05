@@ -18,7 +18,7 @@ Description: """Modèle logique d'un lot de soummission (SubmissionSet)."""
 * sourceID 1..1 oid "Cette métadonnée représente l’identifiant unique global du système émetteur du lot de soumission"
 * uniqueID 1..1 oid "Identifiant unique global affecté à ce lot de soumission par son créateur. Cet attribut est utilisé à des fins de référence externe alors que entryUUID est destiné à des fins de gestion interne."
 * contentTypeCode 1..1 CodeableConcept "Ensemble de métadonnées représentant le type d’activité associé à l’événement clinique ayant abouti à la constitution du lot de soumission. " "**Submission Set**"
-* contentTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J03-XdsContentTypeCode-CISIS/FHIR/JDV-J03-XdsContentTypeCode-CISIS (required)
+* contentTypeCode from https://mos.esante.gouv.fr/NOS/JDV_J03-XdsContentTypeCode-CISIS/FHIR/JDV-J03-XdsContentTypeCode-CISIS (preferred)
 * author 1..1 AuthorSubmissionSet "Représente la personne physique ou morale et/ou le dispositif auteur d’un lot de soumission"
 * homeCommunityID 0..1 oid "Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet."
 * intendedRecipient 0..* string "Cette métadonnée représente les destinataires (structure ou professionnel) auxquels lot de soumission est destiné. Elle n’est pas utilisée par les transactions décrites dans ce volet."

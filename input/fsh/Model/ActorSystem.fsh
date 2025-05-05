@@ -5,7 +5,7 @@ Title: "ActorSystem (LM)"
 Description: """
 Cet attribut représente l'acteur System. 
 """
-
+Characteristics: #can-be-target
 
 * XCN1 only Reference(IdentifiantSysteme)
 * XCN1 ^example.label = "système avec un identifiant interne dans une structure de santé FINESS"
