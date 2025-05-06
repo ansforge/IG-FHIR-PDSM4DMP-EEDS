@@ -25,7 +25,7 @@
   fhir:name [ fhir:v "ActorChild2"] ; # 
   fhir:title [ fhir:v "ActorChild2 (LM)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-06T08:04:12+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-06T12:03:39+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -131,7 +131,11 @@
        ] ;
        fhir:type ( [
          fhir:code [ fhir:v "code"^^xsd:anyURI ]
-       ] )
+       ] ) ;
+       fhir:pattern [
+         a fhir:code ;
+         fhir:v "U"
+       ]
      ] [
        fhir:id [ fhir:v "ActorChild2.XCN3" ] ;
        fhir:path [ fhir:v "ActorChild2.XCN3" ] ;

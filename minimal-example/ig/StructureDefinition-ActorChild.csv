@@ -2,11 +2,8 @@
 "ActorChild","ActorChild","","","",0,*,"","","","null {[]} {[]}
 ","ActorChild (LM)","Cet attribut représente l'acteur Patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","ActorParent"
 "ActorChild.XCN1[x]","ActorChild.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1]]} {[]}
-","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"","type:$this}
-","",,"open","ActorParent.XCN1[x]",1,1,"","","author/assignedAuthor/id@extension"
-"ActorChild.XCN1[x]","ActorChild.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3]]} {[]}
-","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""U""/>","","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"","","author/assignedAuthor/id@extension"
+","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"","","author/assignedAuthor/id@extension"
 "ActorChild.XCN10","ActorChild.XCN10","","","",1,1,"","","","code {[]} {[]}
-","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN10",1,1,"",""
+","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","","","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""U""/>","","","",,,,,"",,,,"ActorParent.XCN10",1,1,"",""
 "ActorChild.XCN3","ActorChild.XCN3","","","",1,1,"","","","string {[]} {[]}
 ","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
