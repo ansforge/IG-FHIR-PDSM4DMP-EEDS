@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-06T07:03:04+00:00",
+  "date" : "2025-05-06T07:07:29+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -662,9 +662,9 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/ActorPatient"
+        "reference" : "StructureDefinition/ActorChild"
       },
-      "name" : "ActorPatient (LM)",
+      "name" : "ActorChild (LM)",
       "description" : "Cet attribut représente l'acteur Patient.",
       "exampleBoolean" : false
     },
@@ -674,9 +674,9 @@
         "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/ActorXDS"
+        "reference" : "StructureDefinition/ActorParent"
       },
-      "name" : "ActorXDS (LM)",
+      "name" : "ActorParent (LM)",
       "description" : "Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. \n\nXCN de HL7 v2.5",
       "exampleBoolean" : false
     },

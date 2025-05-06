@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-06T07:03:04+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-06T07:07:29+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -907,10 +907,10 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient> ;
-         fhir:reference [ fhir:v "StructureDefinition/ActorPatient" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild> ;
+         fhir:reference [ fhir:v "StructureDefinition/ActorChild" ]
        ] ;
-       fhir:name [ fhir:v "ActorPatient (LM)" ] ;
+       fhir:name [ fhir:v "ActorChild (LM)" ] ;
        fhir:description [ fhir:v "Cet attribut représente l'acteur Patient." ] ;
        fhir:example [
          a fhir:boolean ;
@@ -925,10 +925,10 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS> ;
-         fhir:reference [ fhir:v "StructureDefinition/ActorXDS" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorParent> ;
+         fhir:reference [ fhir:v "StructureDefinition/ActorParent" ]
        ] ;
-       fhir:name [ fhir:v "ActorXDS (LM)" ] ;
+       fhir:name [ fhir:v "ActorParent (LM)" ] ;
        fhir:description [ fhir:v "Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. \n\nXCN de HL7 v2.5" ] ;
        fhir:example [
          a fhir:boolean ;

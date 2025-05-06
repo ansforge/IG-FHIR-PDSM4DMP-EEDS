@@ -7,16 +7,16 @@ package IG #DDDDDD{
 
      package Profiles #DDDDDD{
 
-        class ActorPatient{
+        class ActorChild{
 
-             ActorPatient => [None..None]
-             ActorPatient.XCN1[x] => [None..None]
+             ActorChild => [None..None]
+             ActorChild.XCN1[x] => [None..None]
         } 
 
-        class ActorXDS{
+        class ActorParent{
 
-             ActorXDS => [None..None]
-             ActorXDS.XCN1[x] => [1..1]
+             ActorParent => [None..None]
+             ActorParent.XCN1[x] => [1..1]
         } 
 
         class Choice1{
@@ -42,13 +42,13 @@ package IG #DDDDDD{
 
 package "Ressources de base" #palegreen {
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorParent" as  class5b81927f666ca2324a3cdc0f71a4ef0c 
 
-    classb1fa6044c54073490b5e2804c2a7a77e --> ActorPatient
+    class5b81927f666ca2324a3cdc0f71a4ef0c --> ActorChild
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    class095a1b43effec73955e31e790438de49 --> ActorXDS
+    class095a1b43effec73955e31e790438de49 --> ActorParent
 
  class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
 
