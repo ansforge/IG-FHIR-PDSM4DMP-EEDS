@@ -3,12 +3,22 @@
 ","ActorChild (LM)","Cet attribut représente l'acteur Patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "ActorChild","ActorChild.XCN1[x]","ActorChild.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1]]} {[]}
 ","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorChild","ActorChild.XCN3","ActorChild.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
+"ActorChild2","ActorChild2","ActorChild2","","","",0,*,"","","","null {[]} {[]}
+","ActorChild2 (LM)","Cet attribut représente un acteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"ActorChild2","ActorChild2.XCN1[x]","ActorChild2.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2]]} {[]}
+","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""801234567890""/>","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorChild2","ActorChild2.XCN3","ActorChild2.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
 "ActorParent","ActorParent","ActorParent","","","",0,*,"","","","null {[]} {[]}
 ","ActorParent (LM)","Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. 
 
 XCN de HL7 v2.5","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "ActorParent","ActorParent.XCN1[x]","ActorParent.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3]]} {[]}
 ","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorParent","ActorParent.XCN3","ActorParent.XCN3","","","",1,1,"","","","string {[]} {[]}
+","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
 "Choice1","string","string","","","",0,*,"","","","null {[]} {[]}
 ","Primitive Type string","A sequence of Unicode characters","Note that FHIR strings SHALL NOT exceed 1MB in size","","","","","","","","",,,,,"",,,,"string",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "

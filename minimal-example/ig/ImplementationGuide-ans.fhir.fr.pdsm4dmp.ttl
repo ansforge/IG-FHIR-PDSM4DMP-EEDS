@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-06T07:07:29+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-06T07:36:08+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -912,6 +912,24 @@
        ] ;
        fhir:name [ fhir:v "ActorChild (LM)" ] ;
        fhir:description [ fhir:v "Cet attribut représente l'acteur Patient." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild2> ;
+         fhir:reference [ fhir:v "StructureDefinition/ActorChild2" ]
+       ] ;
+       fhir:name [ fhir:v "ActorChild2 (LM)" ] ;
+       fhir:description [ fhir:v "Cet attribut représente un acteur PS." ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false

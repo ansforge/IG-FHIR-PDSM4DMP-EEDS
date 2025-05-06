@@ -13,10 +13,18 @@ package IG #DDDDDD{
              ActorChild.XCN1[x] => [None..None]
         } 
 
+        class ActorChild2{
+
+             ActorChild2 => [None..None]
+             ActorChild2.XCN1[x] => [None..None]
+             ActorChild2.XCN3 => [None..None]
+        } 
+
         class ActorParent{
 
              ActorParent => [None..None]
              ActorParent.XCN1[x] => [1..1]
+             ActorParent.XCN3 => [1..1]
         } 
 
         class Choice1{
@@ -45,6 +53,10 @@ package "Ressources de base" #palegreen {
  class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorParent" as  class5b81927f666ca2324a3cdc0f71a4ef0c 
 
     class5b81927f666ca2324a3cdc0f71a4ef0c --> ActorChild
+
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorParent" as  class5b81927f666ca2324a3cdc0f71a4ef0c 
+
+    class5b81927f666ca2324a3cdc0f71a4ef0c --> ActorChild2
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
