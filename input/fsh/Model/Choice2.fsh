@@ -1,8 +1,8 @@
 
-Profile: PSIdNat 
+Profile: Choice2 
 Parent: string
-Id:  PSIdNat 
-Title: "PSIdNat"
+Id:  Choice2 
+Title: "Choice2"
 Description: """
 Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) 
 

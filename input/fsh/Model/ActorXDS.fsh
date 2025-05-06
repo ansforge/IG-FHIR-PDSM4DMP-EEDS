@@ -8,4 +8,4 @@ Cet attribut représente un acteur (humain ou système) ayant contribué au docu
 XCN de HL7 v2.5
 """
 
-* XCN1[x] 1..1 PSIdNat or  MatriculeINS or SNR  "Identifiant de l'acteur"
+* XCN1[x] 1..1 Choice1 or Choice2 or Choice3  "Identifiant de l'acteur"
