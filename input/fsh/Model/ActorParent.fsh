@@ -9,6 +9,7 @@ XCN de HL7 v2.5
 """
 
 * XCN1[x] 1..1 Choice1 or Choice2 or Choice3  "Identifiant de l'acteur"
+* XCN10 1..1 code "Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes."
 * XCN3 1..1 string "Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
 
 
