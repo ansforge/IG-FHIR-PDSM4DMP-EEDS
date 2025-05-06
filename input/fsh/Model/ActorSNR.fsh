@@ -7,9 +7,9 @@ Cet attribut représente l'acteur SNR.
 """
 Characteristics: #can-be-target
 
-* XCN1[x] only SNR
-* XCN1[x] ^example.label = "General"
-* XCN1[x] ^example.valueString = "9.8.7.6.5.4.3.2.1"
+* XCN1.value[x] only SNR
+* XCN1 ^example.label = "General"
+* XCN1 ^example.valueString = "9.8.7.6.5.4.3.2.1"
 * XCN2 ^short = "Nom du système"
 * XCN3 ^short = "Nom du modèle pour les dispositifs ou dénomination pour les autres systèmes."
 * XCN9.composant2  ^short = "OID de l'éditeur"
