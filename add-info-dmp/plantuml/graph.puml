@@ -154,10 +154,14 @@ package IG #DDDDDD{
 
         class MatriculeINS{
 
+             MatriculeINS => [None..None]
+             MatriculeINS.matriculeINS => [1..1]
         } 
 
         class PSIdNat{
 
+             PSIdNat => [None..None]
+             PSIdNat.PSIdNat => [1..1]
         } 
 
         class PatientId{
@@ -170,6 +174,8 @@ package IG #DDDDDD{
 
         class SNR{
 
+             SNR => [None..None]
+             SNR.SNR => [1..1]
         } 
 
         class SourcePatientId{
@@ -198,6 +204,8 @@ package IG #DDDDDD{
 
         class StructIdNat{
 
+             StructIdNat => [None..None]
+             StructIdNat.StructIdNat => [1..1]
         } 
 
         class SubmissionSet{
@@ -276,21 +284,21 @@ package "Ressources de base" #palegreen {
 
     classb45cffe084dd3d20d928bee85e7b0f21 --> IdentifiantSysteme
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> MatriculeINS
+    class095a1b43effec73955e31e790438de49 --> MatriculeINS
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> PSIdNat
+    class095a1b43effec73955e31e790438de49 --> PSIdNat
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> PatientId
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> SNR
+    class095a1b43effec73955e31e790438de49 --> SNR
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
@@ -300,9 +308,9 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> SourcePatientInfo
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> StructIdNat
+    class095a1b43effec73955e31e790438de49 --> StructIdNat
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
