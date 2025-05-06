@@ -1,8 +1,7 @@
-Alias: $integer = http://hl7.org/fhir/StructureDefinition/integer
-Profile: SNR
+Profile: Choice3
 Parent: string
-Id:  SNR 
-Title: " SNR"
+Id:  Choice3 
+Title: " Choice3"
 Description: """
 Identifiant interne de l’instance de la solution ayant produit le document au format OID 
 """
