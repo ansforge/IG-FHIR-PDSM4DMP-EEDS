@@ -9,6 +9,7 @@ XCN de HL7 v2.5
 """
 
 * XCN1[x] 1..1 Choice1 or Choice2 or Choice3  "Identifiant de l'acteur"
+* XCN3 ^short = "Prénom usuel de la personne"
 
 
 
