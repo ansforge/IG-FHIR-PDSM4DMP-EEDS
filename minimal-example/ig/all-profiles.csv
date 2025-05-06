@@ -2,13 +2,20 @@
 "ActorChild","ActorChild","ActorChild","","","",0,*,"","","","null {[]} {[]}
 ","ActorChild (LM)","Cet attribut représente l'acteur Patient. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "ActorChild","ActorChild.XCN1[x]","ActorChild.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1]]} {[]}
-","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""124018852493334""/>","","",,,,,"","type:$this}
+","",,"open","ActorParent.XCN1[x]",1,1,"",""
+"ActorChild","ActorChild.XCN1[x]","ActorChild.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3]]} {[]}
+","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""U""/>","","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorChild","ActorChild.XCN10","ActorChild.XCN10","","","",1,1,"","","","code {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN10",1,1,"",""
 "ActorChild","ActorChild.XCN3","ActorChild.XCN3","","","",1,1,"","","","string {[]} {[]}
 ","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
 "ActorChild2","ActorChild2","ActorChild2","","","",0,*,"","","","null {[]} {[]}
 ","ActorChild2 (LM)","Cet attribut représente un acteur PS. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "ActorChild2","ActorChild2.XCN1[x]","ActorChild2.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2]]} {[]}
 ","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""801234567890""/>","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorChild2","ActorChild2.XCN10","ActorChild2.XCN10","","","",1,1,"","","","code {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN10",1,1,"",""
 "ActorChild2","ActorChild2.XCN3","ActorChild2.XCN3","","","",1,1,"","","","string {[]} {[]}
 ","Prénom usuel de la personne","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
 "ActorParent","ActorParent","ActorParent","","","",0,*,"","","","null {[]} {[]}
@@ -17,6 +24,8 @@
 XCN de HL7 v2.5","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "ActorParent","ActorParent.XCN1[x]","ActorParent.XCN1[x]","","","",1,1,"","","","string {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2], CanonicalType[https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3]]} {[]}
 ","Identifiant de l'acteur","Identifiant de l'acteur","","","","","","","","","",,,,,"",,,,"ActorParent.XCN1[x]",1,1,"",""
+"ActorParent","ActorParent.XCN10","ActorParent.XCN10","","","",1,1,"","","","code {[]} {[]}
+","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur : D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN10",1,1,"",""
 "ActorParent","ActorParent.XCN3","ActorParent.XCN3","","","",1,1,"","","","string {[]} {[]}
 ","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","Prénom usuel de la personne (par défaut le premier prénom), nom du modèle pour les dispositifs ou dénomination pour les autres systèmes.","","","","","","","","","",,,,,"",,,,"ActorParent.XCN3",1,1,"",""
 "Choice1","string","string","","","",0,*,"","","","null {[]} {[]}

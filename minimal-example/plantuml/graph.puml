@@ -11,6 +11,7 @@ package IG #DDDDDD{
 
              ActorChild => [None..None]
              ActorChild.XCN1[x] => [None..None]
+             ActorChild.XCN10 => [None..None]
         } 
 
         class ActorChild2{
@@ -24,6 +25,7 @@ package IG #DDDDDD{
 
              ActorParent => [None..None]
              ActorParent.XCN1[x] => [1..1]
+             ActorParent.XCN10 => [1..1]
              ActorParent.XCN3 => [1..1]
         } 
 
