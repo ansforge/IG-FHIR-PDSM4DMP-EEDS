@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-06T12:03:39+00:00",
+  "date" : "2025-05-06T12:29:27+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -48,24 +48,6 @@
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r4",
     "version" : "5.2.0"
-  },
-  {
-    "id" : "ans_fr_terminologies",
-    "uri" : "https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies",
-    "packageId" : "ans.fr.terminologies",
-    "version" : "0.1.0-ballot"
-  },
-  {
-    "id" : "ans_fhir_fr_pdsm",
-    "uri" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/ImplementationGuide/ans.fhir.fr.pdsm",
-    "packageId" : "ans.fhir.fr.pdsm",
-    "version" : "3.1.0"
-  },
-  {
-    "id" : "hl7_fhir_fr_core",
-    "uri" : "https://hl7.fr/ig/fhir/core/ImplementationGuide/hl7.fhir.fr.core",
-    "packageId" : "hl7.fhir.fr.core",
-    "version" : "2.1.0"
   }],
   "definition" : {
     "extension" : [{
@@ -647,7 +629,7 @@
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
+        "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Choice3"
@@ -695,7 +677,7 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
+        "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Choice1"
@@ -707,7 +689,7 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:primitive-type"
+        "valueString" : "StructureDefinition:logical"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Choice2"

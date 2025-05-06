@@ -11,33 +11,37 @@ package IG #DDDDDD{
 
              ActorChild => [None..None]
              ActorChild.XCN1[x] => [None..None]
+             ActorChild.XCN10 => [None..None]
         } 
 
         class ActorChild2{
 
              ActorChild2 => [None..None]
              ActorChild2.XCN1[x] => [None..None]
-             ActorChild2.XCN3 => [None..None]
+             ActorChild2.XCN10 => [None..None]
         } 
 
         class ActorParent{
 
              ActorParent => [None..None]
              ActorParent.XCN1[x] => [1..1]
-             ActorParent.XCN10 => [1..1]
              ActorParent.XCN3 => [1..1]
+             ActorParent.XCN10 => [1..1]
         } 
 
         class Choice1{
 
+             Choice1 => [None..None]
         } 
 
         class Choice2{
 
+             Choice2 => [None..None]
         } 
 
         class Choice3{
 
+             Choice3 => [None..None]
          }
 
      }
@@ -63,16 +67,16 @@ package "Ressources de base" #palegreen {
 
     class095a1b43effec73955e31e790438de49 --> ActorParent
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> Choice1
+    class095a1b43effec73955e31e790438de49 --> Choice1
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> Choice2
+    class095a1b43effec73955e31e790438de49 --> Choice2
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "Base" as  class095a1b43effec73955e31e790438de49 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> Choice3
+    class095a1b43effec73955e31e790438de49 --> Choice3
 }
 @enduml

@@ -1,34 +1,53 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 1, warn = 19, info = 1
+err = 15, warn = 26, info = 0
 IG Publisher Version: 1.8.25
-Generated Tue May 06 12:06:08 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 0 / 2 / 0
+Generated Tue May 06 12:30:23 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+ Build Errors : 0 / 4 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 0 / 1 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorChild : 0 / 4 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorChild2 : 0 / 5 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorChild : 7 / 6 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorChild2 : 7 / 6 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorParent : 0 / 6 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Choice1 : 0 / 0 / 2
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Choice1 : 0 / 0 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Choice2 : 1 / 0 / 1
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Choice3 : 0 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-Choice3 : 0 / 3 / 1
 </table>
 == n/a ==
+WARNING: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/StructureDefinition-ActorChild-definitions.html: The html source has duplicate anchor Ids: ActorChild.XCN1[x],key_ActorChild.XCN1[x]
+WARNING: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/StructureDefinition-ActorChild2-definitions.html: The html source has duplicate anchor Ids: ActorChild2.XCN1[x],key_ActorChild2.XCN1[x]
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 == fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json ==
 WARNING: ImplementationGuide/ans.fhir.fr.pdsm4dmp: ImplementationGuide.definition.resource[0].name: value should not start or finish with whitespace ' Choice3'
 == fsh-generated/resources/StructureDefinition-ActorChild.json ==
+ERROR: ActorChild.XCN1[x]: The pattern value has type 'code' which is not valid (valid types: [https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3])
+ERROR: https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild.ActorChild.XCN1[x]: Same id 'ActorChild.XCN1[x]' on multiple elements ActorChild.XCN1[x]/ActorChild.XCN1[x] in https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild
 WARNING: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+ERROR: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[2]: Duplicate id value 'ActorChild.XCN1[x]'
+ERROR: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[2]: Constraint failed: eld-7: 'Pattern may only be specified if there is one type'
 WARNING: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[3]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+WARNING: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[4]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorChild: StructureDefinition.differential.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+WARNING: StructureDefinition/ActorChild: StructureDefinition.differential.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+ERROR: StructureDefinition/ActorChild: StructureDefinition: Constraint failed: sdf-1: 'Element paths must be unique unless the structure is a constraint'
+ERROR: StructureDefinition/ActorChild: StructureDefinition: Constraint failed: sdf-16: 'All element definitions must have unique ids (snapshot)' (ids: ActorChild,ActorChild.XCN1[x],ActorChild.XCN1[x],ActorChild.XCN3,ActorChild.XCN10) (log:  (ids: ActorChild,ActorChild.XCN1[x],ActorChild.XCN1[x],ActorChild.XCN3,ActorChild.XCN10))
+ERROR: StructureDefinition/ActorChild: StructureDefinition.snapshot.element[2].pattern.ofType(code): The element ActorChild.XCN1[x] has a pattern of type code, which is not in the list of allowed types ([https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3])
 == fsh-generated/resources/StructureDefinition-ActorChild2.json ==
+ERROR: ActorChild2.XCN1[x]: The pattern value has type 'code' which is not valid (valid types: [https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3])
+ERROR: https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild2.ActorChild2.XCN1[x]: Same id 'ActorChild2.XCN1[x]' on multiple elements ActorChild2.XCN1[x]/ActorChild2.XCN1[x] in https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorChild2
 WARNING: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+ERROR: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[2]: Duplicate id value 'ActorChild2.XCN1[x]'
+ERROR: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[2]: Constraint failed: eld-7: 'Pattern may only be specified if there is one type'
 WARNING: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[3]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+WARNING: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[4]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorChild2: StructureDefinition.differential.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorChild2: StructureDefinition.differential.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
+ERROR: StructureDefinition/ActorChild2: StructureDefinition: Constraint failed: sdf-1: 'Element paths must be unique unless the structure is a constraint'
+ERROR: StructureDefinition/ActorChild2: StructureDefinition: Constraint failed: sdf-16: 'All element definitions must have unique ids (snapshot)' (ids: ActorChild2,ActorChild2.XCN1[x],ActorChild2.XCN1[x],ActorChild2.XCN3,ActorChild2.XCN10) (log:  (ids: ActorChild2,ActorChild2.XCN1[x],ActorChild2.XCN1[x],ActorChild2.XCN3,ActorChild2.XCN10))
+ERROR: StructureDefinition/ActorChild2: StructureDefinition.snapshot.element[2].pattern.ofType(code): The element ActorChild2.XCN1[x] has a pattern of type code, which is not in the list of allowed types ([https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1, https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3])
 == fsh-generated/resources/StructureDefinition-ActorParent.json ==
 WARNING: StructureDefinition/ActorParent: StructureDefinition.snapshot.element[1]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorParent: StructureDefinition.snapshot.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
@@ -37,8 +56,9 @@ WARNING: StructureDefinition/ActorParent: StructureDefinition.differential.eleme
 WARNING: StructureDefinition/ActorParent: StructureDefinition.differential.element[2]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 WARNING: StructureDefinition/ActorParent: StructureDefinition.differential.element[3]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken'
 == fsh-generated/resources/StructureDefinition-Choice1.json ==
-INFORMATION: StructureDefinition/Choice1: StructureDefinition.snapshot.element[3].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex
 == fsh-generated/resources/StructureDefinition-Choice2.json ==
-ERROR: StructureDefinition/Choice2: StructureDefinition.snapshot.element[0].constraint[1]: Error in constraint 'PSIdNat-invariant' with expression '$this.matches('^(0|1|3|4|5|6|8)\d*$')': Error @1, 38: Unknown FHIRPath character escape \d
+ERROR: StructureDefinition/Choice2: StructureDefinition.snapshot.element[0].constraint[0]: Error in constraint 'PSIdNat-invariant' with expression '$this.matches('^(0|1|3|4|5|6|8)\d*$')': Error @1, 38: Unknown FHIRPath character escape \d
 == fsh-generated/resources/StructureDefinition-Choice3.json ==
 WARNING: StructureDefinition/Choice3: StructureDefinition.title: value should not start or finish with whitespace ' Choice3'
+WARNING: StructureDefinition/Choice3: StructureDefinition.snapshot.element[0].short: value should not start or finish with whitespace ' Choice3'
+WARNING: StructureDefinition/Choice3: StructureDefinition.differential.element[0].short: value should not start or finish with whitespace ' Choice3'
