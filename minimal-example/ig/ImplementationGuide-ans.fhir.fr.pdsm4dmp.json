@@ -10,7 +10,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm pour le DMP dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2025-05-06T06:58:36+00:00",
+  "date" : "2025-05-06T07:03:04+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -650,9 +650,9 @@
         "valueString" : "StructureDefinition:primitive-type"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SNR"
+        "reference" : "StructureDefinition/Choice3"
       },
-      "name" : " SNR",
+      "name" : " Choice3",
       "description" : "Identifiant interne de l’instance de la solution ayant produit le document au format OID",
       "exampleBoolean" : false
     },
@@ -686,9 +686,9 @@
         "valueString" : "StructureDefinition:primitive-type"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/MatriculeINS"
+        "reference" : "StructureDefinition/Choice1"
       },
-      "name" : "MatriculeINS",
+      "name" : "Choice1",
       "description" : "Matricule de l'Identité Nationale de Santé (INS). Il correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu).",
       "exampleBoolean" : false
     },
@@ -698,9 +698,9 @@
         "valueString" : "StructureDefinition:primitive-type"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/PSIdNat"
+        "reference" : "StructureDefinition/Choice2"
       },
-      "name" : "PSIdNat",
+      "name" : "Choice2",
       "description" : "Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) \n\nL’identification nationale du PS est construite selon le tableau dessous :\n-  0 + N° ADELI \n- 1 + Identifiant cabinet ADELI/identifiant interne \n- 3 + FINESS/identifiant interne \n- 4 + SIREN/identifiant interne \n- 5 + SIRET/identifiant interne \n- 6 + Identifiant cabinet RPPS/identifiant interne \n- 8 + N° RPPS",
       "exampleBoolean" : false
     }],

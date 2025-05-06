@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-06T06:58:36+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-06T07:03:04+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -889,10 +889,10 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SNR> ;
-         fhir:reference [ fhir:v "StructureDefinition/SNR" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice3> ;
+         fhir:reference [ fhir:v "StructureDefinition/Choice3" ]
        ] ;
-       fhir:name [ fhir:v " SNR" ] ;
+       fhir:name [ fhir:v " Choice3" ] ;
        fhir:description [ fhir:v "Identifiant interne de l’instance de la solution ayant produit le document au format OID" ] ;
        fhir:example [
          a fhir:boolean ;
@@ -943,10 +943,10 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/MatriculeINS> ;
-         fhir:reference [ fhir:v "StructureDefinition/MatriculeINS" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice1> ;
+         fhir:reference [ fhir:v "StructureDefinition/Choice1" ]
        ] ;
-       fhir:name [ fhir:v "MatriculeINS" ] ;
+       fhir:name [ fhir:v "Choice1" ] ;
        fhir:description [ fhir:v "Matricule de l'Identité Nationale de Santé (INS). Il correspond au NIR (Numéro d’Identification au Répertoire des personnes physiques) ou au NIA (Numéro Identifiant Attente) de l’individu)." ] ;
        fhir:example [
          a fhir:boolean ;
@@ -961,10 +961,10 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat> ;
-         fhir:reference [ fhir:v "StructureDefinition/PSIdNat" ]
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Choice2> ;
+         fhir:reference [ fhir:v "StructureDefinition/Choice2" ]
        ] ;
-       fhir:name [ fhir:v "PSIdNat" ] ;
+       fhir:name [ fhir:v "Choice2" ] ;
        fhir:description [ fhir:v "Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) \n\nL’identification nationale du PS est construite selon le tableau dessous :\n-  0 + N° ADELI \n- 1 + Identifiant cabinet ADELI/identifiant interne \n- 3 + FINESS/identifiant interne \n- 4 + SIREN/identifiant interne \n- 5 + SIRET/identifiant interne \n- 6 + Identifiant cabinet RPPS/identifiant interne \n- 8 + N° RPPS" ] ;
        fhir:example [
          a fhir:boolean ;
