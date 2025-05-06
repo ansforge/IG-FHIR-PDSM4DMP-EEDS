@@ -14,21 +14,14 @@ copyrightYear: 2020+
 releaseLabel: ci-build # le release label doit être conforme au cycle de vie de la doctrine du ci-sis
 jurisdiction: urn:iso:std:iso:3166#FR "FRANCE"
 
-dependencies:
-    ans.fr.terminologies: latest
-    ans.fhir.fr.pdsm: 3.1.0
-    hl7.fhir.fr.core: 2.1.0
-
 parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html
     shownav: 'true'
     path-resource:
          input/Examples
         #- input/fsh/data-type/primitive/complex/complex-data-type
-
 pages:
     index.md:
         title: Accueil
-
 
 menu:
     Accueil: index.html

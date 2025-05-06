@@ -1,7 +1,5 @@
 
-Profile: Choice2 
-Parent: string
-Id:  Choice2 
+Logical: Choice2
 Title: "Choice2"
 Description: """
 Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) 
