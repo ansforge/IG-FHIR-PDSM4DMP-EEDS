@@ -1,7 +1,7 @@
-Logical: ActorPatient
-Parent: ActorXDS
-Id: ActorPatient
-Title: "ActorPatient (LM)"
+Logical: ActorChild
+Parent: ActorParent
+Id: ActorChild
+Title: "ActorChild (LM)"
 Description: """
 Cet attribut représente l'acteur Patient. 
 """
