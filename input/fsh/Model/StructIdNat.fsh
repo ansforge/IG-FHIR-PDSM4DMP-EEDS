@@ -1,7 +1,4 @@
-Alias: $integer = http://hl7.org/fhir/StructureDefinition/integer
-Profile: StructIdNat
-Parent: string
-Id:  StructIdNat 
+Logical: StructIdNat
 Title: " StructIdNat"
 Description: """
 Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. 
@@ -15,3 +12,5 @@ L’identification nationale d’une structure est construite selon le tableau d
 
 """
 
+
+* StructIdNat 1..1 string "StructIdNat" "StructIdNat"

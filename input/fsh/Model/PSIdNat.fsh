@@ -1,7 +1,4 @@
-
-Profile: PSIdNat 
-Parent: string
-Id:  PSIdNat 
+Logical: PSIdNat 
 Title: "PSIdNat"
 Description: """
 Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) 
@@ -16,7 +13,8 @@ L’identification nationale du PS est construite selon le tableau dessous :
 - 8 + N° RPPS 
 
 """
-* . obeys PSIdNat-invariant
+* PSIdNat 1..1 string "PSIdNat" "PSIdNat"
+* PSIdNat obeys PSIdNat-invariant
 
 Invariant:   PSIdNat-invariant
 Description: "Le numéro PSIdNat doit être un entier commençant par 0, 1, 3, 4, 5, 6 ou 8"
