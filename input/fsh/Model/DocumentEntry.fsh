@@ -8,7 +8,7 @@ Modèle logique  d’une fiche
 
 * entryUUID 1..1 uuid "Identifiant unique affecté à la version de la fiche référençant le document." """Les valeurs possibles pour cette métadonnée doivent être un code provenant du jeu de valeurs mis à disposition par le projet. En l’absence de spécifications complémentaires, le jeu de valeurs JDV_J52_AvailabilityStatus_CISIS peut être utilisé."""
 * logicalId 1..1 Identifier "Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche"
-* mimeType 1..1 CodeableConcept "Cette métadonnée représente le type de contenu du document, défini par le standard MIME."
+* mimeType 1..1 string "Cette métadonnée représente le type de contenu du document, défini par le standard MIME."
 * availabilityStatus 1..1 CodeableConcept "Cette métadonnée représente la pertinence de la version de la fiche d'un document. " "**Availability Status**"
 * availabilityStatus from https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS (preferred)
 * hash 1..1 string "Cette métadonnée contient le résultat du hachage du document déposé" 
