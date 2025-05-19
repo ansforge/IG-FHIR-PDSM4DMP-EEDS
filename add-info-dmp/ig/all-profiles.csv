@@ -181,7 +181,7 @@ https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorPatient
 ","Identifiant unique affecté à la version de la fiche référençant le document.","Les valeurs possibles pour cette métadonnée doivent être un code provenant du jeu de valeurs mis à disposition par le projet. En l’absence de spécifications complémentaires, le jeu de valeurs JDV_J52_AvailabilityStatus_CISIS peut être utilisé.","","","","","","","","","",,,,,"",,,,"DocumentEntry.entryUUID",1,1,"",""
 "DocumentEntry","DocumentEntry.logicalId","DocumentEntry.logicalId","","","",1,1,"","","","Identifier {[]} {[]}
 ","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","Cette métadonnée représente un identifiant invariable pour toutes les versions de la fiche d'un document, à la différence de la métadonnée entryUUID qui a une valeur différente pour chaque version de la fiche","","","","","","","","","",,,,,"",,,,"DocumentEntry.logicalId",1,1,"",""
-"DocumentEntry","DocumentEntry.mimeType","DocumentEntry.mimeType","","","",1,1,"","","","CodeableConcept {[]} {[]}
+"DocumentEntry","DocumentEntry.mimeType","DocumentEntry.mimeType","","","",1,1,"","","","string {[]} {[]}
 ","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","Cette métadonnée représente le type de contenu du document, défini par le standard MIME.","","","","","","","","","",,,,,"",,,,"DocumentEntry.mimeType",1,1,"",""
 "DocumentEntry","DocumentEntry.availabilityStatus","DocumentEntry.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"DocumentEntry.availabilityStatus",1,1,"",""
@@ -271,6 +271,38 @@ Un EventCode peut contenir le code représentant :
 -  une région anatomique. ","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "EventCode","EventCode.eventCode","EventCode.eventCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
 ","Cet attribut peut contenir le code représentant : • un évènement documenté (acte, traitement, diagnostic, etc…),  • une modalité d'acquisition, • une région anatomique. ","Cet attribut peut contenir le code représentant : • un évènement documenté (acte, traitement, diagnostic, etc…),  • une modalité d'acquisition, • une région anatomique.","","","","","","","","","",,,,,"",,,,"EventCode.eventCode",1,1,"",""
+"Folder","Folder","Folder","","","",0,*,"","","","null {[]} {[]}
+","Folder (LM)","Modèle logique  d’une classeur","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Folder","Folder.availabilityStatus","Folder.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"Folder.availabilityStatus",1,1,"",""
+"Folder","Folder.codeList","Folder.codeList","","","",1,*,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","","","","","","","","","",,,,,"",,,,"Folder.codeList",1,*,"",""
+"Folder","Folder.comments","Folder.comments","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée contient le commentaire associé au classeur.","Cette métadonnée contient le commentaire associé au classeur.","","","","","","","","","",,,,,"",,,,"Folder.comments",0,1,"",""
+"Folder","Folder.entryUUID","Folder.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
+","Cette métadonnée représente l’identifiant unique du classeur.","Cette métadonnée représente l’identifiant unique du classeur.","","","","","","","","","",,,,,"",,,,"Folder.entryUUID",1,1,"",""
+"Folder","Folder.lastUpdateTime","Folder.lastUpdateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Cette métadonnée correspond à la date et l’heure de la dernière mise à jour du classeur.","Cette métadonnée correspond à la date et l’heure de la dernière mise à jour du classeur.","","","","","","","","","",,,,,"",,,,"Folder.lastUpdateTime",1,1,"",""
+"Folder","Folder.patientID","Folder.patientID","","","",1,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId {[]} {[]}
+","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient
+tel que défini dans le cadre juridique.","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient
+tel que défini dans le cadre juridique.","","","","","","","","","",,,,,"",,,,"Folder.patientID",1,1,"",""
+"Folder","Folder.title","Folder.title","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée représente le titre du classeur.","Cette métadonnée représente le titre du classeur.","","","","","","","","","",,,,,"",,,,"Folder.title",1,1,"",""
+"Folder","Folder.uniqueId","Folder.uniqueId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l’identifiant unique global affecté au classeur par son créateur.","Cette métadonnée représente l’identifiant unique global affecté au classeur par son créateur.","","","","","","","","","",,,,,"",,,,"Folder.uniqueId",1,1,"",""
+"Folder","Folder.homeCommunityId","Folder.homeCommunityId","","","",0,1,"","","","oid {[]} {[]}
+","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre
+des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA
+d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet.","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre
+des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA
+d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet.","","","","","","","","","",,,,,"",,,,"Folder.homeCommunityId",0,1,"",""
+"Folder","Folder.logicalId","Folder.logicalId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente un identifiant invariable pour toutes les versions du classeur, à la différence de la
+métadonnée entryUUID qui a une valeur différente pour chaque version du classeur","Cette métadonnée représente un identifiant invariable pour toutes les versions du classeur, à la différence de la
+métadonnée entryUUID qui a une valeur différente pour chaque version du classeur","","","","","","","","","",,,,,"",,,,"Folder.logicalId",1,1,"",""
+"Folder","Folder.version","Folder.version","","","",0,1,"","","","integer {[]} {[]}
+","Cette métadonnée représente le numéro de version du classeur","Cette métadonnée représente le numéro de version du classeur","","","","","","","","","",,,,,"",,,,"Folder.version",0,1,"",""
 "Identifiant","Identifiant","Identifiant","","","",0,*,"","","","null {[]} {[]}
 "," Identifiant","Identifiant de professionnel de santé, de patient, de SNR ou de système","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
 "Identifiant","Identifiant.value[x]","Identifiant.value[x]","","","",1,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PSIdNat {[]} {[]}
@@ -311,7 +343,9 @@ PatientID représente l’identifiant du patient, en l’occurrence, le matricul
 "PatientId","PatientId.CX1","PatientId.CX1","","","",1,1,"","","","Identifier {[]} {[]}
 ","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","Identifiant du patient, en l’occurrence, le matricule INS du patient tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.CX1",1,1,"",""
 "PatientId","PatientId.CX4","PatientId.CX4","","","",1,1,"","","","string {[]} {[]}
-","Identifiant de l’autorité d’affectation de l’INS utilisé.","Identifiant de l’autorité d’affectation de l’INS utilisé.","","","","","","","","","",,,,,"",,,,"PatientId.CX4",1,1,"",""
+","Identifiant de l’autorité d’affectation de l’INS utilisé.","Cet identifiant, au format HL7 v.2.5 est constitué de trois sous-composants qui prennent les valeurs suivantes.
+|Valeur de Namespace ID (IS)| Valeur de Universal ID (ST)| Valeur de Universal ID type (ID)
+Vide, pas de valeur |OID de l’autorité d’affectation de l’INS utilisé Valeur de Universal ID type (ID) ISO prise dans la liste des OID des autorités d'affectation des INS | ISO","","","","","","","","","",,,,,"",,,,"PatientId.CX4",1,1,"",""
 "PatientId","PatientId.CX5","PatientId.CX5","","","",1,1,"","","","string {[]} {[]}
 "," 'NH' pour un maticule INS tel que défini dans le cadre juridique"," 'NH' pour un maticule INS tel que défini dans le cadre juridique","","","","","","","","","",,,,,"",,,,"PatientId.CX5",1,1,"",""
 "SNR","SNR","SNR","","","",0,*,"","","","null {[]} {[]}

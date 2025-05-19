@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm pour le DMP dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-05-06T13:57:20+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-05-19T16:11:49+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -1378,6 +1378,25 @@
        ] ;
        fhir:name [ fhir:v "EventCode (LM)" ] ;
        fhir:description [ fhir:v "Modèle logique d'un eventCode.\nUn EventCode peut contenir le code représentant : \n-  un évènement documenté (acte, traitement, diagnostic, etc…),  \n-  une modalité d’acquisition, \n-  une région anatomique." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v false
+       ] ;
+       fhir:groupingId [ fhir:v "LogicalModel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:logical"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Folder> ;
+         fhir:reference [ fhir:v "StructureDefinition/Folder" ]
+       ] ;
+       fhir:name [ fhir:v "Folder (LM)" ] ;
+       fhir:description [ fhir:v "Modèle logique  d’une classeur" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v false

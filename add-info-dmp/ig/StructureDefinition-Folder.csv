@@ -1,0 +1,33 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Folder","Folder","","","",0,*,"","","","null {[]} {[]}
+","Folder (LM)","Modèle logique  d’une classeur","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Folder.availabilityStatus","Folder.availabilityStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée représente la pertinence de la version de la fiche d'un document. ","**Availability Status**","","","","","","","","","",,"preferred","","https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS","",,,,"Folder.availabilityStatus",1,1,"",""
+"Folder.codeList","Folder.codeList","","","",1,*,"","","","CodeableConcept {[]} {[]}
+","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","Cette métadonnée contient une liste d'un ou plusieurs identifiant(s) d'objet(s) associé(s) au document.","","","","","","","","","",,,,,"",,,,"Folder.codeList",1,*,"",""
+"Folder.comments","Folder.comments","","","",0,1,"","","","string {[]} {[]}
+","Cette métadonnée contient le commentaire associé au classeur.","Cette métadonnée contient le commentaire associé au classeur.","","","","","","","","","",,,,,"",,,,"Folder.comments",0,1,"",""
+"Folder.entryUUID","Folder.entryUUID","","","",1,1,"","","","uuid {[]} {[]}
+","Cette métadonnée représente l’identifiant unique du classeur.","Cette métadonnée représente l’identifiant unique du classeur.","","","","","","","","","",,,,,"",,,,"Folder.entryUUID",1,1,"",""
+"Folder.lastUpdateTime","Folder.lastUpdateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Cette métadonnée correspond à la date et l’heure de la dernière mise à jour du classeur.","Cette métadonnée correspond à la date et l’heure de la dernière mise à jour du classeur.","","","","","","","","","",,,,,"",,,,"Folder.lastUpdateTime",1,1,"",""
+"Folder.patientID","Folder.patientID","","","",1,1,"","","","https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/PatientId {[]} {[]}
+","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient
+tel que défini dans le cadre juridique.","Cette métadonnée représente l’identifiant du patient, en l’occurrence, le matricule INS (NIR ou NIA) du patient
+tel que défini dans le cadre juridique.","","","","","","","","","",,,,,"",,,,"Folder.patientID",1,1,"",""
+"Folder.title","Folder.title","","","",1,1,"","","","string {[]} {[]}
+","Cette métadonnée représente le titre du classeur.","Cette métadonnée représente le titre du classeur.","","","","","","","","","",,,,,"",,,,"Folder.title",1,1,"",""
+"Folder.uniqueId","Folder.uniqueId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente l’identifiant unique global affecté au classeur par son créateur.","Cette métadonnée représente l’identifiant unique global affecté au classeur par son créateur.","","","","","","","","","",,,,,"",,,,"Folder.uniqueId",1,1,"",""
+"Folder.homeCommunityId","Folder.homeCommunityId","","","",0,1,"","","","oid {[]} {[]}
+","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre
+des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA
+d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet.","Cette métadonnée correspond à l’identifiant de la communauté représentée par le système cible si celui-ci offre
+des fonctionnalités de communication avec d’autres communautés telles que présentées dans le profil XCA
+d’IHE. Elle n’est pas utilisée par les transactions décrites dans ce volet.","","","","","","","","","",,,,,"",,,,"Folder.homeCommunityId",0,1,"",""
+"Folder.logicalId","Folder.logicalId","","","",1,1,"","","","Identifier {[]} {[]}
+","Cette métadonnée représente un identifiant invariable pour toutes les versions du classeur, à la différence de la
+métadonnée entryUUID qui a une valeur différente pour chaque version du classeur","Cette métadonnée représente un identifiant invariable pour toutes les versions du classeur, à la différence de la
+métadonnée entryUUID qui a une valeur différente pour chaque version du classeur","","","","","","","","","",,,,,"",,,,"Folder.logicalId",1,1,"",""
+"Folder.version","Folder.version","","","",0,1,"","","","integer {[]} {[]}
+","Cette métadonnée représente le numéro de version du classeur","Cette métadonnée représente le numéro de version du classeur","","","","","","","","","",,,,,"",,,,"Folder.version",0,1,"",""

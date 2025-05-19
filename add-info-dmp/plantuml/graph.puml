@@ -152,6 +152,22 @@ package IG #DDDDDD{
              EventCode.eventCode => [1..1]
         } 
 
+        class Folder{
+
+             Folder => [None..None]
+             Folder.availabilityStatus => [1..1]
+             Folder.codeList => [1..*]
+             Folder.comments => [0..1]
+             Folder.entryUUID => [1..1]
+             Folder.lastUpdateTime => [1..1]
+             Folder.patientID => [1..1]
+             Folder.title => [1..1]
+             Folder.uniqueId => [1..1]
+             Folder.homeCommunityId => [0..1]
+             Folder.logicalId => [1..1]
+             Folder.version => [0..1]
+        } 
+
         class Identifiant{
 
              Identifiant => [None..None]
@@ -289,6 +305,10 @@ package "Ressources de base" #palegreen {
  class "Base" as  class095a1b43effec73955e31e790438de49 
 
     class095a1b43effec73955e31e790438de49 --> EventCode
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Folder
 
  class "Base" as  class095a1b43effec73955e31e790438de49 
 

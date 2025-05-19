@@ -10,7 +10,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-06T13:57:20+00:00"/>
+  <date value="2025-05-19T16:11:49+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -797,6 +797,18 @@
       </reference>
       <name value="EventCode (LM)"/>
       <description value="Modèle logique d'un eventCode.&#xA;Un EventCode peut contenir le code représentant : &#xA;-  un évènement documenté (acte, traitement, diagnostic, etc…),  &#xA;-  une modalité d’acquisition, &#xA;-  une région anatomique."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="LogicalModel"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Folder"/>
+      </reference>
+      <name value="Folder (LM)"/>
+      <description value="Modèle logique  d’une classeur"/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModel"/>
     </resource>
