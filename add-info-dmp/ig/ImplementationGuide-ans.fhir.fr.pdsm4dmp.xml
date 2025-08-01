@@ -3,14 +3,14 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="ans.fhir.fr.pdsm4dmp"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ImplementationGuide ans.fhir.fr.pdsm4dmp</b></p><a name="ans.fhir.fr.pdsm4dmp"> </a><a name="hcans.fhir.fr.pdsm4dmp"> </a><a name="ans.fhir.fr.pdsm4dmp-fr-FR"> </a><h2>PDSm4DMP</h2><p>LURL officielle pour ce guide dimplémentation est : </p><pre>https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ImplementationGuide/ans.fhir.fr.pdsm4dmp</pre></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Narratif généré : ImplementationGuide ans.fhir.fr.pdsm4dmp</b></p><a name="ans.fhir.fr.pdsm4dmp"> </a><a name="hcans.fhir.fr.pdsm4dmp"> </a><h2>PDSm4DMP</h2><p>LURL officielle pour ce guide dimplémentation est : </p><pre>https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ImplementationGuide/ans.fhir.fr.pdsm4dmp</pre></div>
   </text>
   <url value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ImplementationGuide/ans.fhir.fr.pdsm4dmp"/>
   <version value="0.1.0"/>
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm pour le DMP dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2025-05-19T16:11:49+00:00"/>
+  <date value="2025-08-01T13:09:58+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -35,7 +35,7 @@
     </extension>
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology.r4"/>
-    <version value="6.3.0"/>
+    <version value="6.5.0"/>
   </dependsOn>
   <dependsOn id="hl7ext">
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
@@ -43,12 +43,12 @@
     </extension>
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
     <packageId value="hl7.fhir.uv.extensions.r4"/>
-    <version value="5.2.0"/>
+    <version value="5.3.0-ballot"/>
   </dependsOn>
   <dependsOn id="ans_fr_terminologies">
     <uri value="https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies"/>
     <packageId value="ans.fr.terminologies"/>
-    <version value="0.1.0-ballot"/>
+    <version value="1.2.0"/>
   </dependsOn>
   <dependsOn id="ans_fhir_fr_pdsm">
     <uri value="https://interop.esante.gouv.fr/ig/fhir/pdsm/ImplementationGuide/ans.fhir.fr.pdsm"/>
@@ -83,6 +83,14 @@
       </extension>
       <extension url="value">
         <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="generate-uml"/>
+      </extension>
+      <extension url="value">
+        <valueString value="source"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -270,7 +278,7 @@
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
-      <valueCode value="hl7.fhir.uv.tools.r4#0.5.0"/>
+      <valueCode value="hl7.fhir.uv.tools.r4#0.7.1"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
@@ -294,6 +302,14 @@
       </extension>
       <extension url="value">
         <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="generate-uml"/>
+      </extension>
+      <extension url="value">
+        <valueString value="source"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -509,77 +525,6 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/Identifiant"/>
-      </reference>
-      <name value=" Identifiant"/>
-      <description value="Identifiant de professionnel de santé, de patient, de SNR ou de système"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:primitive-type"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/IdentifiantSysteme"/>
-      </reference>
-      <name value=" IdentifiantSysteme"/>
-      <description value="Identification d'un systeme&#xA;&#xA;L’identification du ssyteme  est construite selon le tableau dessous :&#xA;- 1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure &#xA;- 3 + FINESS/Identifiant interne du système dans la structure  &#xA;- 4 + SIREN/Identifiant interne du système dans la structure &#xA;- 5 + SIRET/Identifiant interne du système dans la structure &#xA;- 6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure"/>
-      <exampleBoolean value="false"/>
-      <groupingId value="DataType"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/SNR"/>
-      </reference>
-      <name value=" SNR"/>
-      <description value="Identifiant interne de l’instance de la solution ayant produit le document au format OID"/>
-      <exampleBoolean value="false"/>
-      <groupingId value="DataType"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/SourcePatientId"/>
-      </reference>
-      <name value=" SourcePatientId (LM)"/>
-      <description value="Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId."/>
-      <exampleBoolean value="false"/>
-      <groupingId value="LogicalModelPatient"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/SourcePatientInfo"/>
-      </reference>
-      <name value=" SourcePatientInfo (LM)"/>
-      <description value="Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document."/>
-      <exampleBoolean value="false"/>
-      <groupingId value="LogicalModelPatient"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/StructIdNat"/>
-      </reference>
-      <name value=" StructIdNat"/>
-      <description value="Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. &#xA;&#xA;L’identification nationale d’une structure est construite selon le tableau dessous :&#xA;-  0 + Identifiant cabinet ADELI &#xA;- 1 + N° FINESS 2 + N° SIREN &#xA;- 3 + N° SIRET &#xA;- 4 + N° RPPS-rang &#xA;- Néant + N° technique"/>
-      <exampleBoolean value="false"/>
-      <groupingId value="DataType"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
         <reference value="StructureDefinition/ActorPatient"/>
       </reference>
       <name value="ActorPatient (LM)"/>
@@ -595,7 +540,7 @@
         <reference value="StructureDefinition/ActorPS"/>
       </reference>
       <name value="ActorPS (LM)"/>
-      <description value="Cet attribut représente un acteur PS."/>
+      <description value="&#xA;Cet attribut représente un acteur PS."/>
       <exampleBoolean value="false"/>
       <groupingId value="LogicalModelAuthor"/>
     </resource>
@@ -817,6 +762,29 @@
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/Identifiant"/>
+      </reference>
+      <name value="Identifiant"/>
+      <description value="Identifiant de professionnel de santé, de patient, de SNR ou de système"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:primitive-type"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/IdentifiantSysteme"/>
+      </reference>
+      <name value="IdentifiantSysteme"/>
+      <description value="Identification d'un systeme&#xA;&#xA;L’identification du ssyteme  est construite selon le tableau dessous :&#xA;- 1 + Identifiant cabinet ADELI/Identifiant interne du système dans la structure &#xA;- 3 + FINESS/Identifiant interne du système dans la structure  &#xA;- 4 + SIREN/Identifiant interne du système dans la structure &#xA;- 5 + SIRET/Identifiant interne du système dans la structure &#xA;- 6 + Identifiant cabinet RPPS/Identifiant interne du système dans la structure"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DataType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/MatriculeINS"/>
       </reference>
       <name value="MatriculeINS"/>
@@ -845,6 +813,54 @@
       </reference>
       <name value="PSIdNat"/>
       <description value="Identification nationale principale du professionnel propre aux SI de l’ANS et au CI-SIS. (Correspondance dans le MOS : idNat_PS) &#xA;&#xA;L’identification nationale du PS est construite selon le tableau dessous :&#xA;-  0 + N° ADELI &#xA;- 1 + Identifiant cabinet ADELI/identifiant interne &#xA;- 3 + FINESS/identifiant interne &#xA;- 4 + SIREN/identifiant interne &#xA;- 5 + SIRET/identifiant interne &#xA;- 6 + Identifiant cabinet RPPS/identifiant interne &#xA;- 8 + N° RPPS"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DataType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SNR"/>
+      </reference>
+      <name value="SNR"/>
+      <description value="Identifiant interne de l’instance de la solution ayant produit le document au format OID"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DataType"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SourcePatientId"/>
+      </reference>
+      <name value="SourcePatientId (LM)"/>
+      <description value="Cette métadonnée contient l’identifiant secondaire du patient dans le système d’information du producteur (IPP) ou l’INS, s’il n’y a pas d’identifiant secondaire. Pour les documents d’expression personnelle du patient, cette métadonnée contient l’INS du patient, à savoir le même identifiant que patientId."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="LogicalModelPatient"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SourcePatientInfo"/>
+      </reference>
+      <name value="SourcePatientInfo (LM)"/>
+      <description value="Cette métadonnée contient les traits d’identité du patient concerné par le document, connus par le producteur du document. Les informations présentes dans la métadonnée sourcePatientInfo ne doivent en aucun cas être réutilisées pour calculer un identifiant, ni être mises à jour après la soumission du document."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="LogicalModelPatient"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:logical"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/StructIdNat"/>
+      </reference>
+      <name value="StructIdNat"/>
+      <description value="Identification nationale principale d’une structure propre aux SI de l'ANS et au CI-SIS 4. &#xA;&#xA;L’identification nationale d’une structure est construite selon le tableau dessous :&#xA;-  0 + Identifiant cabinet ADELI &#xA;- 1 + N° FINESS 2 + N° SIREN &#xA;- 3 + N° SIRET &#xA;- 4 + N° RPPS-rang &#xA;- Néant + N° technique"/>
       <exampleBoolean value="false"/>
       <groupingId value="DataType"/>
     </resource>

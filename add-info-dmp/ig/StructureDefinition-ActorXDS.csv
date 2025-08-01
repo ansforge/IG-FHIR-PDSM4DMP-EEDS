@@ -1,4 +1,4 @@
-"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: null"
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: ActorXDSCDA"
 "ActorXDS","ActorXDS","","","",0,*,"","","","null {[]} {[]}
 ","ActorXDS (LM)","Cet attribut représente un acteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient. 
 
@@ -18,6 +18,6 @@ XCN de HL7 v2.5","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","ActorXDS
 "ActorXDS.XCN9.composant3","ActorXDS.XCN9.composant3","","","",1,1,"","","","string {[]} {[]}
 ","Valeur de Universal ID type (ID)","Valeur de Universal ID type (ID)","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN9.composant3",1,1,"","","NA"
 "ActorXDS.XCN10","ActorXDS.XCN10","","","",1,1,"","","","code {[]} {[]}
-","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN10",1,1,"","","NA"
+","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, -U, pour les systèmes.","Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, -U, pour les systèmes.","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN10",1,1,"","","NA"
 "ActorXDS.XCN13","ActorXDS.XCN13","","","",1,1,"","","","code {[]} {[]}
 ","Type d’identifiant","Type d’identifiant","","","","","","","","","",,,,,"",,,,"ActorXDS.XCN13",1,1,"","","Valeur ne provenant pas de l’en-tête CDA"

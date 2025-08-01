@@ -2,7 +2,7 @@
   "codeSystems" : [
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J01-XdsAuthorSpecialty-CISIS/FHIR/JDV-J01-XdsAuthorSpecialty-CISIS",
-      "version" : "20250328120000",
+      "version" : "20250721120000",
       "status" : "active",
       "name" : "JDV_J01_XdsAuthorSpecialty_CISIS",
       "title" : null,
@@ -24,7 +24,7 @@
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS",
-      "version" : "20241213120000",
+      "version" : "20250523120000",
       "status" : "active",
       "name" : "JDV_J02_XdsHealthcareFacilityTypeCode_CISIS",
       "title" : null,
@@ -41,7 +41,7 @@
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J03-XdsContentTypeCode-CISIS/FHIR/JDV-J03-XdsContentTypeCode-CISIS",
-      "version" : "20241213120000",
+      "version" : "20250523120000",
       "status" : "active",
       "name" : "JDV_J03_XdsContentTypeCode_CISIS",
       "title" : null,
@@ -94,7 +94,7 @@
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS",
-      "version" : "20240927120000",
+      "version" : "20250623120000",
       "status" : "active",
       "name" : "JDV_J07_XdsTypeCode_CISIS",
       "title" : null,
@@ -147,11 +147,11 @@
     },
     {
       "url" : "https://mos.esante.gouv.fr/NOS/JDV_J47-FunctionCode-CISIS/FHIR/JDV-J47-FunctionCode-CISIS",
-      "version" : "20241213120000",
+      "version" : "20250523120000",
       "status" : "active",
       "name" : "JDV_J47_FunctionCode_CISIS",
       "title" : null,
-      "description" : "Jeux de valeurs des Rôles fonctionnels HL7 et CI-SIS",
+      "description" : "Rôles fonctionnels",
       "systems" : [
         "https://mos.esante.gouv.fr/NOS/TRE_R85-RolePriseCharge/FHIR/TRE-R85-RolePriseCharge",
         "https://mos.esante.gouv.fr/NOS/TRE_R258-RelationPriseCharge/FHIR/TRE-R258-RelationPriseCharge",
@@ -180,8 +180,8 @@
       "sources" : ["1.2.250.1.213.1.1.5.131"],
       "uses" : {
       },
-      "StructureDefinition-Folder.html" : "Folder (LM)",
       "StructureDefinition-DocumentEntry.html" : "Document Entry (LM)",
+      "StructureDefinition-Folder.html" : "Folder (LM)",
       "StructureDefinition-SubmissionSet.html" : "SubmissionSet (LM)"
     },
     {
