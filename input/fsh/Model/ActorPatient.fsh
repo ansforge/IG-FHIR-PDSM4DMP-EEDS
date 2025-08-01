@@ -3,7 +3,7 @@ Parent: ActorXDS
 Id: ActorPatient
 Title: "ActorPatient (LM)"
 Description: """
-Cet attribut représente l'acteur Patient. 
+Cet attribut représente l'acteur Patient.
 """
 Characteristics: #can-be-target
 

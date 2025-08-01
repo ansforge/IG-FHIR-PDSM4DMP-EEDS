@@ -51,7 +51,7 @@ class est constitué des attributs :
 * class from https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS (preferred)
 * confidentiality 1..4 CodeableConcept "Métadonnée contenant les informations définissant le niveau de confidentialité d'un document déposé dans l'entrepôt. Dans le cadre de la mise en œuvre du masquage et de la non-visibilité, ces métadonnées sont utilisées pour rendre inaccessible un document à l'utilisateur" "**Confidentiality Code**"
 * confidentiality from https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP (preferred)
-* eventCodeList 0..* EventCode "Cette métadonnée contient les codes, libellés et codes système représentant :  • un évènement documenté (acte, traitement, diagnostic, etc…), • une modalité d'acquisition (contexte imagerie), • une région anatomique (contexte imagerie). "
+* eventCodeList 0..* EventCode "Cette métadonnée contient les codes, libellés et codes système représentant :  -un évènement documenté (acte, traitement, diagnostic, etc…), -une modalité d'acquisition (contexte imagerie), -une région anatomique (contexte imagerie). "
 * format 1..1 CodeableConcept "Métadonnée contenant les informations définissant le format du document." "**Format Code**"
 * format from https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS (preferred)
 * healthcareFacilityTypeCode 1..1 CodeableConcept "Secteur d'activité lié à la prise en charge de la personne, en lien avec le document produit. " "Healthcare Facility Type Code**"
@@ -74,6 +74,7 @@ class est constitué des attributs :
 
 
 Mapping: DocumentEntryCDA
+Title: "DocumentEntryCDA"
 Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
 Source: DocumentEntry

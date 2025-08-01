@@ -42,6 +42,7 @@ Pour les documents d’expression personnelle du patient, cette métadonnée est
 
 
 Mapping: AuthorInstitutionCDA
+Title: "AuthorInstitutionCDA"
 Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
 Source: AuthorInstitution
@@ -54,6 +55,7 @@ Source: AuthorInstitution
 * XON10 -> "author/assignedAuthor/representedOrganization/id@extension"
 
 Mapping: AuthorInstitutionDICOMKOS
+Title: "AuthorInstitutionDICOMKOS"
 Id: KOS
 Target : "https://www.dicomstandard.org/"
 Description : "Mapping DICOM KOS"

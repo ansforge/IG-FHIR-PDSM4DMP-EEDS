@@ -13,10 +13,11 @@ L’auteur peut être :
 
 * institution ^short =  "Cet attribut représente la structure de l’auteur. Pour les documents d’expression personnelle du patient, cette métadonnée est absente."
 * person[x] ^short = "Cet attribut représente l’auteur (humain ou système) ayant contribué au document. Pour les documents d’expression personnelle du patient, cette métadonnée fait référence au patient.  "
-* role ^short = "ette métadonnée représente le rôle joué par l’auteur vis-à-vis du patient lors de la constitution du lot de soumission, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.)."
+* role ^short = "cette métadonnée représente le rôle joué par l’auteur vis-à-vis du patient lors de la constitution du lot de soumission, c'est-à-dire à quel titre l’auteur est intervenu vis-à-vis du patient (ex : médecin traitant, Responsable de l'admission, Membre de l'équipe de soins, etc.)."
 
 
 Mapping: AuthorDocumentEntryCDA
+Title: "AuthorDocumentEntryCDA"
 Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
 Source: AuthorDocumentEntry
@@ -25,6 +26,7 @@ Source: AuthorDocumentEntry
 * specialty -> "author/assignedAuthor/code@code"
 
 Mapping: AuthorDocumentEntryDICOMKOS
+Title: "AuthorDocumentEntryDICOMKOS"
 Target : "https://www.dicomstandard.org/"
 Description : "Mapping DICOM KOS"
 Source: AuthorDocumentEntry

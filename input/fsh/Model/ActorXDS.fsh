@@ -15,13 +15,14 @@ XCN de HL7 v2.5
 * XCN9.composant1  0..0 string "Vide, pas de valeur"
 * XCN9.composant2  1..1 string "Valeur de Universal ID"
 * XCN9.composant3  1..1 string "Valeur de Universal ID type (ID)"
-* XCN10 1..1 code "Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, • U, pour les systèmes."
+* XCN10 1..1 code "Type de nom : Valeur en fonction de l’auteur :  D, pour les personnes physiques, -U, pour les systèmes."
 * XCN13 1..1 code "Type d’identifiant"
 
 Mapping: ActorXDSCDA
 Target : "http://hl7.org/v3/cda"
 Description : "Mapping CDA"
 Source: ActorXDS
+Title: "ActorXDSCDA"
 * -> "ActorXDS"
 * XCN1 -> "author/assignedAuthor/id@extension"
 * XCN2 -> "author/assignedAuthor/assignedPerson/name/family"

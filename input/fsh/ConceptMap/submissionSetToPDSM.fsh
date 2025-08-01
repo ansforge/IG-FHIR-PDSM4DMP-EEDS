@@ -30,6 +30,10 @@ Description: """
 * group[=].element[=].target.code = #List.title
 * group[=].element[=].target.equivalence = #equivalent
 
+* group[=].element[+].code = #SubmissionSet.patiencomments
+* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[=].target.comment = "TO DO"
+
 * group[=].element[+].code = #SubmissionSet.patientID
 * group[=].element[=].target.code = #List.subject.fr-core-patient
 * group[=].element[=].target.equivalence = #equivalent
