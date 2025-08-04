@@ -9,8 +9,8 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * title = "documentReferenceToPDSM"
 * status = #draft
 * experimental = true
-* sourceUri = "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry"
-* targetUri = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
+//* sourceUri = "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry"
+//* targetUri = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
 * group[0].source = "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry"
 * group[=].target = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
 
@@ -23,12 +23,13 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.mimeType
-//* group[=].element[=].target.code = #
-* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.code = #DocumentReference.content.attachment.contentType
 
 * group[=].element[+].code = #DocumentEntry.availabilityStatus
-//* group[=].element[=].target.code = #
-* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[=].target.equivalence = #inexact
+//* group[=].element[=].target.equivalence = #nok
+* group[=].element[=].target.comment = "#DocumentReference.status ou  #DocumentReference.extension:isArchived"
 
 * group[=].element[+].code = #DocumentEntry.hash
 * group[=].element[=].target.code = #DocumentReference.content.attachment.hash
@@ -47,8 +48,8 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.repositoryUniqueId
-//* group[=].element[=].target.code = #
-* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[=].target.equivalence = #inexact
+* group[=].element[=].target.code = #DocumentReference.content.attachment.url
 
 * group[=].element[+].code = #DocumentEntry.serviceStartTime
 * group[=].element[=].target.code = #DocumentReference.context.period.start
@@ -67,8 +68,8 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.URI
-//* group[=].element[=].target.code = #
-* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[=].target.equivalence = #inexact
+* group[=].element[=].target.code = #DocumentReference.content.attachment.url
 
 
 * group[=].element[+].code = #DocumentEntry.title

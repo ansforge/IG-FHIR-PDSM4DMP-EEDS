@@ -15,8 +15,8 @@ Description: """
 * group[=].target = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"
 
 * group[=].element[0].code = #SubmissionSet.entryUUID
-* group[=].element[=].target.equivalence = #unmatched
-* group[=].element[=].target.comment = "TO DO"
+* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.comment = #List.identifier
 
 * group[=].element[+].code = #SubmissionSet.availabilityStatus
 * group[=].element[=].target.code = #List.status
@@ -30,7 +30,7 @@ Description: """
 * group[=].element[=].target.code = #List.title
 * group[=].element[=].target.equivalence = #equivalent
 
-* group[=].element[+].code = #SubmissionSet.patiencomments
+* group[=].element[+].code = #SubmissionSet.comments
 * group[=].element[=].target.equivalence = #unmatched
 * group[=].element[=].target.comment = "TO DO"
 
