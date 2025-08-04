@@ -28,6 +28,7 @@ Les attributs du document sont modifiées dans le DMP du patient.
 
 ### Equivalence FHIR
 
-Mise à jour du DocumentReference avec changement du statut
+Mise à jour du DocumentReference avec changement du statut.
+Utilisation de la méthode patch définie dans PDSm. Cf https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html
 
 ### Exemple
