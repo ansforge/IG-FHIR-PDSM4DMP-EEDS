@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!-- broken links = 2, errors = 19, warn = 245, info = 2-->
+<!-- broken links = 2, errors = 19, warn = 247, info = 2-->
 <head>
   <title>PDSm4DMP : Validation Results</title>
   <link href="fhir.css" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for PDSm4DMP</h1>
- <p>Generated Mon Aug 04 10:13:32 UTC 2025, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>)). See <a href="qa.min.html">Errors Only</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Mon Aug 04 13:12:28 UTC 2025, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>)). See <a href="qa.min.html">Errors Only</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
  <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.0.12</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = ans.fhir.fr.pdsm4dmp, Canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</td></tr>
@@ -115,7 +115,7 @@ hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-par
  <tr><td>IPA Comparison:</td><td> n/a</td></tr>
  <tr><td>IPS Comparison:</td><td> n/a</td></tr>
  <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
- <tr><td>Summary:</td><td> errors = 19, warn = 245, info = 2, broken links = 2, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+ <tr><td>Summary:</td><td> errors = 19, warn = 247, info = 2, broken links = 2, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
 </table>
  <table class="grid">
    <tr>
@@ -146,7 +146,7 @@ hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-par
      <td><a href="#_home_runner_work_IG-FHIR-PDSM4DMP-EEDS_IG-FHIR-PDSM4DMP-EEDS_igSource_fsh-generated_resources_Binary-AuthorStructure"><b>/home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure</b></a></td><td><b>1</b></td><td><b>0</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><a href="#_home_runner_work_IG-FHIR-PDSM4DMP-EEDS_IG-FHIR-PDSM4DMP-EEDS_igSource_fsh-generated_resources_ConceptMap-documentReferenceToPDSM"><b>/home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM</b></a></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td>
+     <td><a href="#_home_runner_work_IG-FHIR-PDSM4DMP-EEDS_IG-FHIR-PDSM4DMP-EEDS_igSource_fsh-generated_resources_ConceptMap-documentReferenceToPDSM"><b>/home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM</b></a></td><td><b>2</b></td><td><b>3</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
      <td><a href="#_home_runner_work_IG-FHIR-PDSM4DMP-EEDS_IG-FHIR-PDSM4DMP-EEDS_igSource_fsh-generated_resources_ConceptMap-submissionSetToPDSM"><b>/home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM</b></a></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td>
@@ -332,14 +332,20 @@ hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-par
    <tr>
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
    </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>ConceptMap&#8203;.group[0]&#8203;.element[8]&#8203;.target[0] (l1&#8203;/c9395)</b></td><td><b>error</b></td><td><b>Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-1</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>ConceptMap&#8203;.group[0]&#8203;.element[13]&#8203;.target[0] (l1&#8203;/c10035)</b></td><td><b>error</b></td><td><b>Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-1</span></td>
+   </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ConceptMap (l1/c11317)</b></td><td><b>warning</b></td><td><b>Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-0</span></td>
+     <td><b>ConceptMap (l1/c11767)</b></td><td><b>warning</b></td><td><b>Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-0</span></td>
    </tr>
-   <tr style="background-color: #ffcccc">
-     <td><b>ConceptMap.source</b></td><td><b>error</b></td><td><b><img style="vertical-align: text-bottom" src="new.png" height="16px" width="36px" alt="New Rule as of 2026-12-365: "> Reference must be to a ValueSet, but found a StructureDefinition instead</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_VS_NOT_A_VS</span></td>
+   <tr style="background-color: #ffebcc">
+     <td><b>ConceptMap.group[0].source (l1/c11765)</b></td><td><b>warning</b></td><td><b>The Source Code System https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry is not fully defined and populated, and no sourceScope is specified, so the source code checking will not be performed</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_SOURCE_UNKNOWN</span></td>
    </tr>
-   <tr style="background-color: #ffcccc">
-     <td><b>ConceptMap.target</b></td><td><b>error</b></td><td><b><img style="vertical-align: text-bottom" src="new.png" height="16px" width="36px" alt="New Rule as of 2026-12-365: "> Reference must be to a ValueSet, but found a StructureDefinition instead</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_VS_NOT_A_VS</span></td>
+   <tr style="background-color: #ffebcc">
+     <td><b>ConceptMap.group[0].target (l1/c11765)</b></td><td><b>warning</b></td><td><b>The Target Code System https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_TARGET_UNKNOWN</span></td>
    </tr>
 </table>
 <hr/>
@@ -352,7 +358,7 @@ hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-par
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ConceptMap (l1/c5553)</b></td><td><b>warning</b></td><td><b>Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-0</span></td>
+     <td><b>ConceptMap (l1/c5597)</b></td><td><b>warning</b></td><td><b>Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ConceptMap#cmd-0</span></td>
    </tr>
    <tr style="background-color: #ffcccc">
      <td><b>ConceptMap.source</b></td><td><b>error</b></td><td><b><img style="vertical-align: text-bottom" src="new.png" height="16px" width="36px" alt="New Rule as of 2026-12-365: "> Reference must be to a ValueSet, but found a StructureDefinition instead</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_VS_NOT_A_VS</span></td>
@@ -1384,15 +1390,25 @@ hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-par
 <a name="sorted"> </a>
 <p><b>Errors sorted by type</b></p>
 <hr/>
+<a name="CONCEPTMAP_GROUP_SOURCE_UNKNOWN"> </a>
+<h2>CONCEPTMAP_GROUP_SOURCE_UNKNOWN</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="ConceptMap-documentReferenceToPDSM.html">fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json</a></td><td><b>The Source Code System https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry is not fully defined and populated, and no sourceScope is specified, so the source code checking will not be performed</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="CONCEPTMAP_GROUP_TARGET_UNKNOWN"> </a>
+<h2>CONCEPTMAP_GROUP_TARGET_UNKNOWN</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="ConceptMap-documentReferenceToPDSM.html">fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json</a></td><td><b>The Target Code System https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed</b></td>
+   </tr>
+</table>
+<hr/>
 <a name="CONCEPTMAP_VS_NOT_A_VS"> </a>
 <h2>CONCEPTMAP_VS_NOT_A_VS</h2>
  <table class="grid">
-   <tr style="background-color: #ffeeee">
-     <td><a href="ConceptMap-documentReferenceToPDSM.html">fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json</a></td><td><b>Reference must be to a ValueSet, but found a StructureDefinition instead</b></td>
-   </tr>
-   <tr style="background-color: #ffeeee">
-     <td><a href="ConceptMap-documentReferenceToPDSM.html">fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json</a></td><td><b>Reference must be to a ValueSet, but found a StructureDefinition instead</b></td>
-   </tr>
    <tr style="background-color: #ffeeee">
      <td><a href="ConceptMap-submissionSetToPDSM.html">fsh-generated/resources/ConceptMap-submissionSetToPDSM.json</a></td><td><b>Reference must be to a ValueSet, but found a StructureDefinition instead</b></td>
    </tr>

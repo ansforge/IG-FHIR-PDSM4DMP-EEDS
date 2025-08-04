@@ -1,9 +1,9 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 19, warn = 245, info = 2
+err = 19, warn = 247, info = 2
 IG Publisher Version: 2.0.12
-Generated Mon Aug 04 10:13:32 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+Generated Mon Aug 04 13:12:28 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 2 / 2 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
@@ -12,7 +12,7 @@ Generated Mon Aug 04 10:13:32 UTC 2025. FHIR version 4.0.1 for ans.fhir.fr.pdsm4
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPSCabinetRPPS : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPatient : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure : 1 / 0 / 0
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 1 / 1
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 2 / 3 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 1 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp : 7 / 8 / 1
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-ActorPS : 0 / 18 / 1
@@ -58,9 +58,11 @@ ERROR: Binary/AuthorPatient: Binary: Specified profile type was 'https://interop
 == fsh-generated/resources/Binary-AuthorStructure.json ==
 ERROR: Binary/AuthorStructure: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorDocumentEntry' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorDocumentEntry|0.1.0', but found type 'Binary'
 == fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json ==
+ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[8].target[0]: Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments'
+ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[13].target[0]: Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments'
 WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
-ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.source: Reference must be to a ValueSet, but found a StructureDefinition instead
-ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.target: Reference must be to a ValueSet, but found a StructureDefinition instead
+WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].source: The Source Code System https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry is not fully defined and populated, and no sourceScope is specified, so the source code checking will not be performed
+WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].target: The Target Code System https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
 == fsh-generated/resources/ConceptMap-submissionSetToPDSM.json ==
 WARNING: ConceptMap/submissionSetToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.source: Reference must be to a ValueSet, but found a StructureDefinition instead
