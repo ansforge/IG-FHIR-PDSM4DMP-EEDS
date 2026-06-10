@@ -261,52 +261,52 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#entrée" id="markdown-toc-entrée">Entrée</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
   <li><a href="#equivalent-fhir" id="markdown-toc-equivalent-fhir">Equivalent FHIR</a></li>
-  <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
+  <li><a href="#exemple-fhir" id="markdown-toc-exemple-fhir">Exemple FHIR</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
-<p>vérifier l’existence d’un DMP actif (via TD0.2) et les conditions d'accès à ce DMP</p>
+<p>vérifier l'existence d'un DMP actif (via TD0.2) et les conditions d'accès à ce DMP</p>
 
 <p>Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :</p>
 <ul>
   <li>statut du DMP du patient (EF_DMP12_01),</li>
   <li>si le DMP du patient est fermé, date, motif et raison de la fermeture (cf. EF_DMP12),</li>
-  <li>statut de l’autorisation d’accès de consultation de l’acteur de santé (EF_DMP04_01),</li>
+  <li>statut de l'autorisation d'accès de consultation de l'acteur de santé (EF_DMP04_01),</li>
   <li>statut « médecin traitant DMP » (EF_DMP01_07).</li>
 </ul>
 
 <p>Ces données permettent au LPS de vérifier :</p>
 <ul>
   <li>si le DMP du patient existe et si celui-ci est actif,</li>
-  <li>si l’acteur de santé dispose d’une autorisation d’accès valide pour la consultation de ce DMP.</li>
+  <li>si l'acteur de santé dispose d'une autorisation d'accès valide pour la consultation de ce DMP.</li>
 </ul>
 
-<p>Le LPS gère en local (= hors SI DMP) les conditions d'accès à ce DMP par l’acteur de santé :</p>
+<p>Le LPS gère en local (= hors SI DMP) les conditions d'accès à ce DMP par l'acteur de santé :</p>
 <ul>
-  <li>non-opposition du patient à l’alimentation de son DMP,</li>
+  <li>non-opposition du patient à l'alimentation de son DMP,</li>
   <li>consentement du patient à la consultation de son DMP.</li>
 </ul>
 
-<p>En mode d’accès « centre de régulation », le statut de l’autorisation d’accès de l’acteur de santé sur le DMP du patient n’est pas contrôlé par le LPS.
-NB1 : un professionnel que le patient a bloqué ne peut pas accéder au DMP de ce patient, que ce soit avec ou sans l’autorisation du patient.
-NB2 : les autorisations d’accès ne sont utilisées que pour la consultation des DMP.</p>
+<p>En mode d'accès « centre de régulation », le statut de l'autorisation d'accès de l'acteur de santé sur le DMP du patient n'est pas contrôlé par le LPS.
+NB1 : un professionnel que le patient a bloqué ne peut pas accéder au DMP de ce patient, que ce soit avec ou sans l'autorisation du patient.
+NB2 : les autorisations d'accès ne sont utilisées que pour la consultation des DMP.</p>
 
 <p>Ensuite, le LPS :</p>
 
 <ul>
-  <li>affiche ne doit pas afficher les traits d’identité provenant du DMP (cf. RG_0320),</li>
+  <li>affiche ne doit pas afficher les traits d'identité provenant du DMP (cf. RG_0320),</li>
   <li>détermine les actions possibles sur le DMP du patient (cf. RG_0330)</li>
 </ul>
 
 <h3 id="entrée">Entrée</h3>
 
-<p>L’INS du patient</p>
+<p>L'INS du patient</p>
 
 <h3 id="sortie">Sortie</h3>
 
-<p>Le LPS a vérifié les conditions d’accès de l’acteur de santé au DMP du patient :</p>
+<p>Le LPS a vérifié les conditions d'accès de l'acteur de santé au DMP du patient :</p>
 
 <ul>
   <li>INS</li>
@@ -331,10 +331,204 @@ NB2 : les autorisations d’accès ne sont utilisées que pour la consultation d
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>Pas d'équivalent trouvé côté MHD. L'équivalent consisterait en une requête sur le endpoint Patient avec le SearchParameter identifier.
-Mapping des infos DMP (statut, rattachement, infos de fermetures) à rajouter : extension patient ? Ressource Coverage ?</p>
+<p>Cette transaction n'a pas d'équivalent direct dans le profil MHD / PDSm, qui ne couvre pas la gestion du statut du DMP. Elle s'appuie sur l'API FHIR REST standard, en recherchant le patient par son INS sur l'endpoint <code class="language-plaintext highlighter-rouge">Patient</code>.</p>
 
-<h3 id="exemple">Exemple</h3>
+<h4 id="flux-td02-a--requête">Flux TD02-a — Requête</h4>
+
+<p>Le LPS effectue une recherche sur la ressource <code class="language-plaintext highlighter-rouge">Patient</code> en utilisant le paramètre <code class="language-plaintext highlighter-rouge">identifier</code> valorisé avec l'INS du patient.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Patient?identifier=[systeme-INS]|[valeur-INS] HTTP/1.1
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p>Le système (OID) à utiliser selon le type d'INS :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type d'INS</th>
+      <th>Système (OID)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INS-NIR</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:oid:1.2.250.1.213.1.4.8</code></td>
+    </tr>
+    <tr>
+      <td>INS-NIA</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:oid:1.2.250.1.213.1.4.9</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Paramètres de la requête :</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paramètre</th>
+      <th>Type</th>
+      <th>Cardinalité</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code></td>
+      <td>token</td>
+      <td>1..1</td>
+      <td>INS du patient, sous la forme <code class="language-plaintext highlighter-rouge">[système]\|[valeur]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemple :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 HTTP/1.1
+</code></pre></div></div>
+
+<h4 id="flux-td02--réponse">Flux TD02 — Réponse</h4>
+
+<p>En cas de succès, le système DMP retourne un code HTTP <code class="language-plaintext highlighter-rouge">200 OK</code> avec un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code>.</p>
+
+<ul>
+  <li>Si le <code class="language-plaintext highlighter-rouge">Bundle</code> contient <strong>0 entrée</strong> : aucun DMP actif n'existe pour ce patient.</li>
+  <li>Si le <code class="language-plaintext highlighter-rouge">Bundle</code> contient <strong>1 entrée</strong> : la ressource <code class="language-plaintext highlighter-rouge">Patient</code> retournée porte les informations du DMP.</li>
+</ul>
+
+<p>En cas d'erreur, le système retourne un code HTTP d'erreur accompagné d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code>.</p>
+
+<h4 id="mapping-des-données-de-sortie">Mapping des données de sortie</h4>
+
+<p>Les données retournées par TD02 se mappent sur la ressource <code class="language-plaintext highlighter-rouge">Patient</code> (profil <a href="https://hl7.fr/ig/fhir/core/StructureDefinition-fr-core-patient.html">fr-core-patient</a>) comme suit :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Donnée DMP</th>
+      <th>Ressource / Élément FHIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INS</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier</code> (slice <code class="language-plaintext highlighter-rouge">INS-NIR</code> ou <code class="language-plaintext highlighter-rouge">INS-NIA</code>)</td>
+    </tr>
+    <tr>
+      <td>Nom d'usage</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name</code> (slice <code class="language-plaintext highlighter-rouge">usualName</code>)</td>
+    </tr>
+    <tr>
+      <td>Nom de naissance</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name</code> (slice <code class="language-plaintext highlighter-rouge">officialName</code>)</td>
+    </tr>
+    <tr>
+      <td>Prénom</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name.given</code></td>
+    </tr>
+    <tr>
+      <td>Sexe</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.gender</code></td>
+    </tr>
+    <tr>
+      <td>Date de naissance</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.birthDate</code></td>
+    </tr>
+    <tr>
+      <td>Civilité</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.name.prefix</code></td>
+    </tr>
+    <tr>
+      <td>Statut du DMP</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code> (actif, fermé, inconnu)</td>
+    </tr>
+    <tr>
+      <td>Statut du rattachement à Mon espace Santé</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code> (booléen)</td>
+    </tr>
+    <tr>
+      <td>Date de fermeture du DMP</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+    </tr>
+    <tr>
+      <td>Motif de fermeture</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+    </tr>
+    <tr>
+      <td>Raison de fermeture</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+    </tr>
+    <tr>
+      <td>Statut « médecin traitant DMP »</td>
+      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+    </tr>
+    <tr>
+      <td>Statut de l'autorisation d'accès (EF_DMP04_01)</td>
+      <td>Hors scope <code class="language-plaintext highlighter-rouge">Patient</code> — à mapper sur une ressource <code class="language-plaintext highlighter-rouge">Consent</code> ou <code class="language-plaintext highlighter-rouge">Coverage</code> (à préciser)</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note :</strong> Les données spécifiques au DMP (statut, rattachement Mon espace Santé, informations de fermeture, médecin traitant DMP) n'ont pas d'élément standard en FHIR R4. Des extensions dédiées devront être définies dans ce guide d'implémentation (voir <a href="autres_ressources.html">Autres ressources</a>). Le statut de l'autorisation d'accès du professionnel de santé au DMP du patient relève d'une logique de contrôle d'accès qui pourrait être portée par une ressource <code class="language-plaintext highlighter-rouge">Consent</code> ou <code class="language-plaintext highlighter-rouge">Coverage</code>, mais ce point reste à préciser.</p>
+</blockquote>
+
+<h3 id="exemple-fhir">Exemple FHIR</h3>
+
+<p><strong>Requête HTTP GET :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 HTTP/1.1
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p><strong>Requête HTTP POST équivalente :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345
+</code></pre></div></div>
+
+<p><strong>Réponse :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchset"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oid:1.2.250.1.213.1.4.8"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usual"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUPONT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARTIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1985-04-12"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 
 
@@ -385,7 +579,7 @@ Mapping des infos DMP (statut, rattachement, infos de fermetures) à rajouter : 
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-10 15:45:00 +0000">
+  <span title="2026-06-10 15:59:00 +0000">
     2026-06-10
   </span>
 

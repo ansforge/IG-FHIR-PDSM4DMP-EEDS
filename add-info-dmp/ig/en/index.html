@@ -307,8 +307,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#périmètre-du-projet" id="markdown-toc-périmètre-du-projet">Périmètre du projet</a></li>
-  <li><a href="#auteurs-et-contributeurs" id="markdown-toc-auteurs-et-contributeurs">Auteurs et contributeurs</a></li>
+  <li><a href="#périmètre" id="markdown-toc-périmètre">Périmètre</a></li>
   <li><a href="#dépendances" id="markdown-toc-dépendances">Dépendances</a></li>
   <li><a href="#propriété-intellectuelle" id="markdown-toc-propriété-intellectuelle">Propriété intellectuelle</a></li>
 </ul>
@@ -316,56 +315,84 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; width: 65%">
 <b>Brief description of this Implementation Guide</b><br />
-[Add a brief description of this IG in English]
+This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to Health Documents) for the French shared medical record (DMP - Dossier Médical Partagé) in the context of EEDS (European Health Data Space / Espace Européen des Données de Santé).
 </p>
 
 <div style="width: 65%">
     <blockquote class="stu-note">
-    <p>Cet Implementation Guide n'est pas la version courante, il s'agit de la version en intégration continue soumise à des changements fréquents uniquement destinée à suivre les travaux en cours. La version courante sera accessible via l'URL canonique suite à la première release : http://interop.esante.gouv.fr/ig/fhir/[code - ig]</p>
+    <p>Cet Implementation Guide n'est pas la version courante, il s'agit de la version en intégration continue soumise à des changements fréquents uniquement destinée à suivre les travaux en cours. La version courante sera accessible via l'URL canonique suite à la première release : https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</p>
     </blockquote>
 </div>
 
-<!--  A décommenter si CI-SIS
-<div class="figure">
-    <img src="ci-sis-logo.png" alt="CI-SIS" title="Logo du CI-SIS" style="width:100%;">
-</div>
--->
-
 <h3 id="introduction">Introduction</h3>
 
-<p>Définir ici de quoi parle l'IG (En termes non expert, compréhensible par un patient). Rajouter également les détails techniques sur le contexte et le besoin de cet IG</p>
+<p>Ce guide d'implémentation décrit l'utilisation du profil <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/">PDSm (Partage de Documents de Santé en mobilité)</a> pour les échanges avec le Dossier Médical Partagé (DMP) dans le contexte de l'Espace Européen des Données de Santé (EEDS).</p>
 
-<p>Les principales sections de l'IG  sont :</p>
+<p>Le DMP est le carnet de santé numérique de chaque Français. Il permet aux professionnels de santé d'accéder aux documents médicaux d'un patient (comptes rendus, ordonnances, imagerie, etc.) et d'y contribuer, sous réserve du consentement du patient.</p>
+
+<p>PDSm est le profil FHIR français basé sur <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE MHD (Mobile access to Health Documents)</a>. Il définit les transactions FHIR permettant de soumettre, rechercher et consulter des documents de santé. Ce guide précise comment ces transactions s'appliquent au contexte DMP, et documente les extensions nécessaires pour les données spécifiques au DMP qui n'ont pas d'équivalent dans MHD.</p>
+
+<p>Les principales sections de ce guide sont :</p>
 
 <ul>
-  <li>Le contexte de l'IG, quelle problématique il résout</li>
-  <li>Ce que les Implémenteurs doivent mettre en place</li>
-  <li>Un onglet "Ressources de conformité" pour s'assurer d'un schéma global entre tous les IGs</li>
+  <li><strong><a href="construction_des_flux.html">Transactions DMP Patient</a></strong> : vue d'ensemble et détail de chaque transaction (TD02, TD2, TD2.1, TD3.1a, TD3.1b, TD3.2, TD3.3a–d) avec leur équivalent FHIR</li>
+  <li><strong><a href="exemples_usage_dmp.html">Exemples d'usages DMP</a></strong> : cinématiques concrètes illustrant des cas d'usage réels (ex. notification de documents tiers)</li>
+  <li><strong><a href="artifacts.html">Ressources de conformité</a></strong> : profils, modèles logiques, mappings et exemples FHIR</li>
 </ul>
 
-<h3 id="périmètre-du-projet">Périmètre du projet</h3>
+<h3 id="périmètre">Périmètre</h3>
 
-<p>Définir en quelques lignes en anglais quel est le périmètre du projet</p>
+<p>Ce guide couvre les transactions DMP réalisées par un Logiciel de Professionnel de Santé (LPS) dans le cadre du volet CI-SIS « Partage de Documents de Santé ». Il s'appuie sur le profil PDSm et le guide HL7 FHIR France (fr-core) pour le traitement de l'identité patient (INS).</p>
 
-<p>Toujours laisser l'onglet "Ressources de conformité" pour s'assurer d'une cohérence globales entre tous les IGs</p>
-
-<h3 id="auteurs-et-contributeurs">Auteurs et contributeurs</h3>
+<p>Les transactions couvertes sont :</p>
 
 <table>
   <thead>
     <tr>
-      <th>Role</th>
-      <th>Nom</th>
-      <th>Organisation</th>
-      <th>Contact</th>
+      <th>Transaction</th>
+      <th>Fonctionnalité</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Primary Editor</strong></td>
-      <td>Prenom Nom</td>
-      <td>Agence du Numérique en Santé</td>
-      <td>prenom.nom@address.email</td>
+      <td><a href="transaction_td02.html">TD02</a></td>
+      <td>Vérifier l'existence d'un DMP actif et les conditions d'accès</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td2.html">TD2</a></td>
+      <td>Alimenter le DMP avec de nouveaux documents</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td2.1.html">TD2.1</a></td>
+      <td>Remplacer un document existant</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.1a.html">TD3.1a</a></td>
+      <td>Lister les documents du DMP</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.1b.html">TD3.1b</a></td>
+      <td>Rechercher l'identifiant technique d'un document</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.2.html">TD3.2</a></td>
+      <td>Consulter un document</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.3a.html">TD3.3a</a></td>
+      <td>Masquer / démasquer un document aux professionnels</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.3b.html">TD3.3b</a></td>
+      <td>Gérer la visibilité d'un document pour le patient</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.3c.html">TD3.3c</a></td>
+      <td>Supprimer un document</td>
+    </tr>
+    <tr>
+      <td><a href="transaction_td3.3d.html">TD3.3d</a></td>
+      <td>Archiver / désarchiver un document</td>
     </tr>
   </tbody>
 </table>
@@ -504,7 +531,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-10 15:45:00 +0000">
+  <span title="2026-06-10 15:59:00 +0000">
     2026-06-10
   </span>
 

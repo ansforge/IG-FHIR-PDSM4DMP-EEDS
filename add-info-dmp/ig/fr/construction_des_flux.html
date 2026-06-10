@@ -293,28 +293,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <pre><code class="language-mermaid">flowchart TD
     INS(["INS du patient"])
-
-    TD02["&lt;b&gt;TD02&lt;/b&gt;&lt;br/&gt;Vérifier l'existence du DMP&lt;br/&gt;et les conditions d'accès&lt;br/&gt;&lt;i&gt;Patient?identifier&lt;/i&gt;"]
-
-    DMP_ACTIFDMP actif\net accès autorisé ?
-    FIN(["Fin — accès non autorisé"])
+    TD02["TD02 - Vérifier existence DMP et conditions accès"]
+    DMP_ACTIF{"DMP actif et accès autorisé ?"}
+    FIN(["Fin - accès refusé"])
 
     subgraph ALIM["Alimentation"]
-        TD2["&lt;b&gt;TD2&lt;/b&gt;&lt;br/&gt;Soumettre de nouveaux documents&lt;br/&gt;&lt;i&gt;ITI-65&lt;/i&gt;"]
-        TD21["&lt;b&gt;TD2.1&lt;/b&gt;&lt;br/&gt;Remplacer un document existant&lt;br/&gt;&lt;i&gt;ITI-65 + UpdateDocumentRefs&lt;/i&gt;"]
+        TD2["TD2 - Soumettre de nouveaux documents - ITI-65"]
+        TD21["TD2.1 - Remplacer un document - ITI-65 + UpdateDocumentRefs"]
     end
 
     subgraph RECH["Recherche"]
-        TD31a["&lt;b&gt;TD3.1a&lt;/b&gt;&lt;br/&gt;Lister les documents du DMP&lt;br/&gt;&lt;i&gt;ITI-67&lt;/i&gt;"]
-        TD31b["&lt;b&gt;TD3.1b&lt;/b&gt;&lt;br/&gt;Rechercher l'identifiant technique&lt;br/&gt;&lt;i&gt;ITI-67 (id)&lt;/i&gt;"]
+        TD31a["TD3.1a - Lister les documents du DMP - ITI-67"]
+        TD31b["TD3.1b - Rechercher identifiant technique - ITI-67"]
     end
 
     subgraph GEST["Consultation et gestion"]
-        TD32["&lt;b&gt;TD3.2&lt;/b&gt;&lt;br/&gt;Consulter un document&lt;br/&gt;&lt;i&gt;DocumentReference + Binary&lt;/i&gt;"]
-        TD33a["&lt;b&gt;TD3.3a&lt;/b&gt;&lt;br/&gt;Masquer / démasquer (professionnels)&lt;br/&gt;&lt;i&gt;Consentement&lt;/i&gt;"]
-        TD33b["&lt;b&gt;TD3.3b&lt;/b&gt;&lt;br/&gt;Visibilité patient&lt;br/&gt;&lt;i&gt;Consentement&lt;/i&gt;"]
-        TD33c["&lt;b&gt;TD3.3c&lt;/b&gt;&lt;br/&gt;Supprimer un document&lt;br/&gt;&lt;i&gt;HTTP DELETE&lt;/i&gt;"]
-        TD33d["&lt;b&gt;TD3.3d&lt;/b&gt;&lt;br/&gt;Archiver / désarchiver&lt;br/&gt;&lt;i&gt;PATCH DocumentReference&lt;/i&gt;"]
+        TD32["TD3.2 - Consulter un document - DocumentReference + Binary"]
+        TD33a["TD3.3a - Masquer / démasquer professionnels"]
+        TD33b["TD3.3b - Visibilité patient"]
+        TD33c["TD3.3c - Supprimer un document - HTTP DELETE"]
+        TD33d["TD3.3d - Archiver / désarchiver - PATCH DocumentReference"]
     end
 
     INS --&gt; TD02
@@ -444,7 +442,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-10 15:45:00 +0000">
+  <span title="2026-06-10 15:59:00 +0000">
     2026-06-10
   </span>
 

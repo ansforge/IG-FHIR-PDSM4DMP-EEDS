@@ -23,28 +23,26 @@ Les transactions sont organisées en quatre groupes fonctionnels :
 ```
 flowchart TD
     INS(["INS du patient"])
-
-    TD02["<b>TD02</b><br/>Vérifier l'existence du DMP<br/>et les conditions d'accès<br/><i>Patient?identifier</i>"]
-
-    DMP_ACTIFDMP actif\net accès autorisé ?
-    FIN(["Fin — accès non autorisé"])
+    TD02["TD02 - Vérifier existence DMP et conditions accès"]
+    DMP_ACTIF{"DMP actif et accès autorisé ?"}
+    FIN(["Fin - accès refusé"])
 
     subgraph ALIM["Alimentation"]
-        TD2["<b>TD2</b><br/>Soumettre de nouveaux documents<br/><i>ITI-65</i>"]
-        TD21["<b>TD2.1</b><br/>Remplacer un document existant<br/><i>ITI-65 + UpdateDocumentRefs</i>"]
+        TD2["TD2 - Soumettre de nouveaux documents - ITI-65"]
+        TD21["TD2.1 - Remplacer un document - ITI-65 + UpdateDocumentRefs"]
     end
 
     subgraph RECH["Recherche"]
-        TD31a["<b>TD3.1a</b><br/>Lister les documents du DMP<br/><i>ITI-67</i>"]
-        TD31b["<b>TD3.1b</b><br/>Rechercher l'identifiant technique<br/><i>ITI-67 (id)</i>"]
+        TD31a["TD3.1a - Lister les documents du DMP - ITI-67"]
+        TD31b["TD3.1b - Rechercher identifiant technique - ITI-67"]
     end
 
     subgraph GEST["Consultation et gestion"]
-        TD32["<b>TD3.2</b><br/>Consulter un document<br/><i>DocumentReference + Binary</i>"]
-        TD33a["<b>TD3.3a</b><br/>Masquer / démasquer (professionnels)<br/><i>Consentement</i>"]
-        TD33b["<b>TD3.3b</b><br/>Visibilité patient<br/><i>Consentement</i>"]
-        TD33c["<b>TD3.3c</b><br/>Supprimer un document<br/><i>HTTP DELETE</i>"]
-        TD33d["<b>TD3.3d</b><br/>Archiver / désarchiver<br/><i>PATCH DocumentReference</i>"]
+        TD32["TD3.2 - Consulter un document - DocumentReference + Binary"]
+        TD33a["TD3.3a - Masquer / démasquer professionnels"]
+        TD33b["TD3.3b - Visibilité patient"]
+        TD33c["TD3.3c - Supprimer un document - HTTP DELETE"]
+        TD33d["TD3.3d - Archiver / désarchiver - PATCH DocumentReference"]
     end
 
     INS --> TD02
