@@ -6,7 +6,7 @@
   "extensions": [],
   "profiles": {},
   "usage": {
-    "http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier": [
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier|5.3.0": [
       "DocumentEntry.referenceIdList"
     ],
     "http://hl7.org/fhir/StructureDefinition/regex": [
@@ -17,6 +17,9 @@
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics": [
       "StructureDefinition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters": [
+      "ImplementationGuide.definition"
     ],
     "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
       "ImplementationGuide.definition"

@@ -176,6 +176,7 @@ package IG #DDDDDD{
 
         class IdentifiantSysteme{
 
+             string => [None..None]
         } 
 
         class MatriculeINS{
@@ -262,92 +263,92 @@ package IG #DDDDDD{
 
 package "Ressources de base" #palegreen {
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS|0.1.0" as  class11ba5cb310a4c1e176ff59d594dd1eea 
 
-    classb1fa6044c54073490b5e2804c2a7a77e --> ActorPS
+    class11ba5cb310a4c1e176ff59d594dd1eea --> ActorPS
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS|0.1.0" as  class11ba5cb310a4c1e176ff59d594dd1eea 
 
-    classb1fa6044c54073490b5e2804c2a7a77e --> ActorPatient
+    class11ba5cb310a4c1e176ff59d594dd1eea --> ActorPatient
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS|0.1.0" as  class11ba5cb310a4c1e176ff59d594dd1eea 
 
-    classb1fa6044c54073490b5e2804c2a7a77e --> ActorSNR
+    class11ba5cb310a4c1e176ff59d594dd1eea --> ActorSNR
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS" as  classb1fa6044c54073490b5e2804c2a7a77e 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/ActorXDS|0.1.0" as  class11ba5cb310a4c1e176ff59d594dd1eea 
 
-    classb1fa6044c54073490b5e2804c2a7a77e --> ActorSystem
+    class11ba5cb310a4c1e176ff59d594dd1eea --> ActorSystem
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> ActorXDS
+    classba16ccdc1c2b8216c219ae0a09c572ff --> ActorXDS
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> Author
+    classba16ccdc1c2b8216c219ae0a09c572ff --> Author
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author" as  classc2475048e2c7036063c8904a63957e62 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0" as  class9a3665b317cff7f72fb8acfc74120b03 
 
-    classc2475048e2c7036063c8904a63957e62 --> AuthorDocumentEntry
+    class9a3665b317cff7f72fb8acfc74120b03 --> AuthorDocumentEntry
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> AuthorInstitution
+    classba16ccdc1c2b8216c219ae0a09c572ff --> AuthorInstitution
 
- class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author" as  classc2475048e2c7036063c8904a63957e62 
+ class "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/Author|0.1.0" as  class9a3665b317cff7f72fb8acfc74120b03 
 
-    classc2475048e2c7036063c8904a63957e62 --> AuthorSubmissionSet
+    class9a3665b317cff7f72fb8acfc74120b03 --> AuthorSubmissionSet
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> DocumentEntry
+    classba16ccdc1c2b8216c219ae0a09c572ff --> DocumentEntry
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> EventCode
+    classba16ccdc1c2b8216c219ae0a09c572ff --> EventCode
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> Folder
+    classba16ccdc1c2b8216c219ae0a09c572ff --> Folder
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> Identifiant
+    classba16ccdc1c2b8216c219ae0a09c572ff --> Identifiant
 
- class "string" as  classb45cffe084dd3d20d928bee85e7b0f21 
+ class "string|4.0.1" as  class3da417a43100ff4204d08826f4c26e43 
 
-    classb45cffe084dd3d20d928bee85e7b0f21 --> IdentifiantSysteme
+    class3da417a43100ff4204d08826f4c26e43 --> IdentifiantSysteme
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> MatriculeINS
+    classba16ccdc1c2b8216c219ae0a09c572ff --> MatriculeINS
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> PSIdNat
+    classba16ccdc1c2b8216c219ae0a09c572ff --> PSIdNat
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> PatientId
+    classba16ccdc1c2b8216c219ae0a09c572ff --> PatientId
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> SNR
+    classba16ccdc1c2b8216c219ae0a09c572ff --> SNR
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> SourcePatientId
+    classba16ccdc1c2b8216c219ae0a09c572ff --> SourcePatientId
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> SourcePatientInfo
+    classba16ccdc1c2b8216c219ae0a09c572ff --> SourcePatientInfo
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> StructIdNat
+    classba16ccdc1c2b8216c219ae0a09c572ff --> StructIdNat
 
- class "Base" as  class095a1b43effec73955e31e790438de49 
+ class "Base|4.0.1" as  classba16ccdc1c2b8216c219ae0a09c572ff 
 
-    class095a1b43effec73955e31e790438de49 --> SubmissionSet
+    classba16ccdc1c2b8216c219ae0a09c572ff --> SubmissionSet
 }
 @enduml
