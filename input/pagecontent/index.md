@@ -1,43 +1,48 @@
 <p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; width: 65%">
 <b>Brief description of this Implementation Guide</b><br>
-[Add a brief description of this IG in English]
+This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to Health Documents) for the French shared medical record (DMP - Dossier Médical Partagé) in the context of EEDS (European Health Data Space / Espace Européen des Données de Santé).
 </p>
 
 {% if site.data.info.releaselabel == 'ci-build' %}
 <div style="width: 65%">
     <blockquote class="stu-note">
-    <p>Cet Implementation Guide n'est pas la version courante, il s'agit de la version en intégration continue soumise à des changements fréquents uniquement destinée à suivre les travaux en cours. La version courante sera accessible via l'URL canonique suite à la première release : http://interop.esante.gouv.fr/ig/fhir/[code - ig]</p>
+    <p>Cet Implementation Guide n'est pas la version courante, il s'agit de la version en intégration continue soumise à des changements fréquents uniquement destinée à suivre les travaux en cours. La version courante sera accessible via l'URL canonique suite à la première release : https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</p>
     </blockquote>
 </div>
 {% endif %}
 
-<!--  A décommenter si CI-SIS
-<div class="figure">
-    <img src="ci-sis-logo.png" alt="CI-SIS" title="Logo du CI-SIS" style="width:100%;">
-</div>
--->
-
 ### Introduction
 
-Définir ici de quoi parle l'IG (En termes non expert, compréhensible par un patient). Rajouter également les détails techniques sur le contexte et le besoin de cet IG
+Ce guide d'implémentation décrit l'utilisation du profil [PDSm (Partage de Documents de Santé en mobilité)](https://interop.esante.gouv.fr/ig/fhir/pdsm/) pour les échanges avec le Dossier Médical Partagé (DMP) dans le contexte de l'Espace Européen des Données de Santé (EEDS).
 
-Les principales sections de l'IG  sont :
+Le DMP est le carnet de santé numérique de chaque Français. Il permet aux professionnels de santé d'accéder aux documents médicaux d'un patient (comptes rendus, ordonnances, imagerie, etc.) et d'y contribuer, sous réserve du consentement du patient.
 
-* Le contexte de l'IG, quelle problématique il résout
-* Ce que les Implémenteurs doivent mettre en place
-* Un onglet "Ressources de conformité" pour s'assurer d'un schéma global entre tous les IGs
+PDSm est le profil FHIR français basé sur [IHE MHD (Mobile access to Health Documents)](https://profiles.ihe.net/ITI/MHD/index.html). Il définit les transactions FHIR permettant de soumettre, rechercher et consulter des documents de santé. Ce guide précise comment ces transactions s'appliquent au contexte DMP, et documente les extensions nécessaires pour les données spécifiques au DMP qui n'ont pas d'équivalent dans MHD.
 
-### Périmètre du projet
+Les principales sections de ce guide sont :
 
-Définir en quelques lignes en anglais quel est le périmètre du projet
+* **[Transactions DMP Patient](construction_des_flux.html)** : vue d'ensemble et détail de chaque transaction (TD02, TD2, TD2.1, TD3.1a, TD3.1b, TD3.2, TD3.3a–d) avec leur équivalent FHIR
+* **[Exemples d'usages DMP](exemples_usage_dmp.html)** : cinématiques concrètes illustrant des cas d'usage réels (ex. notification de documents tiers)
+* **[Ressources de conformité](artifacts.html)** : profils, modèles logiques, mappings et exemples FHIR
 
-Toujours laisser l'onglet "Ressources de conformité" pour s'assurer d'une cohérence globales entre tous les IGs
+### Périmètre
 
-### Auteurs et contributeurs
+Ce guide couvre les transactions DMP réalisées par un Logiciel de Professionnel de Santé (LPS) dans le cadre du volet CI-SIS « Partage de Documents de Santé ». Il s'appuie sur le profil PDSm et le guide HL7 FHIR France (fr-core) pour le traitement de l'identité patient (INS).
 
-| Role  | Nom | Organisation | Contact |
-| --- | --- | --- | --- |
-| **Primary Editor** | Prenom Nom | Agence du Numérique en Santé | prenom.nom@address.email |
+Les transactions couvertes sont :
+
+| Transaction | Fonctionnalité |
+|-------------|---------------|
+| [TD02](transaction_td02.html) | Vérifier l'existence d'un DMP actif et les conditions d'accès |
+| [TD2](transaction_td2.html) | Alimenter le DMP avec de nouveaux documents |
+| [TD2.1](transaction_td2.1.html) | Remplacer un document existant |
+| [TD3.1a](transaction_td3.1a.html) | Lister les documents du DMP |
+| [TD3.1b](transaction_td3.1b.html) | Rechercher l'identifiant technique d'un document |
+| [TD3.2](transaction_td3.2.html) | Consulter un document |
+| [TD3.3a](transaction_td3.3a.html) | Masquer / démasquer un document aux professionnels |
+| [TD3.3b](transaction_td3.3b.html) | Gérer la visibilité d'un document pour le patient |
+| [TD3.3c](transaction_td3.3c.html) | Supprimer un document |
+| [TD3.3d](transaction_td3.3d.html) | Archiver / désarchiver un document |
 
 ### Dépendances
 
