@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-ActorXDS.csv), [E
   "name" : "ActorXDS",
   "title" : "ActorXDS (LM)",
   "status" : "draft",
-  "date" : "2026-06-10T15:39:40+00:00",
+  "date" : "2026-06-10T15:45:32+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -47,7 +47,7 @@ Other representations of profile: [CSV](../StructureDefinition-ActorXDS.csv), [E
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
       "code" : "FR",
-      "display" : "FRANCE"
+      "display" : "France (la)"
     }]
   }],
   "fhirVersion" : "4.0.1",
