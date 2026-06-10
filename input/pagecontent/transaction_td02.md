@@ -122,12 +122,6 @@ GET [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 HTTP/1
 Accept: application/fhir+json
 ```
 
-**Requête HTTP POST équivalente :**
-
-```
-POST [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345
-```
-
 **Réponse :**
 
 ```json
