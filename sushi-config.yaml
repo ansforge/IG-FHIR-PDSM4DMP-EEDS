@@ -24,7 +24,21 @@ parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/Code
     path-resource:
          input/Examples
         #- input/fsh/data-type/primitive/complex/complex-data-type
-    generate-uml: source
+    path-expansion-params: '../../expansion-params.json'
+    pin-canonicals: pin-all
+    apply-contact: true
+    apply-jurisdiction: true
+    logging:
+      - tx
+      - html
+      - generate
+      - init
+      - progress
+    i18n-default-lang: fr
+    i18n-lang:
+      - en
+    translation-sources:
+      - input/translations/en
 pages:
     index.md:
         title: Accueil
@@ -57,6 +71,8 @@ pages:
             title: Flux TD3.3d      
     exemples_usage_dmp.md:
         title: Exemples d'usages DMP
+    translationinfo.md:
+        title: Informations sur la traduction
     autres_ressources.md:
         title: Autres Ressources
         securite.md:
