@@ -2,10 +2,6 @@
 
 ## Exemples d'usages DMP
 
-<!DOCTYPE html>
-
-# Récupération et synchronisation des documents — DMP
-
 # Optimisation des transactions de consultation DMP
 
 **Version :**V0.3  | 

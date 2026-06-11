@@ -5,10 +5,6 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-<!DOCTYPE html>
-
-# Récupération et synchronisation des documents — DMP
-
 # Optimisation des transactions de consultation DMP
 
 **Version :**V0.3  | 
