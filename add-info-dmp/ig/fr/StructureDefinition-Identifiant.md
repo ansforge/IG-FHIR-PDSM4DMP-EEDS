@@ -1,4 +1,4 @@
-# Identifiant - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# Identifiant - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Modèle logique: Identifiant 
 
@@ -69,7 +69,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-Identifiant.csv
   "name" : "Identifiant",
   "title" : "Identifiant",
   "status" : "draft",
-  "date" : "2026-06-10T16:18:52+00:00",
+  "date" : "2026-06-11T15:47:13+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",

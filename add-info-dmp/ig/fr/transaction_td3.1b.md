@@ -1,4 +1,4 @@
-# Flux TD3.1b - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# Flux TD3.1b - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Flux TD3.1b
 

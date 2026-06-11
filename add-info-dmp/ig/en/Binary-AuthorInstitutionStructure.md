@@ -1,4 +1,4 @@
-# AuthorInstitutionStructure - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# AuthorInstitutionStructure - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Example Binary: AuthorInstitutionStructure
 
@@ -16,5 +16,5 @@ This content is an example of the [AuthorInstitution (LM)](StructureDefinition-A
 text/x-hl7-ft:
 
 ```
-[B@1ae629e1
+[B@5db93afa
 ```

@@ -1,4 +1,4 @@
-# AuthorPSCabinetRPPS - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# AuthorPSCabinetRPPS - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Example Binary: AuthorPSCabinetRPPS
 

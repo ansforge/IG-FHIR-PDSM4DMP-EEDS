@@ -1,4 +1,4 @@
-# Vue d'ensemble - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# Vue d'ensemble - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Vue d'ensemble
 

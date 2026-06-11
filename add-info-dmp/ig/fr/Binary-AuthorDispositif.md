@@ -1,4 +1,4 @@
-# AuthorDispositif - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# AuthorDispositif - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Exemple Binary: AuthorDispositif
 

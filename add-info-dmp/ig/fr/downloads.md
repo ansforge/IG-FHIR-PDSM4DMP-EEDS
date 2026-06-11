@@ -1,4 +1,4 @@
-# Téléchargements et usages - Utilisation de PDSm pour le DMP dans le contexte d'EEDS v0.1.0
+# Téléchargements et usages - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
 ## Téléchargements et usages
 
