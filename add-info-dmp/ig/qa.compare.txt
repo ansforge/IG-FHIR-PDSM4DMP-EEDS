@@ -1,10 +1,10 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 23, warn = 217, info = 67
+err = 23, warn = 216, info = 67
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 18 / 8 / 0
+ Build Errors : 18 / 7 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionSNR : 1 / 0 / 0
@@ -50,7 +50,6 @@ ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 286, col
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 292, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 293, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 294, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
-WARNING: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/en/exemples_usage_dmp.html#/html/body/div/div/div/div/div/script at Line 513, column 2: The <script> containing the javascript 'mermaid.initialize({'... is illegal and not allowed on the HL7 ci-build - need to put the script in a  .js file in a trusted template if this IG is to build on the HL7 ci-build (if it is justified and needed) (also in 1 other files)
 WARNING: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/fr/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
 WARNING: fr/change-log.html#/html/body/div/div/div/div/div/p/a at Line 261, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 263, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
