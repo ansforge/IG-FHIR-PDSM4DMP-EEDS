@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="example-td2-iti65-lot-soumission"/>
+  <meta>
+    <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"/>
+  </meta>
+  <language value="en"/>
+  <type value="transaction"/>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000001"/>
+    <resource>
+      <List>
+        <id value="submissionset-td2"/>
+        <meta>
+          <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"/>
+        </meta>
+        <language value="en"/>
+        <text>
+          <status value="generated"/>
+        </text>
+        <status value="current"/>
+        <mode value="working"/>
+        <code>
+          <coding>
+            <system value="https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes"/>
+            <code value="submissionset"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"/>
+        </subject>
+        <date value="2026-06-12T10:00:00+02:00"/>
+        <entry>
+          <item>
+            <reference value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"/>
+          </item>
+        </entry>
+      </List>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="List"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"/>
+    <resource>
+      <DocumentReference>
+        <id value="docref-td2"/>
+        <meta>
+          <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"/>
+        </meta>
+        <language value="en"/>
+        <text>
+          <status value="generated"/>
+        </text>
+        <status value="current"/>
+        <type>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="11488-4"/>
+            <display value="Compte rendu de consultation"/>
+          </coding>
+        </type>
+        <subject>
+          <reference value="Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"/>
+        </subject>
+        <date value="2026-06-12T10:00:00+02:00"/>
+        <content>
+          <attachment>
+            <contentType value="application/xml"/>
+            <url value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"/>
+            <title value="Compte rendu de consultation"/>
+          </attachment>
+        </content>
+      </DocumentReference>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="DocumentReference"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"/>
+    <resource>
+      <Binary>
+        <id value="binary-cda-td2"/>
+        <language value="en"/>
+        <contentType value="application/xml"/>
+        <data value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOmhpcHAiPgogIDwhLS0gZXhlbXBsZSBDREEgLS0+CjwvQ2xpbmljYWxEb2N1bWVudD4="/>
+      </Binary>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Binary"/>
+    </request>
+  </entry>
+</Bundle>

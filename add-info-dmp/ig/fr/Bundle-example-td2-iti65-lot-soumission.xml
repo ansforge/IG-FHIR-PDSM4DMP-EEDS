@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="example-td2-iti65-lot-soumission"/>
+  <meta>
+    <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"/>
+  </meta>
+  <language value="fr"/>
+  <type value="transaction"/>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000001"/>
+    <resource>
+      <List>
+        <id value="submissionset-td2"/>
+        <meta>
+          <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"/>
+        </meta>
+        <language value="fr"/>
+        <text>
+          <status value="generated"/><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><a name="List_submissionset-td2"> </a><p class="res-header-id"><b>Narratif généré : Liste submissionset-td2</b></p><a name="submissionset-td2"> </a><a name="hcsubmissionset-td2"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p></div><table class="clstu"><tr><td>Date : 2026-06-12 10:00:00+0200 </td><td>Mode : Working List </td><td>Statut : Current </td><td>Code : SubmissionSet as a FHIR List </td></tr><tr><td>Sujet : <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></td></tr></table><table class="grid"><tr style="backgound-color: #eeeeee"><td><b>Éléments</b></td></tr><tr><td><a href="Bundle-example-td2-iti65-lot-soumission.html#urn-uuid-aaaaaaaa-0000-0000-0000-000000000002">DocumentReference : status = current; type = Compte rendu de consultation; date = 2026-06-12 10:00:00+0200</a></td></tr></table></div>
+        </text>
+        <status value="current"/>
+        <mode value="working"/>
+        <code>
+          <coding>
+            <system value="https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes"/>
+            <code value="submissionset"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"/>
+        </subject>
+        <date value="2026-06-12T10:00:00+02:00"/>
+        <entry>
+          <item>
+            <reference value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"/>
+          </item>
+        </entry>
+      </List>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="List"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"/>
+    <resource>
+      <DocumentReference>
+        <id value="docref-td2"/>
+        <meta>
+          <profile value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"/>
+        </meta>
+        <language value="fr"/>
+        <text>
+          <status value="generated"/><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><a name="DocumentReference_docref-td2"> </a><p class="res-header-id"><b>Narratif généré : RéférenceDocument docref-td2</b></p><a name="docref-td2"> </a><a name="hcdocref-td2"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html">PDSm Comprehensive DocumentReference</a></p></div><p><b>status</b>: Current</p><p><b>type</b>: <span title="Codes :{http://loinc.org 11488-4}">Compte rendu de consultation</span></p><p><b>subject</b>: <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></p><p><b>date</b>: 2026-06-12 10:00:00+0200</p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class="grid"><tr><td style="display: none">-</td><td><b>ContentType</b></td><td><b>Url</b></td><td><b>Title</b></td></tr><tr><td style="display: none">*</td><td>application/xml</td><td><a href="Bundle-example-td2-iti65-lot-soumission.html#urn-uuid-aaaaaaaa-0000-0000-0000-000000000003">Binary: application/xml (168 bytes base64)</a></td><td>Compte rendu de consultation</td></tr></table></blockquote></div>
+        </text>
+        <status value="current"/>
+        <type>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="11488-4"/>
+            <display value="Compte rendu de consultation"/>
+          </coding>
+        </type>
+        <subject>
+          <reference value="Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"/>
+        </subject>
+        <date value="2026-06-12T10:00:00+02:00"/>
+        <content>
+          <attachment>
+            <contentType value="application/xml"/>
+            <url value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"/>
+            <title value="Compte rendu de consultation"/>
+          </attachment>
+        </content>
+      </DocumentReference>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="DocumentReference"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"/>
+    <resource>
+      <Binary>
+        <id value="binary-cda-td2"/>
+        <language value="fr"/>
+        <contentType value="application/xml"/>
+        <data value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOmhpcHAiPgogIDwhLS0gZXhlbXBsZSBDREEgLS0+CjwvQ2xpbmljYWxEb2N1bWVudD4="/>
+      </Binary>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Binary"/>
+    </request>
+  </entry>
+</Bundle>

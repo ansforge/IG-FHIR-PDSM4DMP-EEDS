@@ -98,184 +98,25 @@ En cas de succès, le système DMP retourne un `Bundle` de type `transaction-res
 
 #### Exemple A — ITI-105 : publication simplifiée d'un compte rendu de consultation
 
-**Requête :**
+Requête : `POST [base]/DocumentReference`
 
-```
-POST [base]/DocumentReference HTTP/1.1
-Content-Type: application/fhir+json
+[Voir l'exemple complet : DocumentReference ITI-105 publication simplifiée (TD2)](DocumentReference-example-td2-iti105-publication-simplifiee.md)
 
-```
-
-**Corps :**
-
-```
-{
-  "resourceType": "DocumentReference",
-  "meta": {
-    "profile": [
-      "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish"
-    ]
-  },
-  "status": "current",
-  "type": {
-    "coding": [
-      {
-        "system": "http://loinc.org",
-        "code": "11488-4",
-        "display": "Compte rendu de consultation"
-      }
-    ]
-  },
-  "subject": {
-    "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
-  },
-  "date": "2026-06-12T10:00:00+02:00",
-  "content": [
-    {
-      "attachment": {
-        "contentType": "application/xml",
-        "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+...",
-        "title": "Compte rendu de consultation"
-      }
-    }
-  ]
-}
-
-```
-
-**Réponse :**
-
-```
-{
-  "resourceType": "DocumentReference",
-  "id": "1",
-  "meta": {
-    "versionId": "1",
-    "lastUpdated": "2026-06-12T10:00:01+02:00"
-  },
-  "status": "current"
-}
-
-```
+**Réponse attendue :** `201 Created` + `Location: DocumentReference/[id]` (corps : DocumentReference avec `id` serveur)
 
 -------
 
 #### Exemple B — ITI-65 : lot de soumission complet
 
-**Requête :**
+Requête : `POST [base]`
 
-```
-POST [base] HTTP/1.1
-Content-Type: application/fhir+json
+[Voir l'exemple complet : Bundle ITI-65 lot de soumission (TD2)](Bundle-example-td2-iti65-lot-soumission.md)
 
-```
+**Réponse attendue :**
 
-**Corps :**
-
-```
-{
-  "resourceType": "Bundle",
-  "meta": {
-    "profile": [
-      "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"
-    ]
-  },
-  "type": "transaction",
-  "entry": [
-    {
-      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000001",
-      "resource": {
-        "resourceType": "List",
-        "meta": {
-          "profile": [
-            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"
-          ]
-        },
-        "status": "current",
-        "mode": "working",
-        "code": {
-          "coding": [
-            {
-              "system": "https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes",
-              "code": "submissionset"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
-        },
-        "date": "2026-06-12T10:00:00+02:00",
-        "entry": [
-          {
-            "item": {
-              "reference": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"
-            }
-          }
-        ]
-      },
-      "request": { "method": "POST", "url": "List" }
-    },
-    {
-      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "meta": {
-          "profile": [
-            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
-          ]
-        },
-        "status": "current",
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "11488-4",
-              "display": "Compte rendu de consultation"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
-        },
-        "date": "2026-06-12T10:00:00+02:00",
-        "content": [
-          {
-            "attachment": {
-              "contentType": "application/xml",
-              "url": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003",
-              "title": "Compte rendu de consultation"
-            }
-          }
-        ]
-      },
-      "request": { "method": "POST", "url": "DocumentReference" }
-    },
-    {
-      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003",
-      "resource": {
-        "resourceType": "Binary",
-        "contentType": "application/xml",
-        "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+..."
-      },
-      "request": { "method": "POST", "url": "Binary" }
-    }
-  ]
-}
-
-```
-
-**Réponse :**
-
-```
-{
-  "resourceType": "Bundle",
-  "type": "transaction-response",
-  "entry": [
-    { "response": { "status": "201 Created", "location": "List/1" } },
-    { "response": { "status": "201 Created", "location": "DocumentReference/1" } },
-    { "response": { "status": "201 Created", "location": "Binary/1" } }
-  ]
-}
-
-```
+| | | |
+| :--- | :--- | :--- |
+| `List`(SubmissionSet) | `201 Created` | `List/[id]` |
+| `DocumentReference` | `201 Created` | `DocumentReference/[id]` |
+| `Binary` | `201 Created` | `Binary/[id]` |
 

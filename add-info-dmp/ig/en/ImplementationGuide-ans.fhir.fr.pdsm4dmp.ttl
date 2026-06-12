@@ -22,7 +22,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm  dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-12T15:31:20+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-12T15:45:22+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -2317,6 +2317,48 @@
          fhir:reference [ fhir:v "Bundle/example-td2-1-remplacement" ]
        ] ;
        fhir:name [ fhir:v "example-td2-1-remplacement" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"^^xsd:anyURI ;
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle?version=3.1.0>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "DocumentReference"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/DocumentReference/example-td2-iti105-publication-simplifiee> ;
+         fhir:reference [ fhir:v "DocumentReference/example-td2-iti105-publication-simplifiee" ]
+       ] ;
+       fhir:name [ fhir:v "example-td2-iti105-publication-simplifiee" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish|3.1.0"^^xsd:anyURI ;
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish?version=3.1.0>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-td2-iti65-lot-soumission> ;
+         fhir:reference [ fhir:v "Bundle/example-td2-iti65-lot-soumission" ]
+       ] ;
+       fhir:name [ fhir:v "example-td2-iti65-lot-soumission" ] ;
        fhir:example [
          a fhir:Canonical ;
          fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"^^xsd:anyURI ;

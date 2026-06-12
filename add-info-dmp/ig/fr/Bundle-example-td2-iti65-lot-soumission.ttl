@@ -1,0 +1,146 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-td2-iti65-lot-soumission> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-td2-iti65-lot-soumission"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"^^xsd:anyURI ;
+       fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:type [ fhir:v "transaction"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:aaaaaaaa-0000-0000-0000-000000000001"^^xsd:anyURI ;
+       fhir:l <urn:uuid:aaaaaaaa-0000-0000-0000-000000000001>
+     ] ;
+     fhir:resource ( <urn:uuid:aaaaaaaa-0000-0000-0000-000000000001> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [
+         fhir:v "List"^^xsd:anyURI ;
+         fhir:l fhir:List
+       ]
+     ]
+  ] [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"^^xsd:anyURI ;
+       fhir:l <urn:uuid:aaaaaaaa-0000-0000-0000-000000000002>
+     ] ;
+     fhir:resource ( <urn:uuid:aaaaaaaa-0000-0000-0000-000000000002> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [
+         fhir:v "DocumentReference"^^xsd:anyURI ;
+         fhir:l fhir:DocumentReference
+       ]
+     ]
+  ] [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"^^xsd:anyURI ;
+       fhir:l <urn:uuid:aaaaaaaa-0000-0000-0000-000000000003>
+     ] ;
+     fhir:resource ( <urn:uuid:aaaaaaaa-0000-0000-0000-000000000003> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [
+         fhir:v "Binary"^^xsd:anyURI ;
+         fhir:l fhir:Binary
+       ]
+     ]
+  ] ) . # 
+
+<urn:uuid:aaaaaaaa-0000-0000-0000-000000000001> a fhir:List ;
+  fhir:id [ fhir:v "submissionset-td2"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"^^xsd:anyURI ;
+       fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"List_submissionset-td2\"> </a><p class=\"res-header-id\"><b>Narratif généré : Liste submissionset-td2</b></p><a name=\"submissionset-td2\"> </a><a name=\"hcsubmissionset-td2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p></div><table class=\"clstu\"><tr><td>Date : 2026-06-12 10:00:00+0200 </td><td>Mode : Working List </td><td>Statut : Current </td><td>Code : SubmissionSet as a FHIR List </td></tr><tr><td>Sujet : <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></td></tr></table><table class=\"grid\"><tr style=\"backgound-color: #eeeeee\"><td><b>Éléments</b></td></tr><tr><td><a href=\"Bundle-example-td2-iti65-lot-soumission.html#urn-uuid-aaaaaaaa-0000-0000-0000-000000000002\">DocumentReference : status = current; type = Compte rendu de consultation; date = 2026-06-12 10:00:00+0200</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "current"] ; # 
+  fhir:mode [ fhir:v "working"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes"^^xsd:anyURI ;
+         fhir:l <https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes>
+       ] ;
+       fhir:code [ fhir:v "submissionset" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l fhir:Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 ;
+     fhir:reference [ fhir:v "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T10:00:00+02:00"^^xsd:dateTime] ; # 
+  fhir:entry ( [
+     fhir:item [
+       fhir:l <urn:uuid:aaaaaaaa-0000-0000-0000-000000000002> ;
+       fhir:reference [ fhir:v "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:aaaaaaaa-0000-0000-0000-000000000002> a fhir:DocumentReference ;
+  fhir:id [ fhir:v "docref-td2"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"^^xsd:anyURI ;
+       fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"DocumentReference_docref-td2\"> </a><p class=\"res-header-id\"><b>Narratif généré : RéférenceDocument docref-td2</b></p><a name=\"docref-td2\"> </a><a name=\"hcdocref-td2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p></div><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 11488-4}\">Compte rendu de consultation</span></p><p><b>subject</b>: <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></p><p><b>date</b>: 2026-06-12 10:00:00+0200</p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Url</b></td><td><b>Title</b></td></tr><tr><td style=\"display: none\">*</td><td>application/xml</td><td><a href=\"Bundle-example-td2-iti65-lot-soumission.html#urn-uuid-aaaaaaaa-0000-0000-0000-000000000003\">Binary: application/xml (168 bytes base64)</a></td><td>Compte rendu de consultation</td></tr></table></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "current"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:11488-4 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "11488-4" ] ;
+       fhir:display [ fhir:v "Compte rendu de consultation" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l fhir:Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 ;
+     fhir:reference [ fhir:v "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T10:00:00+02:00"^^xsd:dateTime] ; # 
+  fhir:content ( [
+     fhir:attachment [
+       fhir:contentType [ fhir:v "application/xml" ] ;
+       fhir:url [
+         fhir:v "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"^^xsd:anyURI ;
+         fhir:l <urn:uuid:aaaaaaaa-0000-0000-0000-000000000003>
+       ] ;
+       fhir:title [ fhir:v "Compte rendu de consultation" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:aaaaaaaa-0000-0000-0000-000000000003> a fhir:Binary ;
+  fhir:id [ fhir:v "binary-cda-td2"] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:contentType [ fhir:v "application/xml"] ; # 
+  fhir:data [ fhir:v "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOmhpcHAiPgogIDwhLS0gZXhlbXBsZSBDREEgLS0+CjwvQ2xpbmljYWxEb2N1bWVudD4="^^xsd:base64Binary] . # 
+
+# -------------------------------------------------------------------------------------
+
