@@ -64,8 +64,18 @@ Certaines ressources sémantiques de ce guide sont protégées par des droits de
 * [ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code](http://terminology.hl7.org/6.0.2/CodeSystem-ISO3166Part1.html): [ActorPS](StructureDefinition-ActorPS.md), [ActorPatient](StructureDefinition-ActorPatient.md)... Show 23 more, [ActorSNR](StructureDefinition-ActorSNR.md), [ActorSystem](StructureDefinition-ActorSystem.md), [ActorXDS](StructureDefinition-ActorXDS.md), [Author](StructureDefinition-Author.md), [AuthorDocumentEntry](StructureDefinition-AuthorDocumentEntry.md), [AuthorInstitution](StructureDefinition-AuthorInstitution.md), [AuthorSubmissionSet](StructureDefinition-AuthorSubmissionSet.md), [DocumentEntry](StructureDefinition-DocumentEntry.md), [EventCode](StructureDefinition-EventCode.md), [Folder](StructureDefinition-Folder.md), [Identifiant](StructureDefinition-Identifiant.md), [IdentifiantSysteme](StructureDefinition-IdentifiantSysteme.md), [MatriculeINS](StructureDefinition-MatriculeINS.md), [PDSm4DMP](index.md), [PSIdNat](StructureDefinition-PSIdNat.md), [PatientId](StructureDefinition-PatientId.md), [SNR](StructureDefinition-SNR.md), [SourcePatientId](StructureDefinition-SourcePatientId.md), [SourcePatientInfo](StructureDefinition-SourcePatientInfo.md), [StructIdNat](StructureDefinition-StructIdNat.md), [SubmissionSet](StructureDefinition-SubmissionSet.md), [documentReferenceToPDSM](ConceptMap-documentReferenceToPDSM.md) and [submissionSetToPDSM](ConceptMap-submissionSetToPDSM.md)
 
 
+* Some content from IHE® Copyright © 2015 [IHE International, Inc](http://www.ihe.net/Governance/#Intellectual_Property) .
+
+* [IHE Format Code set for use with Document Sharing](https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
+
+
 * This material contains content from [LOINC](http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the [license](http://loinc.org/license). LOINC® is a registered United States trademark of Regenstrief Institute, Inc.
 
-* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentEntry](StructureDefinition-DocumentEntry.md) and [DocumentReference/example-td2-iti105-publication-simplifiee](DocumentReference-example-td2-iti105-publication-simplifiee.md)
+* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentEntry](StructureDefinition-DocumentEntry.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md) and [DocumentReference/example-td2-iti105-publication-simplifiee](DocumentReference-example-td2-iti105-publication-simplifiee.md)
+
+
+* This material contains content that is copyright of SNOMED International. Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact [https://www.snomed.org/get-snomed](https://www.snomed.org/get-snomed) or [info@snomed.org](mailto:info@snomed.org).
+
+* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
 
 

@@ -11,7 +11,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm  dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2026-06-12T15:45:22+00:00"/>
+  <date value="2026-06-12T16:24:39+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -861,6 +861,16 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="DocumentReference"/>
+      </extension>
+      <reference>
+        <reference value="DocumentReference/doc-x-id"/>
+      </reference>
+      <name value="doc-x-id"/>
+      <exampleCanonical value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference|3.1.0"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:logical"/>
       </extension>
       <reference>
@@ -1244,10 +1254,6 @@
         </page>
       </page>
     </page>
-    <parameter>
-      <code value="path-resource"/>
-      <value value="input/Examples"/>
-    </parameter>
     <parameter>
       <code value="path-resource"/>
       <value value="input/examples"/>

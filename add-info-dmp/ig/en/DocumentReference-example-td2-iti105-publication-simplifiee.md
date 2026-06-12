@@ -2,32 +2,6 @@
 
 ## Example DocumentReference: example-td2-iti105-publication-simplifiee
 
--------
-
-**English**
-
--------
-
-Profile: [PDSm Simplified Publish Document Reference](https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-simplified-publish.html)
-
-**status**: Current
-
-**type**: Compte rendu de consultation
-
-**subject**: `Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345`
-
-**date**: 2026-06-12 10:00:00+0200
-
-> **content**
-
-### Attachments
-
-| | | | |
-| :--- | :--- | :--- | :--- |
-| - | **ContentType** | **Data** | **Title** |
-| * | application/xml | `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOmhpcHAiPgogIDwhLS0gZXhlbXBsZSBDREEgLS0+CjwvQ2xpbmljYWxEb2N1bWVudD4=` | Compte rendu de consultation |
-
-
 
 
 ## Resource Content
@@ -39,22 +13,37 @@ Profile: [PDSm Simplified Publish Document Reference](https://interop.esante.gou
   "meta" : {
     "profile" : ["https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish"]
   },
+  "contained" : [{
+    "resourceType" : "Practitioner",
+    "id" : "practitioner-author",
+    "identifier" : [{
+      "system" : "urn:oid:1.2.250.1.71.4.2.1",
+      "value" : "899700218896"
+    }]
+  }],
+  "masterIdentifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:1.2.250.1.213.1.4.8.99999.1"
+  },
   "status" : "current",
   "type" : {
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "11488-4",
-      "display" : "Compte rendu de consultation"
+      "display" : "Consult note"
     }]
   },
   "subject" : {
     "reference" : "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
   },
   "date" : "2026-06-12T10:00:00+02:00",
+  "author" : [{
+    "reference" : "#practitioner-author"
+  }],
   "content" : [{
     "attachment" : {
       "contentType" : "application/xml",
-      "data" : "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOmhpcHAiPgogIDwhLS0gZXhlbXBsZSBDREEgLS0+CjwvQ2xpbmljYWxEb2N1bWVudD4=",
+      "data" : "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48Q2xpbmljYWxEb2N1bWVudCB4bWxucz0idXJuOmhsNy1vcmc6djMiLz4=",
       "title" : "Compte rendu de consultation"
     }
   }]
