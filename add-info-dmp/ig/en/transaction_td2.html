@@ -260,21 +260,21 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
-  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
-  <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
+  <li><a href="#equivalent-fhir" id="markdown-toc-equivalent-fhir">Equivalent FHIR</a></li>
+  <li><a href="#exemple-fhir" id="markdown-toc-exemple-fhir">Exemple FHIR</a></li>
 </ul>
 
 </div>
 
 <h3 id="description">Description</h3>
 
-<p>Alimenter le DMP d’un patient avec de nouveaux documents</p>
+<p>Alimenter le DMP d'un patient avec de nouveaux documents</p>
 
-<p>Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs nouveaux documents :</p>
+<p>Cette fonctionnalité permet d'alimenter le DMP d'un patient avec un ou plusieurs nouveaux documents :</p>
 
 <ul>
   <li>décrits sous la forme de documents CDA et de métadonnées XDS,</li>
-  <li>et transmis au système DMP sous la forme d’un lot de soumission XDS signé (XAdES).
+  <li>et transmis au système DMP sous la forme d'un lot de soumission XDS signé (XAdES).
 La cinématique générale est la suivante.
 Le professionnel constitue le ou les document(s) dans le LPS . Cf. §3.4.1.1.1
 Le LPS :</li>
@@ -291,7 +291,7 @@ Le LPS :</li>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
 
-<p>L’INS du patient
+<p>L'INS du patient
 Le statut « actif » du DMP du patient (EF_DMP12_01).
 Lot de soumission</p>
 
@@ -299,11 +299,317 @@ Lot de soumission</p>
 
 <p>Un DMP alimenté avec un ou plusieurs nouveaux documents.</p>
 
-<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+<h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé</p>
+<p>Cette transaction peut être réalisée de deux façons selon le contexte d'implémentation :</p>
 
-<h3 id="exemple">Exemple</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Approche</th>
+      <th>Transaction PDSm</th>
+      <th>Cas d'usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Publication simplifiée</td>
+      <td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_ajout_simplifie.html">ITI-105</a></td>
+      <td>Soumission d'un unique document, sans lot de soumission explicite</td>
+    </tr>
+    <tr>
+      <td>Lot de soumission complet</td>
+      <td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_ajout.html">ITI-65</a></td>
+      <td>Soumission d'un ou plusieurs documents avec lot de soumission (SubmissionSet) et classeur optionnel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="option-a--iti-105--publication-simplifiée">Option A — ITI-105 : Publication simplifiée</h4>
+
+<h5 id="flux-td2-a-iti-105--requête">Flux TD2-a (ITI-105) — Requête</h5>
+
+<p>Le LPS envoie directement un <code class="language-plaintext highlighter-rouge">DocumentReference</code> conforme au profil <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-simplified-publish.html">PDSm_SimplifiedPublish</a>. Le contenu du document est embarqué dans <code class="language-plaintext highlighter-rouge">content.attachment.data</code> (base64).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/DocumentReference HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<h5 id="flux-td2-b-iti-105--réponse">Flux TD2-b (ITI-105) — Réponse</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code HTTP</th>
+      <th>Signification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">201 Created</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code> créé ; le serveur retourne la ressource avec son <code class="language-plaintext highlighter-rouge">id</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
+      <td>Erreur — accompagnée d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="option-b--iti-65--lot-de-soumission-complet">Option B — ITI-65 : Lot de soumission complet</h4>
+
+<h5 id="flux-td2-a-iti-65--requête">Flux TD2-a (ITI-65) — Requête</h5>
+
+<p>Le LPS envoie un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">transaction</code> conforme au profil <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-provide-document-bundle.html">PDSm_ComprehensiveProvideDocumentBundle</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p>Le Bundle contient :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ressource</th>
+      <th>Cardinalité</th>
+      <th>Profil</th>
+      <th>Rôle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List</code> (SubmissionSet)</td>
+      <td>1..1</td>
+      <td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm_SubmissionSetComprehensive</a></td>
+      <td>Lot de soumission</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>1..*</td>
+      <td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html">PDSm_ComprehensiveDocumentReference</a></td>
+      <td>Métadonnées du document</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Binary</code></td>
+      <td>0..*</td>
+      <td>—</td>
+      <td>Contenu du document (CDA, PDF…)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List</code> (Folder)</td>
+      <td>0..*</td>
+      <td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-folder-comprehensive.html">PDSm_FolderComprehensive</a></td>
+      <td>Classeur (optionnel)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Le <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.url</code> référence la <code class="language-plaintext highlighter-rouge">Binary</code> du même Bundle via <code class="language-plaintext highlighter-rouge">urn:uuid:...</code>.</p>
+
+<h5 id="flux-td2-b-iti-65--réponse">Flux TD2-b (ITI-65) — Réponse</h5>
+
+<p>En cas de succès, le système DMP retourne un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">transaction-response</code> :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code HTTP par entrée</th>
+      <th>Signification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">201 Created</code></td>
+      <td>Ressource créée avec succès</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td>Ressource mise à jour avec succès</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
+      <td>Erreur — accompagnée d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exemple-fhir">Exemple FHIR</h3>
+
+<h4 id="exemple-a--iti-105--publication-simplifiée-dun-compte-rendu-de-consultation">Exemple A — ITI-105 : publication simplifiée d'un compte rendu de consultation</h4>
+
+<p><strong>Requête :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/DocumentReference HTTP/1.1
+Content-Type: application/fhir+json
+</code></pre></div></div>
+
+<p><strong>Corps :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://loinc.org"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11488-4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compte rendu de consultation"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-12T10:00:00+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/xml"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PD94bWwgdmVyc2lvbj0iMS4wIj8+..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compte rendu de consultation"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Réponse :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"versionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-12T10:00:01+02:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h4 id="exemple-b--iti-65--lot-de-soumission-complet">Exemple B — ITI-65 : lot de soumission complet</h4>
+
+<p><strong>Requête :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+</code></pre></div></div>
+
+<p><strong>Corps :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:aaaaaaaa-0000-0000-0000-000000000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"working"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submissionset"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-12T10:00:00+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://loinc.org"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11488-4"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compte rendu de consultation"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-12T10:00:00+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/xml"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compte rendu de consultation"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:aaaaaaaa-0000-0000-0000-000000000003"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/xml"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PD94bWwgdmVyc2lvbj0iMS4wIj8+..."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Réponse :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction-response"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List/1"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/1"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary/1"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 
 
@@ -354,8 +660,8 @@ Lot de soumission</p>
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-11 16:49:00 +0000">
-    2026-06-11
+  <span title="2026-06-12 14:52:00 +0000">
+    2026-06-12
   </span>
 
           <br/>

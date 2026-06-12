@@ -7,12 +7,12 @@ There is no translation page available for the current page, so it has been rend
 
 ### Description
 
-Alimenter le DMP d’un patient avec de nouveaux documents
+Alimenter le DMP d'un patient avec de nouveaux documents
 
-Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plusieurs nouveaux documents :
+Cette fonctionnalité permet d'alimenter le DMP d'un patient avec un ou plusieurs nouveaux documents :
 
 * décrits sous la forme de documents CDA et de métadonnées XDS,
-* et transmis au système DMP sous la forme d’un lot de soumission XDS signé (XAdES). La cinématique générale est la suivante. Le professionnel constitue le ou les document(s) dans le LPS . Cf. §3.4.1.1.1 Le LPS :
+* et transmis au système DMP sous la forme d'un lot de soumission XDS signé (XAdES). La cinématique générale est la suivante. Le professionnel constitue le ou les document(s) dans le LPS . Cf. §3.4.1.1.1 Le LPS :
 * construit le ou les document(s) 
 * construit le document au format CDA Cf. §3.4.1.1.2
 * alimente les métadonnées XDS Cf. §3.4.1.1.3
@@ -23,15 +23,259 @@ Cette fonctionnalité permet d’alimenter le DMP d’un patient avec un ou plus
 
 ### Entrée et prérequis
 
-L’INS du patient Le statut « actif » du DMP du patient (EF_DMP12_01). Lot de soumission
+L'INS du patient Le statut « actif » du DMP du patient (EF_DMP12_01). Lot de soumission
 
 ### Sortie
 
 Un DMP alimenté avec un ou plusieurs nouveaux documents.
 
-### Equivalence FHIR
+### Equivalent FHIR
 
-Transactions ITI-65 où un DocumentReference est poussé ou ITI-65 où est poussé un lot de soumission obligatoire (List), un dossier optionnel (List), un DocumentReference, ou un FHIR Document. Utilisation de la slice UpdateDocumentRefs pour indiquer quel DocumentReference est remplacé
+Cette transaction peut être réalisée de deux façons selon le contexte d'implémentation :
 
-### Exemple
+| | | |
+| :--- | :--- | :--- |
+| Publication simplifiée | [ITI-105](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_ajout_simplifie.html) | Soumission d'un unique document, sans lot de soumission explicite |
+| Lot de soumission complet | [ITI-65](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_ajout.html) | Soumission d'un ou plusieurs documents avec lot de soumission (SubmissionSet) et classeur optionnel |
+
+#### Option A — ITI-105 : Publication simplifiée
+
+##### Flux TD2-a (ITI-105) — Requête
+
+Le LPS envoie directement un `DocumentReference` conforme au profil [PDSm_SimplifiedPublish](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-simplified-publish.html). Le contenu du document est embarqué dans `content.attachment.data` (base64).
+
+```
+POST [base]/DocumentReference HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+
+```
+
+##### Flux TD2-b (ITI-105) — Réponse
+
+| | |
+| :--- | :--- |
+| `201 Created` | `DocumentReference`créé ; le serveur retourne la ressource avec son`id` |
+| `4xx`/`5xx` | Erreur — accompagnée d'une ressource`OperationOutcome` |
+
+-------
+
+#### Option B — ITI-65 : Lot de soumission complet
+
+##### Flux TD2-a (ITI-65) — Requête
+
+Le LPS envoie un `Bundle` de type `transaction` conforme au profil [PDSm_ComprehensiveProvideDocumentBundle](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-provide-document-bundle.html).
+
+```
+POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+
+```
+
+Le Bundle contient :
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| `List`(SubmissionSet) | 1..1 | [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html) | Lot de soumission |
+| `DocumentReference` | 1..* | [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html) | Métadonnées du document |
+| `Binary` | 0..* | — | Contenu du document (CDA, PDF…) |
+| `List`(Folder) | 0..* | [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-folder-comprehensive.html) | Classeur (optionnel) |
+
+Le `DocumentReference.content.attachment.url` référence la `Binary` du même Bundle via `urn:uuid:...`.
+
+##### Flux TD2-b (ITI-65) — Réponse
+
+En cas de succès, le système DMP retourne un `Bundle` de type `transaction-response` :
+
+| | |
+| :--- | :--- |
+| `201 Created` | Ressource créée avec succès |
+| `200 OK` | Ressource mise à jour avec succès |
+| `4xx`/`5xx` | Erreur — accompagnée d'une ressource`OperationOutcome` |
+
+### Exemple FHIR
+
+#### Exemple A — ITI-105 : publication simplifiée d'un compte rendu de consultation
+
+**Requête :**
+
+```
+POST [base]/DocumentReference HTTP/1.1
+Content-Type: application/fhir+json
+
+```
+
+**Corps :**
+
+```
+{
+  "resourceType": "DocumentReference",
+  "meta": {
+    "profile": [
+      "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-simplified-publish"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "11488-4",
+        "display": "Compte rendu de consultation"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
+  },
+  "date": "2026-06-12T10:00:00+02:00",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/xml",
+        "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+...",
+        "title": "Compte rendu de consultation"
+      }
+    }
+  ]
+}
+
+```
+
+**Réponse :**
+
+```
+{
+  "resourceType": "DocumentReference",
+  "id": "1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2026-06-12T10:00:01+02:00"
+  },
+  "status": "current"
+}
+
+```
+
+-------
+
+#### Exemple B — ITI-65 : lot de soumission complet
+
+**Requête :**
+
+```
+POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+
+```
+
+**Corps :**
+
+```
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"
+    ]
+  },
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000001",
+      "resource": {
+        "resourceType": "List",
+        "meta": {
+          "profile": [
+            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"
+          ]
+        },
+        "status": "current",
+        "mode": "working",
+        "code": {
+          "coding": [
+            {
+              "system": "https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes",
+              "code": "submissionset"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
+        },
+        "date": "2026-06-12T10:00:00+02:00",
+        "entry": [
+          {
+            "item": {
+              "reference": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002"
+            }
+          }
+        ]
+      },
+      "request": { "method": "POST", "url": "List" }
+    },
+    {
+      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000002",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "meta": {
+          "profile": [
+            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11488-4",
+              "display": "Compte rendu de consultation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
+        },
+        "date": "2026-06-12T10:00:00+02:00",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003",
+              "title": "Compte rendu de consultation"
+            }
+          }
+        ]
+      },
+      "request": { "method": "POST", "url": "DocumentReference" }
+    },
+    {
+      "fullUrl": "urn:uuid:aaaaaaaa-0000-0000-0000-000000000003",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/xml",
+        "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+..."
+      },
+      "request": { "method": "POST", "url": "Binary" }
+    }
+  ]
+}
+
+```
+
+**Réponse :**
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "transaction-response",
+  "entry": [
+    { "response": { "status": "201 Created", "location": "List/1" } },
+    { "response": { "status": "201 Created", "location": "DocumentReference/1" } },
+    { "response": { "status": "201 Created", "location": "Binary/1" } }
+  ]
+}
+
+```
 
