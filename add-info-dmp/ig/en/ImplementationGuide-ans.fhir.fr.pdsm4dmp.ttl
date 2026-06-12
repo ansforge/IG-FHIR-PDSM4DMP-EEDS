@@ -22,7 +22,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm  dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-12T15:09:19+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-12T15:31:20+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -2309,6 +2309,27 @@
          ] ;
          fhir:value [
            a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-td2-1-remplacement> ;
+         fhir:reference [ fhir:v "Bundle/example-td2-1-remplacement" ]
+       ] ;
+       fhir:name [ fhir:v "example-td2-1-remplacement" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"^^xsd:anyURI ;
+         fhir:l <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle?version=3.1.0>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
            fhir:v "StructureDefinition:logical"
          ]
        ] ) ;
@@ -2992,10 +3013,10 @@
        fhir:value [ fhir:v "input/Examples" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
-       fhir:value [ fhir:v "input/capabilities" ]
+       fhir:value [ fhir:v "input/examples" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
-       fhir:value [ fhir:v "input/examples" ]
+       fhir:value [ fhir:v "input/capabilities" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/extensions" ]

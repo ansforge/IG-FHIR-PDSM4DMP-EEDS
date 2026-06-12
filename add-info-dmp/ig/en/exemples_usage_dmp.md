@@ -5,20 +5,18 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-### Optimisation des transactions de consultation DMP
-
 **Version :**V0.3  | 
 **Date :**26/05/2026
 
-### 1. Objet
+### Objet
 
 Dans le cadre de l'optimisation des transactions de consultation DMP, l'objectif de ce document est de décrire un guide pour les implémenteurs.
 
-### 2. Définitions
+### Définitions
 
-#### 2.1 DMP
+#### DMP
 
-##### 2.1.1 Transactions utilisées
+##### Transactions utilisées
 
 Les transactions utilisées dans ce flux sont des requêtes **IHE ITI-18 Stored Query** (TD3.1) et **IHE ITI-43 Retrieve Document Set** (TD3.2).
 
@@ -40,7 +38,7 @@ Les transactions utilisées dans ce flux sont des requêtes **IHE ITI-18 Stored 
 | `$XDSSubmissionSetSubmissionTimeFrom` | `FindSubmissionSets` | Filtre sur la date (UTC) d'ajout dans le DMP à partir de laquelle on souhaite récupérer les nouveaux documents : renseigné avec la date de la dernière connexion du professionnel au DMP |
 | `entryUUID` | `GetAssociations`,`GetDocumentsAndAssociations` | Identifiant technique affecté par le SI DMP |
 
-##### 2.1.2 Identifiants des documents utilisés
+##### Identifiants des documents utilisés
 
 | | |
 | :--- | :--- |
@@ -48,7 +46,7 @@ Les transactions utilisées dans ce flux sont des requêtes **IHE ITI-18 Stored 
 | `entryUUID` | Identifiant technique affecté par le SI DMP à une version de métadonnées d'un document. Change à chaque nouvelle version du document (remplacement) et à chaque modification de métadonnées (masquage/démasquage aux PS, remise en visibilité patient ou RL). |
 | `logicalId`(lid) | Identifiant technique affecté par le SI DMP à un document (identique pour toutes ses versions de métadonnées). Change à chaque nouvelle version du document (remplacement) mais reste identique à chaque modification de métadonnées. |
 
-#### 2.2 Variables logiciel
+#### Variables logiciel
 
 | | | |
 | :--- | :--- | :--- |
@@ -58,15 +56,15 @@ Les transactions utilisées dans ce flux sont des requêtes **IHE ITI-18 Stored 
 
 -------
 
-### 3. Description du processus
+### Description du processus
 
 Le processus se divise en deux branches selon qu'il s'agit de la première ouverture du dossier patient dans le logiciel ou des accès suivants.
 
-#### 3.1 Première ouverture
+#### Première ouverture
 
 L'objectif est de détecter les documents présents dans le DMP qui ne sont pas encore connus du système.
 
-##### 3.1.1 Phase 1 — Recherche des documents
+##### Phase 1 — Recherche des documents
 
 Le LPS enregistre la date et heure courante dans `dateAppelDMP`. Cette date servira de référence lors des accès suivants.
 
@@ -78,7 +76,7 @@ Une requête **FindDocuments** est envoyée au DMP pour récupérer les document
 1. Dans le cas où le PS a des préférences de type de document renseigné (typeDMP) : sur une liste de type de documents particuliers. Le LPS doit indiquer que la recherche est filtrée sur ces types de document uniquement. Le PS doit pouvoir étendre sa recherche à d'autres types de document ou désactiver ce filtre s'il ne trouve pas les document recherchés.
 1. Point d'attention sur le document particulier « Historique de vaccination » qui peut dans la majorité des cas avoir une date de début d'acte (plus ancienne vaccination) inférieure à 2 ans (vaccination COVID notament). Un LPS doit pouvoir proposer au PS une recherche spécifique et manuelle sur ce typeCode sans limitation de date (si le document pas présent dans la première recherche automatique).
 
-##### 3.1.2 Phase 2 — Traitement (interne logiciel)
+##### Phase 2 — Traitement (interne logiciel)
 
 **Note :**Le même document CDA peut être transmis via MSS et déposé sur le DMP. Le
 `uniqueId`étant identique dans les deux cas, le LPS doit systématiquement vérifier qu'un document n'est pas déjà présent en local avant tout import.
@@ -87,7 +85,7 @@ Pour chaque document retourné, le système vérifie que son `uniqueId` n'est pa
 
 Les documents dont le `uniqueId` correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à `localDocumentsDMP` (`entryUUID`, `logicalId`, `uniqueId`).
 
-##### 3.1.3 Phase 3 — Notification et récupération optionnelle
+##### Phase 3 — Notification et récupération optionnelle
 
 Le PS est notifié du nombre de documents tiers détectés.
 
@@ -95,20 +93,20 @@ Le PS peut visualiser un ou plusieurs documents via RetrieveDocumentSet.
 
 Si le PS souhaite importer des documents DMP en local, le LPS appelle `RetrieveDocumentSet` et stocke les documents en local avec leurs identifiants (`entryUUID`, `uniqueId`, `logicalId`) dans `localDocumentsDMP`.
 
-##### 3.1.4 Logigramme
+##### Logigramme — Première ouverture
 
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%% sequenceDiagram title Première ouverture actor PS participant LPS participant DMP PS->>LPS: Accès au dossier patient rect rgb(180, 215, 245) note over LPS,DMP: Phase 1 — Recherche des documents LPS->>LPS: Stockage variable[dateAppelDMP] = date/heure courante (UTC) LPS->>DMP: FindDocuments (document courant, date Acte - 2 ans,[typeCode]) DMP-->>LPS: note over LPS,DMP: Phase 2 — Traitement (interne logiciel) loop Pour chaque document retourné LPS->>LPS: Si Document déja présent (test sur le uniqueId) alors ajout à localDocumentsDMP end note over LPS,DMP: Phase 3 — Notification et récupération optionnelle LPS->>PS: Notification des documents tiers détectés opt Import local des documents note over LPS : Demande de visualisation de un plusieurs PS->>LPS: Selection des documents à visualiser LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>PS: Affichage des documents note over LPS : Selection des documents à importer PS->>LPS: Selection des documents à importer LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>LPS: Import des documents et stockage de localDocumentsDMP[entryUUID,logicalID,uniqueId] end end
 
 -------
 
-#### 3.2 Accès suivants
+#### Accès suivants
 
 L'objectif est de détecter uniquement les changements survenus depuis la dernière connexion :
 
 * Nouveaux documents
 * Remplacements de documents ou documents ayant changé de confidentialité
 
-##### 3.2.1 Phase 1 — Recherche des nouveaux lots
+##### Phase 1 — Recherche des nouveaux lots
 
 `dateAppelDMP` est mis à jour avec la date/heure courante (UTC).
 
@@ -116,14 +114,14 @@ Le système appelle `FindSubmissionSets` (`$XDSSubmissionSetSubmissionTimeFrom` 
 
 Il appelle ensuite `GetAssociations` sur les `entryUUID` des lots retournés, puis filtre les associations de type **HasMember** pour extraire les `entryUUID` des documents concernés.
 
-##### 3.2.2 Phase 2 — Récupération des métadonnées
+##### Phase 2 — Récupération des métadonnées
 
 Les documents sont récupérés par lot de 20 via `GetDocumentsAndAssociations`, qui retourne les métadonnées et les associations (notamment `RPLC`). Les « résultats finaux » sont constitués de l'agrégat des résultats des différents lots éventuels. 
 
 **Note :**Rendre paramétrable le nombre de documents pouvant être récupéré via la query
 `GetDocumentsAndAssociations`(par défaut 20).
 
-##### 3.2.3 Phase 3 — Analyse des résultats finaux
+##### Phase 3 — Analyse des résultats finaux
 
 Pour chaque document, ignorer ceux qui sont au statut **Deprecated** (il s'agit d'une version antérieure du document déjà remplacée par une plus récente également retournée dans les résultats, ou d'une ancienne version de métadonnée obsolète). Deux cas sont ensuite traités :
 
@@ -136,7 +134,7 @@ Pour chaque document, ignorer ceux qui sont au statut **Deprecated** (il s'agit 
 **Note :**Lors de l'analyse des résultats et avant tout import, le LPS doit vérifier que le document n'est pas déjà présent en local via son
 `uniqueId`. Les documents dont le uniqueId correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à localDocumentsDMP (entryUUID, logicalId, uniqueId).
 
-##### 3.2.4 Phase 4 — Mise à jour et notification
+##### Phase 4 — Mise à jour et notification
 
 Le PS est notifié des documents nouveaux ou remplacés.
 
@@ -144,7 +142,7 @@ Il peut ensuite les consulter via `RetrieveDocumentSet`.
 
 Si le PS souhaite importer des documents DMP en local, le LPS appelle `RetrieveDocumentSet` et stocke les documents en local avec leurs identifiants (`entryUUID`, `uniqueId`, `logicalId`) dans `localDocumentsDMP`.
 
-##### 3.2.5 Logigramme
+##### Logigramme — Accès suivants
 
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%% sequenceDiagram title Accés suivants actor PS participant LPS participant DMP PS->>LPS: Accès au dossier patient rect rgb(185, 225, 195) note over LPS,DMP: Phase 1 — Recherche des nouveaux lots LPS->>LPS: Mise à jour variable[dateAppelDMP] = date/heure courante (UTC) LPS->>DMP: FindSubmissionSets ($XDSSubmissionSetSubmissionTimeFrom = variable[dateAppelDMP]) DMP-->>LPS: LPS->>DMP: GetAssociations (entryUUID des lots retournés) => Liste d'associations DMP-->>LPS: loop Filtre des associations LPS->>LPS: Filtre les associations de type HasMember pour extraire les entryUUID end note over LPS,DMP: Phase 2 — Récupération des métadonnées loop Par batch 20 LPS->>DMP: GetDocumentsAndAssociations (entryUUID des documents filtrés) DMP-->>LPS: LPS->>LPS : Agrégat des résultats finaux end note over LPS,DMP: Phase 3 — Analyse des résultats finaux loop Sur l'ensemble des résultats note right of LPS: Cas A — Gestion des documents remplacés note right of LPS: Cas B — Gestion des nouveaux documents ou mises à jour des métadonnées end note over LPS,DMP: Phase 4 — Mise à jour et notification LPS->>PS: Notification des documents nouveaux, remplacés ou avec changement de confidentialité opt Import local des documents note over LPS : Demande de visualisation de un plusieurs PS->>LPS: Selection des documents à visualiser LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>PS: Affichage des documents note over LPS : Selection des documents à importer PS->>LPS: Selection des documents à importer LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>LPS: Import des documents et stockage de localDocumentsDMP[entryUUID,logicalID,uniqueId] end end
 

@@ -253,26 +253,23 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#optimisation-des-transactions-de-consultation-dmp" id="markdown-toc-optimisation-des-transactions-de-consultation-dmp">Optimisation des transactions de consultation DMP</a></li>
-  <li><a href="#1-objet" id="markdown-toc-1-objet">1. Objet</a></li>
-  <li><a href="#2-définitions" id="markdown-toc-2-définitions">2. Définitions</a></li>
-  <li><a href="#3-description-du-processus" id="markdown-toc-3-description-du-processus">3. Description du processus</a></li>
+  <li><a href="#objet" id="markdown-toc-objet">Objet</a></li>
+  <li><a href="#définitions" id="markdown-toc-définitions">Définitions</a></li>
+  <li><a href="#description-du-processus" id="markdown-toc-description-du-processus">Description du processus</a></li>
 </ul>
 
 </div>
-<h3 id="optimisation-des-transactions-de-consultation-dmp">Optimisation des transactions de consultation DMP</h3>
-
 <div class="meta"><strong>Version :</strong> V0.3 &nbsp;|&nbsp; <strong>Date :</strong> 26/05/2026</div>
 
-<h3 id="1-objet">1. Objet</h3>
+<h3 id="objet">Objet</h3>
 
 <p>Dans le cadre de l'optimisation des transactions de consultation DMP, l'objectif de ce document est de décrire un guide pour les implémenteurs.</p>
 
-<h3 id="2-définitions">2. Définitions</h3>
+<h3 id="définitions">Définitions</h3>
 
-<h4 id="21-dmp">2.1 DMP</h4>
+<h4 id="dmp">DMP</h4>
 
-<h5 id="211-transactions-utilisées">2.1.1 Transactions utilisées</h5>
+<h5 id="transactions-utilisées">Transactions utilisées</h5>
 
 <p>Les transactions utilisées dans ce flux sont des requêtes <strong>IHE ITI-18 Stored Query</strong> (TD3.1) et <strong>IHE ITI-43 Retrieve Document Set</strong> (TD3.2).</p>
 
@@ -299,7 +296,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </tbody>
 </table>
 
-<h5 id="212-identifiants-des-documents-utilisés">2.1.2 Identifiants des documents utilisés</h5>
+<h5 id="identifiants-des-documents-utilisés">Identifiants des documents utilisés</h5>
 
 <table>
   <thead><tr><th>Identifiant</th><th>Description</th></tr></thead>
@@ -310,7 +307,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </tbody>
 </table>
 
-<h4 id="22-variables-logiciel">2.2 Variables logiciel</h4>
+<h4 id="variables-logiciel">Variables logiciel</h4>
 
 <table>
   <thead><tr><th>Variable</th><th>Type</th><th>Description</th></tr></thead>
@@ -323,15 +320,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <hr />
 
-<h3 id="3-description-du-processus">3. Description du processus</h3>
+<h3 id="description-du-processus">Description du processus</h3>
 
 <p>Le processus se divise en deux branches selon qu'il s'agit de la première ouverture du dossier patient dans le logiciel ou des accès suivants.</p>
 
-<h4 id="31-première-ouverture">3.1 Première ouverture</h4>
+<h4 id="première-ouverture">Première ouverture</h4>
 
 <p>L'objectif est de détecter les documents présents dans le DMP qui ne sont pas encore connus du système.</p>
 
-<h5 id="311-phase-1--recherche-des-documents">3.1.1 Phase 1 — Recherche des documents</h5>
+<h5 id="phase-1--recherche-des-documents">Phase 1 — Recherche des documents</h5>
 
 <p>Le LPS enregistre la date et heure courante dans <code>dateAppelDMP</code>. Cette date servira de référence lors des accès suivants.</p>
 <p>Une requête <strong>FindDocuments</strong> est envoyée au DMP pour récupérer les documents courants de moins de 2 ans.</p>
@@ -345,7 +342,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </ol>
 </div>
 
-<h5 id="312-phase-2--traitement-interne-logiciel">3.1.2 Phase 2 — Traitement (interne logiciel)</h5>
+<h5 id="phase-2--traitement-interne-logiciel">Phase 2 — Traitement (interne logiciel)</h5>
 
 <div class="note">
   <strong>Note :</strong> Le même document CDA peut être transmis via MSS et déposé sur le DMP. Le <code>uniqueId</code> étant identique dans les deux cas, le LPS doit systématiquement vérifier qu'un document n'est pas déjà présent en local avant tout import.
@@ -354,13 +351,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>Pour chaque document retourné, le système vérifie que son <code>uniqueId</code> n'est pas déjà présent dans les documents en local.</p>
 <p>Les documents dont le <code>uniqueId</code> correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à <code>localDocumentsDMP</code> (<code>entryUUID</code>, <code>logicalId</code>, <code>uniqueId</code>).</p>
 
-<h5 id="313-phase-3--notification-et-récupération-optionnelle">3.1.3 Phase 3 — Notification et récupération optionnelle</h5>
+<h5 id="phase-3--notification-et-récupération-optionnelle">Phase 3 — Notification et récupération optionnelle</h5>
 
 <p>Le PS est notifié du nombre de documents tiers détectés.</p>
 <p>Le PS peut visualiser un ou plusieurs documents via RetrieveDocumentSet.</p>
 <p>Si le PS souhaite importer  des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
 
-<h5 id="314-logigramme">3.1.4 Logigramme</h5>
+<h5 id="logigramme--première-ouverture">Logigramme — Première ouverture</h5>
 
 <div class="mermaid">
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
@@ -410,7 +407,7 @@ sequenceDiagram
 
 <hr />
 
-<h4 id="32-accès-suivants">3.2 Accès suivants</h4>
+<h4 id="accès-suivants">Accès suivants</h4>
 
 <p>L'objectif est de détecter uniquement les changements survenus depuis la dernière connexion :</p>
 <ul>
@@ -418,20 +415,20 @@ sequenceDiagram
   <li>Remplacements de documents ou documents ayant changé de confidentialité</li>
 </ul>
 
-<h5 id="321-phase-1--recherche-des-nouveaux-lots">3.2.1 Phase 1 — Recherche des nouveaux lots</h5>
+<h5 id="phase-1--recherche-des-nouveaux-lots">Phase 1 — Recherche des nouveaux lots</h5>
 
 <p><code>dateAppelDMP</code> est mis à jour avec la date/heure courante (UTC).</p>
 <p>Le système appelle <code>FindSubmissionSets</code> (<code>$XDSSubmissionSetSubmissionTimeFrom</code> = <code>dateAppelDMP</code>) pour récupérer tous les lots soumis depuis la dernière connexion.</p>
 <p>Il appelle ensuite <code>GetAssociations</code> sur les <code>entryUUID</code> des lots retournés, puis filtre les associations de type <strong>HasMember</strong> pour extraire les <code>entryUUID</code> des documents concernés.</p>
 
-<h5 id="322-phase-2--récupération-des-métadonnées">3.2.2 Phase 2 — Récupération des métadonnées</h5>
+<h5 id="phase-2--récupération-des-métadonnées">Phase 2 — Récupération des métadonnées</h5>
 
 <p>Les documents sont récupérés par lot de 20 via <code>GetDocumentsAndAssociations</code>, qui retourne les métadonnées et les associations (notamment <code>RPLC</code>).
 Les « résultats finaux » sont constitués de l'agrégat des résultats des différents lots éventuels.
 </p>
 <div class="note"><strong>Note :</strong> Rendre paramétrable le nombre de documents pouvant être récupéré via la query <code>GetDocumentsAndAssociations</code> (par défaut 20).</div>
 
-<h5 id="323-phase-3--analyse-des-résultats-finaux">3.2.3 Phase 3 — Analyse des résultats finaux</h5>
+<h5 id="phase-3--analyse-des-résultats-finaux">Phase 3 — Analyse des résultats finaux</h5>
 
 <p>Pour chaque document, ignorer ceux qui sont au statut <strong>Deprecated</strong> (il s'agit d'une version antérieure du document déjà remplacée par une plus récente également retournée dans les résultats, ou d'une ancienne version de métadonnée obsolète).
   
@@ -451,13 +448,13 @@ Deux  cas sont ensuite traités :</p>
   <strong>Note :</strong> Lors de l'analyse des résultats et avant tout import, le LPS doit vérifier que le document n'est pas déjà présent en local via son <code>uniqueId</code>. Les documents dont le uniqueId correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à localDocumentsDMP (entryUUID, logicalId, uniqueId).
 </div>
 
-<h5 id="324-phase-4--mise-à-jour-et-notification">3.2.4 Phase 4 — Mise à jour et notification</h5>
+<h5 id="phase-4--mise-à-jour-et-notification">Phase 4 — Mise à jour et notification</h5>
 
 <p>Le PS est notifié des documents nouveaux ou remplacés.</p>
 <p>Il peut ensuite les consulter via <code>RetrieveDocumentSet</code>.</p>
 <p>Si le PS souhaite importer des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
 
-<h5 id="325-logigramme">3.2.5 Logigramme</h5>
+<h5 id="logigramme--accès-suivants">Logigramme — Accès suivants</h5>
 
 <div class="mermaid">
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
@@ -572,7 +569,7 @@ sequenceDiagram
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-12 15:09:00 +0000">
+  <span title="2026-06-12 15:31:00 +0000">
     2026-06-12
   </span>
 

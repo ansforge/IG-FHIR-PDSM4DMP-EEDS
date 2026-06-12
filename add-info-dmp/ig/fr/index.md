@@ -66,6 +66,6 @@ Certaines ressources sémantiques de ce guide sont protégées par des droits de
 
 * This material contains content from [LOINC](http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the [license](http://loinc.org/license). LOINC® is a registered United States trademark of Regenstrief Institute, Inc.
 
-* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [DocumentEntry](StructureDefinition-DocumentEntry.md)
+* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md) and [DocumentEntry](StructureDefinition-DocumentEntry.md)
 
 
