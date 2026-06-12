@@ -78,7 +78,7 @@ En cas de succès, le système DMP retourne un `Bundle` de type `transaction-res
 
 Remplacement du `DocumentReference` avec l'id `doc-x-id` par un nouveau document (`POST [base]`).
 
-{% include examplebutton.html example="Bundle-example-td2-1-remplacement" b_title="Exemple — Bundle ITI-65 de remplacement (TD2.1)" %}
+[Voir l'exemple complet : Bundle ITI-65 de remplacement (TD2.1)](Bundle-example-td2-1-remplacement.html)
 
 **Réponse attendue :**
 
