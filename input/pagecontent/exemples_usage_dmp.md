@@ -1,21 +1,17 @@
+### Optimisation des transactions de consultation DMP
 
-
-
-<h1>Optimisation des transactions de consultation DMP</h1>
 <div class="meta"><strong>Version :</strong> V0.3 &nbsp;|&nbsp; <strong>Date :</strong> 26/05/2026</div>
 
+### 1. Objet
 
-
-<h1>1. Objet</h1>
 <p>Dans le cadre de l'optimisation des transactions de consultation DMP, l'objectif de ce document est de décrire un guide pour les implémenteurs.</p>
 
+### 2. Définitions
 
+#### 2.1 DMP
 
-<h1>2. Définitions</h1>
+##### 2.1.1 Transactions utilisées
 
-<h2>2.1 DMP</h2>
-
-<h3>2.1.1 Transactions utilisées</h3>
 <p>Les transactions utilisées dans ce flux sont des requêtes <strong>IHE ITI-18 Stored Query</strong> (TD3.1) et <strong>IHE ITI-43 Retrieve Document Set</strong> (TD3.2).</p>
 
 <table>
@@ -36,13 +32,13 @@
     <tr><td><code>availabilityStatus:urn:oasis:names:tc:ebxml-regrep:StatusType:Approved</code></td><td><code>FindDocuments</code></td><td>Filtre sur les documents courants uniquement</td></tr>
     <tr><td><code>XDSDocumentEntryServiceStartTimeFrom</code></td><td><code>FindDocuments</code></td><td>Date de début de l'acte médical (filtrage sur 2 ans) (UTC)</td></tr>
     <tr><td><code>$XDSDocumentEntryTypeCode (optionnel, multiple) </code></td><td><code>FindDocuments</code></td><td>Liste des typeCode à filtrer (optionnel) </td></tr>
-   
-    <tr><td><code>$XDSSubmissionSetSubmissionTimeFrom</code></td><td><code>FindSubmissionSets</code></td><td>Filtre sur la date (UTC) d’ajout dans le DMP à partir de laquelle on souhaite récupérer les nouveaux documents  : renseigné avec la date de la dernière connexion  du professionnel au DMP  </td></tr>
+    <tr><td><code>$XDSSubmissionSetSubmissionTimeFrom</code></td><td><code>FindSubmissionSets</code></td><td>Filtre sur la date (UTC) d'ajout dans le DMP à partir de laquelle on souhaite récupérer les nouveaux documents  : renseigné avec la date de la dernière connexion  du professionnel au DMP  </td></tr>
     <tr><td><code>entryUUID</code></td><td><code>GetAssociations</code>, <code>GetDocumentsAndAssociations</code></td><td>Identifiant technique affecté par le SI DMP </td></tr>
   </tbody>
 </table>
 
-<h3>2.1.2 Identifiants des documents utilisés</h3>
+##### 2.1.2 Identifiants des documents utilisés
+
 <table>
   <thead><tr><th>Identifiant</th><th>Description</th></tr></thead>
   <tbody>
@@ -52,7 +48,8 @@
   </tbody>
 </table>
 
-<h2 class="page-break-before">2.2 Variables logiciel</h2>
+#### 2.2 Variables logiciel
+
 <table>
   <thead><tr><th>Variable</th><th>Type</th><th>Description</th></tr></thead>
   <tbody>
@@ -62,15 +59,18 @@
   </tbody>
 </table>
 
-<hr>
+---
 
-<h1 class="page-break-before">3. Description du processus</h1>
+### 3. Description du processus
+
 <p>Le processus se divise en deux branches selon qu'il s'agit de la première ouverture du dossier patient dans le logiciel ou des accès suivants.</p>
 
-<h2>3.1 Première ouverture</h2>
+#### 3.1 Première ouverture
+
 <p>L'objectif est de détecter les documents présents dans le DMP qui ne sont pas encore connus du système.</p>
 
-<h3>3.1.1 Phase 1 — Recherche des documents</h3>
+##### 3.1.1 Phase 1 — Recherche des documents
+
 <p>Le LPS enregistre la date et heure courante dans <code>dateAppelDMP</code>. Cette date servira de référence lors des accès suivants.</p>
 <p>Une requête <strong>FindDocuments</strong> est envoyée au DMP pour récupérer les documents courants de moins de 2 ans.</p>
 <div class="note">
@@ -78,12 +78,13 @@
   <ol>
     <li>La première recherche documentaire automatique dans un DMP doit obligatoirement se faire sur une période maximale de 2 ans.</li>
     <li>Uniquement sur un statut "courant" (<code>urn:oasis:names:tc:ebxml-regrep:StatusType:Approved</code>) .</li>
-    <li>Dans le cas où le PS a des préférences de type de document renseigné (typeDMP) : sur une liste de type de documents particuliers. Le LPS doit indiquer que la recherche est filtrée sur ces types de document uniquement. Le PS doit pouvoir étendre sa recherche à d’autres types de document ou désactiver ce filtre s’il ne trouve pas les document recherchés.</li>
+    <li>Dans le cas où le PS a des préférences de type de document renseigné (typeDMP) : sur une liste de type de documents particuliers. Le LPS doit indiquer que la recherche est filtrée sur ces types de document uniquement. Le PS doit pouvoir étendre sa recherche à d'autres types de document ou désactiver ce filtre s'il ne trouve pas les document recherchés.</li>
     <li>Point d'attention sur le document particulier « Historique de vaccination » qui peut dans la majorité des cas avoir une date de début d'acte (plus ancienne vaccination) inférieure à 2 ans (vaccination COVID notament). Un LPS doit pouvoir proposer au PS une recherche spécifique et manuelle sur ce typeCode sans limitation de date (si le document pas présent dans la première recherche automatique).</li>
   </ol>
 </div>
 
-<h3 class="page-break-before">3.1.2 Phase 2 — Traitement (interne logiciel)</h3>
+##### 3.1.2 Phase 2 — Traitement (interne logiciel)
+
 <div class="note">
   <strong>Note :</strong> Le même document CDA peut être transmis via MSS et déposé sur le DMP. Le <code>uniqueId</code> étant identique dans les deux cas, le LPS doit systématiquement vérifier qu'un document n'est pas déjà présent en local avant tout import.
 </div>
@@ -91,13 +92,14 @@
 <p>Pour chaque document retourné, le système vérifie que son <code>uniqueId</code> n'est pas déjà présent dans les documents en local.</p>
 <p>Les documents dont le <code>uniqueId</code> correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à <code>localDocumentsDMP</code> (<code>entryUUID</code>, <code>logicalId</code>, <code>uniqueId</code>).</p>
 
+##### 3.1.3 Phase 3 — Notification et récupération optionnelle
 
-<h3>3.1.3 Phase 3 — Notification et récupération optionnelle</h3>
 <p>Le PS est notifié du nombre de documents tiers détectés.</p>
 <p>Le PS peut visualiser un ou plusieurs documents via RetrieveDocumentSet.</p>
 <p>Si le PS souhaite importer  des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
 
-<h3 class="page-break-before">3.1.4 Logigramme</h3>
+##### 3.1.4 Logigramme
+
 <div class="mermaid">
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
 sequenceDiagram
@@ -144,28 +146,32 @@ sequenceDiagram
 
 </div>
 
-<hr>
+---
 
-<h2 class="page-break-before">3.2 Accès suivants</h2>
+#### 3.2 Accès suivants
+
 <p>L'objectif est de détecter uniquement les changements survenus depuis la dernière connexion :</p>
 <ul>
   <li>Nouveaux documents</li>
   <li>Remplacements de documents ou documents ayant changé de confidentialité</li>
 </ul>
 
-<h3>3.2.1 Phase 1 — Recherche des nouveaux lots</h3>
+##### 3.2.1 Phase 1 — Recherche des nouveaux lots
+
 <p><code>dateAppelDMP</code> est mis à jour avec la date/heure courante (UTC).</p>
 <p>Le système appelle <code>FindSubmissionSets</code> (<code>$XDSSubmissionSetSubmissionTimeFrom</code> = <code>dateAppelDMP</code>) pour récupérer tous les lots soumis depuis la dernière connexion.</p>
 <p>Il appelle ensuite <code>GetAssociations</code> sur les <code>entryUUID</code> des lots retournés, puis filtre les associations de type <strong>HasMember</strong> pour extraire les <code>entryUUID</code> des documents concernés.</p>
 
-<h3>3.2.2 Phase 2 — Récupération des métadonnées</h3>
+##### 3.2.2 Phase 2 — Récupération des métadonnées
+
 <p>Les documents sont récupérés par lot de 20 via <code>GetDocumentsAndAssociations</code>, qui retourne les métadonnées et les associations (notamment <code>RPLC</code>).
-Les « résultats finaux » sont constitués de l’agrégat des résultats des différents lots éventuels.
+Les « résultats finaux » sont constitués de l'agrégat des résultats des différents lots éventuels.
 </p>
 <div class="note"><strong>Note :</strong> Rendre paramétrable le nombre de documents pouvant être récupéré via la query <code>GetDocumentsAndAssociations</code> (par défaut 20).</div>
 
-<h3 class="page-break-before">3.2.3 Phase 3 — Analyse des résultats finaux</h3>
-<p>Pour chaque document, ignorer ceux qui sont au statut <strong>Deprecated</strong> (il s'agit d'une version antérieure du document déjà remplacée par une plus récente également retournée dans les résultats, ou d’une ancienne version de métadonnée obsolète).
+##### 3.2.3 Phase 3 — Analyse des résultats finaux
+
+<p>Pour chaque document, ignorer ceux qui sont au statut <strong>Deprecated</strong> (il s'agit d'une version antérieure du document déjà remplacée par une plus récente également retournée dans les résultats, ou d'une ancienne version de métadonnée obsolète).
   
 Deux  cas sont ensuite traités :</p>
 <ul>
@@ -183,13 +189,14 @@ Deux  cas sont ensuite traités :</p>
   <strong>Note :</strong> Lors de l'analyse des résultats et avant tout import, le LPS doit vérifier que le document n'est pas déjà présent en local via son <code>uniqueId</code>. Les documents dont le uniqueId correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à localDocumentsDMP (entryUUID, logicalId, uniqueId).
 </div>
 
-<h3>3.2.4 Phase 4 — Mise à jour et notification</h3>
+##### 3.2.4 Phase 4 — Mise à jour et notification
 
-  <p> Le PS est notifié des documents nouveaux ou remplacés. </p>
-   <p>Il peut ensuite les consulter  via <code>RetrieveDocumentSet</code>.</p>
- <p> Si le PS souhaite importer  des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
+<p>Le PS est notifié des documents nouveaux ou remplacés.</p>
+<p>Il peut ensuite les consulter via <code>RetrieveDocumentSet</code>.</p>
+<p>Si le PS souhaite importer des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
 
-<h3 class="page-break-before">3.2.5 Logigramme</h3>
+##### 3.2.5 Logigramme
+
 <div class="mermaid">
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
 sequenceDiagram
@@ -253,8 +260,3 @@ sequenceDiagram
 
 
 </div>
-
-<script>
-  mermaid.initialize({ startOnLoad: true });
-</script>
-
