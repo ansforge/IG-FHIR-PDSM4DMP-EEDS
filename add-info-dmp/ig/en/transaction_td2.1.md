@@ -40,7 +40,7 @@ La correspondance avec XDS est la suivante :
 | :--- | :--- |
 | `relatedDocument = uniqueId du document X`(CDA) | `DocumentReference(Y).relatesTo.target`→ référence vers`DocumentReference(X)` |
 | Association`RPLC`sur l'`entryUUID`du document X | `DocumentReference(Y).relatesTo.code = "replaces"` |
-| Mise à jour du statut du document X | `DocumentReference(X).status = "superseded"`(via slice`UpdateDocumentRefs`) |
+| Mise à jour du statut du document X | `PATCH DocumentReference/X`avec`Parameters`FHIRPath :`replace DocumentReference.status → superseded`(slice`UpdateDocumentRefs`) |
 
 #### Flux TD2.1-a — Requête
 
@@ -57,7 +57,7 @@ Le Bundle de type `transaction` contient :
 | :--- | :--- | :--- | :--- |
 | `List`(SubmissionSet) | 1..1 | [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html) | Lot de soumission |
 | `DocumentReference`Y | 1..1 | [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html) | Nouvelle version du document, avec`relatesTo` |
-| `DocumentReference`X | 1..1 | — | Document remplacé, avec`status = "superseded"`(slice`UpdateDocumentRefs`) |
+| `Parameters`(patch) | 1..1 | — | Mise à jour du statut du document X à`superseded`via PATCH FHIRPath (slice`UpdateDocumentRefs`) |
 | `Binary` | 0..1 | — | Contenu du document Y |
 
 Points clés sur le `DocumentReference` Y :
@@ -66,7 +66,7 @@ Points clés sur le `DocumentReference` Y :
 * `relatesTo.target` = référence vers `DocumentReference` X (par URL littérale ou identifiant)
 * `status = "current"`
 
-Le `DocumentReference` X est inclus dans la slice `UpdateDocumentRefs` du Bundle uniquement pour mettre à jour son statut à `superseded`. Il ne doit pas contenir d'autres modifications.
+Le document X est mis à jour via une opération `PATCH` FHIRPath (slice `UpdateDocumentRefs`) : seul le champ `status` est modifié à `superseded`. La ressource transmise est un `Parameters` contenant les opérations de patch, et non un DocumentReference complet.
 
 #### Flux TD2.1-b — Réponse
 
@@ -75,7 +75,7 @@ En cas de succès, le système DMP retourne un `Bundle` de type `transaction-res
 | | |
 | :--- | :--- |
 | `201 Created` | Nouvelle ressource créée (DocumentReference Y, Binary, List) |
-| `200 OK` | Ressource mise à jour (DocumentReference X → superseded) |
+| `200 OK` | PATCH appliqué (DocumentReference X → superseded) |
 | `4xx`/`5xx` | Erreur — accompagnée d'une ressource`OperationOutcome` |
 
 ### Exemple FHIR
@@ -175,13 +175,21 @@ Content-Type: application/fhir+json
       "request": { "method": "POST", "url": "DocumentReference" }
     },
     {
-      "fullUrl": "DocumentReference/doc-x-id",
+      "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000004",
       "resource": {
-        "resourceType": "DocumentReference",
-        "id": "doc-x-id",
-        "status": "superseded"
+        "resourceType": "Parameters",
+        "parameter": [
+          {
+            "name": "operation",
+            "part": [
+              { "name": "type", "valueCode": "replace" },
+              { "name": "path", "valueString": "DocumentReference.status" },
+              { "name": "value", "valueCode": "superseded" }
+            ]
+          }
+        ]
       },
-      "request": { "method": "PUT", "url": "DocumentReference/doc-x-id" }
+      "request": { "method": "PATCH", "url": "DocumentReference/doc-x-id" }
     },
     {
       "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003",
@@ -206,7 +214,7 @@ Content-Type: application/fhir+json
   "entry": [
     { "response": { "status": "201 Created", "location": "List/2" } },
     { "response": { "status": "201 Created", "location": "DocumentReference/2" } },
-    { "response": { "status": "200 OK",     "location": "DocumentReference/doc-x-id" } },
+    { "response": { "status": "200 OK" } },
     { "response": { "status": "201 Created", "location": "Binary/2" } }
   ]
 }

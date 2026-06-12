@@ -320,7 +320,7 @@ Lot de soumission</p>
     </tr>
     <tr>
       <td>Mise à jour du statut du document X</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference(X).status = "superseded"</code> (via slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">PATCH DocumentReference/X</code> avec <code class="language-plaintext highlighter-rouge">Parameters</code> FHIRPath : <code class="language-plaintext highlighter-rouge">replace DocumentReference.status → superseded</code> (slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code>)</td>
     </tr>
   </tbody>
 </table>
@@ -357,10 +357,10 @@ Accept: application/fhir+json
       <td>Nouvelle version du document, avec <code class="language-plaintext highlighter-rouge">relatesTo</code></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code> X</td>
+      <td><code class="language-plaintext highlighter-rouge">Parameters</code> (patch)</td>
       <td>1..1</td>
       <td>—</td>
-      <td>Document remplacé, avec <code class="language-plaintext highlighter-rouge">status = "superseded"</code> (slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code>)</td>
+      <td>Mise à jour du statut du document X à <code class="language-plaintext highlighter-rouge">superseded</code> via PATCH FHIRPath (slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Binary</code></td>
@@ -378,7 +378,7 @@ Accept: application/fhir+json
   <li><code class="language-plaintext highlighter-rouge">status = "current"</code></li>
 </ul>
 
-<p>Le <code class="language-plaintext highlighter-rouge">DocumentReference</code> X est inclus dans la slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code> du Bundle uniquement pour mettre à jour son statut à <code class="language-plaintext highlighter-rouge">superseded</code>. Il ne doit pas contenir d'autres modifications.</p>
+<p>Le document X est mis à jour via une opération <code class="language-plaintext highlighter-rouge">PATCH</code> FHIRPath (slice <code class="language-plaintext highlighter-rouge">UpdateDocumentRefs</code>) : seul le champ <code class="language-plaintext highlighter-rouge">status</code> est modifié à <code class="language-plaintext highlighter-rouge">superseded</code>. La ressource transmise est un <code class="language-plaintext highlighter-rouge">Parameters</code> contenant les opérations de patch, et non un DocumentReference complet.</p>
 
 <h4 id="flux-td21-b--réponse">Flux TD2.1-b — Réponse</h4>
 
@@ -398,7 +398,7 @@ Accept: application/fhir+json
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
-      <td>Ressource mise à jour (DocumentReference X → superseded)</td>
+      <td>PATCH appliqué (DocumentReference X → superseded)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
@@ -501,13 +501,21 @@ Content-Type: application/fhir+json
       </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/doc-x-id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:bbbbbbbb-0000-0000-0000-000000000004"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doc-x-id"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"superseded"</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parameters"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parameter"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"operation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"part"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="nl">"valueCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="w"> </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"path"</span><span class="p">,</span><span class="w"> </span><span class="nl">"valueString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference.status"</span><span class="w"> </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span><span class="w"> </span><span class="nl">"valueCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"superseded"</span><span class="w"> </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/doc-x-id"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PATCH"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/doc-x-id"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"</span><span class="p">,</span><span class="w">
@@ -530,7 +538,7 @@ Content-Type: application/fhir+json
   </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List/2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 OK"</span><span class="p">,</span><span class="w">     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference/doc-x-id"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 OK"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201 Created"</span><span class="p">,</span><span class="w"> </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary/2"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -585,7 +593,7 @@ Content-Type: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-12 15:04:00 +0000">
+  <span title="2026-06-12 15:09:00 +0000">
     2026-06-12
   </span>
 
