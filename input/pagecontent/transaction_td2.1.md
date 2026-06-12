@@ -76,140 +76,15 @@ En cas de succès, le système DMP retourne un `Bundle` de type `transaction-res
 
 ### Exemple FHIR
 
-Remplacement du `DocumentReference` avec l'id `doc-x-id` par un nouveau document.
+Remplacement du `DocumentReference` avec l'id `doc-x-id` par un nouveau document (`POST [base]`).
 
-**Requête :**
+{% include examplebutton.html example="Bundle-example-td2-1-remplacement" b_title="Exemple — Bundle ITI-65 de remplacement (TD2.1)" %}
 
-```
-POST [base] HTTP/1.1
-Content-Type: application/fhir+json
-```
+**Réponse attendue :**
 
-**Corps :**
-
-```json
-{
-  "resourceType": "Bundle",
-  "meta": {
-    "profile": [
-      "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"
-    ]
-  },
-  "type": "transaction",
-  "entry": [
-    {
-      "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000001",
-      "resource": {
-        "resourceType": "List",
-        "meta": {
-          "profile": [
-            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"
-          ]
-        },
-        "status": "current",
-        "mode": "working",
-        "code": {
-          "coding": [
-            {
-              "system": "https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes",
-              "code": "submissionset"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
-        },
-        "date": "2026-06-12T11:00:00+02:00",
-        "entry": [
-          {
-            "item": { "reference": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002" }
-          }
-        ]
-      },
-      "request": { "method": "POST", "url": "List" }
-    },
-    {
-      "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "meta": {
-          "profile": [
-            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
-          ]
-        },
-        "status": "current",
-        "relatesTo": [
-          {
-            "code": "replaces",
-            "target": { "reference": "DocumentReference/doc-x-id" }
-          }
-        ],
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "11488-4",
-              "display": "Compte rendu de consultation"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
-        },
-        "date": "2026-06-12T11:00:00+02:00",
-        "content": [
-          {
-            "attachment": {
-              "contentType": "application/xml",
-              "url": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003",
-              "title": "Compte rendu de consultation (v2)"
-            }
-          }
-        ]
-      },
-      "request": { "method": "POST", "url": "DocumentReference" }
-    },
-    {
-      "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000004",
-      "resource": {
-        "resourceType": "Parameters",
-        "parameter": [
-          {
-            "name": "operation",
-            "part": [
-              { "name": "type", "valueCode": "replace" },
-              { "name": "path", "valueString": "DocumentReference.status" },
-              { "name": "value", "valueCode": "superseded" }
-            ]
-          }
-        ]
-      },
-      "request": { "method": "PATCH", "url": "DocumentReference/doc-x-id" }
-    },
-    {
-      "fullUrl": "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003",
-      "resource": {
-        "resourceType": "Binary",
-        "contentType": "application/xml",
-        "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+..."
-      },
-      "request": { "method": "POST", "url": "Binary" }
-    }
-  ]
-}
-```
-
-**Réponse :**
-
-```json
-{
-  "resourceType": "Bundle",
-  "type": "transaction-response",
-  "entry": [
-    { "response": { "status": "201 Created", "location": "List/2" } },
-    { "response": { "status": "201 Created", "location": "DocumentReference/2" } },
-    { "response": { "status": "200 OK" } },
-    { "response": { "status": "201 Created", "location": "Binary/2" } }
-  ]
-}
-```
+| Entrée | Code HTTP | Location |
+|--------|-----------|----------|
+| `List` (SubmissionSet) | `201 Created` | `List/[id]` |
+| `DocumentReference` Y | `201 Created` | `DocumentReference/[id]` |
+| `Parameters` (PATCH X) | `200 OK` | — |
+| `Binary` | `201 Created` | `Binary/[id]` |
