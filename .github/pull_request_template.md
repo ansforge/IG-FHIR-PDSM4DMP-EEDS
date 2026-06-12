@@ -1,8 +1,20 @@
 ## Description des changements
 
-* [changement 1]
-* [changement 2]
-* ...
+* 
+* 
+
+## Type de changement
+
+- [ ] Nouveau contenu (profil, extension, page, exemple)
+- [ ] Correction (erreur dans un profil, une page, une dépendance)
+- [ ] Refactoring (pas de changement fonctionnel)
+- [ ] Release
+
+## Checklist
+
+- [ ] `sushi-config.yaml` : `releaseLabel` est bien `ci-build` pour une version en développement
+- [ ] `change-log.md` mis à jour
+- [ ] La branche est à jour avec `main`
 
 ## Preview
 
