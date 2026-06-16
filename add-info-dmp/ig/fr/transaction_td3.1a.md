@@ -27,9 +27,296 @@ L’INS du patient (EF_DMP11_01). Le statut « actif » du DMP du patient (EF_DM
 
 La liste des documents consultables par l’utilisateur.
 
-### Equivalence FHIR
+### Equivalent FHIR
 
-Transaction ITI-67 avec les paramètres patient.identifier, + statut du dmp et autorisation d'accès à mapper
+TD3.1a correspond à la transaction **[ITI-67 Find Document References](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html)** du profil PDSm. Elle permet au LPS de rechercher les fiches (`DocumentReference`) du DMP d'un patient à partir de son INS et de critères optionnels.
 
-### Exemple
+#### Flux TD3.1a-a — Requête
+
+Le LPS effectue une recherche sur la ressource `DocumentReference` en utilisant le paramètre `patient.identifier` valorisé avec l'INS du patient.
+
+```
+GET [base]/DocumentReference?patient.identifier=[systeme-INS]|[valeur-INS]&status=current HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+**Paramètres de recherche :**
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `patient.identifier` | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
+| `status` | token | 0..1 | `availabilityStatus` | `current`(approuvé) ou`superseded`(déprécié) |
+| `type` | token | 0..* | `type` | Type du document (JDV_J07-XdsTypeCode-CISIS) |
+| `category` | token | 0..* | `class` | Classe du document (JDV_J06-XdsClassCode-CISIS) |
+| `date` | date | 0..2 | `creationTime` | Date de création du document |
+| `period` | date | 0..2 | `serviceStartTime`/`serviceEndTime` | Période de l'acte de référence |
+| `facility` | token | 0..* | `healthcareFacilityTypeCode` | Secteur d'activité |
+| `setting` | token | 0..* | `practiceSetting` | Contexte de l'acte |
+| `format` | token | 0..* | `format` | Format du document |
+| `security-label` | token | 0..* | `confidentiality` | Niveau de confidentialité |
+| `event` | token | 0..* | `eventCodeList` | Acte, modalité ou région anatomique |
+| `identifier` | token | 0..1 | `uniqueId`/`entryUUID` | Identifiant unique du document |
+| `related` | reference | 0..* | `referenceIdList` | Identifiants d'objets associés |
+
+> **Note :** Le statut du DMP et l'autorisation d'accès ne sont pas des paramètres de la requête ITI-67. Ces prérequis sont vérifiés en amont (via TD02) et gérés par la couche d'autorisation du système DMP, en dehors du périmètre de cette transaction.
+
+#### Flux TD3.1a-b — Réponse
+
+En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset` contenant zéro ou plusieurs ressources `DocumentReference`.
+
+| | |
+| :--- | :--- |
+| `200 OK` | Recherche exécutée ; le`Bundle`peut contenir 0 ou N entrées |
+| `4xx`/`5xx` | Erreur — accompagnée d'une ressource`OperationOutcome` |
+
+Chaque `DocumentReference` retourné est conforme au profil [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html).
+
+**Mapping des données retournées :**
+
+| | |
+| :--- | :--- |
+| `entryUUID` | `DocumentReference.id` |
+| `logicalId`/`uniqueId` | `DocumentReference.identifier` |
+| `availabilityStatus` | `DocumentReference.status`(`current`/`superseded`) |
+| `type` | `DocumentReference.type` |
+| `class` | `DocumentReference.category` |
+| `patientID`/`sourcePatientID` | `DocumentReference.subject` |
+| `creationTime` | `DocumentReference.date` |
+| `author` | `DocumentReference.author` |
+| `legalAuthenticator` | `DocumentReference.authenticator` |
+| `comments` | `DocumentReference.description` |
+| `confidentiality` | `DocumentReference.securityLabel` |
+| `mimeType` | `DocumentReference.content.attachment.contentType` |
+| `languageCode` | `DocumentReference.content.attachment.language` |
+| `title` | `DocumentReference.content.attachment.title` |
+| `hash` | `DocumentReference.content.attachment.hash` |
+| `size` | `DocumentReference.content.attachment.size` |
+| `repositoryUniqueId`/`URI` | `DocumentReference.content.attachment.url` |
+| `format` | `DocumentReference.content.format` |
+| `healthcareFacilityTypeCode` | `DocumentReference.context.facilityType` |
+| `practiceSetting` | `DocumentReference.context.practiceSetting` |
+| `serviceStartTime`/`serviceEndTime` | `DocumentReference.context.period` |
+| `sourcePatientInfo` | `DocumentReference.context.sourcePatientInfo` |
+| `eventCodeList` | `DocumentReference.context.event` |
+| `referenceIdList` | `DocumentReference.context.related` |
+
+### Exemple FHIR
+
+#### Requête — lister les documents actifs d'un patient
+
+```
+GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345&status=current HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+#### Réponse
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "entry": [
+    {
+      "fullUrl": "DocumentReference/dr-cr-consultation-001",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "dr-cr-consultation-001",
+        "meta": {
+          "profile": [
+            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.2.3.4.5.6.7.8.9"
+          }
+        ],
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS",
+              "code": "11488-4",
+              "display": "Compte rendu de consultation"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS",
+                "code": "CR",
+                "display": "Compte rendu"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-dupont-marie"
+        },
+        "date": "2024-11-20T10:30:00+01:00",
+        "author": [
+          {
+            "reference": "Practitioner/dr-martin"
+          }
+        ],
+        "description": "Compte rendu de consultation du 20/11/2024",
+        "securityLabel": [
+          {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "language": "fr-FR",
+              "url": "Binary/cr-consultation-001",
+              "size": 45678,
+              "title": "CR Consultation Dr Martin 20/11/2024"
+            },
+            "format": {
+              "system": "https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS",
+              "code": "urn:ihe:iti:xds-sd:pdf:2008"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "start": "2024-11-20T09:00:00+01:00",
+            "end": "2024-11-20T10:00:00+01:00"
+          },
+          "facilityType": {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS",
+                "code": "CABINET",
+                "display": "Cabinet libéral"
+              }
+            ]
+          },
+          "practiceSetting": {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS",
+                "code": "AMBULATOIRE",
+                "display": "Médecine ambulatoire"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "DocumentReference/dr-ordonnance-002",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "dr-ordonnance-002",
+        "meta": {
+          "profile": [
+            "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:1.2.3.4.5.6.7.8.10"
+          }
+        ],
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS",
+              "code": "57832-8",
+              "display": "Ordonnance médicale"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS",
+                "code": "ORD",
+                "display": "Traitement"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-dupont-marie"
+        },
+        "date": "2024-11-20T10:35:00+01:00",
+        "author": [
+          {
+            "reference": "Practitioner/dr-martin"
+          }
+        ],
+        "securityLabel": [
+          {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "language": "fr-FR",
+              "url": "Binary/ordonnance-002",
+              "size": 12345,
+              "title": "Ordonnance Dr Martin 20/11/2024"
+            },
+            "format": {
+              "system": "https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS",
+              "code": "urn:ihe:iti:xds-sd:pdf:2008"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "start": "2024-11-20T09:00:00+01:00"
+          },
+          "facilityType": {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS",
+                "code": "CABINET",
+                "display": "Cabinet libéral"
+              }
+            ]
+          },
+          "practiceSetting": {
+            "coding": [
+              {
+                "system": "https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS",
+                "code": "AMBULATOIRE",
+                "display": "Médecine ambulatoire"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
+
+```
 

@@ -3,8 +3,8 @@ PDSm4DMP : Validation Results
 
 err = 47, warn = 237, info = 95
 IG Publisher Version: 2.2.9
-Generated Tue Jun 16 12:20:16 UTC 2026. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 18 / 11 / 0
+Generated Tue Jun 16 12:28:36 UTC 2026. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+ Build Errors : 20 / 11 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionSNR : 1 / 0 / 0
@@ -58,6 +58,7 @@ ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 286, col
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 292, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 293, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 294, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
+ERROR: en/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 306, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/fr/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
 WARNING: fr/change-log.html#/html/body/div/div/div/div/div/p/a at Line 261, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 263, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
@@ -69,6 +70,7 @@ ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 279, col
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 285, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 286, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 287, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
+ERROR: fr/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 299, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml, cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: An HTML fragment from the set [globals-table.xhtml, globals-table.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 5: An HTML fragment from the set [expansion-params.xhtml, expansion-params.xhtml] is not included anywhere in the produced implementation guide
