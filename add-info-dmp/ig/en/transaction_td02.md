@@ -49,9 +49,9 @@ Le LPS a vérifié les conditions d'accès de l'acteur de santé au DMP du patie
 * Date de naissance
 * Civilité
 * Statut du DMP
-* Statut du ratachachment 
-* "true" : Le DMP est rataché à "Mon espace Santé"
-* "false" : le DMP n'est pas ratcahé à "Mon espace Santé"
+* Statut du rattachement 
+* "true" : Le DMP est rattaché à "Mon espace Santé"
+* "false" : le DMP n'est pas rattaché à "Mon espace Santé"
  
 * Date de fermeture
 * Motif de fermeture
@@ -66,12 +66,6 @@ Cette transaction n'a pas d'équivalent direct dans le profil MHD / PDSm, qui ne
 
 Le LPS effectue une recherche sur la ressource `Patient` en utilisant le paramètre `identifier` valorisé avec l'INS du patient.
 
-```
-GET [base]/Patient?identifier=[systeme-INS]|[valeur-INS] HTTP/1.1
-Accept: application/fhir+json
-
-```
-
 Le système (OID) à utiliser selon le type d'INS :
 
 | | |
@@ -85,25 +79,18 @@ Le système (OID) à utiliser selon le type d'INS :
 | :--- | :--- | :--- | :--- |
 | `identifier` | token | 1..1 | INS du patient, sous la forme`[système]\|[valeur]` |
 
-**Exemple :**
-
-```
-GET [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 HTTP/1.1
-
-```
-
-#### Flux TD02 — Réponse
+#### Flux TD02-b — Réponse
 
 En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset`.
 
-* Si le `Bundle` contient **0 entrée** : aucun DMP actif n'existe pour ce patient.
+* Si le `Bundle` contient **0 entrée** : aucun DMP n'existe pour ce patient.
 * Si le `Bundle` contient **1 entrée** : la ressource `Patient` retournée porte les informations du DMP.
 
 En cas d'erreur, le système retourne un code HTTP d'erreur accompagné d'une ressource `OperationOutcome`.
 
 #### Mapping des données de sortie
 
-Les données retournées par TD02 se mappent sur la ressource `Patient` (profil [fr-core-patient](https://hl7.fr/ig/fhir/core/StructureDefinition-fr-core-patient.html)) comme suit :
+Le statut du DMP est porté par l'élément natif `Patient.active` (`true` = DMP ouvert, `false` = DMP fermé ou inconnu). Les informations de fermeture sont regroupées dans une seule extension complexe sur `Patient`, ce qui évite de multiplier les extensions atomiques.
 
 | | |
 | :--- | :--- |
@@ -114,15 +101,15 @@ Les données retournées par TD02 se mappent sur la ressource `Patient` (profil 
 | Sexe | `Patient.gender` |
 | Date de naissance | `Patient.birthDate` |
 | Civilité | `Patient.name.prefix` |
-| Statut du DMP | Extension à définir sur`Patient`(actif, fermé, inconnu) |
-| Statut du rattachement à Mon espace Santé | Extension à définir sur`Patient`(booléen) |
-| Date de fermeture du DMP | Extension à définir sur`Patient` |
-| Motif de fermeture | Extension à définir sur`Patient` |
-| Raison de fermeture | Extension à définir sur`Patient` |
-| Statut « médecin traitant DMP » | Extension à définir sur`Patient` |
-| Statut de l'autorisation d'accès (EF_DMP04_01) | Hors scope`Patient`— à mapper sur une ressource`Consent`ou`Coverage`(à préciser) |
+| Statut du DMP | `Patient.active`(`true`= actif,`false`= fermé/inconnu) |
+| Date de fermeture du DMP | Extension complexe`dmp-fermeture`>`dateFermeture` |
+| Motif de fermeture | Extension complexe`dmp-fermeture`>`motifFermeture` |
+| Raison de fermeture | Extension complexe`dmp-fermeture`>`raisonFermeture` |
+| Statut du rattachement à Mon espace Santé | Extension`dmp-rattachement-mes`sur`Patient`(booléen) |
+| Statut « médecin traitant DMP » | Extension`dmp-medecin-traitant`sur`Patient` |
+| Statut de l'autorisation d'accès (EF_DMP04_01) | Hors scope — à mapper sur une ressource`Consent`(à préciser) |
 
-> **Note :** Les données spécifiques au DMP (statut, rattachement Mon espace Santé, informations de fermeture, médecin traitant DMP) n'ont pas d'élément standard en FHIR R4. Des extensions dédiées devront être définies dans ce guide d'implémentation (voir [Autres ressources](autres_ressources.md)). Le statut de l'autorisation d'accès du professionnel de santé au DMP du patient relève d'une logique de contrôle d'accès qui pourrait être portée par une ressource `Consent` ou `Coverage`, mais ce point reste à préciser.
+> **Note :** Une alternative à l'utilisation de `Patient.active` consisterait à matérialiser l'ouverture du DMP par une ressource dédiée — `Consent` (consentement du patient à l'existence de son DMP) ou `Flag` (signalement administratif avec statut et période natifs). Ces approches offrent un cycle de vie plus explicite mais introduisent une ressource supplémentaire à gérer.
 
 ### Exemple FHIR
 
@@ -134,7 +121,7 @@ Accept: application/fhir+json
 
 ```
 
-**Réponse :**
+**Réponse (DMP fermé) :**
 
 ```
 {
@@ -146,10 +133,33 @@ Accept: application/fhir+json
       "resource": {
         "resourceType": "Patient",
         "meta": {
-          "profile": [
-            "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient"
-          ]
+          "profile": ["https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient"]
         },
+        "extension": [
+          {
+            "url": "https://interop.esante.gouv.fr/ig/fhir/dmp/StructureDefinition/dmp-fermeture",
+            "extension": [
+              {
+                "url": "dateFermeture",
+                "valueDate": "2024-03-20"
+              },
+              {
+                "url": "motifFermeture",
+                "valueCodeableConcept": {
+                  "coding": [{ "system": "https://interop.esante.gouv.fr/ig/fhir/dmp/CodeSystem/dmp-motif-fermeture", "code": "patient-demande" }]
+                }
+              },
+              {
+                "url": "raisonFermeture",
+                "valueString": "Demande explicite du patient"
+              }
+            ]
+          },
+          {
+            "url": "https://interop.esante.gouv.fr/ig/fhir/dmp/StructureDefinition/dmp-rattachement-mes",
+            "valueBoolean": true
+          }
+        ],
         "identifier": [
           {
             "use": "official",
@@ -157,18 +167,10 @@ Accept: application/fhir+json
             "value": "123456789012345"
           }
         ],
-        "active": true,
+        "active": false,
         "name": [
-          {
-            "use": "usual",
-            "family": "DUPONT",
-            "given": ["Marie"]
-          },
-          {
-            "use": "official",
-            "family": "MARTIN",
-            "given": ["Marie"]
-          }
+          { "use": "usual", "family": "DUPONT", "given": ["Marie"] },
+          { "use": "official", "family": "MARTIN", "given": ["Marie"] }
         ],
         "gender": "female",
         "birthDate": "1985-04-12"

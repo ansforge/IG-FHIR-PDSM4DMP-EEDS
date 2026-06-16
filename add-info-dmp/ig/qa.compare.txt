@@ -1,7 +1,7 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 47, warn = 233, info = 99
+err = 47, warn = 237, info = 95
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 18 / 11 / 0
@@ -37,8 +37,8 @@ Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https:
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SourcePatientInfo : 0 / 22 / 2
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-StructIdNat : 0 / 2 / 2
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/StructureDefinition-SubmissionSet : 0 / 10 / 6
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/Bundle-example-td2-1-remplacement : 10 / 5 / 23
- /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/Bundle-example-td2-iti65-lot-soumission : 10 / 5 / 21
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/Bundle-example-td2-1-remplacement : 10 / 7 / 21
+ /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/Bundle-example-td2-iti65-lot-soumission : 10 / 7 / 19
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/DocumentReference-doc-x-id : 4 / 2 / 8
  /home/runner/work/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/input/examples/DocumentReference-example-td2-iti105-publication-simplifiee : 0 / 1 / 3
 </table>
@@ -425,8 +425,8 @@ INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[0].resource.entry[0
 WARNING: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.contained[0]/*Patient/patient-source*/.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.250.1.213.1.4.8'
 WARNING: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.contained[1]/*Practitioner/practitioner-author*/.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.250.1.71.4.2.1'
 INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.content[0].format: The Coding provided (http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode#urn:ihe:iti:xds:2017:mimeTypeSufficient) was not found in the value set 'DocumentReference Format Code Set' (http://hl7.org/fhir/ValueSet/formatcodes|4.0.1), and a code is recommended to come from this value set.  (error message = The provided code 'http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode#urn:ihe:iti:xds:2017:mimeTypeSufficient: 'mimeType Sufficient'' was not found in the value set 'http://hl7.org/fhir/ValueSet/formatcodes|4.0.1')
-INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.context.facilityType.coding[0].display: 'Hospital' is the default display; the code system http://snomed.info/sct has no Display Names for the language fr-FR
-INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.context.practiceSetting.coding[0].display: 'General medicine' is the default display; the code system http://snomed.info/sct has no Display Names for the language fr-FR
+WARNING: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.context.facilityType.coding[0].system: A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
+WARNING: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.context.practiceSetting.coding[0].system: A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
 INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.status: Reference to draft CodeSystem http://hl7.org/fhir/document-reference-status|4.0.1
 INFORMATION: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.type: None of the codings provided are in the value set 'JDV_J07-XdsTypeCode-CISIS' (https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|1.2.0), and a coding is recommended to come from this value set (codes = http://loinc.org#11488-4)
 ERROR: Bundle/example-td2-1-remplacement: Bundle.entry[1].resource/*DocumentReference/docref-y-nouvelle-version*/.author[0]: Invalid Resource target type. Found Practitioner, but expected one of ([Device, Patient, PractitionerRole])
@@ -452,8 +452,8 @@ INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[0].resource.e
 WARNING: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.contained[0]/*Patient/patient-source*/.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.250.1.213.1.4.8'
 WARNING: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.contained[1]/*Practitioner/practitioner-author*/.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.250.1.71.4.2.1'
 INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.content[0].format: The Coding provided (http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode#urn:ihe:iti:xds:2017:mimeTypeSufficient) was not found in the value set 'DocumentReference Format Code Set' (http://hl7.org/fhir/ValueSet/formatcodes|4.0.1), and a code is recommended to come from this value set.  (error message = The provided code 'http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode#urn:ihe:iti:xds:2017:mimeTypeSufficient: 'mimeType Sufficient'' was not found in the value set 'http://hl7.org/fhir/ValueSet/formatcodes|4.0.1')
-INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.context.facilityType.coding[0].display: 'Hospital' is the default display; the code system http://snomed.info/sct has no Display Names for the language fr-FR
-INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.context.practiceSetting.coding[0].display: 'General medicine' is the default display; the code system http://snomed.info/sct has no Display Names for the language fr-FR
+WARNING: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.context.facilityType.coding[0].system: A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
+WARNING: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.context.practiceSetting.coding[0].system: A definition for CodeSystem 'http://snomed.info/sct' could not be found, so the code cannot be validated
 INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.status: Reference to draft CodeSystem http://hl7.org/fhir/document-reference-status|4.0.1
 INFORMATION: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.type: None of the codings provided are in the value set 'JDV_J07-XdsTypeCode-CISIS' (https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|1.2.0), and a coding is recommended to come from this value set (codes = http://loinc.org#11488-4)
 ERROR: Bundle/example-td2-iti65-lot-soumission: Bundle.entry[1].resource/*DocumentReference/docref-td2*/.author[0]: Invalid Resource target type. Found Practitioner, but expected one of ([Device, Patient, PractitionerRole])

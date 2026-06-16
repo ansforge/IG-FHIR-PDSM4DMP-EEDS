@@ -79,3 +79,8 @@ Certaines ressources sémantiques de ce guide sont protégées par des droits de
 * [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
 
 
+* This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: [https://terminology.hl7.org/license.html](https://terminology.hl7.org/license.html)
+
+* [Confidentiality](http://terminology.hl7.org/7.2.0/CodeSystem-v3-Confidentiality.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
+
+

@@ -313,10 +313,10 @@ NB2 : les autorisations d'accès ne sont utilisées que pour la consultation des
   <li>Date de naissance</li>
   <li>Civilité</li>
   <li>Statut du DMP</li>
-  <li>Statut du ratachachment
+  <li>Statut du rattachement
     <ul>
-      <li>"true" : Le DMP est rataché à "Mon espace Santé"</li>
-      <li>"false" : le DMP n'est pas ratcahé à "Mon espace Santé"</li>
+      <li>"true" : Le DMP est rattaché à "Mon espace Santé"</li>
+      <li>"false" : le DMP n'est pas rattaché à "Mon espace Santé"</li>
     </ul>
   </li>
   <li>Date de fermeture</li>
@@ -332,10 +332,6 @@ NB2 : les autorisations d'accès ne sont utilisées que pour la consultation des
 <h4 id="flux-td02-a--requête">Flux TD02-a — Requête</h4>
 
 <p>Le LPS effectue une recherche sur la ressource <code class="language-plaintext highlighter-rouge">Patient</code> en utilisant le paramètre <code class="language-plaintext highlighter-rouge">identifier</code> valorisé avec l'INS du patient.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Patient?identifier=[systeme-INS]|[valeur-INS] HTTP/1.1
-Accept: application/fhir+json
-</code></pre></div></div>
 
 <p>Le système (OID) à utiliser selon le type d'INS :</p>
 
@@ -379,17 +375,12 @@ Accept: application/fhir+json
   </tbody>
 </table>
 
-<p><strong>Exemple :</strong></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345 HTTP/1.1
-</code></pre></div></div>
-
-<h4 id="flux-td02--réponse">Flux TD02 — Réponse</h4>
+<h4 id="flux-td02-b--réponse">Flux TD02-b — Réponse</h4>
 
 <p>En cas de succès, le système DMP retourne un code HTTP <code class="language-plaintext highlighter-rouge">200 OK</code> avec un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code>.</p>
 
 <ul>
-  <li>Si le <code class="language-plaintext highlighter-rouge">Bundle</code> contient <strong>0 entrée</strong> : aucun DMP actif n'existe pour ce patient.</li>
+  <li>Si le <code class="language-plaintext highlighter-rouge">Bundle</code> contient <strong>0 entrée</strong> : aucun DMP n'existe pour ce patient.</li>
   <li>Si le <code class="language-plaintext highlighter-rouge">Bundle</code> contient <strong>1 entrée</strong> : la ressource <code class="language-plaintext highlighter-rouge">Patient</code> retournée porte les informations du DMP.</li>
 </ul>
 
@@ -397,7 +388,7 @@ Accept: application/fhir+json
 
 <h4 id="mapping-des-données-de-sortie">Mapping des données de sortie</h4>
 
-<p>Les données retournées par TD02 se mappent sur la ressource <code class="language-plaintext highlighter-rouge">Patient</code> (profil <a href="https://hl7.fr/ig/fhir/core/StructureDefinition-fr-core-patient.html">fr-core-patient</a>) comme suit :</p>
+<p>Le statut du DMP est porté par l'élément natif <code class="language-plaintext highlighter-rouge">Patient.active</code> (<code class="language-plaintext highlighter-rouge">true</code> = DMP ouvert, <code class="language-plaintext highlighter-rouge">false</code> = DMP fermé ou inconnu). Les informations de fermeture sont regroupées dans une seule extension complexe sur <code class="language-plaintext highlighter-rouge">Patient</code>, ce qui évite de multiplier les extensions atomiques.</p>
 
 <table>
   <thead>
@@ -437,37 +428,37 @@ Accept: application/fhir+json
     </tr>
     <tr>
       <td>Statut du DMP</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code> (actif, fermé, inconnu)</td>
-    </tr>
-    <tr>
-      <td>Statut du rattachement à Mon espace Santé</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code> (booléen)</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.active</code> (<code class="language-plaintext highlighter-rouge">true</code> = actif, <code class="language-plaintext highlighter-rouge">false</code> = fermé/inconnu)</td>
     </tr>
     <tr>
       <td>Date de fermeture du DMP</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Extension complexe <code class="language-plaintext highlighter-rouge">dmp-fermeture</code> &gt; <code class="language-plaintext highlighter-rouge">dateFermeture</code></td>
     </tr>
     <tr>
       <td>Motif de fermeture</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Extension complexe <code class="language-plaintext highlighter-rouge">dmp-fermeture</code> &gt; <code class="language-plaintext highlighter-rouge">motifFermeture</code></td>
     </tr>
     <tr>
       <td>Raison de fermeture</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Extension complexe <code class="language-plaintext highlighter-rouge">dmp-fermeture</code> &gt; <code class="language-plaintext highlighter-rouge">raisonFermeture</code></td>
+    </tr>
+    <tr>
+      <td>Statut du rattachement à Mon espace Santé</td>
+      <td>Extension <code class="language-plaintext highlighter-rouge">dmp-rattachement-mes</code> sur <code class="language-plaintext highlighter-rouge">Patient</code> (booléen)</td>
     </tr>
     <tr>
       <td>Statut « médecin traitant DMP »</td>
-      <td>Extension à définir sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Extension <code class="language-plaintext highlighter-rouge">dmp-medecin-traitant</code> sur <code class="language-plaintext highlighter-rouge">Patient</code></td>
     </tr>
     <tr>
       <td>Statut de l'autorisation d'accès (EF_DMP04_01)</td>
-      <td>Hors scope <code class="language-plaintext highlighter-rouge">Patient</code> — à mapper sur une ressource <code class="language-plaintext highlighter-rouge">Consent</code> ou <code class="language-plaintext highlighter-rouge">Coverage</code> (à préciser)</td>
+      <td>Hors scope — à mapper sur une ressource <code class="language-plaintext highlighter-rouge">Consent</code> (à préciser)</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p><strong>Note :</strong> Les données spécifiques au DMP (statut, rattachement Mon espace Santé, informations de fermeture, médecin traitant DMP) n'ont pas d'élément standard en FHIR R4. Des extensions dédiées devront être définies dans ce guide d'implémentation (voir <a href="autres_ressources.html">Autres ressources</a>). Le statut de l'autorisation d'accès du professionnel de santé au DMP du patient relève d'une logique de contrôle d'accès qui pourrait être portée par une ressource <code class="language-plaintext highlighter-rouge">Consent</code> ou <code class="language-plaintext highlighter-rouge">Coverage</code>, mais ce point reste à préciser.</p>
+  <p><strong>Note :</strong> Une alternative à l'utilisation de <code class="language-plaintext highlighter-rouge">Patient.active</code> consisterait à matérialiser l'ouverture du DMP par une ressource dédiée — <code class="language-plaintext highlighter-rouge">Consent</code> (consentement du patient à l'existence de son DMP) ou <code class="language-plaintext highlighter-rouge">Flag</code> (signalement administratif avec statut et période natifs). Ces approches offrent un cycle de vie plus explicite mais introduisent une ressource supplémentaire à gérer.</p>
 </blockquote>
 
 <h3 id="exemple-fhir">Exemple FHIR</h3>
@@ -478,7 +469,7 @@ Accept: application/fhir+json
 Accept: application/fhir+json
 </code></pre></div></div>
 
-<p><strong>Réponse :</strong></p>
+<p><strong>Réponse (DMP fermé) :</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
@@ -489,10 +480,33 @@ Accept: application/fhir+json
       </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
+          </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient"</span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/dmp/StructureDefinition/dmp-fermeture"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dateFermeture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"valueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-03-20"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"motifFermeture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"valueCodeableConcept"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/dmp/CodeSystem/dmp-motif-fermeture"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient-demande"</span><span class="w"> </span><span class="p">}]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raisonFermeture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"valueString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demande explicite du patient"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://interop.esante.gouv.fr/ig/fhir/dmp/StructureDefinition/dmp-rattachement-mes"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"valueBoolean"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official"</span><span class="p">,</span><span class="w">
@@ -500,18 +514,10 @@ Accept: application/fhir+json
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usual"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUPONT"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARTIN"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usual"</span><span class="p">,</span><span class="w"> </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUPONT"</span><span class="p">,</span><span class="w"> </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="nl">"use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official"</span><span class="p">,</span><span class="w"> </span><span class="nl">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARTIN"</span><span class="p">,</span><span class="w"> </span><span class="nl">"given"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Marie"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1985-04-12"</span><span class="w">
@@ -570,8 +576,8 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-12 16:24:00 +0000">
-    2026-06-12
+  <span title="2026-06-16 12:17:00 +0000">
+    2026-06-16
   </span>
 
           <br/>
