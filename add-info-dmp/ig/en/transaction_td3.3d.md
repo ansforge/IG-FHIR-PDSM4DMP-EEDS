@@ -83,6 +83,17 @@ Accept: application/fhir+json
 
 ```
 
+**⚠️ Risque de doublon lors du désarchivage**
+
+Si un document a été remplacé par une version ultérieure avant son archivage (relation
+`replaces`), le désarchivage le remet au statut
+`current`. Il peut alors coexister avec sa version de remplacement, également au statut
+`current`, créant une situation de doublon avec deux versions du même document toutes deux considérées comme courantes.
+
+Il est recommandé de vérifier l'existence d'un document remplaçant (via
+`DocumentReference.relatesTo`avec code
+`replaces`) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
+
 #### Flux TD3.3d-b — Réponse
 
 | | |

@@ -378,6 +378,12 @@ Accept: application/fhir+json
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
+<div style="background-color: #fff9e6; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0;">
+<b>⚠️ Risque de doublon lors du désarchivage</b><br />
+Si un document a été remplacé par une version ultérieure avant son archivage (relation <code>replaces</code>), le désarchivage le remet au statut <code>current</code>. Il peut alors coexister avec sa version de remplacement, également au statut <code>current</code>, créant une situation de doublon avec deux versions du même document toutes deux considérées comme courantes.<br />
+Il est recommandé de vérifier l'existence d'un document remplaçant (via <code>DocumentReference.relatesTo</code> avec code <code>replaces</code>) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
+</div>
+
 <h4 id="flux-td33d-b--réponse">Flux TD3.3d-b — Réponse</h4>
 
 <table>
@@ -476,7 +482,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-17 11:36:00 +0000">
+  <span title="2026-06-17 12:12:00 +0000">
     2026-06-17
   </span>
 
