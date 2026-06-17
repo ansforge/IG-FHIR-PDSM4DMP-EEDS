@@ -276,8 +276,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
-  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
-  <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
+  <li><a href="#équivalent-fhir" id="markdown-toc-équivalent-fhir">Équivalent FHIR</a></li>
+  <li><a href="#exemple-fhir" id="markdown-toc-exemple-fhir">Exemple FHIR</a></li>
 </ul>
 
 </div>
@@ -286,39 +286,165 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>masquer / démasquer un document aux professionnels</p>
 
-<p>Cette fonctionnalité permet à l’utilisateur de modifier les attributs d’un document dans le DMP d’un patient.</p>
+<p>Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un document dans le DMP d'un patient.</p>
 
 <ul>
-  <li>Masquage / démasquage d’un document aux professionnels,
-Elle fait suite à la fonctionnalité DMP_3.1 qui a permis de rechercher l’identifiant technique d’un document.</li>
+  <li>Masquage / démasquage d'un document aux professionnels,
+Elle fait suite à la fonctionnalité DMP_3.1 qui a permis de rechercher l'identifiant technique d'un document.</li>
 </ul>
 
 <p>La cinématique générale est la suivante.</p>
 
 <ul>
   <li>Le LPS affiche les attributs du document sélectionné. Cf. RG_3310.</li>
-  <li>L’utilisateur indique l’action qu’il souhaite effectuer. Cf. RG_3320.</li>
-  <li>L’utilisateur confirme l’action demandée. Cf. RG_3330.</li>
-  <li>Le LPS envoie une requête de mise à jour des attri</li>
+  <li>L'utilisateur indique l'action qu'il souhaite effectuer. Cf. RG_3320.</li>
+  <li>L'utilisateur confirme l'action demandée. Cf. RG_3330.</li>
+  <li>Le LPS envoie une requête de mise à jour des attributs d'un document au système DMP (TD3.3a). Cf. RG_3340.</li>
+  <li>Le système DMP met à jour les attributs du document. Cf. RG_3350.</li>
 </ul>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
 
-<p>L’INS du patient (EF_DMP11_01).
+<p>L'INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
-L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
+L'autorisation d'accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
 LPS implémente le profil Alimentation).
-L’identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
+L'identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
 <h3 id="sortie">Sortie</h3>
 
-<p>Les attributs du document sont modifiées dans le DMP du patient.</p>
+<p>Les attributs du document sont modifiés dans le DMP du patient.</p>
 
-<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+<h3 id="équivalent-fhir">Équivalent FHIR</h3>
 
-<p>Mise à jour de la ressource indiquant le consentement</p>
+<p>TD3.3a correspond à la transaction <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">ITI-92 Restricted Update DocumentReference</a></strong> du profil PDSm. L'opération PATCH modifie le champ <code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code> sans remplacer l'ensemble de la ressource.</p>
 
-<h3 id="exemple">Exemple</h3>
+<p>L'<code class="language-plaintext highlighter-rouge">entryUUID</code> XDS correspond à l'<code class="language-plaintext highlighter-rouge">id</code> logique de la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> en FHIR (cf. <a href="annexe_identifiants_xds_fhir.html">annexe identifiants</a>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action DMP</th>
+      <th>Élément FHIR modifié</th>
+      <th>Valeur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Masquer aux professionnels</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code></td>
+      <td>Code de confidentialité « masqué » (JDV_J08)</td>
+    </tr>
+    <tr>
+      <td>Démasquer</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N</code> (Normal) — <code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v3-Confidentiality</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flux-td33a-a--requête-masquage">Flux TD3.3a-a — Requête (masquage)</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p>Corps de la requête (JSON Patch) :</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/securityLabel/0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVISIBLE_MASQUE_PATIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masqué aux professionnels"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="flux-td33a-a--requête-démasquage">Flux TD3.3a-a — Requête (démasquage)</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/securityLabel/0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/v3-Confidentiality"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="flux-td33a-b--réponse">Flux TD3.3a-b — Réponse</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code HTTP</th>
+      <th>Signification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td>Mise à jour effectuée — le corps de la réponse contient le <code class="language-plaintext highlighter-rouge">DocumentReference</code> mis à jour</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404 Not Found</code></td>
+      <td>Document introuvable</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code></td>
+      <td>PATCH invalide ou refusé par la règle métier</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
+      <td>Erreur — accompagnée d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exemple-fhir">Exemple FHIR</h3>
+
+<p>Masquage du compte rendu de consultation <code class="language-plaintext highlighter-rouge">example-td3-1a-cr-consultation</code> :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/securityLabel/0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVISIBLE_MASQUE_PATIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masqué aux professionnels"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Réponse : <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">DocumentReference</code> avec <code class="language-plaintext highlighter-rouge">securityLabel</code> mis à jour.</p>
+
 
 
 
@@ -368,7 +494,7 @@ L’identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-17 08:38:00 +0000">
+  <span title="2026-06-17 08:46:00 +0000">
     2026-06-17
   </span>
 

@@ -276,8 +276,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
-  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
-  <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
+  <li><a href="#équivalent-fhir" id="markdown-toc-équivalent-fhir">Équivalent FHIR</a></li>
+  <li><a href="#exemple-fhir" id="markdown-toc-exemple-fhir">Exemple FHIR</a></li>
 </ul>
 
 </div>
@@ -285,36 +285,125 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <h3 id="description">Description</h3>
 <p>supprimer un document (</p>
 
-<p>Cette fonctionnalité permet à l’utilisateur de supprimer un document dans le DMP d’unpatient.</p>
+<p>Cette fonctionnalité permet à l'utilisateur de supprimer un document dans le DMP d'unpatient.</p>
 
 <p>La cinématique générale est la suivante :</p>
 
 <ul>
-  <li>L’utilisateur indique qu’il souhaite supprimer le document sélectionné. Cf. RG_3410.</li>
-  <li>L’utilisateur confirme l’action demandée. Cf. RG_3420.</li>
-  <li>Le LPS envoie une requête de mise à jour des attributs d’un document au système DMP (TD3.3c). Cf. RG_3430.</li>
+  <li>L'utilisateur indique qu'il souhaite supprimer le document sélectionné. Cf. RG_3410.</li>
+  <li>L'utilisateur confirme l'action demandée. Cf. RG_3420.</li>
+  <li>Le LPS envoie une requête de mise à jour des attributs d'un document au système DMP (TD3.3c). Cf. RG_3430.</li>
 </ul>
 
-<p>NB1 : si le LPS implémente le profil Alimentation, il n’est pas nécessaire d’avoir une autorisation d’accès pour supprimer des documents dans le DMP d’un patient.
-NB2 : pour information, seul l’auteur du document peut supprimer le document (contrôle effectué par le système DMP, cf. [DMP-MDRF]).</p>
+<p>NB1 : si le LPS implémente le profil Alimentation, il n'est pas nécessaire d'avoir une autorisation d'accès pour supprimer des documents dans le DMP d'un patient.
+NB2 : pour information, seul l'auteur du document peut supprimer le document (contrôle effectué par le système DMP, cf. [DMP-MDRF]).</p>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
 
-<p>L’INS du patient (EF_DMP11_01).
+<p>L'INS du patient (EF_DMP11_01).
 Le statut « actif » du DMP du patient (EF_DMP12_01).
-L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
+L'autorisation d'accès au DMP du patient (EF_DMP04_01) au statut « valide » (sauf si le
 LPS implémente le profil Alimentation).
-L’identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).</p>
+L'identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).</p>
 
 <h3 id="sortie">Sortie</h3>
 
 <p>Le document est supprimé.</p>
 
-<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+<h3 id="équivalent-fhir">Équivalent FHIR</h3>
 
-<p>Requête HTTP DELETE ou mise à jour de la ressource avec changement de statut ?</p>
+<p>TD3.3c correspond à la transaction <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">ITI-92 Restricted Update DocumentReference</a></strong> du profil PDSm. La suppression logique est réalisée en changeant le statut du <code class="language-plaintext highlighter-rouge">DocumentReference</code> via une opération PATCH.</p>
 
-<h3 id="exemple">Exemple</h3>
+<p>En FHIR, la suppression d'un document DMP se traduit par la mise à jour de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> à <code class="language-plaintext highlighter-rouge">entered-in-error</code>. La ressource reste présente dans le système mais n'est plus accessible dans les recherches courantes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action DMP</th>
+      <th>Élément FHIR modifié</th>
+      <th>Valeur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supprimer</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">entered-in-error</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flux-td33c-a--requête">Flux TD3.3c-a — Requête</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p>Corps de la requête (JSON Patch) :</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/status"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entered-in-error"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="flux-td33c-b--réponse">Flux TD3.3c-b — Réponse</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code HTTP</th>
+      <th>Signification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td>Mise à jour effectuée — le corps de la réponse contient le <code class="language-plaintext highlighter-rouge">DocumentReference</code> mis à jour</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">403 Forbidden</code></td>
+      <td>Refus — l'appelant n'est pas l'auteur du document</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404 Not Found</code></td>
+      <td>Document introuvable</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code></td>
+      <td>PATCH invalide ou refusé par la règle métier</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
+      <td>Erreur — accompagnée d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exemple-fhir">Exemple FHIR</h3>
+
+<p>Suppression du document <code class="language-plaintext highlighter-rouge">example-td3-1a-cr-consultation</code> :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/status"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entered-in-error"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Réponse : <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">DocumentReference</code> avec <code class="language-plaintext highlighter-rouge">status</code> = <code class="language-plaintext highlighter-rouge">entered-in-error</code>.</p>
+
 
 
 
@@ -364,7 +453,7 @@ L’identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).<
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-17 08:38:00 +0000">
+  <span title="2026-06-17 08:46:00 +0000">
     2026-06-17
   </span>
 
