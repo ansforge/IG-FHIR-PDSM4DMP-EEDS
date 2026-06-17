@@ -1,5 +1,0 @@
-### Entrée
-
-### Sortie
-
-### Exemple

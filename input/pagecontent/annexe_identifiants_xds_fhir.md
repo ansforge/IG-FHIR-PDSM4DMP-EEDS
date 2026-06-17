@@ -1,8 +1,6 @@
-### Comparatif des identifiants XDS et FHIR
-
 Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modèles de métadonnées : le modèle XDS (utilisé par le CI-SIS et les spécifications DMP historiques) et le modèle FHIR/MHD (utilisé par PDSm). Cette page recense les identifiants de chaque modèle et leurs équivalents.
 
-#### DocumentEntry / DocumentReference
+### DocumentEntry / DocumentReference
 
 | Identifiant XDS | Type | Description | Équivalent FHIR |
 |-----------------|------|-------------|-----------------|
@@ -17,7 +15,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 
 > **Note :** Dans le contexte DMP, `uniqueId` correspond à l'identifiant que le LPS attribue au document au moment de sa création. C'est l'identifiant que le LPS connaît localement. L'`entryUUID`, en revanche, est attribué par le registre DMP lors de la soumission — le LPS doit l'obtenir via TD3.1a ou TD3.1b pour pouvoir ensuite modifier ou supprimer le document.
 
-#### SubmissionSet / List (SubmissionSet PDSm)
+### SubmissionSet / List (SubmissionSet PDSm)
 
 | Identifiant XDS | Type | Description | Équivalent FHIR |
 |-----------------|------|-------------|-----------------|
@@ -27,7 +25,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | `patientId` | CX | Identifiant du patient. | `List.subject` → `Patient.identifier` |
 | `sourcePatientId` | CX | Identifiant local du patient chez la source. | Extension `ihe-sourcePatientId` sur `List` |
 
-#### Folder / List (Folder PDSm)
+### Folder / List (Folder PDSm)
 
 | Identifiant XDS | Type | Description | Équivalent FHIR |
 |-----------------|------|-------------|-----------------|
@@ -35,7 +33,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | `uniqueId` | OID / UUID | Identifiant unique du classeur attribué par le producteur. | `List.identifier` |
 | `patientId` | CX | Identifiant du patient. | `List.subject` → `Patient.identifier` |
 
-#### Récapitulatif : entryUUID vs uniqueId dans le contexte DMP
+### Récapitulatif : entryUUID vs uniqueId dans le contexte DMP
 
 Ces deux identifiants sont les plus fréquemment confondus. Le tableau ci-dessous résume leurs différences essentielles.
 
