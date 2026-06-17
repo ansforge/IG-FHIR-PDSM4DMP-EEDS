@@ -18,9 +18,14 @@ unique des document(s) sélectionnés. Cf. RG_3050.
 
 ### Entrée et prérequis
 
-L’INS du patient (EF_DMP11_01).
-Le statut « actif » du DMP du patient (EF_DMP12_01).
-L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».
+<div style="background-color: #e8f4f8; border-left: 4px solid #0077be; padding: 10px; margin: 10px 0;">
+<b>Prérequis à vérifier avant d’exécuter cette transaction :</b>
+<ul>
+<li>L’INS du patient <code>(EF_DMP11_01)</code></li>
+<li>Le statut « actif » du DMP du patient <code>(EF_DMP12_01)</code></li>
+<li>L’autorisation d’accès au DMP du patient <code>(EF_DMP04_01)</code> au statut « valide »</li>
+</ul>
+</div>
 
 ### Sortie
 
@@ -30,7 +35,7 @@ La liste des documents consultables par l’utilisateur.
 
 TD3.1a correspond à la transaction **[ITI-67 Find Document References](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html)** du profil PDSm. Elle permet au LPS de rechercher les fiches (`DocumentReference`) du DMP d'un patient à partir de son INS et de critères optionnels.
 
-#### Flux TD3.1a-a — Requête
+#### Flux TD3.1a — Requête
 
 Le LPS effectue une recherche sur la ressource `DocumentReference` en utilisant le paramètre `patient.identifier` valorisé avec l'INS du patient.
 
@@ -59,7 +64,7 @@ Accept: application/fhir+json
 
 > **Note :** Le statut du DMP et l'autorisation d'accès ne sont pas des paramètres de la requête ITI-67. Ces prérequis sont vérifiés en amont (via TD02) et gérés par la couche d'autorisation du système DMP, en dehors du périmètre de cette transaction.
 
-#### Flux TD3.1a-b — Réponse
+#### Flux TD3.1a — Réponse
 
 En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset` contenant zéro ou plusieurs ressources `DocumentReference`.
 
