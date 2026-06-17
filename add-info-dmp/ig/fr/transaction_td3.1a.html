@@ -145,6 +145,19 @@
   <li>
     <a href="exemples_usage_dmp.html">Exemples d'usages DMP</a>
   </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Annexes
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="annexe_identifiants_xds_fhir.html">Comparatif identifiants XDS / FHIR</a>
+      </li>
+      <li>
+        <a href="annexe_dates_xds_fhir.html">Comparatif dates XDS / FHIR</a>
+      </li>
+    </ul>
+  </li>
   <li>
     <a href="artifacts.html">Ressources de conformité</a>
   </li>
@@ -294,7 +307,7 @@ L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide 
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>TD3.1a correspond à la transaction <strong><a name="l511">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
+<p>TD3.1a correspond à la transaction <strong><a name="l534">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
 
 <h4 id="flux-td31a-a--requête">Flux TD3.1a-a — Requête</h4>
 
@@ -612,7 +625,7 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 07:47:00 +0000">
+  <span title="2026-06-17 07:58:00 +0000">
     2026-06-17
   </span>
 

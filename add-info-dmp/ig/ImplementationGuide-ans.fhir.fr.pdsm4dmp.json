@@ -11,7 +11,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-06-17T07:47:53+00:00",
+  "date" : "2026-06-17T07:58:49+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -1545,6 +1545,33 @@
         "nameUrl" : "change-log.html",
         "title" : "Historique des versions",
         "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "annexe.html"
+        }],
+        "nameUrl" : "annexe.html",
+        "title" : "Annexes",
+        "generation" : "markdown",
+        "page" : [{
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "annexe_identifiants_xds_fhir.html"
+          }],
+          "nameUrl" : "annexe_identifiants_xds_fhir.html",
+          "title" : "Comparatif des identifiants XDS / FHIR",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "annexe_dates_xds_fhir.html"
+          }],
+          "nameUrl" : "annexe_dates_xds_fhir.html",
+          "title" : "Comparatif des dates XDS / FHIR",
+          "generation" : "markdown"
+        }]
       },
       {
         "extension" : [{
