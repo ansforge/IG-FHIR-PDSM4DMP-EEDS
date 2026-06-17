@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm  dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-17T11:32:53+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-17T11:35:28+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -2039,7 +2039,7 @@
              a fhir:url ;
              fhir:v "transaction_td02.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD02" ] ;
+           fhir:title [ fhir:v "Flux TD02 - Valider l'existence et l'état du DMP" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2053,7 +2053,7 @@
              a fhir:url ;
              fhir:v "transaction_td2.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD2" ] ;
+           fhir:title [ fhir:v "Flux TD2 - Alimenter le DMP" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2067,7 +2067,7 @@
              a fhir:url ;
              fhir:v "transaction_td2.1.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD2.1" ] ;
+           fhir:title [ fhir:v "Flux TD2.1 - Remplacer un document" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2081,7 +2081,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.1a.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.1a" ] ;
+           fhir:title [ fhir:v "Flux TD3.1a - Lister les documents d'un DMP" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2095,7 +2095,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.1b.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.1b" ] ;
+           fhir:title [ fhir:v "Flux TD3.1b - Rechercher par identifiant" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2109,7 +2109,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.2.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.2" ] ;
+           fhir:title [ fhir:v "Flux TD3.2 - Consulter un document" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2123,7 +2123,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.3a.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.3a" ] ;
+           fhir:title [ fhir:v "Flux TD3.3a - Masquer / démasquer aux professionnels" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2137,7 +2137,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.3b.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.3b" ] ;
+           fhir:title [ fhir:v "Flux TD3.3b - Visibilité patient" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2151,7 +2151,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.3c.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.3c" ] ;
+           fhir:title [ fhir:v "Flux TD3.3c - Supprimer un document" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] [
            fhir:extension ( [
@@ -2165,7 +2165,7 @@
              a fhir:url ;
              fhir:v "transaction_td3.3d.html"^^xsd:anyURI
            ] ;
-           fhir:title [ fhir:v "Flux TD3.3d" ] ;
+           fhir:title [ fhir:v "Flux TD3.3d - Archiver / désarchiver un document" ] ;
            fhir:generation [ fhir:v "markdown" ]
          ] )
        ] [

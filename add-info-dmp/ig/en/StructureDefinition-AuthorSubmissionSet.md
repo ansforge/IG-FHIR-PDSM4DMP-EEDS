@@ -32,7 +32,7 @@ Other representations of profile: [CSV](../StructureDefinition-AuthorSubmissionS
   "name" : "AuthorSubmissionSet",
   "title" : "AuthorSubmissionSet (LM)",
   "status" : "draft",
-  "date" : "2026-06-17T11:32:53+00:00",
+  "date" : "2026-06-17T11:35:28+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",

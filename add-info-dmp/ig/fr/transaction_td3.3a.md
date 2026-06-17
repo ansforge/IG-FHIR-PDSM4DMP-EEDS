@@ -1,6 +1,6 @@
-# Flux TD3.3a - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.3a - Masquer / démasquer aux professionnels - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.3a
+## Flux TD3.3a - Masquer / démasquer aux professionnels
 
 ### Description
 

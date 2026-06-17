@@ -1,6 +1,6 @@
-# Flux TD3.1a - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.1a - Lister les documents d'un DMP - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.1a
+## Flux TD3.1a - Lister les documents d'un DMP
 
 ### Description
 

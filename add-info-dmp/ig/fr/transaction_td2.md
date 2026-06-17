@@ -1,6 +1,6 @@
-# Flux TD2 - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD2 - Alimenter le DMP - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD2
+## Flux TD2 - Alimenter le DMP
 
 ### Description
 

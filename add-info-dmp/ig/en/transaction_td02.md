@@ -1,6 +1,6 @@
-# Flux TD02 - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD02 - Valider l'existence et l'état du DMP - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD02
+## Flux TD02 - Valider l'existence et l'état du DMP
 
  
 There is no translation page available for the current page, so it has been rendered in the default language 

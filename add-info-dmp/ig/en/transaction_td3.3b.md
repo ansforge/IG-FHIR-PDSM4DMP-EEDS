@@ -1,6 +1,6 @@
-# Flux TD3.3b - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.3b - Visibilité patient - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.3b
+## Flux TD3.3b - Visibilité patient
 
  
 There is no translation page available for the current page, so it has been rendered in the default language 

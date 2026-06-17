@@ -1,6 +1,6 @@
-# Flux TD3.2 - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.2 - Consulter un document - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.2
+## Flux TD3.2 - Consulter un document
 
 ### Description
 

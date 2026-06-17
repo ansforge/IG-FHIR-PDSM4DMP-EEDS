@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-06-17T11:32:53+00:00",
+  "date" : "2026-06-17T11:35:28+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -1450,7 +1450,7 @@
             "valueUrl" : "transaction_td02.html"
           }],
           "nameUrl" : "transaction_td02.html",
-          "title" : "Flux TD02",
+          "title" : "Flux TD02 - Valider l'existence et l'état du DMP",
           "generation" : "markdown"
         },
         {
@@ -1459,7 +1459,7 @@
             "valueUrl" : "transaction_td2.html"
           }],
           "nameUrl" : "transaction_td2.html",
-          "title" : "Flux TD2",
+          "title" : "Flux TD2 - Alimenter le DMP",
           "generation" : "markdown"
         },
         {
@@ -1468,7 +1468,7 @@
             "valueUrl" : "transaction_td2.1.html"
           }],
           "nameUrl" : "transaction_td2.1.html",
-          "title" : "Flux TD2.1",
+          "title" : "Flux TD2.1 - Remplacer un document",
           "generation" : "markdown"
         },
         {
@@ -1477,7 +1477,7 @@
             "valueUrl" : "transaction_td3.1a.html"
           }],
           "nameUrl" : "transaction_td3.1a.html",
-          "title" : "Flux TD3.1a",
+          "title" : "Flux TD3.1a - Lister les documents d'un DMP",
           "generation" : "markdown"
         },
         {
@@ -1486,7 +1486,7 @@
             "valueUrl" : "transaction_td3.1b.html"
           }],
           "nameUrl" : "transaction_td3.1b.html",
-          "title" : "Flux TD3.1b",
+          "title" : "Flux TD3.1b - Rechercher par identifiant",
           "generation" : "markdown"
         },
         {
@@ -1495,7 +1495,7 @@
             "valueUrl" : "transaction_td3.2.html"
           }],
           "nameUrl" : "transaction_td3.2.html",
-          "title" : "Flux TD3.2",
+          "title" : "Flux TD3.2 - Consulter un document",
           "generation" : "markdown"
         },
         {
@@ -1504,7 +1504,7 @@
             "valueUrl" : "transaction_td3.3a.html"
           }],
           "nameUrl" : "transaction_td3.3a.html",
-          "title" : "Flux TD3.3a",
+          "title" : "Flux TD3.3a - Masquer / démasquer aux professionnels",
           "generation" : "markdown"
         },
         {
@@ -1513,7 +1513,7 @@
             "valueUrl" : "transaction_td3.3b.html"
           }],
           "nameUrl" : "transaction_td3.3b.html",
-          "title" : "Flux TD3.3b",
+          "title" : "Flux TD3.3b - Visibilité patient",
           "generation" : "markdown"
         },
         {
@@ -1522,7 +1522,7 @@
             "valueUrl" : "transaction_td3.3c.html"
           }],
           "nameUrl" : "transaction_td3.3c.html",
-          "title" : "Flux TD3.3c",
+          "title" : "Flux TD3.3c - Supprimer un document",
           "generation" : "markdown"
         },
         {
@@ -1531,7 +1531,7 @@
             "valueUrl" : "transaction_td3.3d.html"
           }],
           "nameUrl" : "transaction_td3.3d.html",
-          "title" : "Flux TD3.3d",
+          "title" : "Flux TD3.3d - Archiver / désarchiver un document",
           "generation" : "markdown"
         }]
       },

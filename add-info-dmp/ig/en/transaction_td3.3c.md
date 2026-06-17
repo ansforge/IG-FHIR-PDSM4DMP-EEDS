@@ -1,6 +1,6 @@
-# Flux TD3.3c - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.3c - Supprimer un document - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.3c
+## Flux TD3.3c - Supprimer un document
 
  
 There is no translation page available for the current page, so it has been rendered in the default language 

@@ -1,6 +1,6 @@
-# Flux TD3.3d - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+# Flux TD3.3d - Archiver / désarchiver un document - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
 
-## Flux TD3.3d
+## Flux TD3.3d - Archiver / désarchiver un document
 
 ### Description
 
