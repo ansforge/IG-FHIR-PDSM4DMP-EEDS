@@ -1,3 +1,5 @@
+<!-- Cf discussions https://github.com/IHE/ITI.MHD/pull/234 -->
+
 ### Comparatif des dates XDS et FHIR
 
 Le modèle XDS distingue plusieurs dates portant des sémantiques précises. Leur transposition en FHIR/MHD nécessite de bien comprendre à quoi correspond chaque élément.
