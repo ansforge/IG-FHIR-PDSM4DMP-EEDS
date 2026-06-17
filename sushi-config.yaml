@@ -3,7 +3,7 @@
 id: ans.fhir.fr.pdsm4dmp
 canonical: https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp # the last part of canonical and id must be the same
 name: PDSm4DMP # Should be an acronym
-title: Utilisation de PDSm  dans le contexte d'EEDS
+title: Utilisation de PDSm pour le DMP dans le contexte d'EEDS
 publisher:
   name: Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris
   url: https://esante.gouv.fr
@@ -12,76 +12,24 @@ version: 0.1.0 # shall conforms to Semantic Versioning https://fr.wiktionary.org
 fhirVersion: 4.0.1
 copyrightYear: 2020+
 releaseLabel: ci-build # le release label doit être conforme au cycle de vie de la doctrine du ci-sis
-jurisdiction: urn:iso:std:iso:3166#FR "France (la)"
-
-dependencies:
-    ans.fr.terminologies: latest
-    ans.fhir.fr.pdsm: 3.1.0
-    hl7.fhir.fr.core: 2.1.0
-    ans.fhir.fr.annuaire: 1.0.1
+jurisdiction: urn:iso:std:iso:3166#FR "FRANCE"
 
 parameters: #Parameters list - https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html
     shownav: 'true'
-    path-resource:
-        - input/examples
-        #- input/fsh/data-type/primitive/complex/complex-data-type
-    path-expansion-params: '../../expansion-params.json'
-    pin-canonicals: pin-all
-    apply-contact: true
-    apply-jurisdiction: true
-    logging:
-      - tx
-      - html
-      - generate
-      - init
-      - progress
-    i18n-default-lang: fr
-    i18n-lang:
-      - en
-    translation-sources:
-      - input/translations/en
+
+
+
 pages:
     index.md:
         title: Accueil
     specifications_techniques.md:
         construction_des_flux.md:
-            title: Vue d'ensemble
         transaction_1.md:
             title: Flux 01
         transaction_2.md:
             title: Flux 02
-        transaction_td02.md:
-            title: "Flux TD02 - Valider l'existence et l'état du DMP"
-        transaction_td2.md:
-            title: "Flux TD2 - Alimenter le DMP"
-        transaction_td2.1.md:
-            title: "Flux TD2.1 - Remplacer un document"
-        transaction_td3.1a.md:
-            title: "Flux TD3.1a - Lister les documents d'un DMP"
-        transaction_td3.1b.md:
-            title: "Flux TD3.1b - Rechercher par identifiant"
-        transaction_td3.2.md:
-            title: "Flux TD3.2 - Consulter un document"
-        transaction_td3.3a.md:
-            title: "Flux TD3.3a - Masquer / démasquer aux professionnels"
-        transaction_td3.3b.md:
-            title: "Flux TD3.3b - Visibilité patient"
-        transaction_td3.3c.md:
-            title: "Flux TD3.3c - Supprimer un document"
-        transaction_td3.3d.md:
-            title: "Flux TD3.3d - Archiver / désarchiver un document"      
     exemples_usage_dmp.md:
         title: Exemples d'usages DMP
-    translationinfo.md:
-        title: Informations sur la traduction
-    change-log.md:
-        title: Historique des versions
-    annexe.md:
-        title: Annexes
-        annexe_identifiants_xds_fhir.md:
-            title: Comparatif des identifiants XDS / FHIR
-        annexe_dates_xds_fhir.md:
-            title: Comparatif des dates XDS / FHIR
     autres_ressources.md:
         title: Autres Ressources
         securite.md:
@@ -93,24 +41,10 @@ pages:
 menu:
     Accueil: index.html
     Transaction DMP Patient:
-        Vue d'ensemble: construction_des_flux.html
-        "TD02 - Valider existence DMP": transaction_td02.html
-        "TD2 - Soumettre des documents": transaction_td2.html
-        "TD2.1 - Remplacer un document": transaction_td2.1.html
-        "TD3.1a - Lister les documents": transaction_td3.1a.html
-        "TD3.1b - Rechercher identifiant": transaction_td3.1b.html
-        "TD3.2 - Consulter un document": transaction_td3.2.html
-        "TD3.3a - Masquer / démasquer": transaction_td3.3a.html
-        "TD3.3b - Visibilité patient": transaction_td3.3b.html
-        "TD3.3c - Supprimer un document": transaction_td3.3c.html
-        "TD3.3d - Archiver / désarchiver": transaction_td3.3d.html             
-
-
-    Exemples d'usages DMP: exemples_usage_dmp.html
-    Annexes:
-        "Comparatif identifiants XDS / FHIR": annexe_identifiants_xds_fhir.html
-        "Comparatif dates XDS / FHIR": annexe_dates_xds_fhir.html
-
+        Diagramme: construction_des_flux.html
+        Transaction 1: transaction_1.html
+        Transaction 2: transaction_2.html
+    Exemples d'usages DMP: exemples_usage_dmp.html 
     Ressources de conformité: artifacts.html
     Autres ressources:
         Sécurité: securite.html
@@ -118,98 +52,3 @@ menu:
         "Spécifications FHIR ": new-tab {{site.data.fhir.path}}index.html
         "Site de l'ANS ": new-tab https://esante.gouv.fr/
     Documentation: new-tab https://interop.esante.gouv.fr/ig/documentation/
-    Historique: change-log.html
-
-resources:
-
-
-#------------ Examples -----------
-  Binary/AuthorPSCabinetRPPS:
-    profile: StructureDefinition/AuthorDocumentEntry
-
-  Binary/AuthorStructure:
-    profile: StructureDefinition/AuthorDocumentEntry
-
-  Binary/AuthorDispositif:
-    profile: StructureDefinition/AuthorDocumentEntry
-
-  Binary/AuthorPatient:
-    profile: StructureDefinition/AuthorDocumentEntry
-
-
-  Binary/AuthorInstitutionStructure:
-    profile: StructureDefinition/AuthorInstitution
-
-  Binary/AuthorInstitutionCabinetRPPS:
-    profile: StructureDefinition/AuthorInstitution
-
-  Binary/AuthorInstitutionSNR:
-    profile: StructureDefinition/AuthorInstitution
-
-
-
-groups:
-  LogicalModel:
-    name:  Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)
-    description: Modèle logique du Lot de soumission (SubmissionSet) et du DocumentEntry (XDS)
-    resources:
-      - StructureDefinition/SubmissionSet
-      - StructureDefinition/DocumentEntry      
-      - StructureDefinition/EventCode      
-      - StructureDefinition/Folder        
-
-  LogicalModelPatient:
-    name:  Modèle logique Patient (XDS)
-    description: Modèle logique Patient XDS
-    resources:
-      - StructureDefinition/PatientId
-      - StructureDefinition/SourcePatientId
-      - StructureDefinition/SourcePatientInfo
-
-
-  LogicalModelAuthor:
-    name:  Modèle logique de l'auteur (Author) et du LegalAuthenticator (XDS)
-    description: Modèle logique l'auteur (Author) et du LegalAuthenticator XDS
-    resources:
-#      - StructureDefinition/LegalAuthenticator
-      - StructureDefinition/Author
-      - StructureDefinition/AuthorDocumentEntry
-      - StructureDefinition/AuthorSubmissionSet          
-      - StructureDefinition/AuthorInstitution
-      - StructureDefinition/ActorXDS            
-      - StructureDefinition/ActorPS
-      - StructureDefinition/ActorPatient
-      - StructureDefinition/ActorSNR
-      - StructureDefinition/ActorSystem   
-
-  DataType:
-    name:  Data Type 
-    description: Types de base du Modèle logique
-    resources:
-      - StructureDefinition/IdentifiantSysteme
-      - StructureDefinition/MatriculeINS
-      - StructureDefinition/PSIdNat
-      - StructureDefinition/SNR            
-      - StructureDefinition/StructIdNat
-
-
-
-  mapping:
-    name:  Mapping Volet partage vers PDSM
-    description: Mapping du "Volet Partage de Documents de Santé" vers "Partage de Documents de Santé en mobilité (PDSm)""
-    resources:
-      - ConceptMap/documentReferenceToPDSM
-      - ConceptMap/submissionSetToPDSM
-
-
-  exemple:
-    name:  Liste d'exemples
-    description: Liste d'exemples
-    resources:
-      - Binary/AuthorPatient
-      - Binary/AuthorDispositif
-      - Binary/AuthorStructure
-      - Binary/AuthorPSCabinetRPPS
-      - DocumentReference/example-td3-1a-cr-consultation
-      - DocumentReference/example-td3-1a-ordonnance
-      - DocumentReference/example-td3-1a-fhir-document
