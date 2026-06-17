@@ -110,5 +110,10 @@ Accept: application/fhir+json
 
 **Réponse :** `200 OK` — `Bundle` de type `searchset` contenant les `DocumentReference` correspondants.
 
-- [Voir l'exemple : DocumentReference - Compte rendu de consultation (TD3.1a)](DocumentReference-example-td3-1a-cr-consultation.html)
-- [Voir l'exemple : DocumentReference - Ordonnance médicale (TD3.1a)](DocumentReference-example-td3-1a-ordonnance.html)
+Les exemples ci-dessous illustrent les trois cas de figure pour `content.attachment.url` :
+
+| Exemple | Format du document | Valeur de `attachment.url` |
+|---------|-------------------|---------------------------|
+| [Compte rendu de consultation](DocumentReference-example-td3-1a-cr-consultation.html) | PDF (`application/pdf`) | URL absolue vers une ressource `Binary` |
+| [Ordonnance médicale](DocumentReference-example-td3-1a-ordonnance.html) | PDF (`application/pdf`) | URL relative vers une ressource `Binary` |
+| [Document FHIR (Bundle)](DocumentReference-example-td3-1a-fhir-document.html) | FHIR JSON (`application/fhir+json`) | URL relative vers une ressource `Bundle` |

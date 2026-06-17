@@ -36,7 +36,7 @@ Description: "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pou
 * securityLabel = $v3-Confidentiality#N "normal"
 * content.attachment.contentType = #application/pdf
 * content.attachment.language = #fr-FR
-* content.attachment.url = "urn:oid:1.2.250.1.213.1.4.8.99999.101"
+* content.attachment.url = "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a"
 * content.attachment.size = 45678
 * content.attachment.hash = "A/hMRrv6Y15BjSM8kMLidrz+mHc="
 * content.attachment.title = "CR Consultation 20/11/2024"
