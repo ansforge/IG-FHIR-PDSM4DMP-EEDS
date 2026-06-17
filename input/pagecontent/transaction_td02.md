@@ -100,7 +100,10 @@ Le statut du DMP est porté par l'élément natif `Patient.active` (`true` = DMP
 | Statut « médecin traitant DMP » | Extension `dmp-medecin-traitant` sur `Patient` |
 | Statut de l'autorisation d'accès (EF_DMP04_01) | Hors scope — à mapper sur une ressource `Consent` (à préciser) |
 
-> **Note :** Une alternative à l'utilisation de `Patient.active` consisterait à matérialiser l'ouverture du DMP par une ressource dédiée — `Consent` (consentement du patient à l'existence de son DMP) ou `Flag` (signalement administratif avec statut et période natifs). Ces approches offrent un cycle de vie plus explicite mais introduisent une ressource supplémentaire à gérer.
+<div style="background-color: #fff9e6; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0;">
+<b>📝 Note — Alternative de modélisation</b><br/>
+Une alternative à l'utilisation de <code>Patient.active</code> consisterait à matérialiser l'ouverture du DMP par une ressource dédiée — <code>Consent</code> (consentement du patient à l'existence de son DMP) ou <code>Flag</code> (signalement administratif avec statut et période natifs). Ces approches offrent un cycle de vie plus explicite mais introduisent une ressource supplémentaire à gérer.
+</div>
 
 ### Exemple FHIR
 
