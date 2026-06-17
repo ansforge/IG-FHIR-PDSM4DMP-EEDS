@@ -28,7 +28,7 @@ L’identifiant unique du document dans le système DMP (entryUUID).
 
 TD3.1b correspond à la transaction **[ITI-67 Find Document References](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html)** du profil PDSm, utilisée ici avec le paramètre `identifier` pour retrouver un document précis à partir de son identifiant local LPS (`uniqueId`).
 
-#### Flux TD3.1b-a — Requête
+#### Flux TD3.1b — Requête
 
 ```
 GET [base]/DocumentReference?patient.identifier=[systeme-INS]|[valeur-INS]&identifier=[systeme-uniqueId]|[valeur-uniqueId] HTTP/1.1
@@ -44,7 +44,7 @@ Accept: application/fhir+json
 
 > **Note :** Le statut du DMP et l’autorisation d’accès sont des prérequis vérifiés en amont (via TD02) et gérés par la couche d’autorisation du système DMP, en dehors du périmètre de cette transaction.
 
-#### Flux TD3.1b-b — Réponse
+#### Flux TD3.1b — Réponse
 
 En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset`.
 

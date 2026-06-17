@@ -29,7 +29,7 @@ Les documents affichés par le LPS.
 
 TD3.2 correspond à la transaction **[ITI-68 Retrieve Document](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_consultation.html)** du profil PDSm. Le LPS utilise l'URL présente dans `DocumentReference.content.attachment.url` (obtenue via TD3.1a) pour télécharger le contenu binaire du document.
 
-#### Flux TD3.2-a — Requête
+#### Flux TD3.2 — Requête
 
 ```
 GET [DocumentReference.content.attachment.url] HTTP/1.1
@@ -45,7 +45,7 @@ GET [base]/Binary/[id] HTTP/1.1
 Accept: application/fhir+json
 ```
 
-#### Flux TD3.2-b — Réponse
+#### Flux TD3.2 — Réponse
 
 | Code HTTP | Signification |
 |-----------|--------------|
