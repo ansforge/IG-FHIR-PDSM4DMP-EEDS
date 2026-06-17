@@ -25,8 +25,76 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
 
 Les documents affichés par le LPS.
 
-### Equivalence FHIR
+### Equivalent FHIR
 
-Le DocumentReference contient un Binary permettant d'accéder au document pdf, CDA, ou FHIR
+TD3.2 correspond à la transaction **[ITI-68 Retrieve Document](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_consultation.html)** du profil PDSm. Le LPS utilise l'URL présente dans `DocumentReference.content.attachment.url` (obtenue via TD3.1a) pour télécharger le contenu binaire du document.
 
-### Exemple
+#### Flux TD3.2-a — Requête
+
+```
+GET [DocumentReference.content.attachment.url] HTTP/1.1
+Accept: [type-MIME-du-document]
+```
+
+Le type MIME à indiquer dans l'en-tête `Accept` correspond à `DocumentReference.content.attachment.contentType` (ex. `application/pdf`, `application/xml` pour CDA).
+
+Il est également possible de demander la ressource `Binary` encapsulée dans une réponse FHIR :
+
+```
+GET [base]/Binary/[id] HTTP/1.1
+Accept: application/fhir+json
+```
+
+#### Flux TD3.2-b — Réponse
+
+| Code HTTP | Signification |
+|-----------|--------------|
+| `200 OK` | Document retourné — corps de la réponse : contenu binaire du document (ou ressource `Binary` FHIR) |
+| `404 Not Found` | Document introuvable |
+| `4xx` / `5xx` | Erreur — accompagnée d'une ressource `OperationOutcome` |
+
+Lorsque le LPS demande le contenu brut (Accept = type MIME natif), le corps de la réponse est directement le fichier (PDF, XML CDA…) sans enveloppe FHIR. Lorsqu'il demande `application/fhir+json`, le serveur retourne une ressource `Binary` avec le contenu encodé en base64 dans `Binary.data`.
+
+### Exemple FHIR
+
+Le LPS a récupéré l'URL suivante depuis le `DocumentReference` retourné par TD3.1a :
+
+```
+DocumentReference.content.attachment.url = "urn:oid:1.2.250.1.213.1.4.8.99999.101"
+DocumentReference.content.attachment.contentType = "application/pdf"
+```
+
+**Requête — téléchargement du contenu brut :**
+
+```
+GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+Accept: application/pdf
+```
+
+**Réponse :**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Length: 45678
+
+%PDF-1.4 ...
+```
+
+**Requête alternative — ressource Binary FHIR :**
+
+```
+GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+Accept: application/fhir+json
+```
+
+**Réponse :**
+
+```json
+{
+  "resourceType": "Binary",
+  "id": "1.2.250.1.213.1.4.8.99999.101",
+  "contentType": "application/pdf",
+  "data": "JVBERi0xLjQg..."
+}
+```
