@@ -11,7 +11,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm  dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2026-06-16T12:25:33+00:00"/>
+  <date value="2026-06-17T07:47:53+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -60,6 +60,11 @@
     <uri value="https://hl7.fr/ig/fhir/core/ImplementationGuide/hl7.fhir.fr.core"/>
     <packageId value="hl7.fhir.fr.core"/>
     <version value="2.1.0"/>
+  </dependsOn>
+  <dependsOn id="ans_fhir_fr_annuaire">
+    <uri value="https://interop.esante.gouv.fr/ig/fhir/annuaire/ImplementationGuide/ans.fhir.fr.annuaire"/>
+    <packageId value="ans.fhir.fr.annuaire"/>
+    <version value="1.0.1"/>
   </dependsOn>
   <definition>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -934,6 +939,30 @@
       </reference>
       <name value="example-td2-iti65-lot-soumission"/>
       <exampleCanonical value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="DocumentReference"/>
+      </extension>
+      <reference>
+        <reference value="DocumentReference/example-td3-1a-cr-consultation"/>
+      </reference>
+      <name value="Exemple TD3.1a - Compte rendu de consultation"/>
+      <description value="DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour un compte rendu de consultation"/>
+      <exampleBoolean value="true"/>
+      <groupingId value="exemple"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="DocumentReference"/>
+      </extension>
+      <reference>
+        <reference value="DocumentReference/example-td3-1a-ordonnance"/>
+      </reference>
+      <name value="Exemple TD3.1a - Ordonnance médicale"/>
+      <description value="DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour une ordonnance médicale"/>
+      <exampleBoolean value="true"/>
+      <groupingId value="exemple"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">

@@ -11,7 +11,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-06-16T12:25:33+00:00",
+  "date" : "2026-06-17T07:47:53+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -67,6 +67,12 @@
     "uri" : "https://hl7.fr/ig/fhir/core/ImplementationGuide/hl7.fhir.fr.core",
     "packageId" : "hl7.fhir.fr.core",
     "version" : "2.1.0"
+  },
+  {
+    "id" : "ans_fhir_fr_annuaire",
+    "uri" : "https://interop.esante.gouv.fr/ig/fhir/annuaire/ImplementationGuide/ans.fhir.fr.annuaire",
+    "packageId" : "ans.fhir.fr.annuaire",
+    "version" : "1.0.1"
   }],
   "definition" : {
     "extension" : [{
@@ -1188,6 +1194,32 @@
       },
       "name" : "example-td2-iti65-lot-soumission",
       "exampleCanonical" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DocumentReference"
+      }],
+      "reference" : {
+        "reference" : "DocumentReference/example-td3-1a-cr-consultation"
+      },
+      "name" : "Exemple TD3.1a - Compte rendu de consultation",
+      "description" : "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour un compte rendu de consultation",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DocumentReference"
+      }],
+      "reference" : {
+        "reference" : "DocumentReference/example-td3-1a-ordonnance"
+      },
+      "name" : "Exemple TD3.1a - Ordonnance médicale",
+      "description" : "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour une ordonnance médicale",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
     },
     {
       "extension" : [{

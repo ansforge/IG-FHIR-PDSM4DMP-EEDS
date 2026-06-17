@@ -32,7 +32,7 @@ Other representations of profile: [CSV](../StructureDefinition-Identifiant.csv),
   "name" : "Identifiant",
   "title" : "Identifiant",
   "status" : "draft",
-  "date" : "2026-06-16T12:25:33+00:00",
+  "date" : "2026-06-17T07:47:53+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",

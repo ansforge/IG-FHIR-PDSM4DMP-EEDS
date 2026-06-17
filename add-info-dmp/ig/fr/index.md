@@ -66,21 +66,21 @@ Certaines ressources sémantiques de ce guide sont protégées par des droits de
 
 * Some content from IHE® Copyright © 2015 [IHE International, Inc](http://www.ihe.net/Governance/#Intellectual_Property) .
 
-* [IHE Format Code set for use with Document Sharing](https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
+* [IHE Format Code set for use with Document Sharing](https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md), [DocumentReference/example-td3-1a-cr-consultation](DocumentReference-example-td3-1a-cr-consultation.md) and [DocumentReference/example-td3-1a-ordonnance](DocumentReference-example-td3-1a-ordonnance.md)
 
 
 * This material contains content from [LOINC](http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the [license](http://loinc.org/license). LOINC® is a registered United States trademark of Regenstrief Institute, Inc.
 
-* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentEntry](StructureDefinition-DocumentEntry.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md) and [DocumentReference/example-td2-iti105-publication-simplifiee](DocumentReference-example-td2-iti105-publication-simplifiee.md)
+* [LOINC](http://terminology.hl7.org/6.0.2/CodeSystem-v3-loinc.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md)... Show 5 more, [DocumentEntry](StructureDefinition-DocumentEntry.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md), [DocumentReference/example-td2-iti105-publication-simplifiee](DocumentReference-example-td2-iti105-publication-simplifiee.md), [DocumentReference/example-td3-1a-cr-consultation](DocumentReference-example-td3-1a-cr-consultation.md) and [DocumentReference/example-td3-1a-ordonnance](DocumentReference-example-td3-1a-ordonnance.md)
 
 
 * This material contains content that is copyright of SNOMED International. Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact [https://www.snomed.org/get-snomed](https://www.snomed.org/get-snomed) or [info@snomed.org](mailto:info@snomed.org).
 
-* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
+* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md), [DocumentReference/example-td3-1a-cr-consultation](DocumentReference-example-td3-1a-cr-consultation.md) and [DocumentReference/example-td3-1a-ordonnance](DocumentReference-example-td3-1a-ordonnance.md)
 
 
 * This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: [https://terminology.hl7.org/license.html](https://terminology.hl7.org/license.html)
 
-* [Confidentiality](http://terminology.hl7.org/7.2.0/CodeSystem-v3-Confidentiality.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md) and [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md)
+* [Confidentiality](http://terminology.hl7.org/7.2.0/CodeSystem-v3-Confidentiality.html): [Bundle/example-td2-1-remplacement](Bundle-example-td2-1-remplacement.md), [Bundle/example-td2-iti65-lot-soumission](Bundle-example-td2-iti65-lot-soumission.md), [DocumentReference/doc-x-id](DocumentReference-doc-x-id.md), [DocumentReference/example-td3-1a-cr-consultation](DocumentReference-example-td3-1a-cr-consultation.md) and [DocumentReference/example-td3-1a-ordonnance](DocumentReference-example-td3-1a-ordonnance.md)
 
 
