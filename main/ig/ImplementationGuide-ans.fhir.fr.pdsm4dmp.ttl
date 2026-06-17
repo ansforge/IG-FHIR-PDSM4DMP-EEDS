@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm  dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-17T14:05:17+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-17T14:38:50+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -1986,20 +1986,6 @@
          fhir:title [ fhir:v "Specifications Techniques" ] ;
          fhir:generation [ fhir:v "markdown" ] ;
          fhir:page ( [
-           fhir:extension ( [
-             fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
-             fhir:value [
-               a fhir:url ;
-               fhir:v "construction_des_flux.html"^^xsd:anyURI
-             ]
-           ] ) ;
-           fhir:name [
-             a fhir:url ;
-             fhir:v "construction_des_flux.html"^^xsd:anyURI
-           ] ;
-           fhir:title [ fhir:v "Vue d'ensemble" ] ;
-           fhir:generation [ fhir:v "markdown" ]
-         ] [
            fhir:extension ( [
              fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
              fhir:value [
