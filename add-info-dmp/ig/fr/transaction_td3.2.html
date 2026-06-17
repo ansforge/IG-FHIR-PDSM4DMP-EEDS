@@ -269,8 +269,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#description" id="markdown-toc-description">Description</a></li>
   <li><a href="#entrée-et-prérequis" id="markdown-toc-entrée-et-prérequis">Entrée et prérequis</a></li>
   <li><a href="#sortie" id="markdown-toc-sortie">Sortie</a></li>
-  <li><a href="#equivalence-fhir" id="markdown-toc-equivalence-fhir">Equivalence FHIR</a></li>
-  <li><a href="#exemple" id="markdown-toc-exemple">Exemple</a></li>
+  <li><a href="#equivalent-fhir" id="markdown-toc-equivalent-fhir">Equivalent FHIR</a></li>
+  <li><a href="#exemple-fhir" id="markdown-toc-exemple-fhir">Exemple FHIR</a></li>
 </ul>
 
 </div>
@@ -303,11 +303,89 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
 
 <p>Les documents affichés par le LPS.</p>
 
-<h3 id="equivalence-fhir">Equivalence FHIR</h3>
+<h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>Le DocumentReference contient un Binary permettant d'accéder au document pdf, CDA, ou FHIR</p>
+<p>TD3.2 correspond à la transaction <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_consultation.html">ITI-68 Retrieve Document</a></strong> du profil PDSm. Le LPS utilise l'URL présente dans <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.url</code> (obtenue via TD3.1a) pour télécharger le contenu binaire du document.</p>
 
-<h3 id="exemple">Exemple</h3>
+<h4 id="flux-td32-a--requête">Flux TD3.2-a — Requête</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [DocumentReference.content.attachment.url] HTTP/1.1
+Accept: [type-MIME-du-document]
+</code></pre></div></div>
+
+<p>Le type MIME à indiquer dans l'en-tête <code class="language-plaintext highlighter-rouge">Accept</code> correspond à <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.contentType</code> (ex. <code class="language-plaintext highlighter-rouge">application/pdf</code>, <code class="language-plaintext highlighter-rouge">application/xml</code> pour CDA).</p>
+
+<p>Il est également possible de demander la ressource <code class="language-plaintext highlighter-rouge">Binary</code> encapsulée dans une réponse FHIR :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Binary/[id] HTTP/1.1
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<h4 id="flux-td32-b--réponse">Flux TD3.2-b — Réponse</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code HTTP</th>
+      <th>Signification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td>Document retourné — corps de la réponse : contenu binaire du document (ou ressource <code class="language-plaintext highlighter-rouge">Binary</code> FHIR)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404 Not Found</code></td>
+      <td>Document introuvable</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4xx</code> / <code class="language-plaintext highlighter-rouge">5xx</code></td>
+      <td>Erreur — accompagnée d'une ressource <code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Lorsque le LPS demande le contenu brut (Accept = type MIME natif), le corps de la réponse est directement le fichier (PDF, XML CDA…) sans enveloppe FHIR. Lorsqu'il demande <code class="language-plaintext highlighter-rouge">application/fhir+json</code>, le serveur retourne une ressource <code class="language-plaintext highlighter-rouge">Binary</code> avec le contenu encodé en base64 dans <code class="language-plaintext highlighter-rouge">Binary.data</code>.</p>
+
+<h3 id="exemple-fhir">Exemple FHIR</h3>
+
+<p>Le LPS a récupéré l'URL suivante depuis le <code class="language-plaintext highlighter-rouge">DocumentReference</code> retourné par TD3.1a :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DocumentReference.content.attachment.url = "urn:oid:1.2.250.1.213.1.4.8.99999.101"
+DocumentReference.content.attachment.contentType = "application/pdf"
+</code></pre></div></div>
+
+<p><strong>Requête — téléchargement du contenu brut :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+Accept: application/pdf
+</code></pre></div></div>
+
+<p><strong>Réponse :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Length: 45678
+
+%PDF-1.4 ...
+</code></pre></div></div>
+
+<p><strong>Requête alternative — ressource Binary FHIR :</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+Accept: application/fhir+json
+</code></pre></div></div>
+
+<p><strong>Réponse :</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2.250.1.213.1.4.8.99999.101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQg..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 
 
@@ -357,7 +435,7 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 07:58:00 +0000">
+  <span title="2026-06-17 08:05:00 +0000">
     2026-06-17
   </span>
 
