@@ -37,7 +37,7 @@ Cette transaction peut être réalisée de deux façons selon le contexte d'impl
 
 #### Option A — ITI-105 : Publication simplifiée
 
-##### Flux TD2-a (ITI-105) — Requête
+##### Flux TD2 (ITI-105) — Requête
 
 Le LPS envoie directement un `DocumentReference` conforme au profil [PDSm_SimplifiedPublish](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-simplified-publish.html). Le contenu du document est embarqué dans `content.attachment.data` (base64).
 
@@ -48,7 +48,7 @@ Accept: application/fhir+json
 
 ```
 
-##### Flux TD2-b (ITI-105) — Réponse
+##### Flux TD2 (ITI-105) — Réponse
 
 | | |
 | :--- | :--- |
@@ -59,7 +59,7 @@ Accept: application/fhir+json
 
 #### Option B — ITI-65 : Lot de soumission complet
 
-##### Flux TD2-a (ITI-65) — Requête
+##### Flux TD2 (ITI-65) — Requête
 
 Le LPS envoie un `Bundle` de type `transaction` conforme au profil [PDSm_ComprehensiveProvideDocumentBundle](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-provide-document-bundle.html).
 
@@ -81,7 +81,7 @@ Le Bundle contient :
 
 Le `DocumentReference.content.attachment.url` référence la `Binary` du même Bundle via `urn:uuid:...`.
 
-##### Flux TD2-b (ITI-65) — Réponse
+##### Flux TD2 (ITI-65) — Réponse
 
 En cas de succès, le système DMP retourne un `Bundle` de type `transaction-response` :
 

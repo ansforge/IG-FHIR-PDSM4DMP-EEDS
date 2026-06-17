@@ -34,7 +34,7 @@ En FHIR, la suppression d'un document DMP se traduit par la mise à jour de `Doc
 | :--- | :--- | :--- |
 | Supprimer | `DocumentReference.status` | `entered-in-error` |
 
-#### Flux TD3.3c-a — Requête
+#### Flux TD3.3c — Requête
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
 
@@ -58,7 +58,7 @@ Corps de la requête (JSON Patch) :
 
 ```
 
-#### Flux TD3.3c-b — Réponse
+#### Flux TD3.3c — Réponse
 
 | | |
 | :--- | :--- |

@@ -340,7 +340,7 @@ Lot de soumission</p>
 
 <h4 id="option-a--iti-105--publication-simplifiée">Option A — ITI-105 : Publication simplifiée</h4>
 
-<h5 id="flux-td2-a-iti-105--requête">Flux TD2-a (ITI-105) — Requête</h5>
+<h5 id="flux-td2-iti-105--requête">Flux TD2 (ITI-105) — Requête</h5>
 
 <p>Le LPS envoie directement un <code class="language-plaintext highlighter-rouge">DocumentReference</code> conforme au profil <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-simplified-publish.html">PDSm_SimplifiedPublish</a>. Le contenu du document est embarqué dans <code class="language-plaintext highlighter-rouge">content.attachment.data</code> (base64).</p>
 
@@ -349,7 +349,7 @@ Content-Type: application/fhir+json
 Accept: application/fhir+json
 </code></pre></div></div>
 
-<h5 id="flux-td2-b-iti-105--réponse">Flux TD2-b (ITI-105) — Réponse</h5>
+<h5 id="flux-td2-iti-105--réponse">Flux TD2 (ITI-105) — Réponse</h5>
 
 <table>
   <thead>
@@ -374,7 +374,7 @@ Accept: application/fhir+json
 
 <h4 id="option-b--iti-65--lot-de-soumission-complet">Option B — ITI-65 : Lot de soumission complet</h4>
 
-<h5 id="flux-td2-a-iti-65--requête">Flux TD2-a (ITI-65) — Requête</h5>
+<h5 id="flux-td2-iti-65--requête">Flux TD2 (ITI-65) — Requête</h5>
 
 <p>Le LPS envoie un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">transaction</code> conforme au profil <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-provide-document-bundle.html">PDSm_ComprehensiveProvideDocumentBundle</a>.</p>
 
@@ -424,7 +424,7 @@ Accept: application/fhir+json
 
 <p>Le <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.url</code> référence la <code class="language-plaintext highlighter-rouge">Binary</code> du même Bundle via <code class="language-plaintext highlighter-rouge">urn:uuid:...</code>.</p>
 
-<h5 id="flux-td2-b-iti-65--réponse">Flux TD2-b (ITI-65) — Réponse</h5>
+<h5 id="flux-td2-iti-65--réponse">Flux TD2 (ITI-65) — Réponse</h5>
 
 <p>En cas de succès, le système DMP retourne un <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">transaction-response</code> :</p>
 
@@ -547,7 +547,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-17 14:38:00 +0000">
+  <span title="2026-06-17 14:43:00 +0000">
     2026-06-17
   </span>
 

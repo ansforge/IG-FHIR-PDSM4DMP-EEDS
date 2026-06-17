@@ -39,7 +39,7 @@ TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonné
 | Archiver | `Deprecated` | `DocumentReference.status` | `superseded` |
 | Désarchiver | `Approved` | `DocumentReference.status` | `current` |
 
-#### Flux TD3.3d-a — Requête (archivage)
+#### Flux TD3.3d — Requête (archivage)
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
 
@@ -63,7 +63,7 @@ Corps de la requête (JSON Patch) :
 
 ```
 
-#### Flux TD3.3d-a — Requête (désarchivage)
+#### Flux TD3.3d — Requête (désarchivage)
 
 ```
 PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
@@ -94,7 +94,7 @@ Il est recommandé de vérifier l'existence d'un document remplaçant (via
 `DocumentReference.relatesTo`avec code
 `replaces`) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
 
-#### Flux TD3.3d-b — Réponse
+#### Flux TD3.3d — Réponse
 
 | | |
 | :--- | :--- |

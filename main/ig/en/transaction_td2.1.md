@@ -42,7 +42,7 @@ La correspondance avec XDS est la suivante :
 | Association`RPLC`sur l'`entryUUID`du document X | `DocumentReference(Y).relatesTo.code = "replaces"` |
 | Mise à jour du statut du document X | `PATCH DocumentReference/X`avec`Parameters`FHIRPath :`replace DocumentReference.status → superseded`(slice`UpdateDocumentRefs`) |
 
-#### Flux TD2.1-a — Requête
+#### Flux TD2.1 — Requête
 
 ```
 POST [base] HTTP/1.1
@@ -68,7 +68,7 @@ Points clés sur le `DocumentReference` Y :
 
 Le document X est mis à jour via une opération `PATCH` FHIRPath (slice `UpdateDocumentRefs`) : seul le champ `status` est modifié à `superseded`. La ressource transmise est un `Parameters` contenant les opérations de patch, et non un DocumentReference complet.
 
-#### Flux TD2.1-b — Réponse
+#### Flux TD2.1 — Réponse
 
 En cas de succès, le système DMP retourne un `Bundle` de type `transaction-response` :
 

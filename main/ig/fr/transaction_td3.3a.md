@@ -38,7 +38,7 @@ L'`entryUUID` XDS correspond à l'`id` logique de la ressource `DocumentReferenc
 
 > **Question ouverte** — L'utilisation de `DocumentReference.securityLabel` est-elle suffisante pour représenter le masquage aux professionnels dans le contexte DMP ? Une analyse plus approfondie pourrait être nécessaire, notamment pour évaluer la pertinence d'un profilage de la ressource `Consent` (qui permet d'exprimer des politiques d'accès différenciées par acteur). Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.
 
-#### Flux TD3.3a-a — Requête (masquage)
+#### Flux TD3.3a — Requête (masquage)
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
 
@@ -70,7 +70,7 @@ Corps de la requête (JSON Patch) :
 
 ```
 
-#### Flux TD3.3a-a — Requête (démasquage)
+#### Flux TD3.3a — Requête (démasquage)
 
 ```
 PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
@@ -98,7 +98,7 @@ Accept: application/fhir+json
 
 ```
 
-#### Flux TD3.3a-b — Réponse
+#### Flux TD3.3a — Réponse
 
 | | |
 | :--- | :--- |

@@ -34,7 +34,7 @@ La liste des documents consultables par l’utilisateur.
 
 TD3.1a correspond à la transaction **[ITI-67 Find Document References](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html)** du profil PDSm. Elle permet au LPS de rechercher les fiches (`DocumentReference`) du DMP d'un patient à partir de son INS et de critères optionnels.
 
-#### Flux TD3.1a-a — Requête
+#### Flux TD3.1a — Requête
 
 Le LPS effectue une recherche sur la ressource `DocumentReference` en utilisant le paramètre `patient.identifier` valorisé avec l'INS du patient.
 
@@ -48,7 +48,7 @@ Accept: application/fhir+json
 
 | | | | | |
 | :--- | :--- | :--- | :--- | :--- |
-| `patient.identifier` | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
+| **`patient.identifier`** | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
 | `status` | token | 0..1 | `availabilityStatus` | `current`(approuvé) ou`superseded`(déprécié) |
 | `type` | token | 0..* | `type` | Type du document (JDV_J07-XdsTypeCode-CISIS) |
 | `category` | token | 0..* | `class` | Classe du document (JDV_J06-XdsClassCode-CISIS) |
@@ -64,7 +64,7 @@ Accept: application/fhir+json
 
 > **Note :** Le statut du DMP et l'autorisation d'accès ne sont pas des paramètres de la requête ITI-67. Ces prérequis sont vérifiés en amont (via TD02) et gérés par la couche d'autorisation du système DMP, en dehors du périmètre de cette transaction.
 
-#### Flux TD3.1a-b — Réponse
+#### Flux TD3.1a — Réponse
 
 En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset` contenant zéro ou plusieurs ressources `DocumentReference`.
 

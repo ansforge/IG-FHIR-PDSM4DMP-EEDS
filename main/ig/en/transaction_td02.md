@@ -62,7 +62,7 @@ Le LPS a vérifié les conditions d'accès de l'acteur de santé au DMP du patie
 
 Cette transaction n'a pas d'équivalent direct dans le profil MHD / PDSm, qui ne couvre pas la gestion du statut du DMP. Elle s'appuie sur l'API FHIR REST standard, en recherchant le patient par son INS sur l'endpoint `Patient`.
 
-#### Flux TD02-a — Requête
+#### Flux TD02 — Requête
 
 Le LPS effectue une recherche sur la ressource `Patient` en utilisant le paramètre `identifier` valorisé avec l'INS du patient.
 
@@ -79,7 +79,7 @@ Le système (OID) à utiliser selon le type d'INS :
 | :--- | :--- | :--- | :--- |
 | `identifier` | token | 1..1 | INS du patient, sous la forme`[système]\|[valeur]` |
 
-#### Flux TD02-b — Réponse
+#### Flux TD02 — Réponse
 
 En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundle` de type `searchset`.
 

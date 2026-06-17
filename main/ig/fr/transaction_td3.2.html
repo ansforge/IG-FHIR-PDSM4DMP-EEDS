@@ -304,7 +304,7 @@ La liste des identifiants (uniqueId) des documents à consulter (issue de DMP_3.
 
 <p>TD3.2 correspond à la transaction <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_consultation.html">ITI-68 Retrieve Document</a></strong> du profil PDSm. Le LPS utilise l'URL présente dans <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.url</code> (obtenue via TD3.1a) pour télécharger le contenu binaire du document.</p>
 
-<h4 id="flux-td32-a--requête">Flux TD3.2-a — Requête</h4>
+<h4 id="flux-td32--requête">Flux TD3.2 — Requête</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [DocumentReference.content.attachment.url] HTTP/1.1
 Accept: [type-MIME-du-document]
@@ -318,7 +318,7 @@ Accept: [type-MIME-du-document]
 Accept: application/fhir+json
 </code></pre></div></div>
 
-<h4 id="flux-td32-b--réponse">Flux TD3.2-b — Réponse</h4>
+<h4 id="flux-td32--réponse">Flux TD3.2 — Réponse</h4>
 
 <table>
   <thead>
@@ -453,7 +453,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 14:38:00 +0000">
+  <span title="2026-06-17 14:43:00 +0000">
     2026-06-17
   </span>
 
