@@ -37,6 +37,8 @@ Par défaut, un document soumis dans le DMP est visible au patient. Un professio
 | Rendre invisible au patient | `DocumentReference.securityLabel` | Code de confidentialité « non visible patient » (JDV_J08) |
 | Rendre visible au patient | `DocumentReference.securityLabel` | `N`(Normal) —`http://terminology.hl7.org/CodeSystem/v3-Confidentiality` |
 
+> **Question ouverte** — L'utilisation de `DocumentReference.securityLabel` est-elle suffisante pour représenter la visibilité patient dans le contexte DMP ? Une analyse plus approfondie pourrait être nécessaire, notamment pour évaluer la pertinence d'un profilage de la ressource `Consent` (qui permet d'exprimer des politiques d'accès différenciées par catégorie d'acteur, dont le patient lui-même). Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.
+
 #### Flux TD3.3b-a — Requête (masquage patient)
 
 ```
