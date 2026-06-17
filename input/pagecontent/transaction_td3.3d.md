@@ -28,7 +28,7 @@ Les attributs du document sont modifiées dans le DMP du patient.
 
 ### Équivalent FHIR
 
-TD3.3d correspond à la transaction **[ITI-92 Restricted Update DocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de `DocumentReference.status` via une opération PATCH.
+TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de `DocumentReference.status` via une opération PATCH.
 
 | Action DMP | Statut XDS (`availabilityStatus`) | Élément FHIR modifié | Valeur |
 |-----------|----------------------------------|---------------------|--------|
@@ -37,8 +37,10 @@ TD3.3d correspond à la transaction **[ITI-92 Restricted Update DocumentReferenc
 
 #### Flux TD3.3d-a — Requête (archivage)
 
+Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
+
 ```
-PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 ```
@@ -56,6 +58,12 @@ Corps de la requête (JSON Patch) :
 ```
 
 #### Flux TD3.3d-a — Requête (désarchivage)
+
+```
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+```
 
 ```json
 [
@@ -78,10 +86,10 @@ Corps de la requête (JSON Patch) :
 
 ### Exemple FHIR
 
-Archivage du document `example-td3-1a-cr-consultation` :
+Archivage du compte rendu de consultation (uniqueId `urn:oid:1.2.250.1.213.1.4.8.99999.101`) :
 
 ```
-PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+PATCH [base]/DocumentReference?identifier=urn:ietf:rfc:3986|urn:oid:1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 ```
