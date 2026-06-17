@@ -26,7 +26,7 @@ Le document est supprimé.
 
 ### Équivalent FHIR
 
-TD3.3c correspond à la transaction **[ITI-92 Restricted Update DocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. La suppression logique est réalisée en changeant le statut du `DocumentReference` via une opération PATCH.
+TD3.3c correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. La suppression logique est réalisée en changeant le statut du `DocumentReference` via une opération PATCH.
 
 En FHIR, la suppression d'un document DMP se traduit par la mise à jour de `DocumentReference.status` à `entered-in-error`. La ressource reste présente dans le système mais n'est plus accessible dans les recherches courantes.
 
@@ -36,8 +36,10 @@ En FHIR, la suppression d'un document DMP se traduit par la mise à jour de `Doc
 
 #### Flux TD3.3c-a — Requête
 
+Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
+
 ```
-PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 
@@ -68,10 +70,10 @@ Corps de la requête (JSON Patch) :
 
 ### Exemple FHIR
 
-Suppression du document `example-td3-1a-cr-consultation` :
+Suppression du compte rendu de consultation (uniqueId `urn:oid:1.2.250.1.213.1.4.8.99999.101`) :
 
 ```
-PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+PATCH [base]/DocumentReference?identifier=urn:ietf:rfc:3986|urn:oid:1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 

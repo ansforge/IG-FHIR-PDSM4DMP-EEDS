@@ -315,7 +315,7 @@ L'identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
 <h3 id="équivalent-fhir">Équivalent FHIR</h3>
 
-<p>TD3.3d correspond à la transaction <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">ITI-92 Restricted Update DocumentReference</a></strong> du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> via une opération PATCH.</p>
+<p>TD3.3d correspond aux flux <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche</a></strong> du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> via une opération PATCH.</p>
 
 <table>
   <thead>
@@ -344,7 +344,9 @@ L'identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
 <h4 id="flux-td33d-a--requête-archivage">Flux TD3.3d-a — Requête (archivage)</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+<p>Le PATCH s'effectue par l'identifiant métier du document (<code class="language-plaintext highlighter-rouge">uniqueId</code> XDS → <code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code>) :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 </code></pre></div></div>
@@ -361,6 +363,11 @@ Accept: application/fhir+json
 </span></code></pre></div></div>
 
 <h4 id="flux-td33d-a--requête-désarchivage">Flux TD3.3d-a — Requête (désarchivage)</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+</code></pre></div></div>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -402,9 +409,9 @@ Accept: application/fhir+json
 
 <h3 id="exemple-fhir">Exemple FHIR</h3>
 
-<p>Archivage du document <code class="language-plaintext highlighter-rouge">example-td3-1a-cr-consultation</code> :</p>
+<p>Archivage du compte rendu de consultation (uniqueId <code class="language-plaintext highlighter-rouge">urn:oid:1.2.250.1.213.1.4.8.99999.101</code>) :</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATCH [base]/DocumentReference?identifier=urn:ietf:rfc:3986|urn:oid:1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 </code></pre></div></div>
@@ -469,7 +476,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-06-17 08:50:00 +0000">
+  <span title="2026-06-17 11:32:00 +0000">
     2026-06-17
   </span>
 

@@ -28,7 +28,7 @@ Les attributs du document sont modifiés dans le DMP du patient.
 
 ### Équivalent FHIR
 
-TD3.3a correspond à la transaction **[ITI-92 Restricted Update DocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'opération PATCH modifie le champ `DocumentReference.securityLabel` sans remplacer l'ensemble de la ressource.
+TD3.3a correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'opération PATCH modifie le champ `DocumentReference.securityLabel` sans remplacer l'ensemble de la ressource.
 
 L'`entryUUID` XDS correspond à l'`id` logique de la ressource `DocumentReference` en FHIR (cf. [annexe identifiants](annexe_identifiants_xds_fhir.md)).
 
@@ -41,8 +41,10 @@ L'`entryUUID` XDS correspond à l'`id` logique de la ressource `DocumentReferenc
 
 #### Flux TD3.3a-a — Requête (masquage)
 
+Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
+
 ```
-PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 
@@ -70,6 +72,13 @@ Corps de la requête (JSON Patch) :
 ```
 
 #### Flux TD3.3a-a — Requête (démasquage)
+
+```
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+
+```
 
 ```
 [
@@ -101,10 +110,10 @@ Corps de la requête (JSON Patch) :
 
 ### Exemple FHIR
 
-Masquage du compte rendu de consultation `example-td3-1a-cr-consultation` :
+Masquage du compte rendu de consultation dont le `uniqueId` est `urn:oid:1.2.250.1.213.1.4.8.99999.101` :
 
 ```
-PATCH [base]/DocumentReference/example-td3-1a-cr-consultation HTTP/1.1
+PATCH [base]/DocumentReference?identifier=urn:ietf:rfc:3986|urn:oid:1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 

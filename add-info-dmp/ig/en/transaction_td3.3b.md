@@ -31,7 +31,7 @@ Les attributs du document sont modifiées dans le DMP du patient.
 
 ### Équivalent FHIR
 
-TD3.3b correspond à la transaction **[ITI-92 Restricted Update DocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'opération PATCH modifie le champ `DocumentReference.securityLabel` pour contrôler la visibilité du document côté patient.
+TD3.3b correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'opération PATCH modifie le champ `DocumentReference.securityLabel` pour contrôler la visibilité du document côté patient.
 
 Par défaut, un document soumis dans le DMP est visible au patient. Un professionnel peut décider de le rendre invisible temporairement (ex. en attendant une annonce), puis de le rendre à nouveau visible.
 
@@ -44,8 +44,10 @@ Par défaut, un document soumis dans le DMP est visible au patient. Un professio
 
 #### Flux TD3.3b-a — Requête (masquage patient)
 
+Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
+
 ```
-PATCH [base]/DocumentReference/[entryUUID] HTTP/1.1
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 
@@ -73,6 +75,13 @@ Corps de la requête (JSON Patch) :
 ```
 
 #### Flux TD3.3b-a — Requête (visibilité patient rétablie)
+
+```
+PATCH [base]/DocumentReference?identifier=[système]|[uniqueId] HTTP/1.1
+Content-Type: application/json-patch+json
+Accept: application/fhir+json
+
+```
 
 ```
 [
@@ -104,10 +113,10 @@ Corps de la requête (JSON Patch) :
 
 ### Exemple FHIR
 
-Marquage du document `example-td3-1a-ordonnance` comme non visible au patient :
+Marquage de l'ordonnance (uniqueId `urn:oid:1.2.250.1.213.1.4.8.99999.102`) comme non visible au patient :
 
 ```
-PATCH [base]/DocumentReference/example-td3-1a-ordonnance HTTP/1.1
+PATCH [base]/DocumentReference?identifier=urn:ietf:rfc:3986|urn:oid:1.2.250.1.213.1.4.8.99999.102 HTTP/1.1
 Content-Type: application/json-patch+json
 Accept: application/fhir+json
 
