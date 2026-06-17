@@ -297,14 +297,9 @@ unique des document(s) sélectionnés. Cf. RG_3050.</li>
 
 <h3 id="entrée-et-prérequis">Entrée et prérequis</h3>
 
-<div style="background-color: #e8f4f8; border-left: 4px solid #0077be; padding: 10px; margin: 10px 0;">
-<b>Prérequis à vérifier avant d’exécuter cette transaction :</b>
-<ul>
-<li>L’INS du patient <code>(EF_DMP11_01)</code></li>
-<li>Le statut « actif » du DMP du patient <code>(EF_DMP12_01)</code></li>
-<li>L’autorisation d’accès au DMP du patient <code>(EF_DMP04_01)</code> au statut « valide »</li>
-</ul>
-</div>
+<p>L’INS du patient (EF_DMP11_01).
+Le statut « actif » du DMP du patient (EF_DMP12_01).
+L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».</p>
 
 <h3 id="sortie">Sortie</h3>
 
@@ -312,7 +307,7 @@ unique des document(s) sélectionnés. Cf. RG_3050.</li>
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>TD3.1a correspond à la transaction <strong><a name="l556">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
+<p>TD3.1a correspond à la transaction <strong><a name="l534">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
 
 <h4 id="flux-td31a--requête">Flux TD3.1a — Requête</h4>
 
@@ -336,7 +331,7 @@ Accept: application/fhir+json
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">patient.identifier</code></td>
+      <td><strong><code class="language-plaintext highlighter-rouge">patient.identifier</code></strong></td>
       <td>token</td>
       <td>1..1</td>
       <td><code class="language-plaintext highlighter-rouge">patientID</code></td>
@@ -654,7 +649,7 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 14:38:00 +0000">
+  <span title="2026-06-17 14:41:00 +0000">
     2026-06-17
   </span>
 

@@ -24,10 +24,7 @@ La cinématique générale est la suivante.
 
 ### Entrée et prérequis
 
-**Prérequis à vérifier avant d’exécuter cette transaction :**
-* L’INS du patient `(EF_DMP11_01)`
-* Le statut « actif » du DMP du patient `(EF_DMP12_01)`
-* L’autorisation d’accès au DMP du patient `(EF_DMP04_01)` au statut « valide »
+L’INS du patient (EF_DMP11_01). Le statut « actif » du DMP du patient (EF_DMP12_01). L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».
 
 ### Sortie
 
@@ -51,7 +48,7 @@ Accept: application/fhir+json
 
 | | | | | |
 | :--- | :--- | :--- | :--- | :--- |
-| `patient.identifier` | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
+| **`patient.identifier`** | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
 | `status` | token | 0..1 | `availabilityStatus` | `current`(approuvé) ou`superseded`(déprécié) |
 | `type` | token | 0..* | `type` | Type du document (JDV_J07-XdsTypeCode-CISIS) |
 | `category` | token | 0..* | `class` | Classe du document (JDV_J06-XdsClassCode-CISIS) |
