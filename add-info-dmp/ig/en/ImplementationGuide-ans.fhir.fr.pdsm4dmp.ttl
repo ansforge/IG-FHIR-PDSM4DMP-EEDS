@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "PDSm4DMP"] ; # 
   fhir:title [ fhir:v "Utilisation de PDSm  dans le contexte d'EEDS"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-17T08:05:28+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-17T08:38:09+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris" ] ;
@@ -1672,6 +1672,25 @@
        ] ;
        fhir:name [ fhir:v "Exemple TD3.1a - Compte rendu de consultation" ] ;
        fhir:description [ fhir:v "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour un compte rendu de consultation" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v true
+       ] ;
+       fhir:groupingId [ fhir:v "exemple" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "DocumentReference"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/DocumentReference/example-td3-1a-fhir-document> ;
+         fhir:reference [ fhir:v "DocumentReference/example-td3-1a-fhir-document" ]
+       ] ;
+       fhir:name [ fhir:v "Exemple TD3.1a - Document FHIR (Bundle)" ] ;
+       fhir:description [ fhir:v "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour un document au format FHIR (Bundle de type document), avec URL relative vers la ressource Bundle" ] ;
        fhir:example [
          a fhir:boolean ;
          fhir:v true

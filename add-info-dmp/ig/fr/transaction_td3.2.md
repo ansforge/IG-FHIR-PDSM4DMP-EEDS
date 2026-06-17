@@ -59,49 +59,74 @@ Lorsque le LPS demande le contenu brut (Accept = type MIME natif), le corps de l
 
 ### Exemple FHIR
 
-Le LPS a récupéré l'URL suivante depuis le `DocumentReference` retourné par TD3.1a :
+Trois cas de figure selon la valeur de `DocumentReference.content.attachment.url` :
+
+-------
+
+**Cas 1 — URL absolue vers un `Binary` (ex. : compte rendu de consultation)**
 
 ```
-DocumentReference.content.attachment.url = "urn:oid:1.2.250.1.213.1.4.8.99999.101"
+DocumentReference.content.attachment.url         = "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a"
 DocumentReference.content.attachment.contentType = "application/pdf"
 
 ```
 
-**Requête — téléchargement du contenu brut :**
+Requête :
 
 ```
-GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+GET https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a HTTP/1.1
 Accept: application/pdf
 
 ```
 
-**Réponse :**
+Réponse : `200 OK` — corps de la réponse = contenu PDF brut.
+
+-------
+
+**Cas 2 — URL relative vers un `Binary` (ex. : ordonnance)**
 
 ```
-HTTP/1.1 200 OK
-Content-Type: application/pdf
-Content-Length: 45678
-
-%PDF-1.4 ...
+DocumentReference.content.attachment.url         = "Binary/ordonnance-td31a"
+DocumentReference.content.attachment.contentType = "application/pdf"
 
 ```
 
-**Requête alternative — ressource Binary FHIR :**
+Requête (l'URL relative est résolue par rapport à la base du serveur) :
 
 ```
-GET [base]/Binary/1.2.250.1.213.1.4.8.99999.101 HTTP/1.1
+GET [base]/Binary/ordonnance-td31a HTTP/1.1
+Accept: application/pdf
+
+```
+
+Réponse : `200 OK` — corps de la réponse = contenu PDF brut.
+
+-------
+
+**Cas 3 — URL relative vers un `Bundle` (document FHIR)**
+
+```
+DocumentReference.content.attachment.url         = "Bundle/fhir-document-td31a"
+DocumentReference.content.attachment.contentType = "application/fhir+json"
+
+```
+
+Requête :
+
+```
+GET [base]/Bundle/fhir-document-td31a HTTP/1.1
 Accept: application/fhir+json
 
 ```
 
-**Réponse :**
+Réponse : `200 OK` — corps de la réponse = ressource `Bundle` de type `document`.
 
 ```
 {
-  "resourceType": "Binary",
-  "id": "1.2.250.1.213.1.4.8.99999.101",
-  "contentType": "application/pdf",
-  "data": "JVBERi0xLjQg..."
+  "resourceType": "Bundle",
+  "id": "fhir-document-td31a",
+  "type": "document",
+  "entry": [...]
 }
 
 ```

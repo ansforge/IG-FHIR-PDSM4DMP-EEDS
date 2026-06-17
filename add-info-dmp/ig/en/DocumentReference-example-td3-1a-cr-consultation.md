@@ -72,7 +72,7 @@
     "attachment" : {
       "contentType" : "application/pdf",
       "language" : "fr-FR",
-      "url" : "urn:oid:1.2.250.1.213.1.4.8.99999.101",
+      "url" : "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a",
       "size" : 45678,
       "hash" : "A/hMRrv6Y15BjSM8kMLidrz+mHc=",
       "title" : "CR Consultation 20/11/2024",

@@ -35,7 +35,7 @@ Profil: [PDSm Comprehensive DocumentReference](https://interop.esante.gouv.fr/ig
 | | | | | | | | |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | - | **ContentType** | **Language** | **Url** | **Size** | **Hash** | **Title** | **Creation** |
-| * | application/pdf | Français (France) | urn:oid:1.2.250.1.213.1.4.8.99999.102 | 12345 | `B/iNSsvAZ26CkTN9lNMjest0nIe=` | Ordonnance 20/11/2024 | 2024-11-20 10:35:00+0100 |
+| * | application/pdf | Français (France) | Binary/ordonnance-td31a | 12345 | `B/iNSsvAZ26CkTN9lNMjest0nIe=` | Ordonnance 20/11/2024 | 2024-11-20 10:35:00+0100 |
 
 **format**: [IHE Format Code set for use with Document Sharing: urn:ihe:iti:xds-sd:pdf:2008](https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html#formatcode-urn.58ihe.58iti.58xds-sd.58pdf.582008) (PDF Non-Structured)
 
@@ -129,7 +129,7 @@ Profil: [AS PractitionerRole Profile](https://interop.esante.gouv.fr/ig/fhir/ann
     "attachment" : {
       "contentType" : "application/pdf",
       "language" : "fr-FR",
-      "url" : "urn:oid:1.2.250.1.213.1.4.8.99999.102",
+      "url" : "Binary/ordonnance-td31a",
       "size" : 12345,
       "hash" : "B/iNSsvAZ26CkTN9lNMjest0nIe=",
       "title" : "Ordonnance 20/11/2024",

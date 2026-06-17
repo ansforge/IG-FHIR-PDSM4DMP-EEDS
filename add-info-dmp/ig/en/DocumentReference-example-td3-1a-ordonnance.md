@@ -72,7 +72,7 @@
     "attachment" : {
       "contentType" : "application/pdf",
       "language" : "fr-FR",
-      "url" : "urn:oid:1.2.250.1.213.1.4.8.99999.102",
+      "url" : "Binary/ordonnance-td31a",
       "size" : 12345,
       "hash" : "B/iNSsvAZ26CkTN9lNMjest0nIe=",
       "title" : "Ordonnance 20/11/2024",

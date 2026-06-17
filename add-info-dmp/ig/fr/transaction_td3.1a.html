@@ -572,10 +572,34 @@ Accept: application/fhir+json
 
 <p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code> contenant les <code class="language-plaintext highlighter-rouge">DocumentReference</code> correspondants.</p>
 
-<ul>
-  <li><a href="DocumentReference-example-td3-1a-cr-consultation.html">Voir l'exemple : DocumentReference - Compte rendu de consultation (TD3.1a)</a></li>
-  <li><a href="DocumentReference-example-td3-1a-ordonnance.html">Voir l'exemple : DocumentReference - Ordonnance médicale (TD3.1a)</a></li>
-</ul>
+<p>Les exemples ci-dessous illustrent les trois cas de figure pour <code class="language-plaintext highlighter-rouge">content.attachment.url</code> :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exemple</th>
+      <th>Format du document</th>
+      <th>Valeur de <code class="language-plaintext highlighter-rouge">attachment.url</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DocumentReference-example-td3-1a-cr-consultation.html">Compte rendu de consultation</a></td>
+      <td>PDF (<code class="language-plaintext highlighter-rouge">application/pdf</code>)</td>
+      <td>URL absolue vers une ressource <code class="language-plaintext highlighter-rouge">Binary</code></td>
+    </tr>
+    <tr>
+      <td><a href="DocumentReference-example-td3-1a-ordonnance.html">Ordonnance médicale</a></td>
+      <td>PDF (<code class="language-plaintext highlighter-rouge">application/pdf</code>)</td>
+      <td>URL relative vers une ressource <code class="language-plaintext highlighter-rouge">Binary</code></td>
+    </tr>
+    <tr>
+      <td><a href="DocumentReference-example-td3-1a-fhir-document.html">Document FHIR (Bundle)</a></td>
+      <td>FHIR JSON (<code class="language-plaintext highlighter-rouge">application/fhir+json</code>)</td>
+      <td>URL relative vers une ressource <code class="language-plaintext highlighter-rouge">Bundle</code></td>
+    </tr>
+  </tbody>
+</table>
 
 
 
@@ -625,7 +649,7 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 08:05:00 +0000">
+  <span title="2026-06-17 08:38:00 +0000">
     2026-06-17
   </span>
 
