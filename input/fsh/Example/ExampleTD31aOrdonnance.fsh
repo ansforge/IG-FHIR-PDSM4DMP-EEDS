@@ -10,8 +10,8 @@ Usage: #inline
 * identifier.system = "urn:oid:1.2.250.1.213.1.4.8"
 * identifier.value = "123456789012345"
 
-Instance: practitioner-author-td31a-ord
-InstanceOf: Practitioner
+Instance: practitionerrole-author-td31a-ord
+InstanceOf: as-practitionerrole
 Usage: #inline
 * identifier.system = "urn:oid:1.2.250.1.71.4.2.1"
 * identifier.value = "899700218896"
@@ -23,7 +23,7 @@ Title: "Exemple TD3.1a - Ordonnance médicale"
 Description: "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pour une ordonnance médicale"
 
 * contained[0] = patient-source-td31a-ord
-* contained[+] = practitioner-author-td31a-ord
+* contained[+] = practitionerrole-author-td31a-ord
 * masterIdentifier.system = "urn:ietf:rfc:3986"
 * masterIdentifier.value = "urn:oid:1.2.250.1.213.1.4.8.99999.102"
 * status = #current
@@ -31,8 +31,8 @@ Description: "DocumentReference retourné par la transaction ITI-67 (TD3.1a) pou
 * category = $TRE-A03#03 "Traitement"
 * subject = Reference(Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345)
 * date = "2024-11-20T10:35:00+01:00"
-* author = Reference(practitioner-author-td31a-ord)
-* authenticator = Reference(practitioner-author-td31a-ord)
+* author = Reference(practitionerrole-author-td31a-ord)
+* authenticator = Reference(practitionerrole-author-td31a-ord)
 * securityLabel = $v3-Confidentiality#N "normal"
 * content.attachment.contentType = #application/pdf
 * content.attachment.language = #fr-FR
