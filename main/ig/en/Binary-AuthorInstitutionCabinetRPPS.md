@@ -16,5 +16,5 @@ This content is an example of the [AuthorInstitution (LM)](StructureDefinition-A
 text/x-hl7-ft:
 
 ```
-[B@6aa449b9
+[B@ab80b31
 ```

@@ -5,11 +5,9 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-### Comparatif des dates XDS et FHIR
-
 Le modèle XDS distingue plusieurs dates portant des sémantiques précises. Leur transposition en FHIR/MHD nécessite de bien comprendre à quoi correspond chaque élément.
 
-#### DocumentEntry / DocumentReference
+### DocumentEntry / DocumentReference
 
 | | | | |
 | :--- | :--- | :--- | :--- |
@@ -24,13 +22,13 @@ Le modèle XDS distingue plusieurs dates portant des sémantiques précises. Leu
 
 > **Note :** `DocumentReference.meta.lastUpdated` n'a pas d'équivalent XDS — c'est une métadonnée propre au serveur FHIR, mise à jour à chaque modification de la ressource (ex. : changement de statut lors d'un remplacement de document).
 
-#### SubmissionSet / List (SubmissionSet PDSm)
+### SubmissionSet / List (SubmissionSet PDSm)
 
 | | | | |
 | :--- | :--- | :--- | :--- |
 | `submissionTime` | DTM | Date et heure de soumission du lot au registre DMP. | `List.date` |
 
-#### Récapitulatif visuel
+### Récapitulatif visuel
 
 ```
 Cycle de vie d'un document dans le DMP
@@ -51,7 +49,7 @@ Cycle de vie d'un document dans le DMP
 
 ```
 
-#### Points d'attention pour l'implémentation
+### Points d'attention pour l'implémentation
 
 * **`creationTime` ≠ `submissionTime`** : un document peut être créé (signé) plusieurs jours avant d'être soumis au DMP. Le LPS doit renseigner `DocumentReference.date` avec la date de création réelle du document, pas la date d'envoi.
 * **`serviceStartTime` obligatoire** : `DocumentReference.context.period.start` est requis par le profil PDSm. Il correspond à la date de l'acte médical — date de consultation, date de l'examen, etc.

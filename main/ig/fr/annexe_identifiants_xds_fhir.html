@@ -105,13 +105,20 @@
     <a href="index.html">Accueil</a>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Transactions DMP
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Transaction DMP Patient
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
         <a href="transaction_td02.html">TD02 - Valider existence DMP</a>
       </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Transaction DMP Document
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
       <li>
         <a href="transaction_td2.html">TD2 - Soumettre des documents</a>
       </li>
@@ -261,14 +268,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
-</div>
-<h3 id="comparatif-des-identifiants-xds-et-fhir">Comparatif des identifiants XDS et FHIR</h3>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#documententry--documentreference" id="markdown-toc-documententry--documentreference">DocumentEntry / DocumentReference</a></li>
+  <li><a href="#submissionset--list-submissionset-pdsm" id="markdown-toc-submissionset--list-submissionset-pdsm">SubmissionSet / List (SubmissionSet PDSm)</a></li>
+  <li><a href="#folder--list-folder-pdsm" id="markdown-toc-folder--list-folder-pdsm">Folder / List (Folder PDSm)</a></li>
+  <li><a href="#récapitulatif--entryuuid-vs-uniqueid-dans-le-contexte-dmp" id="markdown-toc-récapitulatif--entryuuid-vs-uniqueid-dans-le-contexte-dmp">Récapitulatif : entryUUID vs uniqueId dans le contexte DMP</a></li>
+</ul>
 
+</div>
 <p>Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modèles de métadonnées : le modèle XDS (utilisé par le CI-SIS et les spécifications DMP historiques) et le modèle FHIR/MHD (utilisé par PDSm). Cette page recense les identifiants de chaque modèle et leurs équivalents.</p>
 
-<h4 id="documententry--documentreference">DocumentEntry / DocumentReference</h4>
+<h3 id="documententry--documentreference">DocumentEntry / DocumentReference</h3>
 
 <table>
   <thead>
@@ -335,7 +346,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p><strong>Note :</strong> Dans le contexte DMP, <code class="language-plaintext highlighter-rouge">uniqueId</code> correspond à l'identifiant que le LPS attribue au document au moment de sa création. C'est l'identifiant que le LPS connaît localement. L'<code class="language-plaintext highlighter-rouge">entryUUID</code>, en revanche, est attribué par le registre DMP lors de la soumission — le LPS doit l'obtenir via TD3.1a ou TD3.1b pour pouvoir ensuite modifier ou supprimer le document.</p>
 </blockquote>
 
-<h4 id="submissionset--list-submissionset-pdsm">SubmissionSet / List (SubmissionSet PDSm)</h4>
+<h3 id="submissionset--list-submissionset-pdsm">SubmissionSet / List (SubmissionSet PDSm)</h3>
 
 <table>
   <thead>
@@ -380,7 +391,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </tbody>
 </table>
 
-<h4 id="folder--list-folder-pdsm">Folder / List (Folder PDSm)</h4>
+<h3 id="folder--list-folder-pdsm">Folder / List (Folder PDSm)</h3>
 
 <table>
   <thead>
@@ -413,7 +424,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </tbody>
 </table>
 
-<h4 id="récapitulatif--entryuuid-vs-uniqueid-dans-le-contexte-dmp">Récapitulatif : entryUUID vs uniqueId dans le contexte DMP</h4>
+<h3 id="récapitulatif--entryuuid-vs-uniqueid-dans-le-contexte-dmp">Récapitulatif : entryUUID vs uniqueId dans le contexte DMP</h3>
 
 <p>Ces deux identifiants sont les plus fréquemment confondus. Le tableau ci-dessous résume leurs différences essentielles.</p>
 
@@ -508,7 +519,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-17 14:43:00 +0000">
+  <span title="2026-06-17 15:09:00 +0000">
     2026-06-17
   </span>
 

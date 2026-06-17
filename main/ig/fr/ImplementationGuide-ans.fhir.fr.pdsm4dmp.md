@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-06-17T14:43:38+00:00",
+  "date" : "2026-06-17T15:09:02+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -1418,24 +1418,6 @@
         "title" : "Specifications Techniques",
         "generation" : "markdown",
         "page" : [{
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "transaction_1.html"
-          }],
-          "nameUrl" : "transaction_1.html",
-          "title" : "Flux 01",
-          "generation" : "markdown"
-        },
-        {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "transaction_2.html"
-          }],
-          "nameUrl" : "transaction_2.html",
-          "title" : "Flux 02",
-          "generation" : "markdown"
-        },
-        {
           "extension" : [{
             "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
             "valueUrl" : "transaction_td02.html"
