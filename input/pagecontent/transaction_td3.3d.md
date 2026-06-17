@@ -75,6 +75,12 @@ Accept: application/fhir+json
 ]
 ```
 
+<div style="background-color: #fff9e6; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0;">
+<b>⚠️ Risque de doublon lors du désarchivage</b><br/>
+Si un document a été remplacé par une version ultérieure avant son archivage (relation <code>replaces</code>), le désarchivage le remet au statut <code>current</code>. Il peut alors coexister avec sa version de remplacement, également au statut <code>current</code>, créant une situation de doublon avec deux versions du même document toutes deux considérées comme courantes.<br/>
+Il est recommandé de vérifier l'existence d'un document remplaçant (via <code>DocumentReference.relatesTo</code> avec code <code>replaces</code>) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
+</div>
+
 #### Flux TD3.3d-b — Réponse
 
 | Code HTTP | Signification |
