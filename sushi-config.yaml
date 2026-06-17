@@ -44,8 +44,6 @@ pages:
     index.md:
         title: Accueil
     specifications_techniques.md:
-        construction_des_flux.md:
-            title: Vue d'ensemble
         transaction_1.md:
             title: Flux 01
         transaction_2.md:
@@ -93,17 +91,17 @@ pages:
 menu:
     Accueil: index.html
     Transaction DMP Patient:
-        Vue d'ensemble: construction_des_flux.html
         "TD02 - Valider existence DMP": transaction_td02.html
+        "TD3.3b - Visibilité patient": transaction_td3.3b.html
+    Transaction DMP Document:
         "TD2 - Soumettre des documents": transaction_td2.html
         "TD2.1 - Remplacer un document": transaction_td2.1.html
         "TD3.1a - Lister les documents": transaction_td3.1a.html
         "TD3.1b - Rechercher identifiant": transaction_td3.1b.html
         "TD3.2 - Consulter un document": transaction_td3.2.html
         "TD3.3a - Masquer / démasquer": transaction_td3.3a.html
-        "TD3.3b - Visibilité patient": transaction_td3.3b.html
         "TD3.3c - Supprimer un document": transaction_td3.3c.html
-        "TD3.3d - Archiver / désarchiver": transaction_td3.3d.html             
+        "TD3.3d - Archiver / désarchiver": transaction_td3.3d.html
 
 
     Exemples d'usages DMP: exemples_usage_dmp.html
