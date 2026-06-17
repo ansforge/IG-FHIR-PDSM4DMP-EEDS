@@ -18,14 +18,9 @@ unique des document(s) sélectionnés. Cf. RG_3050.
 
 ### Entrée et prérequis
 
-<div style="background-color: #e8f4f8; border-left: 4px solid #0077be; padding: 10px; margin: 10px 0;">
-<b>Prérequis à vérifier avant d’exécuter cette transaction :</b>
-<ul>
-<li>L’INS du patient <code>(EF_DMP11_01)</code></li>
-<li>Le statut « actif » du DMP du patient <code>(EF_DMP12_01)</code></li>
-<li>L’autorisation d’accès au DMP du patient <code>(EF_DMP04_01)</code> au statut « valide »</li>
-</ul>
-</div>
+L’INS du patient (EF_DMP11_01).
+Le statut « actif » du DMP du patient (EF_DMP12_01).
+L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide ».
 
 ### Sortie
 
@@ -48,7 +43,7 @@ Accept: application/fhir+json
 
 | Paramètre FHIR | Type | Cardinalité | Métadonnée XDS | Description |
 |----------------|------|-------------|----------------|-------------|
-| `patient.identifier` | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
+| **`patient.identifier`** | token | 1..1 | `patientID` | INS du patient (`[système]\|[valeur]`) |
 | `status` | token | 0..1 | `availabilityStatus` | `current` (approuvé) ou `superseded` (déprécié) |
 | `type` | token | 0..* | `type` | Type du document (JDV_J07-XdsTypeCode-CISIS) |
 | `category` | token | 0..* | `class` | Classe du document (JDV_J06-XdsClassCode-CISIS) |
