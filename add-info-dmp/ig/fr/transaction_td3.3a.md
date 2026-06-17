@@ -13,10 +13,9 @@ Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un doc
 La cinématique générale est la suivante.
 
 * Le LPS affiche les attributs du document sélectionné. Cf. RG_3310.
-* L'utilisateur indique l'action qu'il souhaite effectuer. Cf. RG_3320.
-* L'utilisateur confirme l'action demandée. Cf. RG_3330.
-* Le LPS envoie une requête de mise à jour des attributs d'un document au système DMP (TD3.3a). Cf. RG_3340.
-* Le système DMP met à jour les attributs du document. Cf. RG_3350.
+* L’utilisateur indique l’action qu’il souhaite effectuer. Cf. RG_3320.
+* L’utilisateur confirme l’action demandée. Cf. RG_3330.
+* Le LPS envoie une requête de mise à jour des attri [TODO - à compléter]
 
 ### Entrée et prérequis
 
