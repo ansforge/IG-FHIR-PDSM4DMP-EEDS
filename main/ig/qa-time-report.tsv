@@ -1,11 +1,82 @@
-Source File	Size	loadResources	load	generateSnapshots	load-configure	scan	loadDepInfo	loadInfo	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
-/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json	4924	-	0	0	0	0	0	0	4	208	0	0	0	0	0	0	0	0	0	0	74	63	0	0	0	4	0	3
-fsh-generated/resources/CodeSystem-competence-code-system.json	6322	21	0	0	1	0	0	0	1	17	0	0	0	0	0	0	0	0	0	0	38	1779	0	0	0	2	0	0
-fsh-generated/resources/CodeSystem-type-carte-code-system.json	1010	17	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	15	55	0	0	0	0	0	0
-fsh-generated/resources/Patient-frpatient-exemple.json	455	17	0	0	0	0	0	0	0	266	0	0	0	0	0	0	0	0	0	0	11	16	0	0	0	0	0	0
-fsh-generated/resources/StructureDefinition-EyeColor.json	1317	16	0	25	0	0	0	0	0	33	0	0	1	0	0	0	0	1	0	0	44	205	0	1	0	3	0	0
-fsh-generated/resources/StructureDefinition-fr-patient.json	2356	10	0	87	0	0	0	0	0	35	0	0	0	0	0	0	0	1	0	0	196	628	0	0	0	12	0	3
-fsh-generated/resources/ValueSet-EyeColorVS.json	671	14	0	0	0	0	0	0	0	207	0	0	0	0	0	0	0	0	0	0	15	180	0	0	0	1	0	0
-fsh-generated/resources/ValueSet-MeltingPotVS.json	887	12	0	0	0	0	0	0	0	88	0	0	0	0	0	0	0	0	0	0	16	168	0	0	0	0	0	0
-fsh-generated/resources/ValueSet-ModifiedAdministrativeGender.json	648	9	0	0	1	0	0	0	1	6	0	0	0	0	0	0	0	0	0	0	16	53	0	0	0	1	0	0
-fsh-generated/resources/ValueSet-TypeCarteVS.json	421	11	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	11	52	0	0	0	0	0	0
+Source File	Size	loadResources	load	generateSnapshots	load-configure	scan	loadDepInfo	loadInfo	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	translate	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
+/fsh-generated/resources/ImplementationGuide-ans.fhir.fr.pdsm4dmp.json	23839	-	0	0	0	0	0	0	26	84	0	0	0	0	1	0	0	0	0	0	24	195	528	0	0	0	6	0	1
+fsh-generated/resources/Binary-AuthorDispositif.json	1341	3	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	9	7	14	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS.json	1351	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	8	6	12	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorInstitutionSNR.json	1343	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	7	6	11	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorInstitutionStructure.json	1349	2	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	7	6	11	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorPSCabinetRPPS.json	1344	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	6	7	11	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorPatient.json	1338	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	6	11	0	0	0	0	0	0
+fsh-generated/resources/Binary-AuthorStructure.json	1340	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	6	11	0	0	0	0	0	0
+fsh-generated/resources/ConceptMap-documentReferenceToPDSM.json	7426	5	0	0	0	0	0	0	2	21	0	0	0	0	0	0	0	1	0	0	5	84	187	0	0	0	3	0	0
+fsh-generated/resources/ConceptMap-submissionSetToPDSM.json	3412	2	0	0	0	0	0	0	1	1343	0	0	0	0	0	0	0	0	0	0	6	36	89	0	0	0	1	0	0
+fsh-generated/resources/DocumentReference-example-td3-1a-cr-consultation.json	3088	5	0	0	0	0	0	0	0	2469	0	0	0	0	0	0	0	0	0	0	9	34	50	0	0	0	0	0	0
+fsh-generated/resources/DocumentReference-example-td3-1a-fhir-document.json	3049	3	0	0	0	0	0	0	1	382	0	0	0	0	0	0	0	0	0	0	5	33	45	0	0	0	0	0	0
+fsh-generated/resources/DocumentReference-example-td3-1a-ordonnance.json	3017	3	0	0	0	0	0	0	1	20	0	0	0	0	0	0	0	0	0	0	5	32	37	0	0	0	0	0	0
+fsh-generated/resources/StructureDefinition-ActorPS.json	2260	3	0	26	0	0	0	0	0	77	0	0	1	0	0	0	0	0	0	0	1	115	993	0	0	0	3	0	1
+fsh-generated/resources/StructureDefinition-ActorPatient.json	2164	3	0	9	0	0	0	0	0	15	0	0	0	0	1	0	0	0	0	0	1	112	400	0	0	0	3	0	0
+fsh-generated/resources/StructureDefinition-ActorSNR.json	2209	3	0	10	0	0	0	0	0	14	0	0	1	0	0	0	0	1	0	0	0	98	281	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-ActorSystem.json	2127	2	0	10	0	0	0	0	0	19	0	0	0	0	0	0	0	0	0	0	1	83	286	0	0	0	3	0	0
+fsh-generated/resources/StructureDefinition-ActorXDS.json	5924	4	0	1	0	0	0	0	0	22	0	0	0	0	0	0	0	0	0	0	2	112	284	0	0	0	3	0	0
+fsh-generated/resources/StructureDefinition-Author.json	4643	3	0	19	0	0	0	0	0	22	0	0	0	0	0	0	0	0	0	0	1	90	288	0	0	0	3	0	0
+fsh-generated/resources/StructureDefinition-AuthorDocumentEntry.json	4337	2	0	10	0	0	0	0	0	14	0	0	1	0	1	0	0	0	0	0	1	76	251	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-AuthorInstitution.json	7143	4	0	8	0	0	0	0	0	14	0	0	0	0	0	0	0	0	0	0	3	80	260	0	0	0	3	0	1
+fsh-generated/resources/StructureDefinition-AuthorSubmissionSet.json	2401	3	0	6	1	0	0	0	0	8	0	0	0	0	0	0	0	1	0	0	1	56	228	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-DocumentEntry.json	21414	6	0	30	0	0	0	0	0	41	0	0	1	0	0	0	0	0	0	0	5	260	532	0	0	0	11	0	0
+fsh-generated/resources/StructureDefinition-EventCode.json	1766	3	0	8	0	0	0	0	0	8	0	0	0	0	0	0	0	0	0	0	1	36	197	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-Folder.json	6382	3	0	10	0	0	0	0	0	17	0	0	0	0	1	0	0	0	0	0	2	94	270	0	0	0	3	0	0
+fsh-generated/resources/StructureDefinition-Identifiant.json	1638	1	0	4	0	0	0	0	0	14	0	0	0	0	0	0	0	0	0	0	0	51	199	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-IdentifiantSysteme.json	1054	2	0	4	0	0	0	0	0	8	0	0	1	0	0	0	0	0	0	0	0	33	200	0	0	0	1	0	0
+fsh-generated/resources/StructureDefinition-MatriculeINS.json	1397	2	0	4	0	0	0	0	0	6	0	0	0	0	0	0	0	0	0	0	1	34	180	0	0	0	2	1	0
+fsh-generated/resources/StructureDefinition-PSIdNat.json	2251	2	0	3	0	0	0	0	0	8	0	0	0	0	0	0	0	0	0	0	1	38	191	0	0	0	1	0	0
+fsh-generated/resources/StructureDefinition-PatientId.json	2528	2	0	6	0	0	0	0	0	10	0	0	0	0	0	0	0	0	0	0	1	45	192	0	0	0	1	0	0
+fsh-generated/resources/StructureDefinition-SNR.json	1055	2	0	3	0	0	0	0	0	8	0	0	1	0	1	0	0	0	0	0	1	33	153	0	0	0	2	0	1
+fsh-generated/resources/StructureDefinition-SourcePatientId.json	2661	2	0	5	0	0	0	0	0	10	0	0	0	0	0	0	0	0	0	0	1	43	278	0	0	0	1	0	0
+fsh-generated/resources/StructureDefinition-SourcePatientInfo.json	4955	3	0	8	0	0	0	0	0	13	0	0	0	0	0	0	0	0	0	0	1	82	253	0	0	0	2	0	0
+fsh-generated/resources/StructureDefinition-StructIdNat.json	1629	2	0	5	0	0	0	0	0	7	0	0	0	0	0	0	0	0	0	0	1	33	149	0	0	0	1	0	0
+fsh-generated/resources/StructureDefinition-SubmissionSet.json	8029	4	0	23	0	0	0	0	0	13	0	0	1	0	0	0	0	1	0	0	2	102	213	0	0	0	2	0	0
+input/examples/Bundle-example-td2-1-remplacement.json	7701	7	31	0	1	0	0	0	2	271	0	0	0	0	0	0	0	0	0	0	11	31	86	0	0	0	0	0	0
+input/examples/Bundle-example-td2-iti65-lot-soumission.json	6970	3	3	0	0	0	0	0	1	16	0	0	0	0	0	0	0	0	0	0	8	23	69	0	0	0	0	0	0
+input/examples/DocumentReference-doc-x-id.json	2801	3	0	0	0	0	0	0	0	190	0	0	0	0	0	0	0	0	0	0	8	19	31	0	0	0	0	0	0
+input/examples/DocumentReference-example-td2-iti105-publication-simplifiee.json	1258	1	0	0	0	0	0	0	1	9	0	0	0	0	0	0	0	0	0	0	6	12	23	0	0	0	0	0	0
+/fsh-generated/includes/menu.xml	3559	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+/fsh-generated/includes/fsh-link-references.md	2234	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/data/features.yml	164	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/construction_des_flux.md	3286	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/securite.md	900	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.3a.md	4701	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.3c.md	3213	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/autres_ressources.md	155	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/annexe.md	119	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/tests.md	1184	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-SourcePatientInfo-intro.md	232	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.1b.md	3450	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/annexe_dates_xds_fhir.md	3614	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_2.md	36	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-Author-intro.md	165	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/transaction_1.md	36	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.1a.md	6458	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/transaction_td2.1.md	4427	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-PatientId-intro.md	330	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.3d.md	4114	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.3b.md	4910	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-LegalAuthentificator.md	442	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/exemples_usage_dmp.md	16435	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/transaction_td02.md	6835	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-AuthorPerson-intro.md	489	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/annexe_identifiants_xds_fhir.md	4041	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/downloads.md	1727	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/change-log.md	1214	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-AuthorInstitution-intro.md	159	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/translationinfo.md	157	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/index.md	3733	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td3.2.md	4122	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/StructureDefinition-SourcePatientId-intro.md	54	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/specifications_fonctionnelles.md	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/transaction_td2.md	4895	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/specifications_techniques.md	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/template/config	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/template/config/_config.yml	140	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/images	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/images/ci-sis-logo.png	61365	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/images/anImage.png	36288	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/temp/pages/_includes/artifacts.xml	28392	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1	0	0	0	0	0	0

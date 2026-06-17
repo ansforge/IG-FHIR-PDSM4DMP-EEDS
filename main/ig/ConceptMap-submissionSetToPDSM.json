@@ -1,0 +1,121 @@
+{
+  "resourceType" : "ConceptMap",
+  "id" : "submissionSetToPDSM",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><p class=\"res-header-id\"><b>Narratif généré : CarteDeConcepts submissionSetToPDSM</b></p><a name=\"submissionSetToPDSM\"> </a><a name=\"hcsubmissionSetToPDSM\"> </a><p>Mapping de <a href=\"StructureDefinition-SubmissionSet.html\">SubmissionSet (LM)</a> vers <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p><br/><p>Mapping de <a href=\"StructureDefinition-SubmissionSet.html\">SubmissionSet (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p><table class=\"grid\"><tr><td><b>Code source</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>relation</b></td><td><b>Code cible</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Commentaire</b></td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.entryUUID\">SubmissionSet.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td colspan=\"3\"/><td>List.identifier</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.availabilityStatus\">SubmissionSet.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.status\">List.status</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.submissionTime\">SubmissionSet.submissionTime</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.date\">List.date</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.title\">SubmissionSet.title</a></td><td>0..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.title\">List.title</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.comments\">SubmissionSet.comments</a></td><td>0..1</td><td>todo</td><td colspan=\"5\" style=\"background-color: #efefef\">(not mapped)</td><td style=\"background-color: #efefef\">TO DO</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.patientID\">SubmissionSet.patientID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td colspan=\"3\">List.subject.fr-core-patient</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.sourceID\">SubmissionSet.sourceID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:sourceId\">List.extension:sourceId</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.uniqueID\">SubmissionSet.uniqueID</a></td><td>1..1</td><td>todo</td><td colspan=\"5\" style=\"background-color: #efefef\">(not mapped)</td><td style=\"background-color: #efefef\">TO DO</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.contentTypeCode\">SubmissionSet.contentTypeCode</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:designationType\">List.extension:designationType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.author\">SubmissionSet.author</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.source\">List.source</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.homeCommunityID\">SubmissionSet.homeCommunityID</a></td><td>0..1</td><td>todo</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td colspan=\"3\">DSubmissionSet.intendedRecipient</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr></table></div><div xml:lang=\"en\" lang=\"en\"><hr/><p><b>English</b></p><hr/><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap submissionSetToPDSM</b></p><a name=\"en-submissionSetToPDSM\"> </a><a name=\"en-hcsubmissionSetToPDSM\"> </a><p>Mapping from <a href=\"StructureDefinition-SubmissionSet.html\">SubmissionSet (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p><br/><p>Mapping from <a href=\"StructureDefinition-SubmissionSet.html\">SubmissionSet (LM)</a> to <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Comment</b></td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.entryUUID\">SubmissionSet.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td colspan=\"3\"/><td>List.identifier</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.availabilityStatus\">SubmissionSet.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.status\">List.status</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.submissionTime\">SubmissionSet.submissionTime</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.date\">List.date</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.title\">SubmissionSet.title</a></td><td>0..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.title\">List.title</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.comments\">SubmissionSet.comments</a></td><td>0..1</td><td>todo</td><td colspan=\"5\" style=\"background-color: #efefef\">(not mapped)</td><td style=\"background-color: #efefef\">TO DO</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.patientID\">SubmissionSet.patientID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td colspan=\"3\">List.subject.fr-core-patient</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.sourceID\">SubmissionSet.sourceID</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:sourceId\">List.extension:sourceId</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.uniqueID\">SubmissionSet.uniqueID</a></td><td>1..1</td><td>todo</td><td colspan=\"5\" style=\"background-color: #efefef\">(not mapped)</td><td style=\"background-color: #efefef\">TO DO</td></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.contentTypeCode\">SubmissionSet.contentTypeCode</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:designationType\">List.extension:designationType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.author\">SubmissionSet.author</a></td><td>1..1</td><td>todo</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td><a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.source\">List.source</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href=\"StructureDefinition-SubmissionSet.html#s-SubmissionSet.homeCommunityID\">SubmissionSet.homeCommunityID</a></td><td>0..1</td><td>todo</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td colspan=\"3\">DSubmissionSet.intendedRecipient</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr></table></div></div>"
+  },
+  "url" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM",
+  "version" : "0.1.0",
+  "name" : "submissionSetToPDSM",
+  "title" : "submissionSetToPDSM",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-06-17T13:46:42+00:00",
+  "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
+  "contact" : [{
+    "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://esante.gouv.fr"
+    }]
+  }],
+  "description" : "Relation entre un lot de soummission   du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "FR",
+      "display" : "France (la)"
+    }]
+  }],
+  "sourceUri" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet",
+  "targetUri" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive",
+  "group" : [{
+    "source" : "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet",
+    "sourceVersion" : "0.1.0",
+    "target" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive",
+    "targetVersion" : "3.1.0",
+    "element" : [{
+      "code" : "SubmissionSet.entryUUID",
+      "target" : [{
+        "equivalence" : "equivalent",
+        "comment" : "List.identifier"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.availabilityStatus",
+      "target" : [{
+        "code" : "List.status",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.submissionTime",
+      "target" : [{
+        "code" : "List.date",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.title",
+      "target" : [{
+        "code" : "List.title",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.comments",
+      "target" : [{
+        "equivalence" : "unmatched",
+        "comment" : "TO DO"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.patientID",
+      "target" : [{
+        "code" : "List.subject.fr-core-patient",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.sourceID",
+      "target" : [{
+        "code" : "List.extension:sourceId",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.uniqueID",
+      "target" : [{
+        "equivalence" : "unmatched",
+        "comment" : "TO DO"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.contentTypeCode",
+      "target" : [{
+        "code" : "List.extension:designationType",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.author",
+      "target" : [{
+        "code" : "List.source",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubmissionSet.homeCommunityID",
+      "target" : [{
+        "equivalence" : "unmatched"
+      }]
+    },
+    {
+      "code" : "DSubmissionSet.intendedRecipient",
+      "target" : [{
+        "equivalence" : "unmatched"
+      }]
+    }]
+  }]
+}

@@ -3,6 +3,7 @@
 <head>
   <title>PDSm4DMP : Terminology Server Report</title>
   <link href="fhir.css" rel="stylesheet"/>
+  <meta charset="utf-8"/>
   <style>
     span.flip  { background-color: #4CAF50; color: white; border: solid 1px #a6d8a8; padding: 2px }
     span.toggle  { background-color: #e6f2ff; color: black; border: solid 1px #0056b3; padding: 2px; font-size: 10px }
@@ -11,20 +12,20 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Terminology Server Report for PDSm4DMP</h1>
- <p>Generated Mon Apr 28 10:04:37 UTC 2025, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>))</p>
+ <p>Generated Wed Jun 17 13:49:52 UTC 2026, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>))</p>
 <p>This page provides a report on which terminology servers were used while publishing this IG. Note that terminology caching reduces the server hit count - this page only reports content that wasn't cached</p>
 <h2>Terminology Parameters</h2>
 <ul>
   <li>
-    <b>x-system-cache-id</b>
-:     <code>dc8fd4bc-091a-424a-8a3b-6198ef146891</code>
+    <b>system-version</b>
+:     <code>http://snomed.info/sct|http://snomed.info/sct/11000315107</code>
   </li>
   <li>
     <b>displayLanguage</b>
 :     <code>fr-FR</code>
   </li>
 </ul>
-<h2>Tx Manager report for 'http://tx.fhir.org/tx-reg'</h2>
+<h2>Tx Manager report for 'https://tx.fhir.org/tx-reg'</h2>
 <p>
   <b>Decisions</b>
 </p>
@@ -47,114 +48,305 @@
     </td>
   </tr>
   <tr>
-    <td>System not handled by any servers. Using primary server</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
     <td>null</td>
-    <td>http://hl7.org/fhir/fhir-types</td>
-    <td>auth = , candidates=</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
   </tr>
   <tr>
-    <td>Fallback: primary server</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for urn:ietf:bcp:47</td>
+    <td>https://tx.fhir.org/r4</td>
     <td>null</td>
-    <td>http://hl7.org/fhir/fhir-types</td>
-    <td>auth = , candidates=</td>
+    <td>urn:ietf:bcp:47</td>
+    <td>[urn:ietf:bcp:47]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
-  </tr>
-  <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
     <td>null</td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>Use primary server for urn:ietf:bcp:47</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:ietf:bcp:47</td>
+    <td>[urn:ietf:bcp:47]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:iso:std:iso:3166</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>urn:iso:std:iso:3166</td>
+    <td>[urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://unstats.un.org/unsd/methods/m49/m49.htm</td>
+    <td>https://tx.fhir.org/r4</td>
     <td>http://hl7.org/fhir/ValueSet/jurisdiction|4.0.1</td>
     <td>[http://unstats.un.org/unsd/methods/m49/m49.htm, urn:iso:std:iso:3166, urn:iso:std:iso:3166:-2]</td>
-    <td>[auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4, auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4, auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4]</td>
+    <td>[[http://unstats.un.org/unsd/methods/m49/m49.htm]: authoritative = , candidates=http://tx.fhir.org/r4, [urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4, [urn:iso:std:iso:3166:-2]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://tx.hl7europe.eu/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4]</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td>null</td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>Use primary server for urn:ietf:bcp:47</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/languages|4.0.1</td>
+    <td>urn:ietf:bcp:47</td>
+    <td>[urn:ietf:bcp:47]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td>null</td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
-  </tr>
-  <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
-  </tr>
-  <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>http://snomed.info/sct</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://smt.esante.gouv.fr/fhir|https://apps.health.belgium.be/ontoserver/fhir|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
-  </tr>
-  <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for http://unstats.un.org/unsd/methods/m49/m49.htm</td>
+    <td>https://tx.fhir.org/r4</td>
     <td>http://hl7.org/fhir/ValueSet/jurisdiction|4.0.1</td>
     <td>[http://unstats.un.org/unsd/methods/m49/m49.htm, urn:iso:std:iso:3166, urn:iso:std:iso:3166:-2]</td>
-    <td>[auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4, auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4, auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4]</td>
+    <td>[[http://unstats.un.org/unsd/methods/m49/m49.htm]: authoritative = , candidates=http://tx.fhir.org/r4, [urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4, [urn:iso:std:iso:3166:-2]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://tx.hl7europe.eu/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4]</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>urn:iso:std:iso:3166</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>null</td>
+    <td>http://loinc.org</td>
+    <td>[http://loinc.org]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
-    <td></td>
-    <td>urn:iso:std:iso:3166</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc, https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM, http://loinc.org, https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://loinc.org]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir, [https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
   </tr>
   <tr>
-    <td>Found candidate server http://tx.fhir.org/r4</td>
-    <td>http://tx.fhir.org/r4</td>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>urn:uuid:86b00c8c-2fe8-4b98-9d6b-14e652e60bc2</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/mimetypes|4.0.1</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:47</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/languages|4.0.1</td>
+    <td>urn:ietf:bcp:47</td>
+    <td>[urn:ietf:bcp:47]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS, https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, http://snomed.info/sct]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice, https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS, http://snomed.info/sct]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc, https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM, http://loinc.org, https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://loinc.org]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir, [https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>urn:uuid:f9167f93-71db-4ecd-a83c-66250d0464c6</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/mimetypes|4.0.1</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc, https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM, http://loinc.org, https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A04-Loinc/FHIR/TRE-A04-Loinc]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_A12-NomenclatureASTM/FHIR/TRE-A12-NomenclatureASTM]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://loinc.org]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir, [https://mos.esante.gouv.fr/NOS/TRE_A05-TypeDocComplementaire/FHIR/TRE-A05-TypeDocComplementaire]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>urn:uuid:92c744d8-3d8b-4822-9751-c6734fe95067</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/mimetypes|4.0.1</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS|1.2.0</td>
+    <td>[https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS, https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite, http://snomed.info/sct]</td>
+    <td>[[https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=, [http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=]</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/c80-doc-typecodes|4.0.1</td>
+    <td>http://loinc.org</td>
+    <td>[http://loinc.org]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://unstats.un.org/unsd/methods/m49/m49.htm</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/jurisdiction|4.0.1</td>
+    <td>[http://unstats.un.org/unsd/methods/m49/m49.htm, urn:iso:std:iso:3166, urn:iso:std:iso:3166:-2]</td>
+    <td>[[http://unstats.un.org/unsd/methods/m49/m49.htm]: authoritative = , candidates=http://tx.fhir.org/r4, [urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4, [urn:iso:std:iso:3166:-2]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://tx.hl7europe.eu/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4]</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:iso:std:iso:3166</td>
+    <td>https://tx.fhir.org/r4</td>
     <td></td>
     <td>urn:iso:std:iso:3166</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>[urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:iso:std:iso:3166</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td></td>
+    <td>urn:iso:std:iso:3166</td>
+    <td>[urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for urn:iso:std:iso:3166</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td></td>
+    <td>urn:iso:std:iso:3166</td>
+    <td>[urn:iso:std:iso:3166]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://178.104.103.200/tx/r4|http://tx.hl7europe.eu/r4|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
   <tr>
     <td>Found candidate server http://tx.fhir.org/r4</td>
     <td>http://tx.fhir.org/r4</td>
     <td></td>
     <td>urn:iso:std:iso:3166:-2</td>
-    <td>auth = , candidates=http://tx.fhir.org/r4|http://tx.hl7europe.eu/r4|http://tx.fhir.ch/r4</td>
+    <td>[urn:iso:std:iso:3166:-2]: authoritative = , candidates=http://tx.fhir.org/r4|https://tx.hl7.org.au/fhir|http://tx.hl7europe.eu/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
 </table>
-<h2>Primary Server: http://tx.fhir.org/r4</h2>
-<a href="http://tx.fhir.org/r4"></a>
-<p>Use Count: 16. Code Systems used: </p>
+<p>
+  <b>Errors</b>
+</p>
+<table class="grid">
+  <tr>
+    <td>
+      <b>URL</b>
+    </td>
+    <td>
+      <b>Message</b>
+    </td>
+  </tr>
+  <tr>
+    <td>StructureDefinition/AuthorDocumentEntry</td>
+    <td style="background-color: #ffe3e3">
+      <span title="https://tx.fhir.org/tx-reg/resolve?fhirVersion=4.0&amp;valueSet=StructureDefinition%2FAuthorDocumentEntry&amp;usage=publication">Error resolving valueSet StructureDefinition/AuthorDocumentEntry: Bad Request</span>
+    </td>
+  </tr>
+  <tr>
+    <td>StructureDefinition/AuthorInstitution</td>
+    <td style="background-color: #ffe3e3">
+      <span title="https://tx.fhir.org/tx-reg/resolve?fhirVersion=4.0&amp;valueSet=StructureDefinition%2FAuthorInstitution&amp;usage=publication">Error resolving valueSet StructureDefinition/AuthorInstitution: Bad Request</span>
+    </td>
+  </tr>
+  <tr>
+    <td>http://unstats.un.org/unsd/methods/m49/m49.htm</td>
+    <td style="background-color: #ffe3e3">
+      <span title="https://tx.fhir.org/r4/CodeSystem?_format=json&amp;url=http%3A%2F%2Funstats.un.org%2Funsd%2Fmethods%2Fm49%2Fm49.htm">Error resolving CodeSystem http://unstats.un.org/unsd/methods/m49/m49.htm: Error parsing response message from https://tx.fhir.org/r4: JsonNull</span>
+    </td>
+  </tr>
+  <tr>
+    <td>urn:ietf:bcp:13</td>
+    <td style="background-color: #ffe3e3">
+      <span title="https://tx.fhir.org/r4/CodeSystem?_format=json&amp;url=urn%3Aietf%3Abcp%3A13">Error resolving CodeSystem urn:ietf:bcp:13: Error parsing response message from https://tx.fhir.org/r4: JsonNull</span>
+    </td>
+  </tr>
+</table>
+<h2>Primary Server: https://tx.fhir.org/r4</h2>
+<a href="https://tx.fhir.org/r4"></a>
+<p>Use Count: 35. Code Systems used: </p>
 <table class="grid">
   <tr>
     <th>
@@ -171,39 +363,88 @@
     </th>
   </tr>
   <tr>
-    <td>http://hl7.org/fhir/fhir-types</td>
-    <td>0</td>
+    <td>urn:iso:std:iso:3166:-2</td>
     <td>1</td>
-    <td></td>
+    <td>0</td>
+    <td>
+      <a href="http://terminology.hl7.org/6.0.2/CodeSystem-v3-iso3166-2.html">ISO 3166-2 Codes for the representation of names of countries and their subdivisions — Part 2: Country subdivision code</a>
+    </td>
+  </tr>
+</table>
+<p>ValueSets fetched:</p>
+<ul>
+  <li>StructureDefinition/AuthorDocumentEntry</li>
+  <li>StructureDefinition/AuthorInstitution</li>
+  <li>https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive</li>
+  <li>https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet</li>
+</ul>
+<h2>Server: https://tx.fhir.org/r4</h2>
+<a href="https://tx.fhir.org/r4"></a>
+<p>Use Count: 4. Code Systems used: </p>
+<table class="grid">
+  <tr>
+    <th>
+      <b>System</b>
+    </th>
+    <th>
+      <b>#Exp.</b>
+    </th>
+    <th>
+      <b>#Val.</b>
+    </th>
+    <th>
+      <b>Details</b>
+    </th>
+  </tr>
+</table>
+<h2>Server: https://smt.esante.gouv.fr/fhir</h2>
+<a href="https://smt.esante.gouv.fr/fhir"></a>
+<p>Use Count: 9. Code Systems used: </p>
+<table class="grid">
+  <tr>
+    <th>
+      <b>System</b>
+    </th>
+    <th>
+      <b>#Exp.</b>
+    </th>
+    <th>
+      <b>#Val.</b>
+    </th>
+    <th>
+      <b>Details</b>
+    </th>
   </tr>
   <tr>
     <td>http://snomed.info/sct</td>
-    <td>4</td>
-    <td>3</td>
+    <td>0</td>
+    <td>8</td>
     <td>
       <a href="http://hl7.org/fhir/R4/codesystem-snomedct.html">SNOMED CT (all versions)</a>
     </td>
   </tr>
   <tr>
-    <td>http://unstats.un.org/unsd/methods/m49/m49.htm</td>
+    <td>https://mos.esante.gouv.fr/NOS/TRE_A00-ProducteurDocNonPS/FHIR/TRE-A00-ProducteurDocNonPS</td>
     <td>0</td>
-    <td>2</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>urn:iso:std:iso:3166</td>
     <td>3</td>
-    <td>2</td>
     <td>
-      <a href="http://terminology.hl7.org/6.2.0/CodeSystem-ISO3166Part1.html">ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code</a>
+      <a href="https://interop.esante.gouv.fr/terminologies/1.10.0/CodeSystem-TRE-A00-ProducteurDocNonPS.html">TRE_A00_ProducteurDocNonPS</a>
     </td>
   </tr>
   <tr>
-    <td>urn:iso:std:iso:3166:-2</td>
+    <td>https://mos.esante.gouv.fr/NOS/TRE_A01-CadreExercice/FHIR/TRE-A01-CadreExercice</td>
+    <td>0</td>
     <td>1</td>
+    <td>
+      <a href="https://interop.esante.gouv.fr/terminologies/1.10.0/CodeSystem-TRE-A01-CadreExercice.html">TRE_A01_CadreExercice</a>
+    </td>
+  </tr>
+  <tr>
+    <td>https://mos.esante.gouv.fr/NOS/TRE_R02-SecteurActivite/FHIR/TRE-R02-SecteurActivite</td>
+    <td>0</td>
     <td>2</td>
     <td>
-      <a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-iso3166-2.html">ISO 3166 Part 2 Country Subdivision Codes</a>
+      <a href="https://interop.esante.gouv.fr/terminologies/1.10.0/CodeSystem-TRE-R02-SecteurActivite.html">TRE_R02_SecteurActivite</a>
     </td>
   </tr>
 </table>
