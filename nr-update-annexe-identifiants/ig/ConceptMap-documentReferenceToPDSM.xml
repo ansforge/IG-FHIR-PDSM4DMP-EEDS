@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="documentReferenceToPDSM"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><p class="res-header-id"><b>Narratif généré : CarteDeConcepts documentReferenceToPDSM</b></p><a name="documentReferenceToPDSM"> </a><a name="hcdocumentReferenceToPDSM"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping de <a href="StructureDefinition-DocumentEntry.html">Document Entry (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html">PDSm Comprehensive DocumentReference</a></p><table class="grid"><tr><td><b>Code source</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>relation</b></td><td><b>Code cible</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Commentaire</b></td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.entryUUID">DocumentEntry.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.id">DocumentReference.id</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.logicalId">DocumentEntry.logicalId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.identifier">DocumentReference.identifier</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.mimeType">DocumentEntry.mimeType</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.contentType">DocumentReference.content.attachment.contentType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.availabilityStatus">DocumentEntry.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td colspan="3"/><td>#DocumentReference.status ou  #DocumentReference.extension:isArchived</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.hash">DocumentEntry.hash</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.hash">DocumentReference.content.attachment.hash</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.size">DocumentEntry.size</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.size">DocumentReference.content.attachment.size</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.languageCode">DocumentEntry.languageCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.language">DocumentReference.content.attachment.language</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td colspan="3">DocumentEntry.legalAuthenticator</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.authenticator">DocumentReference.authenticator</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.repositoryUniqueId">DocumentEntry.repositoryUniqueId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.url">DocumentReference.content.attachment.url</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.serviceStartTime">DocumentEntry.serviceStartTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.period.start">DocumentReference.context.period.start</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.serviceEndTime">DocumentEntry.serviceEndTime</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.period.end">DocumentReference.context.period.end</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.sourcePatientID">DocumentEntry.sourcePatientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3">DocumentReference.subject.fr-core-patient</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.sourcePatientInfo">DocumentEntry.sourcePatientInfo</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.sourcePatientInfo">DocumentReference.context.sourcePatientInfo</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.URI">DocumentEntry.URI</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.url">DocumentReference.content.attachment.url</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.title">DocumentEntry.title</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.title">DocumentReference.content.attachment.title</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.comments">DocumentEntry.comments</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.description">DocumentReference.description</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.patientID">DocumentEntry.patientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3">DocumentReference.subject.fr-core-patient</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.uniqueId">DocumentEntry.uniqueId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.identifier">DocumentReference.identifier</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.class">DocumentEntry.class</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.category">DocumentReference.category</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.confidentiality">DocumentEntry.confidentiality</a></td><td>1..4</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.securityLabel">DocumentReference.securityLabel</a></td><td>1..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.eventCodeList">DocumentEntry.eventCodeList</a></td><td>0..*</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.event">DocumentReference.context.event</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.format">DocumentEntry.format</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.format">DocumentReference.content.format</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.healthcareFacilityTypeCode">DocumentEntry.healthcareFacilityTypeCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.facilityType">DocumentReference.context.facilityType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.practiceSetting">DocumentEntry.practiceSetting</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.practiceSetting">DocumentReference.context.practiceSetting</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.type">DocumentEntry.type</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.type">DocumentReference.type</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.documentAvailability">DocumentEntry.documentAvailability</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.homeCommunityId">DocumentEntry.homeCommunityId</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.creationTime">DocumentEntry.creationTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.date">DocumentReference.date</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.referenceIdList">DocumentEntry.referenceIdList</a></td><td>0..*</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.related:referenceIdList">DocumentReference.context.related:referenceIdList</a></td><td>0..*</td><td>todo</td><td/></tr></table></div><div xml:lang="en" lang="en"><hr/><p><b>English</b></p><hr/><p class="res-header-id"><b>Generated Narrative: ConceptMap documentReferenceToPDSM</b></p><a name="en-documentReferenceToPDSM"> </a><a name="en-hcdocumentReferenceToPDSM"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href="StructureDefinition-DocumentEntry.html">Document Entry (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html">PDSm Comprehensive DocumentReference</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Comment</b></td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.entryUUID">DocumentEntry.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.id">DocumentReference.id</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.logicalId">DocumentEntry.logicalId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.identifier">DocumentReference.identifier</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.mimeType">DocumentEntry.mimeType</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.contentType">DocumentReference.content.attachment.contentType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.availabilityStatus">DocumentEntry.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td colspan="3"/><td>#DocumentReference.status ou  #DocumentReference.extension:isArchived</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.hash">DocumentEntry.hash</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.hash">DocumentReference.content.attachment.hash</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.size">DocumentEntry.size</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.size">DocumentReference.content.attachment.size</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.languageCode">DocumentEntry.languageCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.language">DocumentReference.content.attachment.language</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td colspan="3">DocumentEntry.legalAuthenticator</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.authenticator">DocumentReference.authenticator</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.repositoryUniqueId">DocumentEntry.repositoryUniqueId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.url">DocumentReference.content.attachment.url</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.serviceStartTime">DocumentEntry.serviceStartTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.period.start">DocumentReference.context.period.start</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.serviceEndTime">DocumentEntry.serviceEndTime</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.period.end">DocumentReference.context.period.end</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.sourcePatientID">DocumentEntry.sourcePatientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3">DocumentReference.subject.fr-core-patient</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.sourcePatientInfo">DocumentEntry.sourcePatientInfo</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.sourcePatientInfo">DocumentReference.context.sourcePatientInfo</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.URI">DocumentEntry.URI</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#inexact" title="inexact">maps loosely to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.url">DocumentReference.content.attachment.url</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.title">DocumentEntry.title</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.attachment.title">DocumentReference.content.attachment.title</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.comments">DocumentEntry.comments</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.description">DocumentReference.description</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.patientID">DocumentEntry.patientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3">DocumentReference.subject.fr-core-patient</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.uniqueId">DocumentEntry.uniqueId</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.identifier">DocumentReference.identifier</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.class">DocumentEntry.class</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.category">DocumentReference.category</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.confidentiality">DocumentEntry.confidentiality</a></td><td>1..4</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.securityLabel">DocumentReference.securityLabel</a></td><td>1..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.eventCodeList">DocumentEntry.eventCodeList</a></td><td>0..*</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.event">DocumentReference.context.event</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.format">DocumentEntry.format</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.content.format">DocumentReference.content.format</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.healthcareFacilityTypeCode">DocumentEntry.healthcareFacilityTypeCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.facilityType">DocumentReference.context.facilityType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.practiceSetting">DocumentEntry.practiceSetting</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.practiceSetting">DocumentReference.context.practiceSetting</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.type">DocumentEntry.type</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.type">DocumentReference.type</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.documentAvailability">DocumentEntry.documentAvailability</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.homeCommunityId">DocumentEntry.homeCommunityId</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.creationTime">DocumentEntry.creationTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.date">DocumentReference.date</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-DocumentEntry.html#s-DocumentEntry.referenceIdList">DocumentEntry.referenceIdList</a></td><td>0..*</td><td>todo</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html#s-DocumentReference.context.related:referenceIdList">DocumentReference.context.related:referenceIdList</a></td><td>0..*</td><td>todo</td><td/></tr></table></div></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/documentReferenceToPDSM"/>
+  <version value="0.1.0"/>
+  <name value="documentReferenceToPDSM"/>
+  <title value="documentReferenceToPDSM"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-06-17T14:03:35+00:00"/>
+  <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+  <contact>
+    <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <description value="Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documentReference du 'Volet Partage de Documents de Santé en mobilité'"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="France (la)"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry"/>
+    <sourceVersion value="0.1.0"/>
+    <target value="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"/>
+    <targetVersion value="3.1.0"/>
+    <element>
+      <code value="DocumentEntry.entryUUID"/>
+      <target>
+        <code value="DocumentReference.id"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.logicalId"/>
+      <target>
+        <code value="DocumentReference.identifier"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.mimeType"/>
+      <target>
+        <code value="DocumentReference.content.attachment.contentType"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.availabilityStatus"/>
+      <target>
+        <equivalence value="inexact"/>
+        <comment value="#DocumentReference.status ou  #DocumentReference.extension:isArchived"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.hash"/>
+      <target>
+        <code value="DocumentReference.content.attachment.hash"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.size"/>
+      <target>
+        <code value="DocumentReference.content.attachment.size"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.languageCode"/>
+      <target>
+        <code value="DocumentReference.content.attachment.language"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.legalAuthenticator"/>
+      <target>
+        <code value="DocumentReference.authenticator"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.repositoryUniqueId"/>
+      <target>
+        <code value="DocumentReference.content.attachment.url"/>
+        <equivalence value="inexact"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.serviceStartTime"/>
+      <target>
+        <code value="DocumentReference.context.period.start"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.serviceEndTime"/>
+      <target>
+        <code value="DocumentReference.context.period.end"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.sourcePatientID"/>
+      <target>
+        <code value="DocumentReference.subject.fr-core-patient"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.sourcePatientInfo"/>
+      <target>
+        <code value="DocumentReference.context.sourcePatientInfo"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.URI"/>
+      <target>
+        <code value="DocumentReference.content.attachment.url"/>
+        <equivalence value="inexact"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.title"/>
+      <target>
+        <code value="DocumentReference.content.attachment.title"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.comments"/>
+      <target>
+        <code value="DocumentReference.description"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.patientID"/>
+      <target>
+        <code value="DocumentReference.subject.fr-core-patient"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.uniqueId"/>
+      <target>
+        <code value="DocumentReference.identifier"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.class"/>
+      <target>
+        <code value="DocumentReference.category"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.confidentiality"/>
+      <target>
+        <code value="DocumentReference.securityLabel"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.eventCodeList"/>
+      <target>
+        <code value="DocumentReference.context.event"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.format"/>
+      <target>
+        <code value="DocumentReference.content.format"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.healthcareFacilityTypeCode"/>
+      <target>
+        <code value="DocumentReference.context.facilityType"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.practiceSetting"/>
+      <target>
+        <code value="DocumentReference.context.practiceSetting"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.type"/>
+      <target>
+        <code value="DocumentReference.type"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.documentAvailability"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.homeCommunityId"/>
+      <target>
+        <equivalence value="unmatched"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.creationTime"/>
+      <target>
+        <code value="DocumentReference.date"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="DocumentEntry.referenceIdList"/>
+      <target>
+        <code value="DocumentReference.context.related:referenceIdList"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>
