@@ -11,7 +11,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | | | | |
 | :--- | :--- | :--- | :--- |
 | `entryUUID` | UUID | Identifiant unique d'une**version**de la fiche dans le registre. Attribué par le registre DMP. Utilisé pour les opérations de mise à jour, de suppression et d'archivage. | `DocumentReference.id` |
-| `logicalId` | Identifier | Identifiant**invariant**de la fiche, commun à toutes ses versions. | `DocumentReference.identifier` |
+| `logicalId` | Identifier | Identifiant technique affecté par le SI DMP à un document (identique pour toutes ses versions de métadonnées). Change à chaque nouvelle version du document (remplacement) mais reste identique à chaque modification de métadonnées. | `DocumentReference.identifier` |
 | `uniqueId` | OID / UUID | Identifiant unique du**document**attribué par le producteur (système LPS). | `DocumentReference.masterIdentifier` |
 | `repositoryUniqueId` | OID | Identifiant du dépôt dans lequel est stocké le document. | Dérivé de`DocumentReference.content.attachment.url` |
 | `patientID` | CX | Identifiant du patient dans le registre — INS (NIR ou NIA) dans le contexte DMP. | `DocumentReference.subject`→`Patient.identifier` |
