@@ -79,18 +79,21 @@ flowchart TD
 
 Ce guide couvre les transactions DMP réalisées par un Logiciel de Professionnel de Santé (LPS) dans le cadre du volet CI-SIS « Partage de Documents de Santé ». Il s'appuie sur le profil PDSm et le guide HL7 FHIR France (fr-core) pour le traitement de l'identité patient (INS).
 
-| Transaction | Fonctionnalité | Équivalent FHIR/PDSm |
-|-------------|---------------|----------------------|
-| [TD02](transaction_td02.html) | Vérifier l'existence d'un DMP actif et les conditions d'accès | Requête `Patient?identifier` |
-| [TD2](transaction_td2.html) | Alimenter le DMP avec de nouveaux documents | ITI-65 (push `DocumentReference`) |
-| [TD2.1](transaction_td2.1.html) | Remplacer un document existant | ITI-65 avec `UpdateDocumentRefs` |
-| [TD3.1a](transaction_td3.1a.html) | Lister les documents du DMP | ITI-67 (`DocumentReference?patient.identifier`) |
-| [TD3.1b](transaction_td3.1b.html) | Rechercher l'identifiant technique d'un document | ITI-67 avec paramètre `id` |
-| [TD3.2](transaction_td3.2.html) | Consulter un document | `DocumentReference` + `Binary` |
-| [TD3.3a](transaction_td3.3a.html) | Masquer / démasquer un document aux professionnels | Mise à jour du consentement |
-| [TD3.3b](transaction_td3.3b.html) | Rendre un document visible au patient | Mise à jour du consentement |
-| [TD3.3c](transaction_td3.3c.html) | Supprimer un document | HTTP DELETE / mise à jour statut |
-| [TD3.3d](transaction_td3.3d.html) | Archiver / désarchiver un document | PATCH `DocumentReference` (statut) |
+### Correspondance des transactions DMP ↔ volet PDSm
+
+**Sources :** DMPi v2.10.0 (XDS.b) · PDSm v3.1.1 (IHE MHD / FHIR R4) · IHE ITI TF Vol3 §4.2
+
+| Opération métier | Transaction DMP | Profil IHE XDS.b sous-jacent | Transaction / flux PDSm | Mécanisme PDSm |
+|---|---|---|---|---|
+| Alimentation — nouveau document | TD2.1 / TD2.2 (DMP_2.1a/2.2a) | ITI-41 Provide and Register Document Set-b | ITI-65 (Flux 01) **ou** ITI-105 (Flux 09) | ITI-65 : Bundle `transaction` / ITI-105 : POST d'une seule `DocumentReference` |
+| Alimentation — remplacement | TD2.1 / TD2.2 (DMP_2.1b/2.2b) | ITI-41 + association RPLC | ITI-65 (Flux 01) **ou** ITI-105 (Flux 09) | `relatesTo.code = replaces` (cardinalité `1..1` au remplacement). ITI-65 : ancienne fiche passée à `superseded` incluse dans le Bundle. ITI-105 : POST de la nouvelle fiche (`status = current`) avec `relatesTo[replaces]` ; le gestionnaire déprécie la cible |
+| Recherche de documents | TD3.1 (DMP_3.1) | ITI-18 Registry Stored Query (`FindDocuments`, `GetDocuments`) | ITI-67 Find Document References | Recherche REST FHIR (`search`) sur `DocumentReference` (HTTP GET/POST) |
+| Recherche de lots / classeurs | TD3.1 (`FindSubmissionSets`) | ITI-18 Registry Stored Query | ITI-66 Find Document Lists | Recherche REST FHIR sur `List` (SubmissionSet / Folder) |
+| Consultation / récupération | TD3.2 (DMP_3.2) | ITI-43 Retrieve Document Set | ITI-68 Retrieve Document | Récupération du `Binary` via `attachment.url` |
+| Masquer / démasquer aux professionnels | TD3.3a | ITI-57 Update DocumentEntry Metadata | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH (conditional, sur identifiant métier) de `DocumentReference.securityLabel` |
+| Visibilité patient / représentants légaux | TD3.3b | ITI-57 Update DocumentEntry Metadata | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de `DocumentReference.securityLabel` |
+| Archiver / désarchiver | TD3.3d | ITI-57 — `availabilityStatus` = `urn:asip:ci-sis:2010:StatusType:Archived` | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de l'extension `PDSm_isArchived` (booléen) sur `DocumentReference` / `List` |
+| Supprimer un document (suppression logique) | TD3.3c | ITI-57 — `availabilityStatus` = `urn:asip:ci-sis:2010:StatusType:Deleted` | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de `DocumentReference.status` → `superseded` (dépublication). Pas de suppression physique (`DELETE` absent dans MHD). RMD (ITI-62/86) **non utilisé** par le DMP |
 
 ### Dépendances
 
