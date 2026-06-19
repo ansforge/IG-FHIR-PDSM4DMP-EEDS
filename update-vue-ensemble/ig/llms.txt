@@ -1,0 +1,82 @@
+# ans.fhir.fr.pdsm4dmp#0.1.0: Utilisation de PDSm  dans le contexte d'EEDS(fr)
+
+## Pages
+
+* [Accueil](fr/index.md)
+* [Flux TD3.3a - Masquer / démasquer aux professionnels](fr/transaction_td3.3a.md)
+* [Flux TD3.3b - Visibilité patient](fr/transaction_td3.3b.md)
+* [Téléchargements et usages](fr/downloads.md)
+* [Annexes](fr/annexe.md)
+* [Informations sur la traduction](fr/translationinfo.md)
+* [Comparatif des identifiants XDS / FHIR](fr/annexe_identifiants_xds_fhir.md)
+* [Autres Ressources](fr/autres_ressources.md)
+* [Exemples d'usages DMP](fr/exemples_usage_dmp.md)
+* [Comparatif des dates XDS / FHIR](fr/annexe_dates_xds_fhir.md)
+* [Flux TD3.3c - Supprimer un document](fr/transaction_td3.3c.md)
+* [Résumé des artefacts](fr/artifacts.md)
+* [Sécurité](fr/securite.md)
+* [Flux TD3.3d - Archiver / désarchiver un document](fr/transaction_td3.3d.md)
+* [Flux TD3.1a - Lister les documents d'un DMP](fr/transaction_td3.1a.md)
+* [Historique des versions](fr/change-log.md)
+* [Flux TD3.1b - Rechercher par identifiant](fr/transaction_td3.1b.md)
+* [Flux TD2 - Alimenter le DMP](fr/transaction_td2.md)
+* [Flux TD3.2 - Consulter un document](fr/transaction_td3.2.md)
+* [Flux TD02 - Valider l'existence et l'état du DMP](fr/transaction_td02.md)
+* [Flux TD2.1 - Remplacer un document](fr/transaction_td2.1.md)
+* [Specifications Techniques](fr/specifications_techniques.md)
+
+## Resources
+
+### Logicals
+
+* [ActorPS (LM)](fr/StructureDefinition-ActorPS.md)
+* [ActorPatient (LM)](fr/StructureDefinition-ActorPatient.md)
+* [ActorSNR (LM)](fr/StructureDefinition-ActorSNR.md)
+* [ActorSystem (LM)](fr/StructureDefinition-ActorSystem.md)
+* [ActorXDS (LM)](fr/StructureDefinition-ActorXDS.md)
+* [Author (LM)](fr/StructureDefinition-Author.md)
+* [AuthorDocumentEntry (LM)](fr/StructureDefinition-AuthorDocumentEntry.md)
+* [AuthorInstitution (LM)](fr/StructureDefinition-AuthorInstitution.md)
+* [AuthorSubmissionSet (LM)](fr/StructureDefinition-AuthorSubmissionSet.md)
+* [Document Entry (LM)](fr/StructureDefinition-DocumentEntry.md)
+* [EventCode (LM)](fr/StructureDefinition-EventCode.md)
+* [Folder (LM)](fr/StructureDefinition-Folder.md)
+* [Identifiant](fr/StructureDefinition-Identifiant.md)
+* [MatriculeINS](fr/StructureDefinition-MatriculeINS.md)
+* [PSIdNat](fr/StructureDefinition-PSIdNat.md)
+* [PatientId (LM)](fr/StructureDefinition-PatientId.md)
+* [SNR](fr/StructureDefinition-SNR.md)
+* [SourcePatientId (LM)](fr/StructureDefinition-SourcePatientId.md)
+* [SourcePatientInfo (LM)](fr/StructureDefinition-SourcePatientInfo.md)
+* [StructIdNat](fr/StructureDefinition-StructIdNat.md)
+* [SubmissionSet (LM)](fr/StructureDefinition-SubmissionSet.md)
+
+### Primitive-type Profiles
+
+* [IdentifiantSysteme](fr/StructureDefinition-IdentifiantSysteme.md)
+
+### ConceptMaps
+
+* [documentReferenceToPDSM](fr/ConceptMap-documentReferenceToPDSM.md)
+* [submissionSetToPDSM](fr/ConceptMap-submissionSetToPDSM.md)
+
+### ImplementationGuides
+
+* [Utilisation de PDSm  dans le contexte d'EEDS](fr/ImplementationGuide-ans.fhir.fr.pdsm4dmp.md)
+
+### Examples
+
+* [AuthorDispositif (Binary)](fr/Binary-AuthorDispositif.md)
+* [AuthorInstitutionCabinetRPPS (Binary)](fr/Binary-AuthorInstitutionCabinetRPPS.md)
+* [AuthorInstitutionSNR (Binary)](fr/Binary-AuthorInstitutionSNR.md)
+* [AuthorInstitutionStructure (Binary)](fr/Binary-AuthorInstitutionStructure.md)
+* [AuthorPSCabinetRPPS (Binary)](fr/Binary-AuthorPSCabinetRPPS.md)
+* [AuthorPatient (Binary)](fr/Binary-AuthorPatient.md)
+* [AuthorStructure (Binary)](fr/Binary-AuthorStructure.md)
+* [example-td2-1-remplacement (Bundle)](fr/Bundle-example-td2-1-remplacement.md)
+* [example-td2-iti65-lot-soumission (Bundle)](fr/Bundle-example-td2-iti65-lot-soumission.md)
+* [doc-x-id (DocumentReference)](fr/DocumentReference-doc-x-id.md)
+* [example-td2-iti105-publication-simplifiee (DocumentReference)](fr/DocumentReference-example-td2-iti105-publication-simplifiee.md)
+* [example-td3-1a-cr-consultation (DocumentReference)](fr/DocumentReference-example-td3-1a-cr-consultation.md)
+* [example-td3-1a-fhir-document (DocumentReference)](fr/DocumentReference-example-td3-1a-fhir-document.md)
+* [example-td3-1a-ordonnance (DocumentReference)](fr/DocumentReference-example-td3-1a-ordonnance.md)
