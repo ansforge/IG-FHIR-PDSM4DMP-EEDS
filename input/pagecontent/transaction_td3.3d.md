@@ -28,14 +28,9 @@ Les attributs du document sont modifiées dans le DMP du patient.
 
 ### Équivalent FHIR
 
-TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de l'extension `PDSm_isArchived` via une opération PATCH — sans modification de `DocumentReference.status`.
+TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de l'extension `PDSm_isArchived` via une opération PATCH.
 
 L'extension [`PDSm_isArchived`](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-ext-is-archived.html) (type `boolean`) indique si le document est dans un état archivé.
-
-| Action DMP | Statut XDS (`availabilityStatus`) | Extension `isArchived` |
-|-----------|----------------------------------|------------------------|
-| Archiver | `Deprecated` | `true` |
-| Désarchiver | `Approved` | `false` |
 
 #### Flux TD3.3d — Requête (archivage)
 
