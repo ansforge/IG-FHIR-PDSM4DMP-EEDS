@@ -28,12 +28,14 @@ Les attributs du document sont modifiées dans le DMP du patient.
 
 ### Équivalent FHIR
 
-TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de `DocumentReference.status` via une opération PATCH.
+TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de l'extension `PDSm_isArchived` via une opération PATCH — sans modification de `DocumentReference.status`.
 
-| Action DMP | Statut XDS (`availabilityStatus`) | Élément FHIR modifié | Valeur |
-|-----------|----------------------------------|---------------------|--------|
-| Archiver | `Deprecated` | `DocumentReference.status` | `superseded` |
-| Désarchiver | `Approved` | `DocumentReference.status` | `current` |
+L'extension [`PDSm_isArchived`](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-ext-is-archived.html) (type `boolean`) indique si le document est dans un état archivé.
+
+| Action DMP | Statut XDS (`availabilityStatus`) | Extension `isArchived` |
+|-----------|----------------------------------|------------------------|
+| Archiver | `Deprecated` | `true` |
+| Désarchiver | `Approved` | `false` |
 
 #### Flux TD3.3d — Requête (archivage)
 
@@ -51,8 +53,8 @@ Corps de la requête (JSON Patch) :
 [
   {
     "op": "replace",
-    "path": "/status",
-    "value": "superseded"
+    "path": "/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean",
+    "value": true
   }
 ]
 ```
@@ -69,17 +71,11 @@ Accept: application/fhir+json
 [
   {
     "op": "replace",
-    "path": "/status",
-    "value": "current"
+    "path": "/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean",
+    "value": false
   }
 ]
 ```
-
-<div style="background-color: #fff9e6; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0;">
-<b>⚠️ Risque de doublon lors du désarchivage</b><br/>
-Si un document a été remplacé par une version ultérieure avant son archivage (relation <code>replaces</code>), le désarchivage le remet au statut <code>current</code>. Il peut alors coexister avec sa version de remplacement, également au statut <code>current</code>, créant une situation de doublon avec deux versions du même document toutes deux considérées comme courantes.<br/>
-Il est recommandé de vérifier l'existence d'un document remplaçant (via <code>DocumentReference.relatesTo</code> avec code <code>replaces</code>) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
-</div>
 
 #### Flux TD3.3d — Réponse
 
@@ -104,10 +100,10 @@ Accept: application/fhir+json
 [
   {
     "op": "replace",
-    "path": "/status",
-    "value": "superseded"
+    "path": "/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean",
+    "value": true
   }
 ]
 ```
 
-Réponse : `200 OK` — `DocumentReference` avec `status` = `superseded`.
+Réponse : `200 OK` — `DocumentReference` avec extension `isArchived` = `true`.

@@ -57,7 +57,11 @@ Lorsque le LPS demande le contenu brut (Accept = type MIME natif), le corps de l
 
 ### Exemple FHIR
 
-Trois cas de figure selon la valeur de `DocumentReference.content.attachment.url` :
+<div class="dragon" markdown="1">
+
+**3 cas de figure** — La requête à émettre dépend de la valeur de `DocumentReference.content.attachment.url` : URL absolue vers un `Binary`, URL relative vers un `Binary`, ou URL relative vers un `Bundle` FHIR document. Cf. les exemples ci-dessous.
+
+</div>
 
 ---
 
