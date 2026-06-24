@@ -1,0 +1,271 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-td2-1-remplacement> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-td2-1-remplacement"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:type [ fhir:v "transaction"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000001"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:bbbbbbbb-0000-0000-0000-000000000001> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "List"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:bbbbbbbb-0000-0000-0000-000000000002> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "DocumentReference"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000004"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:bbbbbbbb-0000-0000-0000-000000000004> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "PATCH" ] ;
+       fhir:url [ fhir:v "DocumentReference/doc-x-id"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:bbbbbbbb-0000-0000-0000-000000000003> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Binary"^^xsd:anyURI ]
+     ]
+  ] ) . # 
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000001> a fhir:List ;
+  fhir:id [ fhir:v "submissionset-td2-1"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"List_submissionset-td2-1\"> </a><p class=\"res-header-id\"><b>Narratif généré : Liste submissionset-td2-1</b></p><a name=\"submissionset-td2-1\"> </a><a name=\"hcsubmissionset-td2-1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html\">PDSm SubmissionSet Comprehensive</a></p></div><table class=\"clstu\"><tr><td>Date : 2026-06-12 11:00:00+0200 </td><td>Mode : Working List </td><td>Statut : Current </td><td>Code : SubmissionSet as a FHIR List </td></tr><tr><td>Sujet : <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code>Source </td></tr></table><table class=\"grid\"><tr style=\"backgound-color: #eeeeee\"><td><b>Éléments</b></td></tr><tr><td><a href=\"Bundle-example-td2-1-remplacement.html#urn-uuid-bbbbbbbb-0000-0000-0000-000000000002\">DocumentReference : masterIdentifier = OID:1.2.250.1.213.1.4.8.99999.3; status = current; type = Consult note; category = Synthèse; date = 2026-06-12 11:00:00+0200; securityLabel = normal</a></td></tr></table><hr/><p><b>Ressources contenues</b></p><hr/><a name=\"submissionset-td2-1/patient-source\"> </a><p class=\"res-header-id\"><b>Patient #patient-source</b></p><a name=\"hcsubmissionset-td2-1/patient-source\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/><hr/><a name=\"submissionset-td2-1/practitioner-author\"> </a><p class=\"res-header-id\"><b>Praticien #practitioner-author</b></p><a name=\"hcsubmissionset-td2-1/practitioner-author\"> </a><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:contained ( [
+     a fhir:Patient ;
+     fhir:id [ fhir:v "patient-source" ] ;
+     fhir:identifier ( [
+       fhir:system [ fhir:v "urn:oid:1.2.250.1.213.1.4.8"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "123456789012345" ]
+     ] )
+  ] [
+     a fhir:Practitioner ;
+     fhir:id [ fhir:v "practitioner-author" ] ;
+     fhir:identifier ( [
+       fhir:system [ fhir:v "urn:oid:1.2.250.1.71.4.2.1"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "899700218896" ]
+     ] )
+  ] ) ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-designationType"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "11" ] ;
+         fhir:display [ fhir:v "Synthèse" ]
+       ] )
+     ]
+  ] [
+     fhir:url [ fhir:v "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourceId"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Identifier ;
+       fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "urn:oid:1.2.3.4.5.6.7.8" ]
+     ]
+  ] [
+     fhir:url [ fhir:v "https://profiles.ihe.net/ITI/MHD/StructureDefinition/ihe-sourcePatientId"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:reference [ fhir:v "#patient-source" ]
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "current"] ; # 
+  fhir:mode [ fhir:v "working"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "https://profiles.ihe.net/ITI/MHD/CodeSystem/MHDlistTypes"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "submissionset" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T11:00:00+02:00"^^xsd:dateTime] ; # 
+  fhir:source [
+     fhir:reference [ fhir:v "#practitioner-author" ]
+  ] ; # 
+  fhir:entry ( [
+     fhir:item [
+       fhir:reference [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000002> a fhir:DocumentReference ;
+  fhir:id [ fhir:v "docref-y-nouvelle-version"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"DocumentReference_docref-y-nouvelle-version\"> </a><p class=\"res-header-id\"><b>Narratif généré : RéférenceDocument docref-y-nouvelle-version</b></p><a name=\"docref-y-nouvelle-version\"> </a><a name=\"hcdocref-y-nouvelle-version\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p></div><p><b>masterIdentifier</b>: <a href=\"http://terminology.hl7.org/5.0.0/NamingSystem-uri.html\" title=\"As defined by RFC 3986 (http://www.ietf.org/rfc/rfc3986.txt)(with many schemes defined in many RFCs). For OIDs and UUIDs, use the URN form (urn:oid:(note: lowercase) and urn:uuid:). See http://www.ietf.org/rfc/rfc3001.txt and http://www.ietf.org/rfc/rfc4122.txt #xD;#xA;#xD;#xA;This oid is used as an identifier II.root to indicate the the extension is an absolute URI (technically, an IRI). Typically, this is used for OIDs and GUIDs. Note that when this OID is used with OIDs and GUIDs, the II.extension should start with urn:oid or urn:uuid: #xD;#xA;#xD;#xA;Note that this OID is created to aid with interconversion between CDA and FHIR - FHIR uses urn:ietf:rfc:3986 as equivalent to this OID. URIs as identifiers appear more commonly in FHIR.#xD;#xA;#xD;#xA;This OID may also be used in CD.codeSystem.\">URI</a>/urn:oid:1.2.250.1.213.1.4.8.99999.3</p><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 11488-4}\">Consult note</span></p><p><b>category</b>: <span title=\"Codes :{https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument 11}\">Synthèse</span></p><p><b>subject</b>: <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></p><p><b>date</b>: 2026-06-12 11:00:00+0200</p><p><b>author</b>: <a href=\"#hcdocref-y-nouvelle-version/practitioner-author\">Practitioner : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>authenticator</b>: <a href=\"#hcdocref-y-nouvelle-version/practitioner-author\">Practitioner : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><h3>RelatesTos</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Target</b></td></tr><tr><td style=\"display: none\">*</td><td>Replaces</td><td><a href=\"DocumentReference-doc-x-id.html\">DocumentReference : masterIdentifier = OID:1.2.250.1.213.1.4.8.99999.0; status = superseded; type = Consult note; category = Synthèse; date = 2026-06-10 09:00:00+0200; securityLabel = normal</a></td></tr></table><p><b>securityLabel</b>: <span title=\"Codes :{http://terminology.hl7.org/CodeSystem/v3-Confidentiality N}\">normal</span></p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Language</b></td><td><b>Url</b></td><td><b>Size</b></td><td><b>Hash</b></td><td><b>Title</b></td><td><b>Creation</b></td></tr><tr><td style=\"display: none\">*</td><td>application/xml</td><td>Français (France)</td><td><a href=\"Bundle-example-td2-1-remplacement.html#urn-uuid-bbbbbbbb-0000-0000-0000-000000000003\">Binary: application/xml (108 bytes base64)</a></td><td>80</td><td><code>A/hMRrv6Y15BjSM8kMLidrz+mHc=</code></td><td>Compte rendu de consultation (v2)</td><td>2026-06-12 11:00:00+0200</td></tr></table><p><b>format</b>: <a href=\"https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html#formatcode-urn.58ihe.58iti.58xds.582017.58mimeTypeSufficient\">IHE Format Code set for use with Document Sharing: urn:ihe:iti:xds:2017:mimeTypeSufficient</a> (mimeType Sufficient)</p></blockquote><h3>Contexts</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td><td><b>FacilityType</b></td><td><b>PracticeSetting</b></td><td><b>SourcePatientInfo</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-06-12 11:00:00+0200 --&gt; (en cours)</td><td><span title=\"Codes :{http://snomed.info/sct 22232009}\">Hospital</span></td><td><span title=\"Codes :{http://snomed.info/sct 394802001}\">General medicine</span></td><td><a href=\"#hcdocref-y-nouvelle-version/patient-source\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</a></td></tr></table><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : Patient #patient-source</b></p><a name=\"docref-y-nouvelle-version/patient-source\"> </a><a name=\"hcdocref-y-nouvelle-version/patient-source\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></blockquote><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : Praticien #practitioner-author</b></p><a name=\"docref-y-nouvelle-version/practitioner-author\"> </a><a name=\"hcdocref-y-nouvelle-version/practitioner-author\"> </a><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:contained ( [
+     a fhir:Patient ;
+     fhir:id [ fhir:v "patient-source" ] ;
+     fhir:identifier ( [
+       fhir:system [ fhir:v "urn:oid:1.2.250.1.213.1.4.8"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "123456789012345" ]
+     ] )
+  ] [
+     a fhir:Practitioner ;
+     fhir:id [ fhir:v "practitioner-author" ] ;
+     fhir:identifier ( [
+       fhir:system [ fhir:v "urn:oid:1.2.250.1.71.4.2.1"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "899700218896" ]
+     ] )
+  ] ) ; # 
+  fhir:masterIdentifier [
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "urn:oid:1.2.250.1.213.1.4.8.99999.3" ]
+  ] ; # 
+  fhir:status [ fhir:v "current"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:11488-4 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "11488-4" ] ;
+       fhir:display [ fhir:v "Consult note" ]
+     ] )
+  ] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "11" ] ;
+       fhir:display [ fhir:v "Synthèse" ]
+     ] )
+  ] ) ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T11:00:00+02:00"^^xsd:dateTime] ; # 
+  fhir:author ( [
+     fhir:reference [ fhir:v "#practitioner-author" ]
+  ] ) ; # 
+  fhir:authenticator [
+     fhir:reference [ fhir:v "#practitioner-author" ]
+  ] ; # 
+  fhir:relatesTo ( [
+     fhir:code [ fhir:v "replaces" ] ;
+     fhir:target [
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/DocumentReference/doc-x-id> ;
+       fhir:reference [ fhir:v "DocumentReference/doc-x-id" ]
+     ]
+  ] ) ; # 
+  fhir:securityLabel ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-Confidentiality"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "N" ] ;
+       fhir:display [ fhir:v "normal" ]
+     ] )
+  ] ) ; # 
+  fhir:content ( [
+     fhir:attachment [
+       fhir:contentType [ fhir:v "application/xml" ] ;
+       fhir:language [ fhir:v "fr-FR" ] ;
+       fhir:url [ fhir:v "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"^^xsd:anyURI ] ;
+       fhir:size [ fhir:v "80"^^xsd:nonNegativeInteger ] ;
+       fhir:hash [ fhir:v "A/hMRrv6Y15BjSM8kMLidrz+mHc="^^xsd:base64Binary ] ;
+       fhir:title [ fhir:v "Compte rendu de consultation (v2)" ] ;
+       fhir:creation [ fhir:v "2026-06-12T11:00:00+02:00"^^xsd:dateTime ]
+     ] ;
+     fhir:format [
+       fhir:system [ fhir:v "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "urn:ihe:iti:xds:2017:mimeTypeSufficient" ] ;
+       fhir:display [ fhir:v "mimeType Sufficient" ]
+     ]
+  ] ) ; # 
+  fhir:context [
+     fhir:period [
+       fhir:start [ fhir:v "2026-06-12T11:00:00+02:00"^^xsd:dateTime ]
+     ] ;
+     fhir:facilityType [
+       fhir:coding ( [
+         a sct:22232009 ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "22232009" ] ;
+         fhir:display [ fhir:v "Hospital" ]
+       ] )
+     ] ;
+     fhir:practiceSetting [
+       fhir:coding ( [
+         a sct:394802001 ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "394802001" ] ;
+         fhir:display [ fhir:v "General medicine" ]
+       ] )
+     ] ;
+     fhir:sourcePatientInfo [
+       fhir:reference [ fhir:v "#patient-source" ]
+     ]
+  ] . # 
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000004> a fhir:Parameters ;
+  fhir:id [ fhir:v "patch-doc-x-superseded"] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:parameter ( [
+     fhir:name [ fhir:v "operation" ] ;
+     fhir:part ( [
+       fhir:name [ fhir:v "type" ] ;
+       fhir:value [
+         a fhir:code ;
+         fhir:v "replace"
+       ]
+     ] [
+       fhir:name [ fhir:v "path" ] ;
+       fhir:value [
+         a fhir:string ;
+         fhir:v "DocumentReference.status"
+       ]
+     ] [
+       fhir:name [ fhir:v "value" ] ;
+       fhir:value [
+         a fhir:code ;
+         fhir:v "superseded"
+       ]
+     ] )
+  ] ) . # 
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000003> a fhir:Binary ;
+  fhir:id [ fhir:v "binary-cda-v2"] ; # 
+  fhir:language [ fhir:v "fr"] ; # 
+  fhir:contentType [ fhir:v "application/xml"] ; # 
+  fhir:data [ fhir:v "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48Q2xpbmljYWxEb2N1bWVudCB4bWxucz0idXJuOmhsNy1vcmc6djMiLz4="^^xsd:base64Binary] . # 
+
+# -------------------------------------------------------------------------------------
+
