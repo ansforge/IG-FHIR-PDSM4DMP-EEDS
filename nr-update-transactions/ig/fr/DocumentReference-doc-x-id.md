@@ -10,7 +10,7 @@
 
 Profil: [PDSm Comprehensive DocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html)
 
-**masterIdentifier**: [Uniform Resource Identifier (URI)](http://terminology.hl7.org/5.5.0/NamingSystem-uri.html)/urn:oid:1.2.250.1.213.1.4.8.99999.0
+**masterIdentifier**: [Uniform Resource Identifier (URI)](http://terminology.hl7.org/7.1.0/NamingSystem-uri.html)/urn:oid:1.2.250.1.213.1.4.8.99999.0
 
 **status**: Superseded
 
