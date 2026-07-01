@@ -65,7 +65,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-PatientId.csv),
   "name" : "PatientId",
   "title" : "PatientId (LM)",
   "status" : "draft",
-  "date" : "2026-06-26T10:38:02+00:00",
+  "date" : "2026-07-01T08:38:11+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",

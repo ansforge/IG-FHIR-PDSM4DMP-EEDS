@@ -314,18 +314,23 @@
   <pre class="rdf" data-fhir="generated" style="white-space: pre; overflow: hidden"><code class="language-turtle">
 @prefix fhir: &lt;http://hl7.org/fhir/&gt; .
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 
 # - resource -------------------------------------------------------------------
 
- a fhir:Binary ;
+&lt;http://hl7.org/fhir/Binary/AuthorInstitutionStructure&gt; a fhir:Binary ;
   <a href="http://hl7.org/fhir/R4/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot ;
-  <a href="http://hl7.org/fhir/R4/resource.html#Binary.id">fhir:id</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:v</a> &quot;AuthorInstitutionStructure&quot;] ; # 
-  <a href="http://hl7.org/fhir/R4/resource.html#Binary.language">fhir:language</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:v</a> &quot;fr&quot;] ; # 
-  <a href="http://hl7.org/fhir/R4/binary.html#Binary.contentType">fhir:contentType</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:v</a> &quot;text/x-hl7-ft&quot;] ; # 
-  <a href="http://hl7.org/fhir/R4/binary.html#Binary.data">fhir:data</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#base64Binary">fhir:v</a> &quot;PHJpbTpDbGFzc2lmaWNhdGlvbiAgY2xhc3NpZmljYXRpb25TY2hlbWU9InVybjp1dWlkOjkzNjA2YmNmLTk0OTQtNDNlYy05YjRlLWE3NzQ4ZDFhODM4ZCIgIGNsYXNzaWZpZWRPYmplY3Q9InRoZURvY3VtZW50IiAgbm9kZVJlcHJlc2VudGF0aW9uPSIiPiA8IS0tIG5vZGVSZXByZXNlbnRhdGlvbiBpbnRlbnRpb25uZWxsZW1lbnQgbm9uIHJlbnNlaWduw6kgLS0+ICA8cmltOlNsb3QgbmFtZT0iYXV0aG9yUGVyc29uIj4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPjM3NTAxMDAxMjUvOTc2Ml5BdXRvbWF0ZSBkZSBsYWJvcmF0b2lyZSBYXndhcmFsYWIxMDAwXl5eXl5eJmFtcDsxLjIuMjUwLjEuNzEuNC4yLjEmYW1wO0lTT15VXl5eUkk8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiAgPHJpbTpTbG90IG5hbWU9ImF1dGhvckluc3RpdHV0aW9uIj4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPkdyb3VwZSBQaXRpw6kgU2FscMOqdHJpw6hyZV5eXl5eJmFtcDsxLjIuMjUwLjEuNzEuNC4yLjImYW1wO0lTT15JRE5TVF5eXjE3NTAxMDAxMjU8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiAgPHJpbTpTbG90IG5hbWU9ImF1dGhvclJvbGUiPiAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPmFuYWx5c2UgZGUgc2FuZzwvcmltOlZhbHVlPiAgIDwvcmltOlZhbHVlTGlzdD4gIDwvcmltOlNsb3Q+ICA8cmltOlNsb3QgbmFtZT0iYXV0aG9yU3BlY2lhbHR5Ij4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPkRJU1BPU0lUSUZeZGlzcG9zaXRpZiBtw6lkaWNhbF4xLjIuMjUwLjEuMjEzLjEuMS40LjY8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiA8L3JpbTpDbGFzc2lmaWNhdGlvbj4g&quot;^^xsd:base64Binary] . # 
+  <a href="http://hl7.org/fhir/R4/resource.html#Binary.id">fhir:Resource.id</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;AuthorInstitutionStructure&quot;] ;
+  <a href="http://hl7.org/fhir/R4/resource.html#Binary.language">fhir:Resource.language</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;fr&quot;] ;
+  <a href="http://hl7.org/fhir/R4/binary.html#Binary.contentType">fhir:Binary.contentType</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;text/x-hl7-ft&quot;] ;
+  <a href="http://hl7.org/fhir/R4/binary.html#Binary.data">fhir:Binary.data</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#base64Binary">fhir:value</a> &quot;PHJpbTpDbGFzc2lmaWNhdGlvbiAgY2xhc3NpZmljYXRpb25TY2hlbWU9InVybjp1dWlkOjkzNjA2YmNmLTk0OTQtNDNlYy05YjRlLWE3NzQ4ZDFhODM4ZCIgIGNsYXNzaWZpZWRPYmplY3Q9InRoZURvY3VtZW50IiAgbm9kZVJlcHJlc2VudGF0aW9uPSIiPiA8IS0tIG5vZGVSZXByZXNlbnRhdGlvbiBpbnRlbnRpb25uZWxsZW1lbnQgbm9uIHJlbnNlaWduw6kgLS0+ICA8cmltOlNsb3QgbmFtZT0iYXV0aG9yUGVyc29uIj4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPjM3NTAxMDAxMjUvOTc2Ml5BdXRvbWF0ZSBkZSBsYWJvcmF0b2lyZSBYXndhcmFsYWIxMDAwXl5eXl5eJmFtcDsxLjIuMjUwLjEuNzEuNC4yLjEmYW1wO0lTT15VXl5eUkk8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiAgPHJpbTpTbG90IG5hbWU9ImF1dGhvckluc3RpdHV0aW9uIj4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPkdyb3VwZSBQaXRpw6kgU2FscMOqdHJpw6hyZV5eXl5eJmFtcDsxLjIuMjUwLjEuNzEuNC4yLjImYW1wO0lTT15JRE5TVF5eXjE3NTAxMDAxMjU8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiAgPHJpbTpTbG90IG5hbWU9ImF1dGhvclJvbGUiPiAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPmFuYWx5c2UgZGUgc2FuZzwvcmltOlZhbHVlPiAgIDwvcmltOlZhbHVlTGlzdD4gIDwvcmltOlNsb3Q+ICA8cmltOlNsb3QgbmFtZT0iYXV0aG9yU3BlY2lhbHR5Ij4gICAgIDxyaW06VmFsdWVMaXN0PiAgICA8cmltOlZhbHVlPkRJU1BPU0lUSUZeZGlzcG9zaXRpZiBtw6lkaWNhbF4xLjIuMjUwLjEuMjEzLjEuMS40LjY8L3JpbTpWYWx1ZT4gICA8L3JpbTpWYWx1ZUxpc3Q+ICA8L3JpbTpTbG90PiA8L3JpbTpDbGFzc2lmaWNhdGlvbj4g&quot;^^xsd:base64Binary] .
+
+# - ontology header ------------------------------------------------------------
+
+&lt;http://hl7.org/fhir/Binary/AuthorInstitutionStructure.ttl&gt; a owl:Ontology ;
+  owl:imports fhir:fhir.ttl ;
+  owl:versionIRI &lt;http://build.fhir.org/Binary/AuthorInstitutionStructure.ttl&gt; .
 
 </code></pre>
 
@@ -382,8 +387,8 @@
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-26 10:38:00 +0000">
-    2026-06-26
+  <span title="2026-07-01 08:38:00 +0000">
+    2026-07-01
   </span>
 
           <br/>

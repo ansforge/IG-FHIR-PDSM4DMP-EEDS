@@ -315,32 +315,9 @@ L'identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
 <h3 id="équivalent-fhir">Équivalent FHIR</h3>
 
-<p>TD3.3d correspond aux flux <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche</a></strong> du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> via une opération PATCH.</p>
+<p>TD3.3d correspond aux flux <strong><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html">Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche</a></strong> du profil PDSm. L'archivage et le désarchivage se traduisent par un changement de l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code> via une opération PATCH.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Action DMP</th>
-      <th>Statut XDS (<code class="language-plaintext highlighter-rouge">availabilityStatus</code>)</th>
-      <th>Élément FHIR modifié</th>
-      <th>Valeur</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Archiver</td>
-      <td><code class="language-plaintext highlighter-rouge">Deprecated</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.status</code></td>
-      <td><code class="language-plaintext highlighter-rouge">superseded</code></td>
-    </tr>
-    <tr>
-      <td>Désarchiver</td>
-      <td><code class="language-plaintext highlighter-rouge">Approved</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.status</code></td>
-      <td><code class="language-plaintext highlighter-rouge">current</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>L'extension <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-ext-is-archived.html"><code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></a> (type <code class="language-plaintext highlighter-rouge">boolean</code>) indique si le document est dans un état archivé.</p>
 
 <h4 id="flux-td33d--requête-archivage">Flux TD3.3d — Requête (archivage)</h4>
 
@@ -356,8 +333,8 @@ Accept: application/fhir+json
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/status"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"superseded"</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
@@ -372,17 +349,11 @@ Accept: application/fhir+json
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/status"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
-
-<div style="background-color: #fff9e6; border-left: 4px solid #ff9800; padding: 10px; margin: 10px 0;">
-<b>⚠️ Risque de doublon lors du désarchivage</b><br />
-Si un document a été remplacé par une version ultérieure avant son archivage (relation <code>replaces</code>), le désarchivage le remet au statut <code>current</code>. Il peut alors coexister avec sa version de remplacement, également au statut <code>current</code>, créant une situation de doublon avec deux versions du même document toutes deux considérées comme courantes.<br />
-Il est recommandé de vérifier l'existence d'un document remplaçant (via <code>DocumentReference.relatesTo</code> avec code <code>replaces</code>) avant d'effectuer le désarchivage, et de gérer ce cas en aval (ex. archiver à nouveau le document remplacé ou alerter l'utilisateur).
-</div>
 
 <h4 id="flux-td33d--réponse">Flux TD3.3d — Réponse</h4>
 
@@ -425,13 +396,13 @@ Accept: application/fhir+json
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"replace"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/status"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"superseded"</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/extension[url:'https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-ext-is-archived']/valueBoolean"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Réponse : <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">DocumentReference</code> avec <code class="language-plaintext highlighter-rouge">status</code> = <code class="language-plaintext highlighter-rouge">superseded</code>.</p>
+<p>Réponse : <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">DocumentReference</code> avec extension <code class="language-plaintext highlighter-rouge">isArchived</code> = <code class="language-plaintext highlighter-rouge">true</code>.</p>
 
 
 
@@ -482,8 +453,8 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-06-26 10:38:00 +0000">
-    2026-06-26
+  <span title="2026-07-01 08:38:00 +0000">
+    2026-07-01
   </span>
 
           <br/>

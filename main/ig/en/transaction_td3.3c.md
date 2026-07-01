@@ -37,6 +37,8 @@ En FHIR, la suppression d'un document DMP se traduit par la mise à jour de `Doc
 | :--- | :--- | :--- |
 | Supprimer | `DocumentReference.status` | `entered-in-error` |
 
+**Question ouverte** — La valeur `entered-in-error` n'est pas autorisée pour `DocumentReference.status` dans le profil MHD (IHE). Son utilisation pour traduire la suppression DMP est donc incompatible avec une implémentation stricte de PDSm. Une alternative doit être identifiée : suppression physique via `DELETE`, opération custom, ou autre mécanisme conforme à MHD. Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.
+
 #### Flux TD3.3c — Requête
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
