@@ -40,6 +40,8 @@ Par défaut, un document soumis dans le DMP est visible au patient. Un professio
 
 **Question ouverte** — L'utilisation de `DocumentReference.securityLabel` est-elle suffisante pour représenter la visibilité patient dans le contexte DMP ? Une analyse plus approfondie pourrait être nécessaire, notamment pour évaluer la pertinence d'un profilage de la ressource `Consent` (qui permet d'exprimer des politiques d'accès différenciées par catégorie d'acteur, dont le patient lui-même). Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.
 
+**Selon l'option prise, une évolution de la spécification PDSm devra être étudiée**
+
 #### Flux TD3.3b — Requête (masquage patient)
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :
