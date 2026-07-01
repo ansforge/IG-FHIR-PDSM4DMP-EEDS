@@ -1,6 +1,5 @@
 
-### Description 
-consulter des documents dans le DMP d’un patient
+### Description - consulter des documents dans le DMP d’un patient
 
 Cette fonctionnalité permet à l’utilisateur de télécharger et visualiser le contenu d’un document du DMP d’un patient.
 
