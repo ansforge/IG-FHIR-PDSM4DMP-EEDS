@@ -1,7 +1,4 @@
-
-### Description 
-
-rendre un document visible au patient ou à ses représentants légaux
+### Description - rendre un document visible au patient ou à ses représentants légaux
 
 Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un document dans le DMP d'un patient.
 
