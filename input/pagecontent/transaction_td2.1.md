@@ -1,7 +1,5 @@
 
-### Description 
-
-Remplacer un document existant dans le DMP d'un patient
+### Description - remplacer un document existant dans le DMP d'un patient
 
 Cette fonctionnalité permet d'alimenter le DMP d'un patient avec une nouvelle version d'un document.
 Soient X le document initial (uniqueId par exemple 1.2.3.X) et Y la nouvelle version du document (uniqueId par exemple 1.2.3.Y).
