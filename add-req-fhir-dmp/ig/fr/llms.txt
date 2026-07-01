@@ -1,0 +1,82 @@
+# ans.fhir.fr.pdsm4dmp#0.1.0: Utilisation de PDSm  dans le contexte d'EEDS(fr)
+
+## Pages
+
+* [Accueil](index.md)
+* [Flux TD3.3a - Masquer / démasquer aux professionnels](transaction_td3.3a.md)
+* [Flux TD3.3b - Visibilité patient](transaction_td3.3b.md)
+* [Téléchargements et usages](downloads.md)
+* [Annexes](annexe.md)
+* [Informations sur la traduction](translationinfo.md)
+* [Comparatif des identifiants XDS / FHIR](annexe_identifiants_xds_fhir.md)
+* [Autres Ressources](autres_ressources.md)
+* [Exemples d'usages DMP](exemples_usage_dmp.md)
+* [Comparatif des dates XDS / FHIR](annexe_dates_xds_fhir.md)
+* [Flux TD3.3c - Supprimer un document](transaction_td3.3c.md)
+* [Résumé des artefacts](artifacts.md)
+* [Sécurité](securite.md)
+* [Flux TD3.3d - Archiver / désarchiver un document](transaction_td3.3d.md)
+* [Flux TD3.1a - Lister les documents d'un DMP](transaction_td3.1a.md)
+* [Historique des versions](change-log.md)
+* [Flux TD3.1b - Rechercher par identifiant](transaction_td3.1b.md)
+* [Flux TD2 - Alimenter le DMP](transaction_td2.md)
+* [Flux TD3.2 - Consulter un document](transaction_td3.2.md)
+* [Flux TD02 - Valider l'existence et l'état du DMP](transaction_td02.md)
+* [Flux TD2.1 - Remplacer un document](transaction_td2.1.md)
+* [Specifications Techniques](specifications_techniques.md)
+
+## Resources
+
+### Logicals
+
+* [ActorPS (LM)](StructureDefinition-ActorPS.md)
+* [ActorPatient (LM)](StructureDefinition-ActorPatient.md)
+* [ActorSNR (LM)](StructureDefinition-ActorSNR.md)
+* [ActorSystem (LM)](StructureDefinition-ActorSystem.md)
+* [ActorXDS (LM)](StructureDefinition-ActorXDS.md)
+* [Author (LM)](StructureDefinition-Author.md)
+* [AuthorDocumentEntry (LM)](StructureDefinition-AuthorDocumentEntry.md)
+* [AuthorInstitution (LM)](StructureDefinition-AuthorInstitution.md)
+* [AuthorSubmissionSet (LM)](StructureDefinition-AuthorSubmissionSet.md)
+* [Document Entry (LM)](StructureDefinition-DocumentEntry.md)
+* [EventCode (LM)](StructureDefinition-EventCode.md)
+* [Folder (LM)](StructureDefinition-Folder.md)
+* [Identifiant](StructureDefinition-Identifiant.md)
+* [MatriculeINS](StructureDefinition-MatriculeINS.md)
+* [PSIdNat](StructureDefinition-PSIdNat.md)
+* [PatientId (LM)](StructureDefinition-PatientId.md)
+* [SNR](StructureDefinition-SNR.md)
+* [SourcePatientId (LM)](StructureDefinition-SourcePatientId.md)
+* [SourcePatientInfo (LM)](StructureDefinition-SourcePatientInfo.md)
+* [StructIdNat](StructureDefinition-StructIdNat.md)
+* [SubmissionSet (LM)](StructureDefinition-SubmissionSet.md)
+
+### Primitive-type Profiles
+
+* [IdentifiantSysteme](StructureDefinition-IdentifiantSysteme.md)
+
+### ConceptMaps
+
+* [documentReferenceToPDSM](ConceptMap-documentReferenceToPDSM.md)
+* [submissionSetToPDSM](ConceptMap-submissionSetToPDSM.md)
+
+### ImplementationGuides
+
+* [Utilisation de PDSm  dans le contexte d'EEDS](ImplementationGuide-ans.fhir.fr.pdsm4dmp.md)
+
+### Examples
+
+* [AuthorDispositif (Binary)](Binary-AuthorDispositif.md)
+* [AuthorInstitutionCabinetRPPS (Binary)](Binary-AuthorInstitutionCabinetRPPS.md)
+* [AuthorInstitutionSNR (Binary)](Binary-AuthorInstitutionSNR.md)
+* [AuthorInstitutionStructure (Binary)](Binary-AuthorInstitutionStructure.md)
+* [AuthorPSCabinetRPPS (Binary)](Binary-AuthorPSCabinetRPPS.md)
+* [AuthorPatient (Binary)](Binary-AuthorPatient.md)
+* [AuthorStructure (Binary)](Binary-AuthorStructure.md)
+* [example-td2-1-remplacement (Bundle)](Bundle-example-td2-1-remplacement.md)
+* [example-td2-iti65-lot-soumission (Bundle)](Bundle-example-td2-iti65-lot-soumission.md)
+* [doc-x-id (DocumentReference)](DocumentReference-doc-x-id.md)
+* [example-td2-iti105-publication-simplifiee (DocumentReference)](DocumentReference-example-td2-iti105-publication-simplifiee.md)
+* [example-td3-1a-cr-consultation (DocumentReference)](DocumentReference-example-td3-1a-cr-consultation.md)
+* [example-td3-1a-fhir-document (DocumentReference)](DocumentReference-example-td3-1a-fhir-document.md)
+* [example-td3-1a-ordonnance (DocumentReference)](DocumentReference-example-td3-1a-ordonnance.md)
