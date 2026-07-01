@@ -57,7 +57,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-ActorPS.csv), [
   "name" : "ActorPS",
   "title" : "ActorPS (LM)",
   "status" : "draft",
-  "date" : "2026-07-01T08:45:35+00:00",
+  "date" : "2026-07-01T08:46:53+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
