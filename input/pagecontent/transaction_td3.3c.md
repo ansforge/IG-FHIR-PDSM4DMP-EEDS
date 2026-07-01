@@ -36,6 +36,8 @@ En FHIR, la suppression d'un document DMP se traduit par la mise à jour de `Doc
 <div class="dragon" markdown="1">
 
 **Question ouverte** — La valeur `entered-in-error` n'est pas autorisée pour `DocumentReference.status` dans le profil MHD (IHE). Son utilisation pour traduire la suppression DMP est donc incompatible avec une implémentation stricte de PDSm. Une alternative doit être identifiée : suppression physique via `DELETE`, extension custom "isDeleted", ou autre mécanisme conforme à MHD. Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.
+<br>
+Coté volet PDSm, une issue traite ce sujet <a href="https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99">99</a>
 
 A noter, le DMP ne propose pas de suppression physique, donc DELETE ne semble pas correspondre au besoin.
 </div>
