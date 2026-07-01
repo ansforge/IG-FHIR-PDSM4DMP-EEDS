@@ -66,9 +66,9 @@ Corps de la requête (JSON Patch) :
     "value": {
       "coding": [
         {
-          "system": "https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite",
+          "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
           "code": "INVISIBLE_PATIENT",
-          "display": "Non visible au patient"
+          "display": "Non visible par le patient"
         }
       ]
     }
@@ -129,9 +129,9 @@ Accept: application/fhir+json
     "value": {
       "coding": [
         {
-          "system": "https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite",
+          "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
           "code": "INVISIBLE_PATIENT",
-          "display": "Non visible au patient"
+          "display": "Non visible par le patient"
         }
       ]
     }
