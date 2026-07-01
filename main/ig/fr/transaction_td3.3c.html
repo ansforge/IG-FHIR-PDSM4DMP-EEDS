@@ -335,6 +335,7 @@ L'identifiant du document dans le système DMP issu de DMP_3.1 (EF_DMP31_02).</p
 
   <p><strong>Question ouverte</strong> — La valeur <code class="language-plaintext highlighter-rouge">entered-in-error</code> n'est pas autorisée pour <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> dans le profil MHD (IHE). Son utilisation pour traduire la suppression DMP est donc incompatible avec une implémentation stricte de PDSm. Une alternative doit être identifiée : suppression physique via <code class="language-plaintext highlighter-rouge">DELETE</code>, extension custom "isDeleted", ou autre mécanisme conforme à MHD. Ce point est à trancher lors des travaux d'alignement avec les exigences DMP.</p>
 
+  <p>A noter, le DMP ne propose pas de suppression physique, donc DELETE ne semble pas correspondre au besoin.</p>
 </div>
 
 <h4 id="flux-td33c--requête">Flux TD3.3c — Requête</h4>
@@ -459,7 +460,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-01 08:57:00 +0000">
+  <span title="2026-07-01 10:07:00 +0000">
     2026-07-01
   </span>
 
