@@ -5,9 +5,7 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-### Description
-
-consulter des documents dans le DMP d’un patient
+### Description - consulter des documents dans le DMP d’un patient
 
 Cette fonctionnalité permet à l’utilisateur de télécharger et visualiser le contenu d’un document du DMP d’un patient.
 

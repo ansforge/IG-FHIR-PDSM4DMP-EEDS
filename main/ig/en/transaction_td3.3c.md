@@ -5,9 +5,7 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-### Description
-
-supprimer un document (
+### Description - supprimer un document
 
 Cette fonctionnalité permet à l'utilisateur de supprimer un document dans le DMP d'unpatient.
 

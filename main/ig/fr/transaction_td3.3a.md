@@ -2,9 +2,7 @@
 
 ## Flux TD3.3a - Masquer / démasquer aux professionnels
 
-### Description
-
-masquer / démasquer un document aux professionnels
+### Description - masquer / démasquer un document aux professionnels
 
 Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un document dans le DMP d'un patient.
 

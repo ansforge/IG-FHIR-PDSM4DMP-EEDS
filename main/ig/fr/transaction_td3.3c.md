@@ -2,9 +2,7 @@
 
 ## Flux TD3.3c - Supprimer un document
 
-### Description
-
-supprimer un document (
+### Description - supprimer un document
 
 Cette fonctionnalité permet à l'utilisateur de supprimer un document dans le DMP d'unpatient.
 

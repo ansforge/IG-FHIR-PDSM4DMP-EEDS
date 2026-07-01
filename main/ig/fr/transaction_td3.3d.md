@@ -2,9 +2,7 @@
 
 ## Flux TD3.3d - Archiver / désarchiver un document
 
-### Description
-
-archiver / désarchiver un document
+### Description - archiver / désarchiver un document
 
 Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un document dans le DMP d'un patient.
 

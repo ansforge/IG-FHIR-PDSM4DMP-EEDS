@@ -5,9 +5,7 @@
  
 There is no translation page available for the current page, so it has been rendered in the default language 
 
-### Description
-
-archiver / désarchiver un document
+### Description - archiver / désarchiver un document
 
 Cette fonctionnalité permet à l'utilisateur de modifier les attributs d'un document dans le DMP d'un patient.
 

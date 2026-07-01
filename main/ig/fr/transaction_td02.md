@@ -2,9 +2,7 @@
 
 ## Flux TD02 - Valider l'existence et l'état du DMP
 
-### Description
-
-vérifier l'existence d'un DMP actif (via TD0.2) et les conditions d'accès à ce DMP
+### Description - vérifier l'existence d'un DMP actif (via TD0.2) et les conditions d'accès à ce DMP
 
 Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :
 
