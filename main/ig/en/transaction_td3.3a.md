@@ -62,8 +62,8 @@ Corps de la requête (JSON Patch) :
     "value": {
       "coding": [
         {
-          "system": "https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite",
-          "code": "INVISIBLE_MASQUE_PATIENT",
+          "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
+          "code": "MASQUE_PS",
           "display": "Masqué aux professionnels"
         }
       ]
@@ -129,8 +129,8 @@ Accept: application/fhir+json
     "value": {
       "coding": [
         {
-          "system": "https://mos.esante.gouv.fr/NOS/TRE_A10-NiveauConfidentialite/FHIR/TRE-A10-NiveauConfidentialite",
-          "code": "INVISIBLE_MASQUE_PATIENT",
+          "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
+          "code": "MASQUE_PS",
           "display": "Masqué aux professionnels"
         }
       ]
