@@ -61,7 +61,7 @@ Corps de la requête (JSON Patch) :
         {
           "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
           "code": "MASQUE_PS",
-          "display": "Masqué aux professionnels"
+          "display": "Masqué aux professionnels de santé"
         }
       ]
     }
@@ -128,7 +128,7 @@ Accept: application/fhir+json
         {
           "system": "https://mos.esante.gouv.fr/NOS/TRE_A07-StatutVisibiliteDocument/FHIR/TRE-A07-StatutVisibiliteDocument",
           "code": "MASQUE_PS",
-          "display": "Masqué aux professionnels"
+          "display": "Masqué aux professionnels de santé"
         }
       ]
     }
