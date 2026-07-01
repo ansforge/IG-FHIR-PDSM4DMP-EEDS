@@ -1,6 +1,5 @@
 
-### Description 
-vérifier l'existence d'un DMP actif (via TD0.2) et les conditions d'accès à ce DMP
+### Description - vérifier l'existence d'un DMP actif (via TD0.2) et les conditions d'accès à ce DMP
 
 Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :
 - statut du DMP du patient (EF_DMP12_01),
