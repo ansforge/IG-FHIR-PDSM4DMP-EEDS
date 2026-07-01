@@ -73,6 +73,33 @@ Une requête **FindDocuments** est envoyée au DMP pour récupérer les document
 1. Dans le cas où le PS a des préférences de type de document renseigné (typeDMP) : sur une liste de type de documents particuliers. Le LPS doit indiquer que la recherche est filtrée sur ces types de document uniquement. Le PS doit pouvoir étendre sa recherche à d'autres types de document ou désactiver ce filtre s'il ne trouve pas les document recherchés.
 1. Point d'attention sur le document particulier « Historique de vaccination » qui peut dans la majorité des cas avoir une date de début d'acte (plus ancienne vaccination) inférieure à 2 ans (vaccination COVID notament). Un LPS doit pouvoir proposer au PS une recherche spécifique et manuelle sur ce typeCode sans limitation de date (si le document pas présent dans la première recherche automatique).
 
+###### Requête FHIR (TD3.1a — ITI-67)
+
+| | | |
+| :--- | :--- | :--- |
+| `patientID` | `patient.identifier` | `urn:oid:1.2.250.1.213.1.4.8|{INS}` |
+| `availabilityStatus = Approved` | `status=current` | — |
+| `XDSDocumentEntryServiceStartTimeFrom` | `period=ge{AAAA-MM-JJ}` | `dateAppelDMP`− 2 ans (UTC) |
+| `typeCode`(optionnel, multiple) | `type={system}|{code}`(multivalué) | — |
+
+**Sans filtre typeCode :**
+
+```
+GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ} HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+**Avec filtre typeCode (si `typeDMP` renseigné) :**
+
+```
+GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ}&type={system}|{code1}&type={system}|{code2} HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+La réponse est un `Bundle` de type `searchset` contenant zéro à N ressources `DocumentReference`.
+
 ##### Phase 2 — Traitement (interne logiciel)
 
 **Note :**Le même document CDA peut être transmis via MSS et déposé sur le DMP. Le
@@ -82,6 +109,16 @@ Pour chaque document retourné, le système vérifie que son `uniqueId` n'est pa
 
 Les documents dont le `uniqueId` correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à `localDocumentsDMP` (`entryUUID`, `logicalId`, `uniqueId`).
 
+###### Correspondance des identifiants FHIR
+
+Pour chaque `DocumentReference` dans `Bundle.entry[]` retourné en Phase 1 :
+
+| | |
+| :--- | :--- |
+| `uniqueId` | `DocumentReference.masterIdentifier.value` |
+| `entryUUID` | `DocumentReference.id` |
+| `logicalId` | `DocumentReference.identifier[lid].value` |
+
 ##### Phase 3 — Notification et récupération optionnelle
 
 Le PS est notifié du nombre de documents tiers détectés.
@@ -89,6 +126,28 @@ Le PS est notifié du nombre de documents tiers détectés.
 Le PS peut visualiser un ou plusieurs documents via RetrieveDocumentSet.
 
 Si le PS souhaite importer des documents DMP en local, le LPS appelle `RetrieveDocumentSet` et stocke les documents en local avec leurs identifiants (`entryUUID`, `uniqueId`, `logicalId`) dans `localDocumentsDMP`.
+
+###### Requête FHIR (TD3.2 — ITI-68)
+
+L'URL du document est issue de `DocumentReference.content.attachment.url` obtenue en Phase 1.
+
+**Scénario A — URL absolue :**
+
+```
+GET {DocumentReference.content.attachment.url} HTTP/1.1
+Accept: {DocumentReference.content.attachment.contentType}
+
+```
+
+**Scénario B — URL relative au serveur FHIR :**
+
+```
+GET [base]/Binary/{id} HTTP/1.1
+Accept: {DocumentReference.content.attachment.contentType}
+
+```
+
+La réponse est le contenu binaire du document (PDF, CDA XML, etc.) avec HTTP 200.
 
 ##### Logigramme — Première ouverture
 
