@@ -96,26 +96,6 @@
 <p>Le PS peut visualiser un ou plusieurs documents via RetrieveDocumentSet.</p>
 <p>Si le PS souhaite importer  des documents DMP en local, le LPS appelle <code>RetrieveDocumentSet</code> et stocke les documents en local avec leurs identifiants (<code>entryUUID</code>, <code>uniqueId</code>, <code>logicalId</code>) dans <code>localDocumentsDMP</code>.</p>
 
-###### Requête FHIR (TD3.2 — ITI-68)
-
-<p>L'URL du document est issue de <code>DocumentReference.content.attachment.url</code> obtenue en Phase 1.</p>
-
-<p><strong>Scénario A — URL absolue :</strong></p>
-
-```http
-GET {DocumentReference.content.attachment.url} HTTP/1.1
-Accept: {DocumentReference.content.attachment.contentType}
-```
-
-<p><strong>Scénario B — URL relative au serveur FHIR :</strong></p>
-
-```http
-GET [base]/Binary/{id} HTTP/1.1
-Accept: {DocumentReference.content.attachment.contentType}
-```
-
-<p>La réponse est le contenu binaire du document (PDF, CDA XML, etc.) avec HTTP 200.</p>
-
 ##### Logigramme — Première ouverture
 
 <div class="mermaid">
