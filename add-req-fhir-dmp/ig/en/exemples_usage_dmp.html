@@ -432,9 +432,9 @@ sequenceDiagram
 
 </div>
 
-<h5 id="traduction-fhir-native-et-optimisation-du-nombre-de-transactions">Traduction FHIR native et optimisation du nombre de transactions</h5>
+<h5 id="transposition-fhir-native-et-optimisation-du-nombre-de-transactions">Transposition FHIR native et optimisation du nombre de transactions</h5>
 
-<p>Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la traduction complète du même cas d'usage avec les transactions FHIR du profil PDSm (<a href="transaction_td3.1a.html">TD3.1a</a> — ITI-67, <a href="transaction_td3.2.html">TD3.2</a> — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.</p>
+<p>Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la transposition complète du même cas d'usage avec les transactions FHIR du profil PDSm (<a href="transaction_td3.1a.html">TD3.1a</a> — ITI-67, <a href="transaction_td3.2.html">TD3.2</a> — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.</p>
 
 <h6 id="rappel--flux-xds-référence">Rappel — flux XDS (référence)</h6>
 
@@ -444,9 +444,9 @@ sequenceDiagram
   <li><code>RetrieveDocumentSet</code> — une seule requête, capable de retourner plusieurs documents en une fois (liste d'<code>uniqueId</code> en paramètre).</li>
 </ol>
 
-<h6 id="traduction-directe-en-fhir">Traduction directe en FHIR</h6>
+<h6 id="transposition-directe-en-fhir">Transposition directe en FHIR</h6>
 
-<p>La Phase 1 (recherche) se traduit directement par une requête <strong>ITI-67 Find Document References</strong> :</p>
+<p>La Phase 1 (recherche) se transpose directement en une requête <strong>ITI-67 Find Document References</strong> :</p>
 
 <div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/DocumentReference?patient.identifier=[système-INS]|[valeur-INS]&amp;status=current&amp;period=ge[dateActe-2ans]&amp;type=[typeCode1],[typeCode2]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
@@ -454,10 +454,10 @@ sequenceDiagram
 
 <p>La réponse est un <code>Bundle</code> de type <code>searchset</code> contenant l'ensemble des <code>DocumentReference</code> correspondants — <strong>en une seule transaction</strong>, comme <code>FindDocuments</code>.</p>
 
-<p>La Phase 3 (récupération) se traduit par une requête <strong>ITI-68 Retrieve Document</strong> pour chaque document sélectionné (<code>GET [DocumentReference.content.attachment.url]</code>). Le profil PDSm, tel que documenté aujourd'hui, ne définit qu'une récupération unitaire — <strong>une requête par document</strong>.</p>
+<p>La Phase 3 (récupération) se transpose en une requête <strong>ITI-68 Retrieve Document</strong> pour chaque document sélectionné (<code>GET [DocumentReference.content.attachment.url]</code>). Telle que définie par IHE MHD, cette transaction ne couvre qu'une récupération unitaire — contrairement à <code>RetrieveDocumentSet</code> (ITI-43), elle n'inclut pas de mécanisme natif de regroupement de plusieurs documents en un seul appel.</p>
 
 <div class="note">
-  <strong>Constat :</strong> une traduction terme à terme aboutit à <code>1 + N</code> transactions (1 recherche + N récupérations), contre 2 en XDS. Pour N documents sélectionnés, le flux FHIR naïf devient moins optimal que le flux XDS dès que N &gt; 1.
+  <strong>Constat :</strong> une transposition terme à terme aboutit à <code>1 + N</code> transactions (1 recherche + N récupérations), contre 2 en XDS. Pour N documents sélectionnés, le flux FHIR naïf devient moins optimal que le flux XDS dès que N &gt; 1.
 </div>
 
 <h6 id="exemple-fhir-complet-du-cas-dusage">Exemple FHIR complet du cas d'usage</h6>
@@ -595,13 +595,13 @@ sequenceDiagram
   <thead><tr><th>Flux</th><th>Nb. transactions réseau</th><th>Détail</th></tr></thead>
   <tbody>
     <tr><td>XDS (référence actuelle)</td><td>2</td><td><code>FindDocuments</code> (1) + <code>RetrieveDocumentSet</code> batché (1)</td></tr>
-    <tr><td>FHIR — traduction directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
+    <tr><td>FHIR — transposition directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
     <tr><td>FHIR — avec Bundle <code>batch</code></td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
     <tr><td>FHIR — avec <code>attachment.data</code> inline</td><td>1</td><td>ITI-67 seul (métadonnées + contenu)</td></tr>
   </tbody>
 </table>
 
-<p><strong>Conclusion :</strong> une traduction FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.</p>
+<p><strong>Conclusion :</strong> une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.</p>
 
 <hr />
 
@@ -767,7 +767,7 @@ sequenceDiagram
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-02 13:05:00 +0000">
+  <span title="2026-07-02 13:38:00 +0000">
     2026-07-02
   </span>
 

@@ -94,9 +94,9 @@ Si le PS souhaite importer des documents DMP en local, le LPS appelle `RetrieveD
 
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%% sequenceDiagram title Première ouverture actor PS participant LPS participant DMP PS->>LPS: Accès au dossier patient rect rgb(180, 215, 245) note over LPS,DMP: Phase 1 — Recherche des documents LPS->>LPS: Stockage variable[dateAppelDMP] = date/heure courante (UTC) LPS->>DMP: FindDocuments (document courant, date Acte - 2 ans,[typeCode]) DMP-->>LPS: note over LPS,DMP: Phase 2 — Traitement (interne logiciel) loop Pour chaque document retourné LPS->>LPS: Si Document déja présent (test sur le uniqueId) alors ajout à localDocumentsDMP end note over LPS,DMP: Phase 3 — Notification et récupération optionnelle LPS->>PS: Notification des documents tiers détectés opt Import local des documents note over LPS : Demande de visualisation de un plusieurs PS->>LPS: Selection des documents à visualiser LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>PS: Affichage des documents note over LPS : Selection des documents à importer PS->>LPS: Selection des documents à importer LPS->>DMP: RetrieveDocumentSet (variable[listeUniqueId]) DMP-->>LPS: LPS->>LPS: Import des documents et stockage de localDocumentsDMP[entryUUID,logicalID,uniqueId] end end
 
-##### Traduction FHIR native et optimisation du nombre de transactions
+##### Transposition FHIR native et optimisation du nombre de transactions
 
-Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la traduction complète du même cas d'usage avec les transactions FHIR du profil PDSm ([TD3.1a](transaction_td3.1a.md) — ITI-67, [TD3.2](transaction_td3.2.md) — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.
+Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la transposition complète du même cas d'usage avec les transactions FHIR du profil PDSm ([TD3.1a](transaction_td3.1a.md) — ITI-67, [TD3.2](transaction_td3.2.md) — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.
 
 ###### Rappel — flux XDS (référence)
 
@@ -105,9 +105,9 @@ Quel que soit le nombre de documents détectés, le flux XDS décrit ci-dessus n
 1. `FindDocuments`— une seule requête, retourne les métadonnées de tous les documents correspondant aux critères ;
 1. `RetrieveDocumentSet`— une seule requête, capable de retourner plusieurs documents en une fois (liste d'`uniqueId`en paramètre).
 
-###### Traduction directe en FHIR
+###### Transposition directe en FHIR
 
-La Phase 1 (recherche) se traduit directement par une requête **ITI-67 Find Document References** :
+La Phase 1 (recherche) se transpose directement en une requête **ITI-67 Find Document References** :
 
 ```
 GET [base]/DocumentReference?patient.identifier=[système-INS]|[valeur-INS]&status=current&period=ge[dateActe-2ans]&type=[typeCode1],[typeCode2] HTTP/1.1
@@ -117,9 +117,9 @@ Accept: application/fhir+json
 
 La réponse est un `Bundle` de type `searchset` contenant l'ensemble des `DocumentReference` correspondants — **en une seule transaction**, comme `FindDocuments`.
 
-La Phase 3 (récupération) se traduit par une requête **ITI-68 Retrieve Document** pour chaque document sélectionné (`GET [DocumentReference.content.attachment.url]`). Le profil PDSm, tel que documenté aujourd'hui, ne définit qu'une récupération unitaire — **une requête par document**.
+La Phase 3 (récupération) se transpose en une requête **ITI-68 Retrieve Document** pour chaque document sélectionné (`GET [DocumentReference.content.attachment.url]`). Telle que définie par IHE MHD, cette transaction ne couvre qu'une récupération unitaire — contrairement à `RetrieveDocumentSet` (ITI-43), elle n'inclut pas de mécanisme natif de regroupement de plusieurs documents en un seul appel.
 
-**Constat :**une traduction terme à terme aboutit à
+**Constat :**une transposition terme à terme aboutit à
 `1 + N`transactions (1 recherche + N récupérations), contre 2 en XDS. Pour N documents sélectionnés, le flux FHIR naïf devient moins optimal que le flux XDS dès que N > 1.
 
 ###### Exemple FHIR complet du cas d'usage
@@ -268,11 +268,11 @@ Dans ce scénario, le cas d'usage « Première ouverture » — recherche **et**
 | | | |
 | :--- | :--- | :--- |
 | XDS (référence actuelle) | 2 | `FindDocuments`(1) +`RetrieveDocumentSet`batché (1) |
-| FHIR — traduction directe | 1 + N | ITI-67 (1) + N × ITI-68 (1 par document) |
+| FHIR — transposition directe | 1 + N | ITI-67 (1) + N × ITI-68 (1 par document) |
 | FHIR — avec Bundle`batch` | 2 | ITI-67 (1) + 1 Bundle`batch`regroupant les N récupérations |
 | FHIR — avec`attachment.data`inline | 1 | ITI-67 seul (métadonnées + contenu) |
 
-**Conclusion :** une traduction FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard `batch` permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.
+**Conclusion :** une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard `batch` permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.
 
 -------
 
