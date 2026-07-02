@@ -76,6 +76,8 @@ pages:
             title: Comparatif des identifiants XDS / FHIR
         annexe_dates_xds_fhir.md:
             title: Comparatif des dates XDS / FHIR
+        annexe_exemple_documentreference_cda_fhir.md:
+            title: "Exemple DocumentReference CDA / FHIR"
     autres_ressources.md:
         title: Autres Ressources
         securite.md:
@@ -104,6 +106,7 @@ menu:
     Annexes:
         "Comparatif identifiants XDS / FHIR": annexe_identifiants_xds_fhir.html
         "Comparatif dates XDS / FHIR": annexe_dates_xds_fhir.html
+        "Exemple DocumentReference CDA / FHIR": annexe_exemple_documentreference_cda_fhir.html
 
     Ressources de conformité: artifacts.html
     Autres ressources:
@@ -207,3 +210,8 @@ groups:
       - DocumentReference/example-td3-1a-cr-consultation
       - DocumentReference/example-td3-1a-ordonnance
       - DocumentReference/example-td3-1a-fhir-document
+      - DocumentReference/example-annexe-docref-cda
+      - Binary/example-annexe-binary-cda
+      - DocumentReference/example-annexe-docref-fhir
+      - Bundle/example-annexe-fhir-document
+      - Bundle/example-annexe-searchset-documentreferences
