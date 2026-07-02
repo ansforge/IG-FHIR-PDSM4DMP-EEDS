@@ -81,34 +81,6 @@
   </ol>
 </div>
 
-###### Requête FHIR (TD3.1a — ITI-67)
-
-<table>
-  <thead><tr><th>Paramètre XDS</th><th>Paramètre FHIR</th><th>Valeur</th></tr></thead>
-  <tbody>
-    <tr><td><code>patientID</code></td><td><code>patient.identifier</code></td><td><code>urn:oid:1.2.250.1.213.1.4.8|{INS}</code></td></tr>
-    <tr><td><code>availabilityStatus = Approved</code></td><td><code>status=current</code></td><td>—</td></tr>
-    <tr><td><code>XDSDocumentEntryServiceStartTimeFrom</code></td><td><code>period=ge{AAAA-MM-JJ}</code></td><td><code>dateAppelDMP</code> − 2 ans (UTC)</td></tr>
-    <tr><td><code>typeCode</code> (optionnel, multiple)</td><td><code>type={system}|{code}</code> (multivalué)</td><td>—</td></tr>
-  </tbody>
-</table>
-
-<p><strong>Sans filtre typeCode :</strong></p>
-
-```http
-GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ} HTTP/1.1
-Accept: application/fhir+json
-```
-
-<p><strong>Avec filtre typeCode (si <code>typeDMP</code> renseigné) :</strong></p>
-
-```http
-GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ}&type={system}|{code1}&type={system}|{code2} HTTP/1.1
-Accept: application/fhir+json
-```
-
-<p>La réponse est un <code>Bundle</code> de type <code>searchset</code> contenant zéro à N ressources <code>DocumentReference</code>.</p>
-
 ##### Phase 2 — Traitement (interne logiciel)
 
 <div class="note">
@@ -117,19 +89,6 @@ Accept: application/fhir+json
 
 <p>Pour chaque document retourné, le système vérifie que son <code>uniqueId</code> n'est pas déjà présent dans les documents en local.</p>
 <p>Les documents dont le <code>uniqueId</code> correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à <code>localDocumentsDMP</code> (<code>entryUUID</code>, <code>logicalId</code>, <code>uniqueId</code>).</p>
-
-###### Correspondance des identifiants FHIR
-
-<p>Pour chaque <code>DocumentReference</code> dans <code>Bundle.entry[]</code> retourné en Phase 1 :</p>
-
-<table>
-  <thead><tr><th>Variable logiciel</th><th>Élément FHIR</th></tr></thead>
-  <tbody>
-    <tr><td><code>uniqueId</code></td><td><code>DocumentReference.masterIdentifier.value</code></td></tr>
-    <tr><td><code>entryUUID</code></td><td><code>DocumentReference.id</code></td></tr>
-    <tr><td><code>logicalId</code></td><td><code>DocumentReference.identifier[lid].value</code></td></tr>
-  </tbody>
-</table>
 
 ##### Phase 3 — Notification et récupération optionnelle
 
