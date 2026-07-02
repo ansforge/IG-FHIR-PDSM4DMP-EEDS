@@ -450,6 +450,177 @@ sequenceDiagram
 
 </div>
 
+<h5 id="traduction-fhir-native-et-optimisation-du-nombre-de-transactions">Traduction FHIR native et optimisation du nombre de transactions</h5>
+
+<p>Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la traduction complète du même cas d'usage avec les transactions FHIR du profil PDSm (<a href="transaction_td3.1a.html">TD3.1a</a> — ITI-67, <a href="transaction_td3.2.html">TD3.2</a> — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.</p>
+
+<h6 id="rappel--flux-xds-référence">Rappel — flux XDS (référence)</h6>
+
+<p>Quel que soit le nombre de documents détectés, le flux XDS décrit ci-dessus ne nécessite que <strong>2 transactions réseau</strong> au maximum :</p>
+<ol>
+  <li><code>FindDocuments</code> — une seule requête, retourne les métadonnées de tous les documents correspondant aux critères ;</li>
+  <li><code>RetrieveDocumentSet</code> — une seule requête, capable de retourner plusieurs documents en une fois (liste d'<code>uniqueId</code> en paramètre).</li>
+</ol>
+
+<h6 id="traduction-directe-en-fhir">Traduction directe en FHIR</h6>
+
+<p>La Phase 1 (recherche) se traduit directement par une requête <strong>ITI-67 Find Document References</strong> :</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/DocumentReference?patient.identifier=[système-INS]|[valeur-INS]&amp;status=current&amp;period=ge[dateActe-2ans]&amp;type=[typeCode1],[typeCode2]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+</code></pre></div></div>
+
+<p>La réponse est un <code>Bundle</code> de type <code>searchset</code> contenant l'ensemble des <code>DocumentReference</code> correspondants — <strong>en une seule transaction</strong>, comme <code>FindDocuments</code>.</p>
+
+<p>La Phase 3 (récupération) se traduit par une requête <strong>ITI-68 Retrieve Document</strong> pour chaque document sélectionné (<code>GET [DocumentReference.content.attachment.url]</code>). Le profil PDSm, tel que documenté aujourd'hui, ne définit qu'une récupération unitaire — <strong>une requête par document</strong>.</p>
+
+<div class="note">
+  <strong>Constat :</strong> une traduction terme à terme aboutit à <code>1 + N</code> transactions (1 recherche + N récupérations), contre 2 en XDS. Pour N documents sélectionnés, le flux FHIR naïf devient moins optimal que le flux XDS dès que N &gt; 1.
+</div>
+
+<h6 id="exemple-fhir-complet-du-cas-dusage">Exemple FHIR complet du cas d'usage</h6>
+
+<p>Reprenons le patient et les deux documents des exemples <a href="transaction_td3.1a.html">TD3.1a</a> / <a href="transaction_td3.2.html">TD3.2</a> — INS <code>1.2.250.1.213.1.4.8|123456789012345</code>, aucun des deux documents n'étant encore connu du LPS. Le PS a configuré une préférence <code>typeDMP</code> = [Compte rendu de consultation (LOINC <code>11488-4</code>), Prescription médicale (LOINC <code>57833-6</code>)]. Le LPS ouvre le dossier le <code>2026-07-02</code> ; la borne des 2 ans est donc <code>2024-07-02</code>.</p>
+
+<p><strong>Phase 1 — recherche (ITI-67) :</strong></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345&amp;status=current&amp;period=ge2024-07-02&amp;type=http://loinc.org|11488-4,http://loinc.org|57833-6</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+</code></pre></div></div>
+
+<p>Réponse — <code>200 OK</code>, <code>Bundle</code> de type <code>searchset</code>, 2 entrées :</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"searchset"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[base]/DocumentReference/cr-consultation-td31a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cr-consultation-td31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"masterIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:ietf:rfc:3986"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oid:1.2.250.1.213.1.4.8.99999.101"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://loinc.org"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11488-4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consult note"</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-20T10:30:00+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[base]/DocumentReference/ordonnance-td31a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentReference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ordonnance-td31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"masterIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:ietf:rfc:3986"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oid:1.2.250.1.213.1.4.8.99999.102"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"coding"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://loinc.org"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57833-6"</span><span class="p">,</span><span class="w"> </span><span class="nl">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prescription for medication"</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-20T10:35:00+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary/ordonnance-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Fiches complètes : <a href="DocumentReference-example-td3-1a-cr-consultation.html">compte rendu de consultation</a>, <a href="DocumentReference-example-td3-1a-ordonnance.html">ordonnance médicale</a>.</p>
+
+<p><strong>Phase 2 — traitement interne (pas d'appel réseau) :</strong> le LPS compare les <code>masterIdentifier</code> reçus (<code>...99999.101</code> et <code>...99999.102</code>) à <code>localDocumentsDMP</code>. Aucun des deux n'y figure : ce sont deux documents tiers détectés.</p>
+
+<p><strong>Phase 3 — notification puis récupération groupée (ITI-68 via Bundle <code>batch</code>, cf. Optimisation 1 ci-dessous) :</strong> le PS visualise puis importe les deux documents en un seul appel :</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">[base]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary/ordonnance-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Le LPS stocke ensuite les deux documents en local avec leurs identifiants (<code>id</code> DMP, <code>masterIdentifier</code>) dans <code>localDocumentsDMP</code>.</p>
+
+<div class="note">
+  <strong>Bilan :</strong> pour ce cas concret à 2 documents, le flux FHIR optimisé (recherche + batch) totalise <strong>2 transactions réseau</strong> — identique au flux XDS (<code>FindDocuments</code> + <code>RetrieveDocumentSet</code>).
+</div>
+
+<h6 id="optimisation-1--bundle-batch-pour-grouper-les-récupérations">Optimisation 1 — Bundle <code class="language-plaintext highlighter-rouge">batch</code> pour grouper les récupérations</h6>
+
+<p>La spécification FHIR définit nativement l'interaction <strong>batch</strong> (cf. <a href="https://www.hl7.org/fhir/http.html#transaction">FHIR RESTful API — Batch/Transaction</a>) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique <code>Bundle</code> envoyé en une seule requête HTTP <code>POST [base]</code>. Le LPS peut ainsi remplacer les N appels <code>GET Binary/{id}</code> par un unique appel batch.</p>
+
+<p><strong>Requête :</strong></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">[base]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary/ordonnance-td31a"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Réponse</strong> — un <code>Bundle</code> de type <code>batch-response</code>, une entrée par requête, dans le même ordre :</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-response"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 OK"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary"</span><span class="p">,</span><span class="w"> </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w"> </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQK..."</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 OK"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary"</span><span class="p">,</span><span class="w"> </span><span class="nl">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w"> </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQK..."</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Avec cette approche, le flux « Première ouverture » revient à <strong>2 transactions</strong> (1 recherche ITI-67 + 1 batch de récupération), quel que soit le nombre de documents importés — <strong>équivalent au flux XDS</strong>.</p>
+
+<div class="note">
+  <strong>Prérequis :</strong> le serveur DMP doit déclarer le support de l'interaction <code>batch</code> dans son <code>CapabilityStatement</code> (<code>rest.interaction.code = batch</code>). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
+</div>
+
+<h6 id="optimisation-2--contenu-embarqué-dans-documentreference-attachmentdata">Optimisation 2 — contenu embarqué dans <code class="language-plaintext highlighter-rouge">DocumentReference</code> (<code class="language-plaintext highlighter-rouge">attachment.data</code>)</h6>
+
+<p>Le type <code>Attachment</code> utilisé par <code>DocumentReference.content.attachment</code> permet de porter le contenu du document de deux façons alternatives : par référence (<code>attachment.url</code>, seule option utilisée aujourd'hui dans TD3.1a/TD3.2) ou <strong>en valeur, encodé en base64</strong> (<code>attachment.data</code>). Si le système DMP choisissait de peupler <code>attachment.data</code> pour les documents de taille raisonnable, la réponse à la recherche ITI-67 (Phase 1) contiendrait déjà le contenu binaire des documents, sans étape de récupération séparée.</p>
+
+<p>Dans ce scénario, le cas d'usage « Première ouverture » — recherche <strong>et</strong> récupération des documents détectés — se résoudrait en <strong>une seule transaction FHIR</strong>, contre 2 au minimum en XDS.</p>
+
+<div class="dragon">
+
+  <p><strong>Question ouverte</strong> — Cette optimisation suppose une évolution du profil PDSm et/ou une politique du système DMP (seuil de taille en-deçà duquel <code class="language-plaintext highlighter-rouge">attachment.data</code> est peuplé à la place ou en complément de <code class="language-plaintext highlighter-rouge">attachment.url</code>), qui n'est pas définie à ce jour. Elle présente aussi un compromis : elle alourdit systématiquement la réponse de recherche, même si le PS ne consulte finalement aucun document — ce qui peut être défavorable puisque la récupération reste par nature <strong>optionnelle</strong> (cf. Phase 3). Ce point est à trancher avec l'équipe DMP si l'optimisation du nombre de transactions est jugée prioritaire.</p>
+
+</div>
+
+<h6 id="synthèse-comparative">Synthèse comparative</h6>
+
+<table>
+  <thead><tr><th>Flux</th><th>Nb. transactions réseau</th><th>Détail</th></tr></thead>
+  <tbody>
+    <tr><td>XDS (référence actuelle)</td><td>2</td><td><code>FindDocuments</code> (1) + <code>RetrieveDocumentSet</code> batché (1)</td></tr>
+    <tr><td>FHIR — traduction directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
+    <tr><td>FHIR — avec Bundle <code>batch</code></td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
+    <tr><td>FHIR — avec <code>attachment.data</code> inline</td><td>1</td><td>ITI-67 seul (métadonnées + contenu)</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Conclusion :</strong> une traduction FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.</p>
+
 <hr />
 
 <h4 id="accès-suivants">Accès suivants</h4>
@@ -614,7 +785,7 @@ sequenceDiagram
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-02 10:13:00 +0000">
+  <span title="2026-07-02 12:53:00 +0000">
     2026-07-02
   </span>
 

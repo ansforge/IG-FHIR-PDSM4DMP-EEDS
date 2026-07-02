@@ -77,7 +77,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-DocumentEntry.c
   "name" : "DocumentEntry",
   "title" : "Document Entry (LM)",
   "status" : "draft",
-  "date" : "2026-07-02T10:13:10+00:00",
+  "date" : "2026-07-02T12:53:44+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -397,7 +397,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-DocumentEntry.c
       }],
       "binding" : {
         "strength" : "preferred",
-        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS|20251029120000"
+        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS|20260629120000"
       }
     },
     {
@@ -442,7 +442,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-DocumentEntry.c
       }],
       "binding" : {
         "strength" : "preferred",
-        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|20260601120000"
+        "valueSet" : "https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS|20260629120000"
       }
     },
     {
