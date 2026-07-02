@@ -224,7 +224,7 @@ Accept: application/fhir+json
 
 <p><strong>Phase 2 — traitement interne (pas d'appel réseau) :</strong> le LPS compare les <code>masterIdentifier</code> reçus (<code>...99999.101</code> et <code>...99999.102</code>) à <code>localDocumentsDMP</code>. Aucun des deux n'y figure : ce sont deux documents tiers détectés.</p>
 
-<p><strong>Phase 3 — notification puis récupération groupée (ITI-68 via Bundle <code>batch</code>, cf. Optimisation 1 ci-dessous) :</strong> le PS visualise puis importe les deux documents en un seul appel :</p>
+<p><strong>Phase 3 — notification puis récupération groupée (ITI-68 via Bundle <code>batch</code>, cf. Optimisation ci-dessous) :</strong> le PS visualise puis importe les deux documents en un seul appel :</p>
 
 ```http
 POST [base] HTTP/1.1
@@ -249,7 +249,7 @@ Accept: application/fhir+json
   <strong>Bilan :</strong> pour ce cas concret à 2 documents, le flux FHIR optimisé (recherche + batch) totalise <strong>2 transactions réseau</strong> — identique au flux XDS (<code>FindDocuments</code> + <code>RetrieveDocumentSet</code>).
 </div>
 
-###### Optimisation 1 — Bundle `batch` pour grouper les récupérations
+###### Optimisation — Bundle `batch` pour grouper les récupérations
 
 <p>La spécification FHIR définit nativement l'interaction <strong>batch</strong> (cf. <a href="https://www.hl7.org/fhir/http.html#transaction">FHIR RESTful API — Batch/Transaction</a>) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique <code>Bundle</code> envoyé en une seule requête HTTP <code>POST [base]</code>. Le LPS peut ainsi remplacer les N appels <code>GET Binary/{id}</code> par un unique appel batch.</p>
 
@@ -297,18 +297,6 @@ Accept: application/fhir+json
   <strong>Prérequis :</strong> le serveur DMP doit déclarer le support de l'interaction <code>batch</code> dans son <code>CapabilityStatement</code> (<code>rest.interaction.code = batch</code>). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
 </div>
 
-###### Optimisation 2 — contenu embarqué dans `DocumentReference` (`attachment.data`)
-
-<p>Le type <code>Attachment</code> utilisé par <code>DocumentReference.content.attachment</code> permet de porter le contenu du document de deux façons alternatives : par référence (<code>attachment.url</code>, seule option utilisée aujourd'hui dans TD3.1a/TD3.2) ou <strong>en valeur, encodé en base64</strong> (<code>attachment.data</code>). Si le système DMP choisissait de peupler <code>attachment.data</code> pour les documents de taille raisonnable, la réponse à la recherche ITI-67 (Phase 1) contiendrait déjà le contenu binaire des documents, sans étape de récupération séparée.</p>
-
-<p>Dans ce scénario, le cas d'usage « Première ouverture » — recherche <strong>et</strong> récupération des documents détectés — se résoudrait en <strong>une seule transaction FHIR</strong>, contre 2 au minimum en XDS.</p>
-
-<div class="dragon" markdown="1">
-
-**Question ouverte** — Cette optimisation suppose une évolution du profil PDSm et/ou une politique du système DMP (seuil de taille en-deçà duquel `attachment.data` est peuplé à la place ou en complément de `attachment.url`), qui n'est pas définie à ce jour. Elle présente aussi un compromis : elle alourdit systématiquement la réponse de recherche, même si le PS ne consulte finalement aucun document — ce qui peut être défavorable puisque la récupération reste par nature **optionnelle** (cf. Phase 3). Ce point est à trancher avec l'équipe DMP si l'optimisation du nombre de transactions est jugée prioritaire.
-
-</div>
-
 ###### Synthèse comparative
 
 <table>
@@ -317,11 +305,10 @@ Accept: application/fhir+json
     <tr><td>XDS (référence actuelle)</td><td>2</td><td><code>FindDocuments</code> (1) + <code>RetrieveDocumentSet</code> batché (1)</td></tr>
     <tr><td>FHIR — transposition directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
     <tr><td>FHIR — avec Bundle <code>batch</code></td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
-    <tr><td>FHIR — avec <code>attachment.data</code> inline</td><td>1</td><td>ITI-67 seul (métadonnées + contenu)</td></tr>
   </tbody>
 </table>
 
-<p><strong>Conclusion :</strong> une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.</p>
+<p><strong>Conclusion :</strong> une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil — c'est l'optimisation retenue pour ce cas d'usage.</p>
 
 ---
 
