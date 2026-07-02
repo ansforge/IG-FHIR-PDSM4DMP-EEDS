@@ -164,6 +164,185 @@ sequenceDiagram
 
 </div>
 
+##### Traduction FHIR native et optimisation du nombre de transactions
+
+<p>Les phases précédentes décrivent le cas d'usage « Première ouverture » avec le vocabulaire XDS (transactions IHE ITI-18/ITI-43) utilisé historiquement par le DMP. Cette section propose la traduction complète du même cas d'usage avec les transactions FHIR du profil PDSm (<a href="transaction_td3.1a.html">TD3.1a</a> — ITI-67, <a href="transaction_td3.2.html">TD3.2</a> — ITI-68), et évalue si elle permet de réduire le nombre d'échanges réseau nécessaires.</p>
+
+###### Rappel — flux XDS (référence)
+
+<p>Quel que soit le nombre de documents détectés, le flux XDS décrit ci-dessus ne nécessite que <strong>2 transactions réseau</strong> au maximum :</p>
+<ol>
+  <li><code>FindDocuments</code> — une seule requête, retourne les métadonnées de tous les documents correspondant aux critères ;</li>
+  <li><code>RetrieveDocumentSet</code> — une seule requête, capable de retourner plusieurs documents en une fois (liste d'<code>uniqueId</code> en paramètre).</li>
+</ol>
+
+###### Traduction directe en FHIR
+
+<p>La Phase 1 (recherche) se traduit directement par une requête <strong>ITI-67 Find Document References</strong> :</p>
+
+```http
+GET [base]/DocumentReference?patient.identifier=[système-INS]|[valeur-INS]&status=current&period=ge[dateActe-2ans]&type=[typeCode1],[typeCode2] HTTP/1.1
+Accept: application/fhir+json
+```
+
+<p>La réponse est un <code>Bundle</code> de type <code>searchset</code> contenant l'ensemble des <code>DocumentReference</code> correspondants — <strong>en une seule transaction</strong>, comme <code>FindDocuments</code>.</p>
+
+<p>La Phase 3 (récupération) se traduit par une requête <strong>ITI-68 Retrieve Document</strong> pour chaque document sélectionné (<code>GET [DocumentReference.content.attachment.url]</code>). Le profil PDSm, tel que documenté aujourd'hui, ne définit qu'une récupération unitaire — <strong>une requête par document</strong>.</p>
+
+<div class="note">
+  <strong>Constat :</strong> une traduction terme à terme aboutit à <code>1 + N</code> transactions (1 recherche + N récupérations), contre 2 en XDS. Pour N documents sélectionnés, le flux FHIR naïf devient moins optimal que le flux XDS dès que N &gt; 1.
+</div>
+
+###### Exemple FHIR complet du cas d'usage
+
+<p>Reprenons le patient et les deux documents des exemples <a href="transaction_td3.1a.html">TD3.1a</a> / <a href="transaction_td3.2.html">TD3.2</a> — INS <code>1.2.250.1.213.1.4.8|123456789012345</code>, aucun des deux documents n'étant encore connu du LPS. Le PS a configuré une préférence <code>typeDMP</code> = [Compte rendu de consultation (LOINC <code>11488-4</code>), Prescription médicale (LOINC <code>57833-6</code>)]. Le LPS ouvre le dossier le <code>2026-07-02</code> ; la borne des 2 ans est donc <code>2024-07-02</code>.</p>
+
+<p><strong>Phase 1 — recherche (ITI-67) :</strong></p>
+
+```http
+GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345&status=current&period=ge2024-07-02&type=http://loinc.org|11488-4,http://loinc.org|57833-6 HTTP/1.1
+Accept: application/fhir+json
+```
+
+<p>Réponse — <code>200 OK</code>, <code>Bundle</code> de type <code>searchset</code>, 2 entrées :</p>
+
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "entry": [
+    {
+      "fullUrl": "[base]/DocumentReference/cr-consultation-td31a",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "cr-consultation-td31a",
+        "masterIdentifier": { "system": "urn:ietf:rfc:3986", "value": "urn:oid:1.2.250.1.213.1.4.8.99999.101" },
+        "status": "current",
+        "type": { "coding": [{ "system": "http://loinc.org", "code": "11488-4", "display": "Consult note" }] },
+        "date": "2024-11-20T10:30:00+01:00",
+        "content": [{ "attachment": { "contentType": "application/pdf", "url": "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a" } }]
+      }
+    },
+    {
+      "fullUrl": "[base]/DocumentReference/ordonnance-td31a",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "ordonnance-td31a",
+        "masterIdentifier": { "system": "urn:ietf:rfc:3986", "value": "urn:oid:1.2.250.1.213.1.4.8.99999.102" },
+        "status": "current",
+        "type": { "coding": [{ "system": "http://loinc.org", "code": "57833-6", "display": "Prescription for medication" }] },
+        "date": "2024-11-20T10:35:00+01:00",
+        "content": [{ "attachment": { "contentType": "application/pdf", "url": "Binary/ordonnance-td31a" } }]
+      }
+    }
+  ]
+}
+```
+
+<p>Fiches complètes : <a href="DocumentReference-example-td3-1a-cr-consultation.html">compte rendu de consultation</a>, <a href="DocumentReference-example-td3-1a-ordonnance.html">ordonnance médicale</a>.</p>
+
+<p><strong>Phase 2 — traitement interne (pas d'appel réseau) :</strong> le LPS compare les <code>masterIdentifier</code> reçus (<code>...99999.101</code> et <code>...99999.102</code>) à <code>localDocumentsDMP</code>. Aucun des deux n'y figure : ce sont deux documents tiers détectés.</p>
+
+<p><strong>Phase 3 — notification puis récupération groupée (ITI-68 via Bundle <code>batch</code>, cf. Optimisation 1 ci-dessous) :</strong> le PS visualise puis importe les deux documents en un seul appel :</p>
+
+```http
+POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+```
+
+```json
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    { "request": { "method": "GET", "url": "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a" } },
+    { "request": { "method": "GET", "url": "Binary/ordonnance-td31a" } }
+  ]
+}
+```
+
+<p>Le LPS stocke ensuite les deux documents en local avec leurs identifiants (<code>id</code> DMP, <code>masterIdentifier</code>) dans <code>localDocumentsDMP</code>.</p>
+
+<div class="note">
+  <strong>Bilan :</strong> pour ce cas concret à 2 documents, le flux FHIR optimisé (recherche + batch) totalise <strong>2 transactions réseau</strong> — identique au flux XDS (<code>FindDocuments</code> + <code>RetrieveDocumentSet</code>).
+</div>
+
+###### Optimisation 1 — Bundle `batch` pour grouper les récupérations
+
+<p>La spécification FHIR définit nativement l'interaction <strong>batch</strong> (cf. <a href="https://www.hl7.org/fhir/http.html#transaction">FHIR RESTful API — Batch/Transaction</a>) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique <code>Bundle</code> envoyé en une seule requête HTTP <code>POST [base]</code>. Le LPS peut ainsi remplacer les N appels <code>GET Binary/{id}</code> par un unique appel batch.</p>
+
+<p><strong>Requête :</strong></p>
+
+```http
+POST [base] HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+```
+
+```json
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    { "request": { "method": "GET", "url": "https://dmp.esante.gouv.fr/fhir/Binary/cr-consultation-td31a" } },
+    { "request": { "method": "GET", "url": "Binary/ordonnance-td31a" } }
+  ]
+}
+```
+
+<p><strong>Réponse</strong> — un <code>Bundle</code> de type <code>batch-response</code>, une entrée par requête, dans le même ordre :</p>
+
+```json
+{
+  "resourceType": "Bundle",
+  "type": "batch-response",
+  "entry": [
+    {
+      "response": { "status": "200 OK" },
+      "resource": { "resourceType": "Binary", "contentType": "application/pdf", "data": "JVBERi0xLjQK..." }
+    },
+    {
+      "response": { "status": "200 OK" },
+      "resource": { "resourceType": "Binary", "contentType": "application/pdf", "data": "JVBERi0xLjQK..." }
+    }
+  ]
+}
+```
+
+<p>Avec cette approche, le flux « Première ouverture » revient à <strong>2 transactions</strong> (1 recherche ITI-67 + 1 batch de récupération), quel que soit le nombre de documents importés — <strong>équivalent au flux XDS</strong>.</p>
+
+<div class="note">
+  <strong>Prérequis :</strong> le serveur DMP doit déclarer le support de l'interaction <code>batch</code> dans son <code>CapabilityStatement</code> (<code>rest.interaction.code = batch</code>). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
+</div>
+
+###### Optimisation 2 — contenu embarqué dans `DocumentReference` (`attachment.data`)
+
+<p>Le type <code>Attachment</code> utilisé par <code>DocumentReference.content.attachment</code> permet de porter le contenu du document de deux façons alternatives : par référence (<code>attachment.url</code>, seule option utilisée aujourd'hui dans TD3.1a/TD3.2) ou <strong>en valeur, encodé en base64</strong> (<code>attachment.data</code>). Si le système DMP choisissait de peupler <code>attachment.data</code> pour les documents de taille raisonnable, la réponse à la recherche ITI-67 (Phase 1) contiendrait déjà le contenu binaire des documents, sans étape de récupération séparée.</p>
+
+<p>Dans ce scénario, le cas d'usage « Première ouverture » — recherche <strong>et</strong> récupération des documents détectés — se résoudrait en <strong>une seule transaction FHIR</strong>, contre 2 au minimum en XDS.</p>
+
+<div class="dragon" markdown="1">
+
+**Question ouverte** — Cette optimisation suppose une évolution du profil PDSm et/ou une politique du système DMP (seuil de taille en-deçà duquel `attachment.data` est peuplé à la place ou en complément de `attachment.url`), qui n'est pas définie à ce jour. Elle présente aussi un compromis : elle alourdit systématiquement la réponse de recherche, même si le PS ne consulte finalement aucun document — ce qui peut être défavorable puisque la récupération reste par nature **optionnelle** (cf. Phase 3). Ce point est à trancher avec l'équipe DMP si l'optimisation du nombre de transactions est jugée prioritaire.
+
+</div>
+
+###### Synthèse comparative
+
+<table>
+  <thead><tr><th>Flux</th><th>Nb. transactions réseau</th><th>Détail</th></tr></thead>
+  <tbody>
+    <tr><td>XDS (référence actuelle)</td><td>2</td><td><code>FindDocuments</code> (1) + <code>RetrieveDocumentSet</code> batché (1)</td></tr>
+    <tr><td>FHIR — traduction directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
+    <tr><td>FHIR — avec Bundle <code>batch</code></td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
+    <tr><td>FHIR — avec <code>attachment.data</code> inline</td><td>1</td><td>ITI-67 seul (métadonnées + contenu)</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Conclusion :</strong> une traduction FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.</p>
+
 ---
 
 #### Accès suivants
