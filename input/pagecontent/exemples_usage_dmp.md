@@ -435,10 +435,10 @@ sequenceDiagram
 <ol>
   <li><code>FindSubmissionSets</code> — 1 requête ;</li>
   <li><code>GetAssociations</code> — 1 requête (sur la liste des lots retournés) ;</li>
-  <li><code>GetDocumentsAndAssociations</code> — ⌈M/20⌉ requêtes (par lot de 20 documents) ;</li>
+  <li><code>GetDocumentsAndAssociations</code> — autant de requêtes que de lots de 20 documents nécessaires, arrondi au lot supérieur ;</li>
   <li><code>RetrieveDocumentSet</code> — 0 à 2 requêtes supplémentaires si le PS visualise et/ou importe des documents.</li>
 </ol>
-<p>Soit <strong>2 + ⌈M/20⌉ transactions minimum</strong> (hors récupération), un nombre qui croît avec le volume de documents modifiés.</p>
+<p>Soit <strong>2 transactions, plus une par lot de 20 documents (arrondi au lot supérieur), au minimum</strong> (hors récupération), un nombre qui croît avec le volume de documents modifiés.</p>
 
 ###### Proposition FHIR — recherche incrémentale par `_lastUpdated`
 
@@ -481,12 +481,12 @@ Accept: application/fhir+json
 <table>
   <thead><tr><th>Flux</th><th>Nb. transactions réseau</th><th>Détail</th></tr></thead>
   <tbody>
-    <tr><td>XDS (référence actuelle)</td><td>2 + ⌈M/20⌉ (+ 0 à 2 pour la récupération)</td><td><code>FindSubmissionSets</code> (1) + <code>GetAssociations</code> (1) + <code>GetDocumentsAndAssociations</code> (⌈M/20⌉) [+ <code>RetrieveDocumentSet</code>]</td></tr>
+    <tr><td>XDS (référence actuelle)</td><td>2 + 1 par lot de 20 documents (+ 0 à 2 pour la récupération)</td><td><code>FindSubmissionSets</code> (1) + <code>GetAssociations</code> (1) + <code>GetDocumentsAndAssociations</code> (1 par lot de 20 documents, arrondi au lot supérieur) [+ <code>RetrieveDocumentSet</code>]</td></tr>
     <tr><td>FHIR — recherche incrémentale <code>_lastUpdated</code></td><td>1 (+ 0 à 1 pour la récupération)</td><td><code>DocumentReference?_lastUpdated=gt[dateAppelDMP]</code> (1) [+ Bundle <code>batch</code>]</td></tr>
   </tbody>
 </table>
 
-<p><strong>Conclusion :</strong> à la différence de la « Première ouverture », où la traduction directe des transactions XDS reste possible terme à terme, le cas « Accès suivants » ne peut pas être transposé transaction par transaction : le modèle de lots/associations XDS n'a pas d'équivalent FHIR direct. En revanche, en revenant à l'objectif métier plutôt qu'aux transactions XDS, une unique recherche FHIR par <code>_lastUpdated</code> combinée à l'usage de <code>relatesTo</code> permet de couvrir le même besoin en <strong>1 transaction au lieu de 2 + ⌈M/20⌉</strong> — un gain net qui s'accroît avec le volume de documents, sous réserve de lever les deux questions ouvertes ci-dessus avec l'équipe DMP.</p>
+<p><strong>Conclusion :</strong> à la différence de la « Première ouverture », où la traduction directe des transactions XDS reste possible terme à terme, le cas « Accès suivants » ne peut pas être transposé transaction par transaction : le modèle de lots/associations XDS n'a pas d'équivalent FHIR direct. En revanche, en revenant à l'objectif métier plutôt qu'aux transactions XDS, une unique recherche FHIR par <code>_lastUpdated</code> combinée à l'usage de <code>relatesTo</code> permet de couvrir le même besoin en <strong>1 transaction, au lieu de 2 plus une par lot de 20 documents</strong> — un gain net qui s'accroît avec le volume de documents, sous réserve de lever les deux questions ouvertes ci-dessus avec l'équipe DMP.</p>
 
 ###### Exemple FHIR complet du cas d'usage
 
