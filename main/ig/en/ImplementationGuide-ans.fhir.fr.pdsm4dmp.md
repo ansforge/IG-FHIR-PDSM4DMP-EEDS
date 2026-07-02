@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-07-01T13:39:29+00:00",
+  "date" : "2026-07-02T11:54:51+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -1171,6 +1171,30 @@
         "valueString" : "Bundle"
       }],
       "reference" : {
+        "reference" : "Bundle/example-annexe-fhir-document"
+      },
+      "name" : "example-annexe-fhir-document",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      }],
+      "reference" : {
+        "reference" : "Bundle/example-annexe-searchset-documentreferences"
+      },
+      "name" : "example-annexe-searchset-documentreferences",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      }],
+      "reference" : {
         "reference" : "Bundle/example-td2-1-remplacement"
       },
       "name" : "example-td2-1-remplacement",
@@ -1197,6 +1221,45 @@
       },
       "name" : "example-td2-iti65-lot-soumission",
       "exampleCanonical" : "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Binary"
+      }],
+      "reference" : {
+        "reference" : "Binary/example-annexe-binary-cda"
+      },
+      "name" : "Exemple Annexe - Contenu CDA (Binary)",
+      "description" : "Contenu brut (encodé en base64) d'un document CDA référencé par le DocumentReference example-annexe-docref-cda.",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DocumentReference"
+      }],
+      "reference" : {
+        "reference" : "DocumentReference/example-annexe-docref-cda"
+      },
+      "name" : "Exemple Annexe - DocumentReference pointant vers un document CDA (Binary)",
+      "description" : "DocumentReference dont le contenu (content.attachment) pointe vers une ressource Binary contenant un document au format CDA (application/xml). Illustre qu'un DocumentReference peut exposer un document non-FHIR.",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DocumentReference"
+      }],
+      "reference" : {
+        "reference" : "DocumentReference/example-annexe-docref-fhir"
+      },
+      "name" : "Exemple Annexe - DocumentReference pointant vers un document FHIR (Bundle)",
+      "description" : "DocumentReference dont le contenu (content.attachment) pointe vers une ressource Bundle de type document (application/fhir+json). Illustre qu'un DocumentReference peut exposer un document FHIR natif.",
+      "exampleBoolean" : true,
+      "groupingId" : "exemple"
     },
     {
       "extension" : [{
@@ -1559,6 +1622,15 @@
           }],
           "nameUrl" : "annexe_dates_xds_fhir.html",
           "title" : "Comparatif des dates XDS / FHIR",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "annexe_exemple_documentreference_cda_fhir.html"
+          }],
+          "nameUrl" : "annexe_exemple_documentreference_cda_fhir.html",
+          "title" : "Exemple DocumentReference CDA / FHIR",
           "generation" : "markdown"
         }]
       },

@@ -18,7 +18,7 @@
   fhir:ImplementationGuide.name [ fhir:value "PDSm4DMP"] ;
   fhir:ImplementationGuide.title [ fhir:value "Utilisation de PDSm  dans le contexte d'EEDS"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-01T13:39:29+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-07-02T11:54:51+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ;
   fhir:ImplementationGuide.contact [
      fhir:index -1 ;
@@ -1344,6 +1344,34 @@
          fhir:Extension.valueString [ fhir:value "Bundle" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-annexe-fhir-document> ;
+         fhir:Reference.reference [ fhir:value "Bundle/example-annexe-fhir-document" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "example-annexe-fhir-document" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "exemple" ]
+     ], [
+       fhir:index -1 ;
+       fhir:Element.extension [
+         fhir:index -1 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-annexe-searchset-documentreferences> ;
+         fhir:Reference.reference [ fhir:value "Bundle/example-annexe-searchset-documentreferences" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "example-annexe-searchset-documentreferences" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "exemple" ]
+     ], [
+       fhir:index -1 ;
+       fhir:Element.extension [
+         fhir:index -1 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-td2-1-remplacement> ;
          fhir:Reference.reference [ fhir:value "Bundle/example-td2-1-remplacement" ]
        ] ;
@@ -1384,6 +1412,51 @@
          fhir:value "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0" ;
          fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-provide-document-bundle|3.1.0>
        ]
+     ], [
+       fhir:index -1 ;
+       fhir:Element.extension [
+         fhir:index -1 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Binary" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Binary/example-annexe-binary-cda> ;
+         fhir:Reference.reference [ fhir:value "Binary/example-annexe-binary-cda" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Exemple Annexe - Contenu CDA (Binary)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Contenu brut (encodé en base64) d'un document CDA référencé par le DocumentReference example-annexe-docref-cda." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "exemple" ]
+     ], [
+       fhir:index -1 ;
+       fhir:Element.extension [
+         fhir:index -1 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DocumentReference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/DocumentReference/example-annexe-docref-cda> ;
+         fhir:Reference.reference [ fhir:value "DocumentReference/example-annexe-docref-cda" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Exemple Annexe - DocumentReference pointant vers un document CDA (Binary)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "DocumentReference dont le contenu (content.attachment) pointe vers une ressource Binary contenant un document au format CDA (application/xml). Illustre qu'un DocumentReference peut exposer un document non-FHIR." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "exemple" ]
+     ], [
+       fhir:index -1 ;
+       fhir:Element.extension [
+         fhir:index -1 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DocumentReference" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/DocumentReference/example-annexe-docref-fhir> ;
+         fhir:Reference.reference [ fhir:value "DocumentReference/example-annexe-docref-fhir" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Exemple Annexe - DocumentReference pointant vers un document FHIR (Bundle)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "DocumentReference dont le contenu (content.attachment) pointe vers une ressource Bundle de type document (application/fhir+json). Illustre qu'un DocumentReference peut exposer un document FHIR natif." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "exemple" ]
      ], [
        fhir:index -1 ;
        fhir:Element.extension [
@@ -1798,6 +1871,16 @@
            ] ;
            fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "annexe_dates_xds_fhir.html" ] ;
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Comparatif des dates XDS / FHIR" ] ;
+           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+         ], [
+           fhir:index -1 ;
+           fhir:Element.extension [
+             fhir:index -1 ;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+             fhir:Extension.valueUrl [ fhir:value "annexe_exemple_documentreference_cda_fhir.html" ]
+           ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "annexe_exemple_documentreference_cda_fhir.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Exemple DocumentReference CDA / FHIR" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ]
        ], [

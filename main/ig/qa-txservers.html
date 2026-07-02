@@ -12,7 +12,7 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Terminology Server Report for PDSm4DMP</h1>
- <p>Generated Wed Jul 01 13:41:34 UTC 2026, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>))</p>
+ <p>Generated Thu Jul 02 11:56:50 UTC 2026, FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp">https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp</a> (<a href="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/history.html">history</a>))</p>
 <p>This page provides a report on which terminology servers were used while publishing this IG. Note that terminology caching reduces the server hit count - this page only reports content that wasn't cached</p>
 <h2>Terminology Parameters</h2>
 <ul>
@@ -55,18 +55,18 @@
     <td>[urn:iso:std:iso:3166]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx-nordics.fhir.org/fhir/r4</td>
   </tr>
   <tr>
+    <td>Use primary server for urn:ietf:bcp:13</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>urn:uuid:5aa5073b-310a-4b12-b6ce-663eb8e4729d|1</td>
+    <td>urn:ietf:bcp:13</td>
+    <td>[urn:ietf:bcp:13]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
     <td>Use primary server for http://loinc.org</td>
     <td>https://tx.fhir.org/r4</td>
     <td>null</td>
     <td>http://loinc.org</td>
     <td>[http://loinc.org]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir</td>
-  </tr>
-  <tr>
-    <td>Use primary server for urn:ietf:bcp:13</td>
-    <td>https://tx.fhir.org/r4</td>
-    <td>urn:uuid:2115b6aa-1ea5-472d-b981-020e9481f99e|1</td>
-    <td>urn:ietf:bcp:13</td>
-    <td>[urn:ietf:bcp:13]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
   </tr>
   <tr>
     <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
@@ -78,27 +78,48 @@
   <tr>
     <td>Use primary server for urn:ietf:bcp:13</td>
     <td>https://tx.fhir.org/r4</td>
-    <td>urn:uuid:2115b6aa-1ea5-472d-b981-020e9481f99e|1</td>
+    <td>urn:uuid:5aa5073b-310a-4b12-b6ce-663eb8e4729d|1</td>
     <td>urn:ietf:bcp:13</td>
     <td>[urn:ietf:bcp:13]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
   </tr>
   <tr>
     <td>Use primary server for urn:ietf:bcp:13</td>
     <td>https://tx.fhir.org/r4</td>
-    <td>urn:uuid:2115b6aa-1ea5-472d-b981-020e9481f99e|1</td>
+    <td>urn:uuid:5aa5073b-310a-4b12-b6ce-663eb8e4729d|1</td>
     <td>urn:ietf:bcp:13</td>
     <td>[urn:ietf:bcp:13]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1</td>
+    <td>http://loinc.org</td>
+    <td>[http://loinc.org]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir</td>
+  </tr>
+  <tr>
+    <td>Found authoritative server https://smt.esante.gouv.fr/fhir</td>
+    <td>https://smt.esante.gouv.fr/fhir</td>
+    <td>null</td>
+    <td>http://snomed.info/sct</td>
+    <td>[http://snomed.info/sct|http://snomed.info/sct/11000315107]: authoritative = https://smt.esante.gouv.fr/fhir, candidates=</td>
+  </tr>
+  <tr>
+    <td>Use primary server for http://loinc.org</td>
+    <td>https://tx.fhir.org/r4</td>
+    <td>http://hl7.org/fhir/ValueSet/c80-doc-typecodes|4.0.1</td>
+    <td>http://loinc.org</td>
+    <td>[http://loinc.org]: authoritative = , candidates=https://tx.hl7.org.au/fhir|https://tx.ontoserver.csiro.au/fhir|https://terminologystandardsservice.ca/tx/fhir|https://tx.fhir.ch/r4|https://tx.hl7chile.cl/r4|https://tx.fhir.de/fhir</td>
   </tr>
 </table>
 <h2>Primary Server: https://tx.fhir.org/r4</h2>
 <a href="https://tx.fhir.org/r4"></a>
-<p>Use Count: 4. Code Systems used: </p>
+<p>Use Count: 6. Code Systems used: </p>
 <ul>
   <li>(None)</li>
 </ul>
 <h2>Server: https://smt.esante.gouv.fr/fhir</h2>
 <a href="https://smt.esante.gouv.fr/fhir"></a>
-<p>Use Count: 0. Code Systems used: </p>
+<p>Use Count: 1. Code Systems used: </p>
 <table class="grid">
   <tr>
     <th>
@@ -117,7 +138,7 @@
   <tr>
     <td>http://snomed.info/sct</td>
     <td>0</td>
-    <td>1</td>
+    <td>2</td>
     <td>
       <a href="http://hl7.org/fhir/R4/codesystem-snomedct.html">SNOMED CT (all versions)</a>
     </td>

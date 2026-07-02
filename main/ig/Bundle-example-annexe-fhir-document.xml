@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="example-annexe-fhir-document"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.250.1.213.1.4.8.99999.202"/>
+  </identifier>
+  <type value="document"/>
+  <timestamp value="2024-11-20T11:00:00+01:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000001"/>
+    <resource>
+      <Composition>
+        <id value="example-annexe-composition"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><a name="Composition_example-annexe-composition"> </a><p class="res-header-id"><b>Narratif généré : Composition example-annexe-composition</b></p><a name="example-annexe-composition"> </a><a name="hcexample-annexe-composition"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title="Codes :{http://loinc.org 60591-5}">Patient summary Document</span></p><p><b>date</b>: 2024-11-20 11:00:00+0100</p><p><b>author</b>: <a href="Bundle-example-annexe-fhir-document.html#urn-uuid-bbbbbbbb-0000-0000-0000-000000000003">Practitioner : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>title</b>: Synthèse patient 20/11/2024</p></div></div>
+        </text>
+        <status value="final"/>
+        <type>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="60591-5"/>
+            <display value="Patient summary Document"/>
+          </coding>
+        </type>
+        <subject>
+          <reference value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"/>
+        </subject>
+        <date value="2024-11-20T11:00:00+01:00"/>
+        <author>
+          <reference value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"/>
+        </author>
+        <title value="Synthèse patient 20/11/2024"/>
+        <section>
+          <title value="Synthèse"/>
+          <text>
+            <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">Contenu de synthèse (exemple).</div>
+          </text>
+        </section>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"/>
+    <resource>
+      <Patient>
+        <id value="example-annexe-patient"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><a name="Patient_example-annexe-patient"> </a><p class="res-header-id"><b>Narratif généré : Patient example-annexe-patient</b></p><a name="example-annexe-patient"> </a><a name="hcexample-annexe-patient"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></div></div>
+        </text>
+        <identifier>
+          <system value="urn:oid:1.2.250.1.213.1.4.8"/>
+          <value value="123456789012345"/>
+        </identifier>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"/>
+    <resource>
+      <Practitioner>
+        <id value="example-annexe-practitioner"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><a name="Practitioner_example-annexe-practitioner"> </a><p class="res-header-id"><b>Narratif généré : Praticien example-annexe-practitioner</b></p><a name="example-annexe-practitioner"> </a><a name="hcexample-annexe-practitioner"> </a><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></div></div>
+        </text>
+        <identifier>
+          <system value="urn:oid:1.2.250.1.71.4.2.1"/>
+          <value value="899700218896"/>
+        </identifier>
+      </Practitioner>
+    </resource>
+  </entry>
+</Bundle>

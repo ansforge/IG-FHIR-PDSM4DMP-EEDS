@@ -1,0 +1,238 @@
+# example-annexe-searchset-documentreferences - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+
+## Example Bundle: example-annexe-searchset-documentreferences
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "example-annexe-searchset-documentreferences",
+  "type" : "searchset",
+  "total" : 2,
+  "entry" : [{
+    "fullUrl" : "DocumentReference/example-annexe-docref-cda",
+    "resource" : {
+      "resourceType" : "DocumentReference",
+      "id" : "example-annexe-docref-cda",
+      "meta" : {
+        "profile" : ["https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"DocumentReference_example-annexe-docref-cda\"> </a><p class=\"res-header-id\"><b>Narratif généré : RéférenceDocument example-annexe-docref-cda</b></p><a name=\"example-annexe-docref-cda\"> </a><a name=\"hcexample-annexe-docref-cda\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p></div><p><b>masterIdentifier</b>: <a href=\"http://terminology.hl7.org/5.3.0/NamingSystem-uri.html\" title=\"As defined by RFC 3986 (http://www.ietf.org/rfc/rfc3986.txt)(with many schemes defined in many RFCs). For OIDs and UUIDs, use the URN form (urn:oid:(note: lowercase) and urn:uuid:). See http://www.ietf.org/rfc/rfc3001.txt and http://www.ietf.org/rfc/rfc4122.txt \r\n\r\nThis oid is used as an identifier II.root to indicate the the extension is an absolute URI (technically, an IRI). Typically, this is used for OIDs and GUIDs. Note that when this OID is used with OIDs and GUIDs, the II.extension should start with urn:oid or urn:uuid: \r\n\r\nNote that this OID is created to aid with interconversion between CDA and FHIR - FHIR uses urn:ietf:rfc:3986 as equivalent to this OID. URIs as identifiers appear more commonly in FHIR.\r\n\r\nThis OID may also be used in CD.codeSystem.\">Uniform Resource Identifier (URI)</a>/urn:oid:1.2.250.1.213.1.4.8.99999.201</p><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 11488-4}\">Consult note</span></p><p><b>category</b>: <span title=\"Codes :{https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument 11}\">Compte rendu</span></p><p><b>subject</b>: <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></p><p><b>date</b>: 2024-11-20 10:30:00+0100</p><p><b>author</b>: <a href=\"#hcexample-annexe-docref-cda/practitionerrole-author-annexe-cda\">PractitionerRole : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>authenticator</b>: <a href=\"#hcexample-annexe-docref-cda/practitionerrole-author-annexe-cda\">PractitionerRole : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>securityLabel</b>: <span title=\"Codes :{http://terminology.hl7.org/CodeSystem/v3-Confidentiality N}\">normal</span></p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Language</b></td><td><b>Url</b></td><td><b>Size</b></td><td><b>Hash</b></td><td><b>Title</b></td><td><b>Creation</b></td></tr><tr><td style=\"display: none\">*</td><td>application/xml</td><td>Français (France)</td><td><a href=\"Binary-example-annexe-binary-cda.html\">Binary: application/xml (108 bytes base64)</a></td><td>128</td><td><code>A/hMRrv6Y15BjSM8kMLidrz+mHc=</code></td><td>Compte rendu de consultation (CDA)</td><td>2024-11-20 10:30:00+0100</td></tr></table><p><b>format</b>: <a href=\"https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html#formatcode-urn.58ihe.58iti.58xds.582017.58mimeTypeSufficient\">IHE Format Code set for use with Document Sharing: urn:ihe:iti:xds:2017:mimeTypeSufficient</a> (mimeType Sufficient)</p></blockquote><h3>Contexts</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td><td><b>FacilityType</b></td><td><b>PracticeSetting</b></td><td><b>SourcePatientInfo</b></td></tr><tr><td style=\"display: none\">*</td><td>2024-11-20 09:00:00+0100 --&gt; 2024-11-20 10:00:00+0100</td><td><span title=\"Codes :{http://snomed.info/sct 35971002}\">Ambulatory care site</span></td><td><span title=\"Codes :{http://snomed.info/sct 394802001}\">General medicine</span></td><td><a href=\"#hcexample-annexe-docref-cda/patient-source-annexe-cda\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</a></td></tr></table><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : Patient #patient-source-annexe-cda</b></p><a name=\"example-annexe-docref-cda/patient-source-annexe-cda\"> </a><a name=\"hcexample-annexe-docref-cda/patient-source-annexe-cda\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></blockquote><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : PractitionerRole #practitionerrole-author-annexe-cda</b></p><a name=\"example-annexe-docref-cda/practitionerrole-author-annexe-cda\"> </a><a name=\"hcexample-annexe-docref-cda/practitionerrole-author-annexe-cda\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/annuaire/1.0.1/StructureDefinition-as-practitionerrole.html\">AS PractitionerRole Profile</a></p></div><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></blockquote></div></div>"
+      },
+      "contained" : [{
+        "resourceType" : "Patient",
+        "id" : "patient-source-annexe-cda",
+        "identifier" : [{
+          "system" : "urn:oid:1.2.250.1.213.1.4.8",
+          "value" : "123456789012345"
+        }]
+      },
+      {
+        "resourceType" : "PractitionerRole",
+        "id" : "practitionerrole-author-annexe-cda",
+        "meta" : {
+          "profile" : ["https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-practitionerrole"]
+        },
+        "identifier" : [{
+          "system" : "urn:oid:1.2.250.1.71.4.2.1",
+          "value" : "899700218896"
+        }]
+      }],
+      "masterIdentifier" : {
+        "system" : "urn:ietf:rfc:3986",
+        "value" : "urn:oid:1.2.250.1.213.1.4.8.99999.201"
+      },
+      "status" : "current",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "11488-4",
+          "display" : "Consult note"
+        }]
+      },
+      "category" : [{
+        "coding" : [{
+          "system" : "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument",
+          "code" : "11",
+          "display" : "Compte rendu"
+        }]
+      }],
+      "subject" : {
+        "reference" : "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
+      },
+      "date" : "2024-11-20T10:30:00+01:00",
+      "author" : [{
+        "reference" : "#practitionerrole-author-annexe-cda"
+      }],
+      "authenticator" : {
+        "reference" : "#practitionerrole-author-annexe-cda"
+      },
+      "securityLabel" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+          "code" : "N",
+          "display" : "normal"
+        }]
+      }],
+      "content" : [{
+        "attachment" : {
+          "contentType" : "application/xml",
+          "language" : "fr-FR",
+          "url" : "Binary/example-annexe-binary-cda",
+          "size" : 128,
+          "hash" : "A/hMRrv6Y15BjSM8kMLidrz+mHc=",
+          "title" : "Compte rendu de consultation (CDA)",
+          "creation" : "2024-11-20T10:30:00+01:00"
+        },
+        "format" : {
+          "system" : "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+          "code" : "urn:ihe:iti:xds:2017:mimeTypeSufficient",
+          "display" : "mimeType Sufficient"
+        }
+      }],
+      "context" : {
+        "period" : {
+          "start" : "2024-11-20T09:00:00+01:00",
+          "end" : "2024-11-20T10:00:00+01:00"
+        },
+        "facilityType" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "35971002",
+            "display" : "Ambulatory care site"
+          }]
+        },
+        "practiceSetting" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "394802001",
+            "display" : "General medicine"
+          }]
+        },
+        "sourcePatientInfo" : {
+          "reference" : "#patient-source-annexe-cda"
+        }
+      }
+    },
+    "search" : {
+      "mode" : "match"
+    }
+  },
+  {
+    "fullUrl" : "DocumentReference/example-annexe-docref-fhir",
+    "resource" : {
+      "resourceType" : "DocumentReference",
+      "id" : "example-annexe-docref-fhir",
+      "meta" : {
+        "profile" : ["https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"DocumentReference_example-annexe-docref-fhir\"> </a><p class=\"res-header-id\"><b>Narratif généré : RéférenceDocument example-annexe-docref-fhir</b></p><a name=\"example-annexe-docref-fhir\"> </a><a name=\"hcexample-annexe-docref-fhir\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-comprehensive-document-reference.html\">PDSm Comprehensive DocumentReference</a></p></div><p><b>masterIdentifier</b>: <a href=\"http://terminology.hl7.org/5.3.0/NamingSystem-uri.html\" title=\"As defined by RFC 3986 (http://www.ietf.org/rfc/rfc3986.txt)(with many schemes defined in many RFCs). For OIDs and UUIDs, use the URN form (urn:oid:(note: lowercase) and urn:uuid:). See http://www.ietf.org/rfc/rfc3001.txt and http://www.ietf.org/rfc/rfc4122.txt \r\n\r\nThis oid is used as an identifier II.root to indicate the the extension is an absolute URI (technically, an IRI). Typically, this is used for OIDs and GUIDs. Note that when this OID is used with OIDs and GUIDs, the II.extension should start with urn:oid or urn:uuid: \r\n\r\nNote that this OID is created to aid with interconversion between CDA and FHIR - FHIR uses urn:ietf:rfc:3986 as equivalent to this OID. URIs as identifiers appear more commonly in FHIR.\r\n\r\nThis OID may also be used in CD.codeSystem.\">Uniform Resource Identifier (URI)</a>/urn:oid:1.2.250.1.213.1.4.8.99999.202</p><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 60591-5}\">Patient summary Document</span></p><p><b>category</b>: <span title=\"Codes :{https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument 11}\">Synthèse</span></p><p><b>subject</b>: <code>Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345</code></p><p><b>date</b>: 2024-11-20 11:00:00+0100</p><p><b>author</b>: <a href=\"#hcexample-annexe-docref-fhir/practitionerrole-author-annexe-fhir\">PractitionerRole : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>authenticator</b>: <a href=\"#hcexample-annexe-docref-fhir/practitionerrole-author-annexe-fhir\">PractitionerRole : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>securityLabel</b>: <span title=\"Codes :{http://terminology.hl7.org/CodeSystem/v3-Confidentiality N}\">normal</span></p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Language</b></td><td><b>Url</b></td><td><b>Size</b></td><td><b>Hash</b></td><td><b>Title</b></td><td><b>Creation</b></td></tr><tr><td style=\"display: none\">*</td><td>application/fhir+json</td><td>Français (France)</td><td><a href=\"Bundle-example-annexe-fhir-document.html\">Bundle : identifier = OID:1.2.250.1.213.1.4.8.99999.202; type = document; timestamp = 2024-11-20 11:00:00+0100</a></td><td>4096</td><td><code>C/jOTtuBZ37DlUN0mNPjfsu1nHf=</code></td><td>Synthèse patient 20/11/2024</td><td>2024-11-20 11:00:00+0100</td></tr></table><p><b>format</b>: <a href=\"https://profiles.ihe.net/fhir/ihe.formatcode.fhir/1.1.0/CodeSystem-formatcode.html#formatcode-urn.58ihe.58iti.58xds.582017.58mimeTypeSufficient\">IHE Format Code set for use with Document Sharing: urn:ihe:iti:xds:2017:mimeTypeSufficient</a> (mimeType Sufficient)</p></blockquote><h3>Contexts</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td><td><b>FacilityType</b></td><td><b>PracticeSetting</b></td><td><b>SourcePatientInfo</b></td></tr><tr><td style=\"display: none\">*</td><td>2024-11-20 09:00:00+0100 --&gt; (en cours)</td><td><span title=\"Codes :{http://snomed.info/sct 35971002}\">Ambulatory care site</span></td><td><span title=\"Codes :{http://snomed.info/sct 394802001}\">General medicine</span></td><td><a href=\"#hcexample-annexe-docref-fhir/patient-source-annexe-fhir\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</a></td></tr></table><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : Patient #patient-source-annexe-fhir</b></p><a name=\"example-annexe-docref-fhir/patient-source-annexe-fhir\"> </a><a name=\"hcexample-annexe-docref-fhir/patient-source-annexe-fhir\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></blockquote><hr/><blockquote><p class=\"res-header-id\"><b>Narratif généré : PractitionerRole #practitionerrole-author-annexe-fhir</b></p><a name=\"example-annexe-docref-fhir/practitionerrole-author-annexe-fhir\"> </a><a name=\"hcexample-annexe-docref-fhir/practitionerrole-author-annexe-fhir\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"https://interop.esante.gouv.fr/ig/fhir/annuaire/1.0.1/StructureDefinition-as-practitionerrole.html\">AS PractitionerRole Profile</a></p></div><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></blockquote></div></div>"
+      },
+      "contained" : [{
+        "resourceType" : "Patient",
+        "id" : "patient-source-annexe-fhir",
+        "identifier" : [{
+          "system" : "urn:oid:1.2.250.1.213.1.4.8",
+          "value" : "123456789012345"
+        }]
+      },
+      {
+        "resourceType" : "PractitionerRole",
+        "id" : "practitionerrole-author-annexe-fhir",
+        "meta" : {
+          "profile" : ["https://interop.esante.gouv.fr/ig/fhir/annuaire/StructureDefinition/as-practitionerrole"]
+        },
+        "identifier" : [{
+          "system" : "urn:oid:1.2.250.1.71.4.2.1",
+          "value" : "899700218896"
+        }]
+      }],
+      "masterIdentifier" : {
+        "system" : "urn:ietf:rfc:3986",
+        "value" : "urn:oid:1.2.250.1.213.1.4.8.99999.202"
+      },
+      "status" : "current",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "60591-5",
+          "display" : "Patient summary Document"
+        }]
+      },
+      "category" : [{
+        "coding" : [{
+          "system" : "https://mos.esante.gouv.fr/NOS/TRE_A03-ClasseDocument/FHIR/TRE-A03-ClasseDocument",
+          "code" : "11",
+          "display" : "Synthèse"
+        }]
+      }],
+      "subject" : {
+        "reference" : "Patient?identifier=urn:oid:1.2.250.1.213.1.4.8|123456789012345"
+      },
+      "date" : "2024-11-20T11:00:00+01:00",
+      "author" : [{
+        "reference" : "#practitionerrole-author-annexe-fhir"
+      }],
+      "authenticator" : {
+        "reference" : "#practitionerrole-author-annexe-fhir"
+      },
+      "securityLabel" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+          "code" : "N",
+          "display" : "normal"
+        }]
+      }],
+      "content" : [{
+        "attachment" : {
+          "contentType" : "application/fhir+json",
+          "language" : "fr-FR",
+          "url" : "Bundle/example-annexe-fhir-document",
+          "size" : 4096,
+          "hash" : "C/jOTtuBZ37DlUN0mNPjfsu1nHf=",
+          "title" : "Synthèse patient 20/11/2024",
+          "creation" : "2024-11-20T11:00:00+01:00"
+        },
+        "format" : {
+          "system" : "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+          "code" : "urn:ihe:iti:xds:2017:mimeTypeSufficient",
+          "display" : "mimeType Sufficient"
+        }
+      }],
+      "context" : {
+        "period" : {
+          "start" : "2024-11-20T09:00:00+01:00"
+        },
+        "facilityType" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "35971002",
+            "display" : "Ambulatory care site"
+          }]
+        },
+        "practiceSetting" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "394802001",
+            "display" : "General medicine"
+          }]
+        },
+        "sourcePatientInfo" : {
+          "reference" : "#patient-source-annexe-fhir"
+        }
+      }
+    },
+    "search" : {
+      "mode" : "match"
+    }
+  }]
+}
+
+```
