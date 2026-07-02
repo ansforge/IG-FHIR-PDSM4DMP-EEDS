@@ -175,7 +175,7 @@ Fiches complètes : [compte rendu de consultation](DocumentReference-example-td3
 
 **Phase 2 — traitement interne (pas d'appel réseau) :** le LPS compare les `masterIdentifier` reçus (`...99999.101` et `...99999.102`) à `localDocumentsDMP`. Aucun des deux n'y figure : ce sont deux documents tiers détectés.
 
-**Phase 3 — notification puis récupération groupée (ITI-68 via Bundle `batch`, cf. Optimisation 1 ci-dessous) :** le PS visualise puis importe les deux documents en un seul appel :
+**Phase 3 — notification puis récupération groupée (ITI-68 via Bundle `batch`, cf. Optimisation ci-dessous) :** le PS visualise puis importe les deux documents en un seul appel :
 
 ```
 POST [base] HTTP/1.1
@@ -203,7 +203,7 @@ Le LPS stocke ensuite les deux documents en local avec leurs identifiants (`id` 
 `FindDocuments`+
 `RetrieveDocumentSet`).
 
-###### Optimisation 1 — Bundle batch pour grouper les récupérations
+###### Optimisation — Bundle batch pour grouper les récupérations
 
 La spécification FHIR définit nativement l'interaction **batch** (cf. [FHIR RESTful API — Batch/Transaction](https://www.hl7.org/fhir/http.html#transaction)) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique `Bundle` envoyé en une seule requête HTTP `POST [base]`. Le LPS peut ainsi remplacer les N appels `GET Binary/{id}` par un unique appel batch.
 
@@ -255,14 +255,6 @@ Avec cette approche, le flux « Première ouverture » revient à **2 transactio
 `CapabilityStatement`(
 `rest.interaction.code = batch`). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
 
-###### Optimisation 2 — contenu embarqué dans DocumentReference (attachment.data)
-
-Le type `Attachment` utilisé par `DocumentReference.content.attachment` permet de porter le contenu du document de deux façons alternatives : par référence (`attachment.url`, seule option utilisée aujourd'hui dans TD3.1a/TD3.2) ou **en valeur, encodé en base64** (`attachment.data`). Si le système DMP choisissait de peupler `attachment.data` pour les documents de taille raisonnable, la réponse à la recherche ITI-67 (Phase 1) contiendrait déjà le contenu binaire des documents, sans étape de récupération séparée.
-
-Dans ce scénario, le cas d'usage « Première ouverture » — recherche **et** récupération des documents détectés — se résoudrait en **une seule transaction FHIR**, contre 2 au minimum en XDS.
-
-**Question ouverte** — Cette optimisation suppose une évolution du profil PDSm et/ou une politique du système DMP (seuil de taille en-deçà duquel `attachment.data` est peuplé à la place ou en complément de `attachment.url`), qui n'est pas définie à ce jour. Elle présente aussi un compromis : elle alourdit systématiquement la réponse de recherche, même si le PS ne consulte finalement aucun document — ce qui peut être défavorable puisque la récupération reste par nature **optionnelle** (cf. Phase 3). Ce point est à trancher avec l'équipe DMP si l'optimisation du nombre de transactions est jugée prioritaire.
-
 ###### Synthèse comparative
 
 | | | |
@@ -270,9 +262,8 @@ Dans ce scénario, le cas d'usage « Première ouverture » — recherche **et**
 | XDS (référence actuelle) | 2 | `FindDocuments`(1) +`RetrieveDocumentSet`batché (1) |
 | FHIR — transposition directe | 1 + N | ITI-67 (1) + N × ITI-68 (1 par document) |
 | FHIR — avec Bundle`batch` | 2 | ITI-67 (1) + 1 Bundle`batch`regroupant les N récupérations |
-| FHIR — avec`attachment.data`inline | 1 | ITI-67 seul (métadonnées + contenu) |
 
-**Conclusion :** une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard `batch` permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil. Une optimisation plus poussée (transmission du contenu dès la recherche) est possible mais suppose des choix de conception à valider avec le DMP.
+**Conclusion :** une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard `batch` permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil — c'est l'optimisation retenue pour ce cas d'usage.
 
 -------
 
