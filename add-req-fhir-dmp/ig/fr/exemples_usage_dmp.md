@@ -324,10 +324,10 @@ Pour M documents concernés depuis la dernière connexion, le flux XDS décrit c
 
 1. `FindSubmissionSets`— 1 requête ;
 1. `GetAssociations`— 1 requête (sur la liste des lots retournés) ;
-1. `GetDocumentsAndAssociations`— ⌈M/20⌉ requêtes (par lot de 20 documents) ;
+1. `GetDocumentsAndAssociations`— autant de requêtes que de lots de 20 documents nécessaires, arrondi au lot supérieur ;
 1. `RetrieveDocumentSet`— 0 à 2 requêtes supplémentaires si le PS visualise et/ou importe des documents.
 
-Soit **2 + ⌈M/20⌉ transactions minimum** (hors récupération), un nombre qui croît avec le volume de documents modifiés.
+Soit **2 transactions, plus une par lot de 20 documents (arrondi au lot supérieur), au minimum** (hors récupération), un nombre qui croît avec le volume de documents modifiés.
 
 ###### Proposition FHIR — recherche incrémentale par _lastUpdated
 
@@ -361,10 +361,10 @@ Comme pour la « Première ouverture », la récupération des documents nouveau
 
 | | | |
 | :--- | :--- | :--- |
-| XDS (référence actuelle) | 2 + ⌈M/20⌉ (+ 0 à 2 pour la récupération) | `FindSubmissionSets`(1) +`GetAssociations`(1) +`GetDocumentsAndAssociations`(⌈M/20⌉) [+`RetrieveDocumentSet`] |
+| XDS (référence actuelle) | 2 + 1 par lot de 20 documents (+ 0 à 2 pour la récupération) | `FindSubmissionSets`(1) +`GetAssociations`(1) +`GetDocumentsAndAssociations`(1 par lot de 20 documents, arrondi au lot supérieur) [+`RetrieveDocumentSet`] |
 | FHIR — recherche incrémentale`_lastUpdated` | 1 (+ 0 à 1 pour la récupération) | `DocumentReference?_lastUpdated=gt[dateAppelDMP]`(1) [+ Bundle`batch`] |
 
-**Conclusion :** à la différence de la « Première ouverture », où la traduction directe des transactions XDS reste possible terme à terme, le cas « Accès suivants » ne peut pas être transposé transaction par transaction : le modèle de lots/associations XDS n'a pas d'équivalent FHIR direct. En revanche, en revenant à l'objectif métier plutôt qu'aux transactions XDS, une unique recherche FHIR par `_lastUpdated` combinée à l'usage de `relatesTo` permet de couvrir le même besoin en **1 transaction au lieu de 2 + ⌈M/20⌉** — un gain net qui s'accroît avec le volume de documents, sous réserve de lever les deux questions ouvertes ci-dessus avec l'équipe DMP.
+**Conclusion :** à la différence de la « Première ouverture », où la traduction directe des transactions XDS reste possible terme à terme, le cas « Accès suivants » ne peut pas être transposé transaction par transaction : le modèle de lots/associations XDS n'a pas d'équivalent FHIR direct. En revanche, en revenant à l'objectif métier plutôt qu'aux transactions XDS, une unique recherche FHIR par `_lastUpdated` combinée à l'usage de `relatesTo` permet de couvrir le même besoin en **1 transaction, au lieu de 2 plus une par lot de 20 documents** — un gain net qui s'accroît avec le volume de documents, sous réserve de lever les deux questions ouvertes ci-dessus avec l'équipe DMP.
 
 ###### Exemple FHIR complet du cas d'usage
 
