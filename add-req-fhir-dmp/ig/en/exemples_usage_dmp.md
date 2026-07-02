@@ -76,33 +76,6 @@ Une requête **FindDocuments** est envoyée au DMP pour récupérer les document
 1. Dans le cas où le PS a des préférences de type de document renseigné (typeDMP) : sur une liste de type de documents particuliers. Le LPS doit indiquer que la recherche est filtrée sur ces types de document uniquement. Le PS doit pouvoir étendre sa recherche à d'autres types de document ou désactiver ce filtre s'il ne trouve pas les document recherchés.
 1. Point d'attention sur le document particulier « Historique de vaccination » qui peut dans la majorité des cas avoir une date de début d'acte (plus ancienne vaccination) inférieure à 2 ans (vaccination COVID notament). Un LPS doit pouvoir proposer au PS une recherche spécifique et manuelle sur ce typeCode sans limitation de date (si le document pas présent dans la première recherche automatique).
 
-###### Requête FHIR (TD3.1a — ITI-67)
-
-| | | |
-| :--- | :--- | :--- |
-| `patientID` | `patient.identifier` | `urn:oid:1.2.250.1.213.1.4.8|{INS}` |
-| `availabilityStatus = Approved` | `status=current` | — |
-| `XDSDocumentEntryServiceStartTimeFrom` | `period=ge{AAAA-MM-JJ}` | `dateAppelDMP`− 2 ans (UTC) |
-| `typeCode`(optionnel, multiple) | `type={system}|{code}`(multivalué) | — |
-
-**Sans filtre typeCode :**
-
-```
-GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ} HTTP/1.1
-Accept: application/fhir+json
-
-```
-
-**Avec filtre typeCode (si `typeDMP` renseigné) :**
-
-```
-GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&status=current&period=ge{AAAA-MM-JJ}&type={system}|{code1}&type={system}|{code2} HTTP/1.1
-Accept: application/fhir+json
-
-```
-
-La réponse est un `Bundle` de type `searchset` contenant zéro à N ressources `DocumentReference`.
-
 ##### Phase 2 — Traitement (interne logiciel)
 
 **Note :**Le même document CDA peut être transmis via MSS et déposé sur le DMP. Le
@@ -111,16 +84,6 @@ La réponse est un `Bundle` de type `searchset` contenant zéro à N ressources 
 Pour chaque document retourné, le système vérifie que son `uniqueId` n'est pas déjà présent dans les documents en local.
 
 Les documents dont le `uniqueId` correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à `localDocumentsDMP` (`entryUUID`, `logicalId`, `uniqueId`).
-
-###### Correspondance des identifiants FHIR
-
-Pour chaque `DocumentReference` dans `Bundle.entry[]` retourné en Phase 1 :
-
-| | |
-| :--- | :--- |
-| `uniqueId` | `DocumentReference.masterIdentifier.value` |
-| `entryUUID` | `DocumentReference.id` |
-| `logicalId` | `DocumentReference.identifier[lid].value` |
 
 ##### Phase 3 — Notification et récupération optionnelle
 

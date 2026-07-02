@@ -362,32 +362,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </ol>
 </div>
 
-<h6 id="requête-fhir-td31a--iti-67">Requête FHIR (TD3.1a — ITI-67)</h6>
-
-<table>
-  <thead><tr><th>Paramètre XDS</th><th>Paramètre FHIR</th><th>Valeur</th></tr></thead>
-  <tbody>
-    <tr><td><code>patientID</code></td><td><code>patient.identifier</code></td><td><code>urn:oid:1.2.250.1.213.1.4.8|{INS}</code></td></tr>
-    <tr><td><code>availabilityStatus = Approved</code></td><td><code>status=current</code></td><td>—</td></tr>
-    <tr><td><code>XDSDocumentEntryServiceStartTimeFrom</code></td><td><code>period=ge{AAAA-MM-JJ}</code></td><td><code>dateAppelDMP</code> − 2 ans (UTC)</td></tr>
-    <tr><td><code>typeCode</code> (optionnel, multiple)</td><td><code>type={system}|{code}</code> (multivalué)</td><td>—</td></tr>
-  </tbody>
-</table>
-
-<p><strong>Sans filtre typeCode :</strong></p>
-
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&amp;status=current&amp;period=ge{AAAA-MM-JJ}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
-</code></pre></div></div>
-
-<p><strong>Avec filtre typeCode (si <code>typeDMP</code> renseigné) :</strong></p>
-
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|{INS}&amp;status=current&amp;period=ge{AAAA-MM-JJ}&amp;type={system}|{code1}&amp;type={system}|{code2}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
-</code></pre></div></div>
-
-<p>La réponse est un <code>Bundle</code> de type <code>searchset</code> contenant zéro à N ressources <code>DocumentReference</code>.</p>
-
 <h5 id="phase-2--traitement-interne-logiciel">Phase 2 — Traitement (interne logiciel)</h5>
 
 <div class="note">
@@ -396,19 +370,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>Pour chaque document retourné, le système vérifie que son <code>uniqueId</code> n'est pas déjà présent dans les documents en local.</p>
 <p>Les documents dont le <code>uniqueId</code> correspond à des documents déjà presents en local (documents reçus par MSS, ...) sont ajoutés à <code>localDocumentsDMP</code> (<code>entryUUID</code>, <code>logicalId</code>, <code>uniqueId</code>).</p>
-
-<h6 id="correspondance-des-identifiants-fhir">Correspondance des identifiants FHIR</h6>
-
-<p>Pour chaque <code>DocumentReference</code> dans <code>Bundle.entry[]</code> retourné en Phase 1 :</p>
-
-<table>
-  <thead><tr><th>Variable logiciel</th><th>Élément FHIR</th></tr></thead>
-  <tbody>
-    <tr><td><code>uniqueId</code></td><td><code>DocumentReference.masterIdentifier.value</code></td></tr>
-    <tr><td><code>entryUUID</code></td><td><code>DocumentReference.id</code></td></tr>
-    <tr><td><code>logicalId</code></td><td><code>DocumentReference.identifier[lid].value</code></td></tr>
-  </tbody>
-</table>
 
 <h5 id="phase-3--notification-et-récupération-optionnelle">Phase 3 — Notification et récupération optionnelle</h5>
 
@@ -646,8 +607,8 @@ sequenceDiagram
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-01 13:09:00 +0000">
-    2026-07-01
+  <span title="2026-07-02 10:13:00 +0000">
+    2026-07-02
   </span>
 
           <br/>
