@@ -532,7 +532,7 @@ sequenceDiagram
   <strong>Bilan :</strong> pour ce cas concret à 2 documents, le flux FHIR optimisé (recherche + batch) totalise <strong>2 transactions réseau</strong> — identique au flux XDS (<code>FindDocuments</code> + <code>RetrieveDocumentSet</code>).
 </div>
 
-<h6 id="optimisation--bundle-batch-pour-grouper-les-récupérations">Optimisation — Bundle <code class="language-plaintext highlighter-rouge">batch</code> pour grouper les récupérations</h6>
+<h6 id="optimisation-a--bundle-batch-pour-grouper-les-récupérations">Optimisation A — Bundle <code class="language-plaintext highlighter-rouge">batch</code> pour grouper les récupérations</h6>
 
 <p>La spécification FHIR définit nativement l'interaction <strong>batch</strong> (cf. <a href="https://www.hl7.org/fhir/http.html#transaction">FHIR RESTful API — Batch/Transaction</a>) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique <code>Bundle</code> envoyé en une seule requête HTTP <code>POST [base]</code>. Le LPS peut ainsi remplacer les N appels <code>GET Binary/{id}</code> par un unique appel batch.</p>
 
@@ -577,6 +577,25 @@ sequenceDiagram
   <strong>Prérequis :</strong> le serveur DMP doit déclarer le support de l'interaction <code>batch</code> dans son <code>CapabilityStatement</code> (<code>rest.interaction.code = batch</code>). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
 </div>
 
+<h6 id="optimisation-b--recherche-groupée-par-_id-sur-binary">Optimisation B — recherche groupée par <code class="language-plaintext highlighter-rouge">_id</code> sur <code class="language-plaintext highlighter-rouge">Binary</code></h6>
+
+<p>Alternative au <code>Bundle batch</code> : FHIR autorise de joindre plusieurs valeurs sur un même paramètre de recherche par une virgule (OU logique). Si les documents sélectionnés pointent tous vers un <code>Binary</code> sur la base du serveur DMP (cf. <a href="transaction_td3.2.html">TD3.2</a>, Cas 2), une unique requête <strong>GET</strong> suffit à les récupérer tous :</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">[base]/Binary?_id=cr-consultation-td31a,ordonnance-td31a</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/fhir+json</span>
+</code></pre></div></div>
+
+<p>Réponse — <code>Bundle</code> <code>searchset</code> contenant les <code>Binary</code> trouvés.</p>
+
+<div class="note">
+  <strong>Limites de cette option, propres à ce cas d'usage :</strong>
+  <ol>
+    <li><strong>Hors périmètre d'ITI-68 tel que défini par IHE MHD</strong> : la transaction n'exige que l'interaction <code>read</code> unitaire sur <code>Binary</code> (<code>GET Binary/[id]</code>) — le support de <code>search</code> sur <code>Binary</code> n'est pas garanti par la conformité ITI-68 et doit être vérifié / imposé de la même façon que <code>batch</code> (<code>CapabilityStatement.rest.resource.searchParam</code> sur <code>Binary</code>).</li>
+    <li><strong>Ne couvre que le Cas 2 de TD3.2</strong> (URL relative vers un <code>Binary</code> sur la base du serveur) : ne fonctionne pas pour le Cas 1 (URL absolue, potentiellement vers un autre serveur/dépôt) ni pour le Cas 3 (URL vers un <code>Bundle</code> document, qui n'est pas un <code>Binary</code>).</li>
+    <li><strong>Granularité d'erreur plus faible</strong> : un <code>Bundle</code> <code>batch</code> retourne un code HTTP par document demandé (<code>200</code>, <code>404</code>...) ; une recherche par <code>_id</code> ne retourne que les ressources trouvées — un identifiant absent disparaît silencieusement du résultat, sans distinction entre « non trouvé » et « non demandé ».</li>
+  </ol>
+</div>
+
 <h6 id="synthèse-comparative">Synthèse comparative</h6>
 
 <table>
@@ -584,11 +603,12 @@ sequenceDiagram
   <tbody>
     <tr><td>XDS (référence actuelle)</td><td>2</td><td><code>FindDocuments</code> (1) + <code>RetrieveDocumentSet</code> batché (1)</td></tr>
     <tr><td>FHIR — transposition directe</td><td>1 + N</td><td>ITI-67 (1) + N × ITI-68 (1 par document)</td></tr>
-    <tr><td>FHIR — avec Bundle <code>batch</code></td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
+    <tr><td>FHIR — avec Bundle <code>batch</code> (option A)</td><td>2</td><td>ITI-67 (1) + 1 Bundle <code>batch</code> regroupant les N récupérations</td></tr>
+    <tr><td>FHIR — avec recherche <code>_id</code> groupée (option B)</td><td>2</td><td>ITI-67 (1) + 1 <code>GET Binary?_id=...</code> regroupant les N récupérations, si tous les documents relèvent du Cas 2</td></tr>
   </tbody>
 </table>
 
-<p><strong>Conclusion :</strong> une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard <code>batch</code> permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil — c'est l'optimisation retenue pour ce cas d'usage.</p>
+<p><strong>Conclusion :</strong> une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Deux mécanismes FHIR standards permettent de revenir au même nombre de transactions qu'en XDS sans évolution de profil : le <code>Bundle</code> <code>batch</code> (option A) et la recherche groupée par <code>_id</code> (option B). L'option A est plus robuste — elle couvre les 3 cas d'URL de TD3.2 et fournit un statut par document — et constitue l'optimisation retenue par défaut pour ce cas d'usage ; l'option B reste une alternative valable dans le cas restreint où tous les documents sont des <code>Binary</code> colocalisés sur la base du serveur DMP. Les deux nécessitent une vérification préalable du <code>CapabilityStatement</code> du serveur DMP.</p>
 
 <hr />
 
@@ -881,8 +901,8 @@ sequenceDiagram
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-02 15:12:00 +0000">
-    2026-07-02
+  <span title="2026-07-08 12:59:00 +0000">
+    2026-07-08
   </span>
 
           <br/>

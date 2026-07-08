@@ -206,7 +206,7 @@ Le LPS stocke ensuite les deux documents en local avec leurs identifiants (`id` 
 `FindDocuments`+
 `RetrieveDocumentSet`).
 
-###### Optimisation — Bundle batch pour grouper les récupérations
+###### Optimisation A — Bundle batch pour grouper les récupérations
 
 La spécification FHIR définit nativement l'interaction **batch** (cf. [FHIR RESTful API — Batch/Transaction](https://www.hl7.org/fhir/http.html#transaction)) : plusieurs requêtes indépendantes peuvent être regroupées dans un unique `Bundle` envoyé en une seule requête HTTP `POST [base]`. Le LPS peut ainsi remplacer les N appels `GET Binary/{id}` par un unique appel batch.
 
@@ -258,15 +258,33 @@ Avec cette approche, le flux « Première ouverture » revient à **2 transactio
 `CapabilityStatement`(
 `rest.interaction.code = batch`). Ce point n'est pas actuellement documenté dans les transactions TD3.x de cet IG et doit être vérifié / imposé dans les exigences techniques du profil DMP.
 
+###### Optimisation B — recherche groupée par _id sur Binary
+
+Alternative au `Bundle batch` : FHIR autorise de joindre plusieurs valeurs sur un même paramètre de recherche par une virgule (OU logique). Si les documents sélectionnés pointent tous vers un `Binary` sur la base du serveur DMP (cf. [TD3.2](transaction_td3.2.md), Cas 2), une unique requête **GET** suffit à les récupérer tous :
+
+```
+GET [base]/Binary?_id=cr-consultation-td31a,ordonnance-td31a HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+Réponse — `Bundle` `searchset` contenant les `Binary` trouvés.
+
+**Limites de cette option, propres à ce cas d'usage :**
+1. **Hors périmètre d'ITI-68 tel que défini par IHE MHD**: la transaction n'exige que l'interaction`read`unitaire sur`Binary`(`GET Binary/[id]`) — le support de`search`sur`Binary`n'est pas garanti par la conformité ITI-68 et doit être vérifié / imposé de la même façon que`batch`(`CapabilityStatement.rest.resource.searchParam`sur`Binary`).
+1. **Ne couvre que le Cas 2 de TD3.2**(URL relative vers un`Binary`sur la base du serveur) : ne fonctionne pas pour le Cas 1 (URL absolue, potentiellement vers un autre serveur/dépôt) ni pour le Cas 3 (URL vers un`Bundle`document, qui n'est pas un`Binary`).
+1. **Granularité d'erreur plus faible**: un`Bundle``batch`retourne un code HTTP par document demandé (`200`,`404`...) ; une recherche par`_id`ne retourne que les ressources trouvées — un identifiant absent disparaît silencieusement du résultat, sans distinction entre « non trouvé » et « non demandé ».
+
 ###### Synthèse comparative
 
 | | | |
 | :--- | :--- | :--- |
 | XDS (référence actuelle) | 2 | `FindDocuments`(1) +`RetrieveDocumentSet`batché (1) |
 | FHIR — transposition directe | 1 + N | ITI-67 (1) + N × ITI-68 (1 par document) |
-| FHIR — avec Bundle`batch` | 2 | ITI-67 (1) + 1 Bundle`batch`regroupant les N récupérations |
+| FHIR — avec Bundle`batch`(option A) | 2 | ITI-67 (1) + 1 Bundle`batch`regroupant les N récupérations |
+| FHIR — avec recherche`_id`groupée (option B) | 2 | ITI-67 (1) + 1`GET Binary?_id=...`regroupant les N récupérations, si tous les documents relèvent du Cas 2 |
 
-**Conclusion :** une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Le recours à l'interaction FHIR standard `batch` permet de revenir au même nombre de transactions qu'en XDS sans évolution de profil — c'est l'optimisation retenue pour ce cas d'usage.
+**Conclusion :** une transposition FHIR terme à terme des transactions XDS est moins efficace qu'XDS dès que plusieurs documents sont récupérés. Deux mécanismes FHIR standards permettent de revenir au même nombre de transactions qu'en XDS sans évolution de profil : le `Bundle` `batch` (option A) et la recherche groupée par `_id` (option B). L'option A est plus robuste — elle couvre les 3 cas d'URL de TD3.2 et fournit un statut par document — et constitue l'optimisation retenue par défaut pour ce cas d'usage ; l'option B reste une alternative valable dans le cas restreint où tous les documents sont des `Binary` colocalisés sur la base du serveur DMP. Les deux nécessitent une vérification préalable du `CapabilityStatement` du serveur DMP.
 
 -------
 
