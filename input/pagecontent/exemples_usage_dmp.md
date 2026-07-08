@@ -309,12 +309,31 @@ Accept: application/fhir+json
 <p>Réponse — <code>Bundle</code> <code>searchset</code> contenant les <code>Binary</code> trouvés.</p>
 
 <div class="note">
+  <strong>Attention :</strong> le <code>_id</code> utilisé ici est l'identifiant technique du <code>Binary</code> (extrait de <code>content.attachment.url</code>), <strong>pas</strong> le <code>uniqueId</code> du document. La ressource <code>Binary</code> ne porte aucun élément <code>identifier</code> (seulement <code>contentType</code>, <code>securityContext</code>, <code>data</code>) : il est donc impossible de rechercher ou grouper une récupération de <code>Binary</code> par <code>uniqueId</code>. Pour exploiter une liste de <code>uniqueId</code> connus, voir l'option C ci-dessous.
+</div>
+
+<div class="note">
   <strong>Limites de cette option, propres à ce cas d'usage :</strong>
   <ol>
     <li><strong>Hors périmètre d'ITI-68 tel que défini par IHE MHD</strong> : la transaction n'exige que l'interaction <code>read</code> unitaire sur <code>Binary</code> (<code>GET Binary/[id]</code>) — le support de <code>search</code> sur <code>Binary</code> n'est pas garanti par la conformité ITI-68 et doit être vérifié / imposé de la même façon que <code>batch</code> (<code>CapabilityStatement.rest.resource.searchParam</code> sur <code>Binary</code>).</li>
     <li><strong>Ne couvre que le Cas 2 de TD3.2</strong> (URL relative vers un <code>Binary</code> sur la base du serveur) : ne fonctionne pas pour le Cas 1 (URL absolue, potentiellement vers un autre serveur/dépôt) ni pour le Cas 3 (URL vers un <code>Bundle</code> document, qui n'est pas un <code>Binary</code>).</li>
     <li><strong>Granularité d'erreur plus faible</strong> : un <code>Bundle</code> <code>batch</code> retourne un code HTTP par document demandé (<code>200</code>, <code>404</code>...) ; une recherche par <code>_id</code> ne retourne que les ressources trouvées — un identifiant absent disparaît silencieusement du résultat, sans distinction entre « non trouvé » et « non demandé ».</li>
   </ol>
+</div>
+
+###### Optimisation C — résolution groupée par `uniqueId` (extension de TD3.1b)
+
+<p>Lorsque le LPS connaît déjà les <code>uniqueId</code> des documents visés (identifiant métier généré par le logiciel, présent dans le CDA et les métadonnées XDS — cf. <a href="#identifiants-des-documents-utilises">tableau des identifiants</a>), par exemple pour vérifier ou consulter des documents déjà signalés par ailleurs (MSS...), il n'est pas nécessaire de repasser par une recherche par type/date (Phase 1 classique). <a href="transaction_td3.1b.html">TD3.1b</a> — voir aussi le tableau des identifiants en début de document définit déjà ce principe pour <strong>un seul</strong> document, via le paramètre <code>identifier</code> d'ITI-67, qui couvre à la fois <code>DocumentReference.masterIdentifier</code> et <code>DocumentReference.identifier</code>. Le même paramètre accepte une liste de valeurs jointes par une virgule pour résoudre plusieurs <code>uniqueId</code> en un seul appel :</p>
+
+```http
+GET [base]/DocumentReference?identifier=[système-uniqueId1]|[valeur-uniqueId1],[système-uniqueId2]|[valeur-uniqueId2] HTTP/1.1
+Accept: application/fhir+json
+```
+
+<p>Réponse — <code>Bundle</code> <code>searchset</code> contenant les <code>DocumentReference</code> correspondants, avec leur <code>content.attachment.url</code>.</p>
+
+<div class="note">
+  <strong>Portée de cette option :</strong> elle résout une liste de <code>uniqueId</code> vers des métadonnées et des URLs — c'est une variante groupée de la <strong>Phase 1 (recherche)</strong>, pas de la Phase 3 (récupération binaire). Elle ne dispense donc pas d'un appel de récupération du contenu (option A ou B ci-dessus, sur l'identifiant technique du <code>Binary</code> une fois résolu) : au mieux, elle ramène le total à 2 transactions (résolution groupée + récupération groupée), sans gain supplémentaire par rapport aux options A/B dans le cas déjà couvert par une recherche ITI-67 classique. Son intérêt est de s'affranchir des critères de recherche (type, date, statut) quand les <code>uniqueId</code> voulus sont déjà connus.
 </div>
 
 ###### Synthèse comparative
