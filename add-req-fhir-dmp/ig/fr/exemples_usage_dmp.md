@@ -267,10 +267,43 @@ Accept: application/fhir+json
 
 Réponse — `Bundle` `searchset` contenant les `Binary` trouvés.
 
+**Attention :**le
+`_id`utilisé ici est l'identifiant technique du
+`Binary`(extrait de
+`content.attachment.url`),
+**pas**le
+`uniqueId`du document. La ressource
+`Binary`ne porte aucun élément
+`identifier`(seulement
+`contentType`,
+`securityContext`,
+`data`) : il est donc impossible de rechercher ou grouper une récupération de
+`Binary`par
+`uniqueId`. Pour exploiter une liste de
+`uniqueId`connus, voir l'option C ci-dessous.
+
 **Limites de cette option, propres à ce cas d'usage :**
 1. **Hors périmètre d'ITI-68 tel que défini par IHE MHD**: la transaction n'exige que l'interaction`read`unitaire sur`Binary`(`GET Binary/[id]`) — le support de`search`sur`Binary`n'est pas garanti par la conformité ITI-68 et doit être vérifié / imposé de la même façon que`batch`(`CapabilityStatement.rest.resource.searchParam`sur`Binary`).
 1. **Ne couvre que le Cas 2 de TD3.2**(URL relative vers un`Binary`sur la base du serveur) : ne fonctionne pas pour le Cas 1 (URL absolue, potentiellement vers un autre serveur/dépôt) ni pour le Cas 3 (URL vers un`Bundle`document, qui n'est pas un`Binary`).
 1. **Granularité d'erreur plus faible**: un`Bundle``batch`retourne un code HTTP par document demandé (`200`,`404`...) ; une recherche par`_id`ne retourne que les ressources trouvées — un identifiant absent disparaît silencieusement du résultat, sans distinction entre « non trouvé » et « non demandé ».
+
+###### Optimisation C — résolution groupée par uniqueId (extension de TD3.1b)
+
+Lorsque le LPS connaît déjà les `uniqueId` des documents visés (identifiant métier généré par le logiciel, présent dans le CDA et les métadonnées XDS — cf. [tableau des identifiants](#identifiants-des-documents-utilises)), par exemple pour vérifier ou consulter des documents déjà signalés par ailleurs (MSS...), il n'est pas nécessaire de repasser par une recherche par type/date (Phase 1 classique). [TD3.1b](transaction_td3.1b.md) — voir aussi le tableau des identifiants en début de document définit déjà ce principe pour **un seul** document, via le paramètre `identifier` d'ITI-67, qui couvre à la fois `DocumentReference.masterIdentifier` et `DocumentReference.identifier`. Le même paramètre accepte une liste de valeurs jointes par une virgule pour résoudre plusieurs `uniqueId` en un seul appel :
+
+```
+GET [base]/DocumentReference?identifier=[système-uniqueId1]|[valeur-uniqueId1],[système-uniqueId2]|[valeur-uniqueId2] HTTP/1.1
+Accept: application/fhir+json
+
+```
+
+Réponse — `Bundle` `searchset` contenant les `DocumentReference` correspondants, avec leur `content.attachment.url`.
+
+**Portée de cette option :**elle résout une liste de
+`uniqueId`vers des métadonnées et des URLs — c'est une variante groupée de la
+**Phase 1 (recherche)**, pas de la Phase 3 (récupération binaire). Elle ne dispense donc pas d'un appel de récupération du contenu (option A ou B ci-dessus, sur l'identifiant technique du
+`Binary`une fois résolu) : au mieux, elle ramène le total à 2 transactions (résolution groupée + récupération groupée), sans gain supplémentaire par rapport aux options A/B dans le cas déjà couvert par une recherche ITI-67 classique. Son intérêt est de s'affranchir des critères de recherche (type, date, statut) quand les
+`uniqueId`voulus sont déjà connus.
 
 ###### Synthèse comparative
 
