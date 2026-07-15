@@ -122,9 +122,6 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="transaction_document_vue_ensemble.html">Vue d&apos;ensemble</a>
-      </li>
-      <li>
         <a href="transaction_td2.html">TD2 - Soumettre des documents</a>
       </li>
       <li>
@@ -464,66 +461,68 @@ This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to
       <td>TD2.1 / TD2.2 (DMP_2.1a/2.2a)</td>
       <td>ITI-41 Provide and Register Document Set-b</td>
       <td>ITI-65 (Flux 01) <strong>ou</strong> ITI-105 (Flux 09)</td>
-      <td>ITI-65 : Bundle <code class="language-plaintext highlighter-rouge">transaction</code> / ITI-105 : POST d'une seule <code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>ITI-65 : Bundle <code class="language-plaintext highlighter-rouge">transaction</code> / ITI-105 : POST d'une seule <code class="language-plaintext highlighter-rouge">DocumentReference</code><br />Ex. : <code class="language-plaintext highlighter-rouge">POST [base]/DocumentReference</code> (ITI-105) ou <code class="language-plaintext highlighter-rouge">POST [base]</code> (ITI-65, Bundle <code class="language-plaintext highlighter-rouge">transaction</code>)</td>
     </tr>
     <tr>
       <td>Alimentation — remplacement</td>
       <td>TD2.1 / TD2.2 (DMP_2.1b/2.2b)</td>
       <td>ITI-41 + association RPLC</td>
       <td>ITI-65 (Flux 01) <strong>ou</strong> ITI-105 (Flux 09)</td>
-      <td><code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> (cardinalité <code class="language-plaintext highlighter-rouge">1..1</code> au remplacement). ITI-65 : ancienne fiche passée à <code class="language-plaintext highlighter-rouge">superseded</code> incluse dans le Bundle. ITI-105 : POST de la nouvelle fiche (<code class="language-plaintext highlighter-rouge">status = current</code>) avec <code class="language-plaintext highlighter-rouge">relatesTo[replaces]</code> ; le gestionnaire déprécie la cible</td>
+      <td><code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> (cardinalité <code class="language-plaintext highlighter-rouge">1..1</code> au remplacement). ITI-65 : ancienne fiche passée à <code class="language-plaintext highlighter-rouge">superseded</code> incluse dans le Bundle. ITI-105 : POST de la nouvelle fiche (<code class="language-plaintext highlighter-rouge">status = current</code>) avec <code class="language-plaintext highlighter-rouge">relatesTo[replaces]</code> ; le gestionnaire déprécie la cible<br />Ex. : <code class="language-plaintext highlighter-rouge">POST [base]</code> (Bundle <code class="language-plaintext highlighter-rouge">transaction</code> : nouveau <code class="language-plaintext highlighter-rouge">DocumentReference</code> + PATCH sur l'ancien)</td>
     </tr>
     <tr>
       <td>Recherche de documents</td>
       <td>TD3.1 (DMP_3.1)</td>
       <td>ITI-18 Registry Stored Query (<code class="language-plaintext highlighter-rouge">FindDocuments</code>, <code class="language-plaintext highlighter-rouge">GetDocuments</code>)</td>
       <td>ITI-67 Find Document References</td>
-      <td>Recherche REST FHIR (<code class="language-plaintext highlighter-rouge">search</code>) sur <code class="language-plaintext highlighter-rouge">DocumentReference</code> (HTTP GET/POST)</td>
+      <td>Recherche REST FHIR (<code class="language-plaintext highlighter-rouge">search</code>) sur <code class="language-plaintext highlighter-rouge">DocumentReference</code> (HTTP GET/POST)<br />Ex. : <code class="language-plaintext highlighter-rouge">GET [base]/DocumentReference?patient.identifier=[ins]&amp;status=current</code></td>
     </tr>
     <tr>
       <td>Recherche de lots / classeurs</td>
       <td>TD3.1 (<code class="language-plaintext highlighter-rouge">FindSubmissionSets</code>)</td>
       <td>ITI-18 Registry Stored Query</td>
       <td>ITI-66 Find Document Lists</td>
-      <td>Recherche REST FHIR sur <code class="language-plaintext highlighter-rouge">List</code> (SubmissionSet / Folder)</td>
+      <td>Recherche REST FHIR sur <code class="language-plaintext highlighter-rouge">List</code> (SubmissionSet / Folder)<br />Ex. : <code class="language-plaintext highlighter-rouge">GET [base]/List?patient.identifier=[ins]</code></td>
     </tr>
     <tr>
       <td>Consultation / récupération</td>
       <td>TD3.2 (DMP_3.2)</td>
       <td>ITI-43 Retrieve Document Set</td>
       <td>ITI-68 Retrieve Document</td>
-      <td>Récupération du <code class="language-plaintext highlighter-rouge">Binary</code> via <code class="language-plaintext highlighter-rouge">attachment.url</code></td>
+      <td>Récupération du <code class="language-plaintext highlighter-rouge">Binary</code> via <code class="language-plaintext highlighter-rouge">attachment.url</code><br />Ex. : <code class="language-plaintext highlighter-rouge">GET [DocumentReference.content.attachment.url]</code></td>
     </tr>
     <tr>
       <td>Masquer / démasquer aux professionnels</td>
       <td>TD3.3a</td>
       <td>ITI-57 Update DocumentEntry Metadata</td>
       <td>Flux 03 — mise à jour des métadonnées (PATCH)</td>
-      <td>HTTP PATCH (conditional, sur identifiant métier) de <code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code></td>
+      <td>HTTP PATCH (conditional, sur identifiant métier) de <code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code> 🐉<br />Ex. : <code class="language-plaintext highlighter-rouge">PATCH [base]/DocumentReference?identifier=[uniqueId]</code> (<code class="language-plaintext highlighter-rouge">securityLabel</code> → <code class="language-plaintext highlighter-rouge">MASQUE_PS</code>)</td>
     </tr>
     <tr>
       <td>Visibilité patient / représentants légaux</td>
       <td>TD3.3b</td>
       <td>ITI-57 Update DocumentEntry Metadata</td>
       <td>Flux 03 — mise à jour des métadonnées (PATCH)</td>
-      <td>HTTP PATCH de <code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code></td>
+      <td>HTTP PATCH de <code class="language-plaintext highlighter-rouge">DocumentReference.securityLabel</code> 🐉<br />Ex. : <code class="language-plaintext highlighter-rouge">PATCH [base]/DocumentReference?identifier=[uniqueId]</code> (<code class="language-plaintext highlighter-rouge">securityLabel</code> → <code class="language-plaintext highlighter-rouge">INVISIBLE_PATIENT</code>)</td>
     </tr>
     <tr>
       <td>Archiver / désarchiver</td>
       <td>TD3.3d</td>
       <td>ITI-57 — <code class="language-plaintext highlighter-rouge">availabilityStatus</code> = <code class="language-plaintext highlighter-rouge">urn:asip:ci-sis:2010:StatusType:Archived</code></td>
       <td>Flux 03 — mise à jour des métadonnées (PATCH)</td>
-      <td>HTTP PATCH de l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code> (booléen) sur <code class="language-plaintext highlighter-rouge">DocumentReference</code> / <code class="language-plaintext highlighter-rouge">List</code></td>
+      <td>HTTP PATCH de l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code> (booléen) sur <code class="language-plaintext highlighter-rouge">DocumentReference</code> / <code class="language-plaintext highlighter-rouge">List</code><br />Ex. : <code class="language-plaintext highlighter-rouge">PATCH [base]/DocumentReference?identifier=[uniqueId]</code> (extension <code class="language-plaintext highlighter-rouge">isArchived</code> → <code class="language-plaintext highlighter-rouge">true</code>)</td>
     </tr>
     <tr>
       <td>Supprimer un document (suppression logique)</td>
       <td>TD3.3c</td>
       <td>ITI-57 — <code class="language-plaintext highlighter-rouge">availabilityStatus</code> = <code class="language-plaintext highlighter-rouge">urn:asip:ci-sis:2010:StatusType:Deleted</code></td>
       <td>Flux 03 — mise à jour des métadonnées (PATCH)</td>
-      <td>HTTP PATCH de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> → <code class="language-plaintext highlighter-rouge">superseded</code> (dépublication). Pas de suppression physique (<code class="language-plaintext highlighter-rouge">DELETE</code> absent dans MHD). RMD (ITI-62/86) <strong>non utilisé</strong> par le DMP</td>
+      <td>HTTP PATCH de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> → <code class="language-plaintext highlighter-rouge">superseded</code> (dépublication). Pas de suppression physique (<code class="language-plaintext highlighter-rouge">DELETE</code> absent dans MHD). RMD (ITI-62/86) <strong>non utilisé</strong> par le DMP 🐉<br />Ex. : <code class="language-plaintext highlighter-rouge">PATCH [base]/DocumentReference?identifier=[uniqueId]</code> (<code class="language-plaintext highlighter-rouge">status</code> → <code class="language-plaintext highlighter-rouge">entered-in-error</code>)</td>
     </tr>
   </tbody>
 </table>
+
+<p>🐉 <em>Point encore ouvert sur cette transaction — voir la note dragon en bas de la page <a href="transaction_td3.3a.html">TD3.3a</a>, <a href="transaction_td3.3b.html">TD3.3b</a> ou <a href="transaction_td3.3c.html">TD3.3c</a> dédiée pour le détail.</em></p>
 
 <h3 id="dépendances">Dépendances</h3>
 
@@ -675,7 +674,7 @@ This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-15 13:04:00 +0000">
+  <span title="2026-07-15 13:13:00 +0000">
     2026-07-15
   </span>
 

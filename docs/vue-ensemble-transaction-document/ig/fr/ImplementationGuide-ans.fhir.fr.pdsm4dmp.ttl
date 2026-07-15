@@ -18,7 +18,7 @@
   fhir:ImplementationGuide.name [ fhir:value "PDSm4DMP"] ;
   fhir:ImplementationGuide.title [ fhir:value "Utilisation de PDSm  dans le contexte d'EEDS"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-15T13:04:45+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-07-15T13:13:18+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ;
   fhir:ImplementationGuide.contact [
      fhir:index -1 ;
@@ -1720,16 +1720,6 @@
            ] ;
            fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td02.html" ] ;
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD02 - Valider l'existence et l'état du DMP" ] ;
-           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-         ], [
-           fhir:index -1 ;
-           fhir:Element.extension [
-             fhir:index -1 ;
-             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-             fhir:Extension.valueUrl [ fhir:value "transaction_document_vue_ensemble.html" ]
-           ] ;
-           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_document_vue_ensemble.html" ] ;
-           fhir:ImplementationGuide.definition.page.title [ fhir:value "Vue d'ensemble des transactions Document" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
            fhir:index -1 ;

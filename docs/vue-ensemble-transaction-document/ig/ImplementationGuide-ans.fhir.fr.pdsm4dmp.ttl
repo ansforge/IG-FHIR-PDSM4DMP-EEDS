@@ -18,7 +18,7 @@
   fhir:ImplementationGuide.name [ fhir:value "PDSm4DMP"] ;
   fhir:ImplementationGuide.title [ fhir:value "Utilisation de PDSm  dans le contexte d'EEDS"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-15T13:04:45+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-07-15T13:13:18+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -1726,23 +1726,13 @@
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-             fhir:Extension.valueUrl [ fhir:value "transaction_document_vue_ensemble.html" ]
-           ] ;
-           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_document_vue_ensemble.html" ] ;
-           fhir:ImplementationGuide.definition.page.title [ fhir:value "Vue d'ensemble des transactions Document" ] ;
-           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-         ], [
-           fhir:index 2 ;
-           fhir:Element.extension [
-             fhir:index 0 ;
-             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
              fhir:Extension.valueUrl [ fhir:value "transaction_td2.html" ]
            ] ;
            fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td2.html" ] ;
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD2 - Alimenter le DMP" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 3 ;
+           fhir:index 2 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1752,7 +1742,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD2.1 - Remplacer un document" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 4 ;
+           fhir:index 3 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1762,7 +1752,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.1a - Lister les documents d'un DMP" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 5 ;
+           fhir:index 4 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1772,7 +1762,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.1b - Rechercher par identifiant" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 6 ;
+           fhir:index 5 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1782,7 +1772,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.2 - Consulter un document" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 7 ;
+           fhir:index 6 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1792,7 +1782,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.3a - Masquer / démasquer aux professionnels" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 8 ;
+           fhir:index 7 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1802,7 +1792,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.3b - Visibilité patient" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 9 ;
+           fhir:index 8 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -1812,7 +1802,7 @@
            fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD3.3c - Supprimer un document" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
-           fhir:index 10 ;
+           fhir:index 9 ;
            fhir:Element.extension [
              fhir:index 0 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
