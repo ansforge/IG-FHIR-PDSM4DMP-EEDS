@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-07-02T11:54:51+00:00",
+  "date" : "2026-07-16T07:22:41+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -57,7 +57,7 @@
     "id" : "ans_fr_terminologies",
     "uri" : "https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies",
     "packageId" : "ans.fr.terminologies",
-    "version" : "1.10.0"
+    "version" : "1.11.1"
   },
   {
     "id" : "ans_fhir_fr_pdsm",
@@ -1483,10 +1483,46 @@
         "page" : [{
           "extension" : [{
             "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "transaction_td02.html"
+            "valueUrl" : "transaction_td0.1.html"
           }],
-          "nameUrl" : "transaction_td02.html",
-          "title" : "Flux TD02 - Valider l'existence et l'état du DMP",
+          "nameUrl" : "transaction_td0.1.html",
+          "title" : "Flux TD0.1 - Accès sécurisé",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "transaction_td0.2.html"
+          }],
+          "nameUrl" : "transaction_td0.2.html",
+          "title" : "Flux TD0.2 - Valider l'existence et l'état du DMP",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "transaction_td0.3.html"
+          }],
+          "nameUrl" : "transaction_td0.3.html",
+          "title" : "Flux TD0.3 - Modifier l'autorisation d'accès",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "transaction_td0.4.html"
+          }],
+          "nameUrl" : "transaction_td0.4.html",
+          "title" : "Flux TD0.4 - Lister les DMP autorisés",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+            "valueUrl" : "transaction_td0.5.html"
+          }],
+          "nameUrl" : "transaction_td0.5.html",
+          "title" : "Flux TD0.5 - Rechercher un DMP",
           "generation" : "markdown"
         },
         {

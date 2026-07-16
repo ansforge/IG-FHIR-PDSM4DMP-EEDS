@@ -46,8 +46,8 @@
 	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
     <script src="assets/js/mermaid.js" type="text/javascript"></script>
     <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
-    <style type="text/css">h2{--heading-prefix:"2.4"}
-    h3,h4,h5,h6{--heading-prefix:"2.4"}</style>
+    <style type="text/css">h2{--heading-prefix:"2.8"}
+    h3,h4,h5,h6{--heading-prefix:"2.8"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
 
@@ -110,7 +110,19 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="transaction_td02.html">TD02 - Valider existence DMP</a>
+        <a href="transaction_td0.1.html">TD0.1 - Accès sécurisé</a>
+      </li>
+      <li>
+        <a href="transaction_td0.2.html">TD0.2 - Valider existence DMP</a>
+      </li>
+      <li>
+        <a href="transaction_td0.3.html">TD0.3 - Modifier l'autorisation d'accès</a>
+      </li>
+      <li>
+        <a href="transaction_td0.4.html">TD0.4 - Lister les DMP autorisés</a>
+      </li>
+      <li>
+        <a href="transaction_td0.5.html">TD0.5 - rechercher un DMP</a>
       </li>
     </ul>
   </li>
@@ -324,7 +336,7 @@ L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide 
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>TD3.1a correspond à la transaction <strong><a name="l555">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
+<p>TD3.1a correspond à la transaction <strong><a name="l579">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
 
 <h4 id="flux-td31a--requête">Flux TD3.1a — Requête</h4>
 
@@ -666,8 +678,8 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-02 11:54:00 +0000">
-    2026-07-02
+  <span title="2026-07-16 07:22:00 +0000">
+    2026-07-16
   </span>
 
           <br/>

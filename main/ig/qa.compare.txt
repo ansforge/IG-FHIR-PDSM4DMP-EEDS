@@ -4,7 +4,7 @@ PDSm4DMP : Validation Results
 err = 80, warn = 260, info = 190
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 22 / 13 / 0
+ Build Errors : 24 / 13 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionSNR : 1 / 0 / 0
@@ -58,31 +58,33 @@ WARNING: Unable to find ImplementationGuide.definition.resource.description for 
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource DocumentReference/example-td2-iti105-publication-simplifiee.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Bundle/example-td2-iti65-lot-soumission.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/en/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
-WARNING: en/change-log.html#/html/body/div/div/div/div/div/p/a at Line 291, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 293, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 295, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 301, column 8: The link 'package.tgz' for "Package (tgz)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 307, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 308, column 8: The link 'definitions.xml.zip' for "Définitions XML (zip)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 309, column 8: The link 'definitions.ttl.zip' for "Définitions Turtle (zip)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 315, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 316, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
-ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 317, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
-ERROR: en/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 329, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
-ERROR: en/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 324, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
+WARNING: en/change-log.html#/html/body/div/div/div/div/div/p/a at Line 303, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 305, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 307, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 313, column 8: The link 'package.tgz' for "Package (tgz)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 319, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 320, column 8: The link 'definitions.xml.zip' for "Définitions XML (zip)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 321, column 8: The link 'definitions.ttl.zip' for "Définitions Turtle (zip)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 327, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 328, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 329, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
+ERROR: en/index.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 397, column 12: The link 'transaction_td02.html' for "TD02" cannot be resolved
+ERROR: en/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 341, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
+ERROR: en/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 336, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/fr/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
-WARNING: fr/change-log.html#/html/body/div/div/div/div/div/p/a at Line 284, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 286, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 288, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 294, column 8: The link 'package.tgz' for "Package (tgz)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 300, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 301, column 8: The link 'definitions.xml.zip' for "Définitions XML (zip)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 302, column 8: The link 'definitions.ttl.zip' for "Définitions Turtle (zip)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 308, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 309, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
-ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 310, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
-ERROR: fr/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 322, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
-ERROR: fr/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 317, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
+WARNING: fr/change-log.html#/html/body/div/div/div/div/div/p/a at Line 296, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 298, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 300, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 306, column 8: The link 'package.tgz' for "Package (tgz)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 312, column 8: The link 'definitions.json.zip' for "Définitions JSON (zip)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 313, column 8: The link 'definitions.xml.zip' for "Définitions XML (zip)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 314, column 8: The link 'definitions.ttl.zip' for "Définitions Turtle (zip)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 320, column 8: The link 'examples.xml.zip' for "Exemples XML (zip)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 321, column 8: The link 'examples.json.zip' for "Exemples JSON (zip)" cannot be resolved
+ERROR: fr/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 322, column 8: The link 'examples.ttl.zip' for "Exemples Turtle (zip)" cannot be resolved
+ERROR: fr/index.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 390, column 12: The link 'transaction_td02.html' for "TD02" cannot be resolved
+ERROR: fr/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 334, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
+ERROR: fr/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 329, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml, cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: An HTML fragment from the set [globals-table.xhtml, globals-table.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 5: An HTML fragment from the set [expansion-params.xhtml, expansion-params.xhtml] is not included anywhere in the produced implementation guide
@@ -383,20 +385,20 @@ INFORMATION: StructureDefinition.baseDefinition: Pinned the version of http://hl
 INFORMATION: StructureDefinition.snapshot.element[4].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS to 20200424120000
 INFORMATION: StructureDefinition.snapshot.element[20].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS to 20230922120000
 INFORMATION: StructureDefinition.snapshot.element[21].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP to 20200424120000
-INFORMATION: StructureDefinition.snapshot.element[23].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS to 20251029120000
+INFORMATION: StructureDefinition.snapshot.element[23].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS to 20260629120000
 INFORMATION: StructureDefinition.snapshot.element[24].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS to 20260223120000
 INFORMATION: StructureDefinition.snapshot.element[25].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS to 20240927120000
-INFORMATION: StructureDefinition.snapshot.element[26].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS to 20260601120000
+INFORMATION: StructureDefinition.snapshot.element[26].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS to 20260629120000
 INFORMATION: StructureDefinition.snapshot.element[31].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier to 5.3.0
 INFORMATION: StructureDefinition.snapshot.element[32].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier to 5.3.0
 INFORMATION: StructureDefinition.snapshot.element[33].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J197-XdsTypesIdentifiantsReferenceId-CISIS/FHIR/JDV-J197-XdsTypesIdentifiantsReferenceId-CISIS to 20220624120000
 INFORMATION: StructureDefinition.differential.element[4].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J52-AvailabilityStatus-CISIS/FHIR/JDV-J52-AvailabilityStatus-CISIS to 20200424120000
 INFORMATION: StructureDefinition.differential.element[20].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J06-XdsClassCode-CISIS/FHIR/JDV-J06-XdsClassCode-CISIS to 20230922120000
 INFORMATION: StructureDefinition.differential.element[21].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J58-ConfidentialityCode-DMP/FHIR/JDV-J58-ConfidentialityCode-DMP to 20200424120000
-INFORMATION: StructureDefinition.differential.element[23].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS to 20251029120000
+INFORMATION: StructureDefinition.differential.element[23].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J10-XdsFormatCode-CISIS/FHIR/JDV-J10-XdsFormatCode-CISIS to 20260629120000
 INFORMATION: StructureDefinition.differential.element[24].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J02-XdsHealthcareFacilityTypeCode-CISIS/FHIR/JDV-J02-XdsHealthcareFacilityTypeCode-CISIS to 20260223120000
 INFORMATION: StructureDefinition.differential.element[25].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J04-XdsPracticeSettingCode-CISIS/FHIR/JDV-J04-XdsPracticeSettingCode-CISIS to 20240927120000
-INFORMATION: StructureDefinition.differential.element[26].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS to 20260601120000
+INFORMATION: StructureDefinition.differential.element[26].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J07-XdsTypeCode-CISIS/FHIR/JDV-J07-XdsTypeCode-CISIS to 20260629120000
 INFORMATION: StructureDefinition.differential.element[31].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier to 5.3.0
 INFORMATION: StructureDefinition.differential.element[32].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/elementdefinition-identifier to 5.3.0
 INFORMATION: StructureDefinition.differential.element[33].binding.valueSet: Pinned the version of https://mos.esante.gouv.fr/NOS/JDV_J197-XdsTypesIdentifiantsReferenceId-CISIS/FHIR/JDV-J197-XdsTypesIdentifiantsReferenceId-CISIS to 20220624120000

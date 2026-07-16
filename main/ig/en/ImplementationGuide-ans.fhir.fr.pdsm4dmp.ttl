@@ -18,7 +18,7 @@
   fhir:ImplementationGuide.name [ fhir:value "PDSm4DMP"] ;
   fhir:ImplementationGuide.title [ fhir:value "Utilisation de PDSm  dans le contexte d'EEDS"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-02T11:54:51+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-07-16T07:22:41+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"] ;
   fhir:ImplementationGuide.contact [
      fhir:index -1 ;
@@ -80,7 +80,7 @@
        fhir:link <https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies>
      ] ;
      fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "ans.fr.terminologies" ] ;
-     fhir:ImplementationGuide.dependsOn.version [ fhir:value "1.10.0" ]
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "1.11.1" ]
   ], [
      fhir:index -1 ;
      fhir:Element.id [ fhir:value "ans_fhir_fr_pdsm" ] ;
@@ -1716,10 +1716,50 @@
            fhir:Element.extension [
              fhir:index -1 ;
              fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-             fhir:Extension.valueUrl [ fhir:value "transaction_td02.html" ]
+             fhir:Extension.valueUrl [ fhir:value "transaction_td0.1.html" ]
            ] ;
-           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td02.html" ] ;
-           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD02 - Valider l'existence et l'état du DMP" ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td0.1.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD0.1 - Accès sécurisé" ] ;
+           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+         ], [
+           fhir:index -1 ;
+           fhir:Element.extension [
+             fhir:index -1 ;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+             fhir:Extension.valueUrl [ fhir:value "transaction_td0.2.html" ]
+           ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td0.2.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD0.2 - Valider l'existence et l'état du DMP" ] ;
+           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+         ], [
+           fhir:index -1 ;
+           fhir:Element.extension [
+             fhir:index -1 ;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+             fhir:Extension.valueUrl [ fhir:value "transaction_td0.3.html" ]
+           ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td0.3.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD0.3 - Modifier l'autorisation d'accès" ] ;
+           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+         ], [
+           fhir:index -1 ;
+           fhir:Element.extension [
+             fhir:index -1 ;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+             fhir:Extension.valueUrl [ fhir:value "transaction_td0.4.html" ]
+           ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td0.4.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD0.4 - Lister les DMP autorisés" ] ;
+           fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+         ], [
+           fhir:index -1 ;
+           fhir:Element.extension [
+             fhir:index -1 ;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+             fhir:Extension.valueUrl [ fhir:value "transaction_td0.5.html" ]
+           ] ;
+           fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaction_td0.5.html" ] ;
+           fhir:ImplementationGuide.definition.page.title [ fhir:value "Flux TD0.5 - Rechercher un DMP" ] ;
            fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
          ], [
            fhir:index -1 ;
