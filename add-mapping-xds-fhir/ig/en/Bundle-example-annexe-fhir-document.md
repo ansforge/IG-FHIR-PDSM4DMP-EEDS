@@ -1,0 +1,85 @@
+# example-annexe-fhir-document - Utilisation de PDSm dans le contexte d'EEDS v0.1.0
+
+## Example Bundle: example-annexe-fhir-document
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "example-annexe-fhir-document",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:1.2.250.1.213.1.4.8.99999.202"
+  },
+  "type" : "document",
+  "timestamp" : "2024-11-20T11:00:00+01:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:bbbbbbbb-0000-0000-0000-000000000001",
+    "resource" : {
+      "resourceType" : "Composition",
+      "id" : "example-annexe-composition",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Composition_example-annexe-composition\"> </a><p class=\"res-header-id\"><b>Narratif généré : Composition example-annexe-composition</b></p><a name=\"example-annexe-composition\"> </a><a name=\"hcexample-annexe-composition\"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 60591-5}\">Patient summary Document</span></p><p><b>date</b>: 2024-11-20 11:00:00+0100</p><p><b>author</b>: <a href=\"Bundle-example-annexe-fhir-document.html#urn-uuid-bbbbbbbb-0000-0000-0000-000000000003\">Practitioner : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>title</b>: Synthèse patient 20/11/2024</p></div></div>"
+      },
+      "status" : "final",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "60591-5",
+          "display" : "Patient summary Document"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"
+      },
+      "date" : "2024-11-20T11:00:00+01:00",
+      "author" : [{
+        "reference" : "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"
+      }],
+      "title" : "Synthèse patient 20/11/2024",
+      "section" : [{
+        "title" : "Synthèse",
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">Contenu de synthèse (exemple).</div>"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "example-annexe-patient",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Patient_example-annexe-patient\"> </a><p class=\"res-header-id\"><b>Narratif généré : Patient example-annexe-patient</b></p><a name=\"example-annexe-patient\"> </a><a name=\"hcexample-annexe-patient\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></div></div>"
+      },
+      "identifier" : [{
+        "system" : "urn:oid:1.2.250.1.213.1.4.8",
+        "value" : "123456789012345"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003",
+    "resource" : {
+      "resourceType" : "Practitioner",
+      "id" : "example-annexe-practitioner",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Practitioner_example-annexe-practitioner\"> </a><p class=\"res-header-id\"><b>Narratif généré : Praticien example-annexe-practitioner</b></p><a name=\"example-annexe-practitioner\"> </a><a name=\"hcexample-annexe-practitioner\"> </a><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></div></div>"
+      },
+      "identifier" : [{
+        "system" : "urn:oid:1.2.250.1.71.4.2.1",
+        "value" : "899700218896"
+      }]
+    }
+  }]
+}
+
+```

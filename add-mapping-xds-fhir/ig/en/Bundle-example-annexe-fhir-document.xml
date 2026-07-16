@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="example-annexe-fhir-document"/>
+  <language value="en"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.250.1.213.1.4.8.99999.202"/>
+  </identifier>
+  <type value="document"/>
+  <timestamp value="2024-11-20T11:00:00+01:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000001"/>
+    <resource>
+      <Composition>
+        <id value="example-annexe-composition"/>
+        <language value="en"/>
+        <text>
+          <status value="generated"/>
+        </text>
+        <status value="final"/>
+        <type>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="60591-5"/>
+            <display value="Patient summary Document"/>
+          </coding>
+        </type>
+        <subject>
+          <reference value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"/>
+        </subject>
+        <date value="2024-11-20T11:00:00+01:00"/>
+        <author>
+          <reference value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"/>
+        </author>
+        <title value="Synthèse patient 20/11/2024"/>
+        <section>
+          <title value="Synthèse"/>
+          <text>
+            <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">Contenu de synthèse (exemple).</div>
+          </text>
+        </section>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000002"/>
+    <resource>
+      <Patient>
+        <id value="example-annexe-patient"/>
+        <language value="en"/>
+        <text>
+          <status value="generated"/>
+        </text>
+        <identifier>
+          <system value="urn:oid:1.2.250.1.213.1.4.8"/>
+          <value value="123456789012345"/>
+        </identifier>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:bbbbbbbb-0000-0000-0000-000000000003"/>
+    <resource>
+      <Practitioner>
+        <id value="example-annexe-practitioner"/>
+        <language value="en"/>
+        <text>
+          <status value="generated"/>
+        </text>
+        <identifier>
+          <system value="urn:oid:1.2.250.1.71.4.2.1"/>
+          <value value="899700218896"/>
+        </identifier>
+      </Practitioner>
+    </resource>
+  </entry>
+</Bundle>
