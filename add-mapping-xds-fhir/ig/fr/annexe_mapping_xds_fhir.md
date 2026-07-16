@@ -128,7 +128,7 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 
 ### Synthèse des orphelins (points ouverts)
 
-1. `logicalID`+`version`(fiche et classeur) — versionnement ebRIM sans équivalent FHIR direct.
+1. `logicalID`+`version`(fiche et classeur) — versionnement ebRIM sans équivalent FHIR direct. Le besoin fonctionnel reste néanmoins couvert, mais par un mécanisme différent : au lieu d'un couple identifiant logique + compteur, FHIR/MHD chaîne les ressources successives via`DocumentReference.relatesTo.code = replaces`. Une requête`_revinclude=DocumentReference:relatesTo`sur la dernière version permet de retrouver en un seul appel toutes les ressources qui la référencent, reconstituant ainsi la lignée — sans qu'aucun champ ne porte directement un identifiant de lignée ou un numéro de version.
 1. `documentAvailability`— Online/Offline (extension imagerie).
 1. Occurrences de masquage de`confidentialityCode`(`MASQUE_PS`, non-visibilité patient/RL).
 1. `availabilityStatus = Deleted`— extension nationale sans valeur`DocumentReference.status`autorisée par le binding MHD (`Archived`est déjà couvert par l'extension`PDSm_isArchived`).
