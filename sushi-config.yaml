@@ -44,8 +44,16 @@ pages:
     index.md:
         title: Accueil
     specifications_techniques.md:
-        transaction_td02.md:
-            title: "Flux TD02 - Valider l'existence et l'état du DMP"
+        transaction_td0.1.md:
+            title: "Flux TD0.1 - Accès sécurisé"
+        transaction_td0.2.md:
+            title: "Flux TD0.2 - Valider l'existence et l'état du DMP"
+        transaction_td0.3.md:
+            title: "Flux TD0.3 - Modifier l'autorisation d'accès"
+        transaction_td0.4.md:
+            title: "Flux TD0.4 - Lister les DMP autorisés"
+        transaction_td0.5.md:
+            title: "Flux TD0.5 - Rechercher un DMP"
         transaction_td2.md:
             title: "Flux TD2 - Alimenter le DMP"
         transaction_td2.1.md:
@@ -89,7 +97,11 @@ pages:
 menu:
     Accueil: index.html
     Transaction DMP Patient:
-        "TD02 - Valider existence DMP": transaction_td02.html
+        "TD0.1 - Accès sécurisé": transaction_td0.1.html
+        "TD0.2 - Valider existence DMP": transaction_td0.2.html
+        "TD0.3 - Modifier l'autorisation d'accès": transaction_td0.3.html
+        "TD0.4 - Lister les DMP autorisés": transaction_td0.4.html
+        "TD0.5 - rechercher un DMP": transaction_td0.5.html
     Transaction DMP Document:
         "TD2 - Soumettre des documents": transaction_td2.html
         "TD2.1 - Remplacer un document": transaction_td2.1.html
