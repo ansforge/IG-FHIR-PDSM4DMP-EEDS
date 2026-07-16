@@ -1,0 +1,96 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-annexe-fhir-document> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "example-annexe-fhir-document"] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:1.2.250.1.213.1.4.8.99999.202" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "document"] ;
+  fhir:Bundle.timestamp [ fhir:value "2024-11-20T11:00:00+01:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:bbbbbbbb-0000-0000-0000-000000000001" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:bbbbbbbb-0000-0000-0000-000000000001>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:bbbbbbbb-0000-0000-0000-000000000002>
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:bbbbbbbb-0000-0000-0000-000000000003>
+  ] .
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000001> a fhir:Composition ;
+  fhir:Resource.id [ fhir:value "example-annexe-composition"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Composition_example-annexe-composition\"> </a><p class=\"res-header-id\"><b>Narratif généré : Composition example-annexe-composition</b></p><a name=\"example-annexe-composition\"> </a><a name=\"hcexample-annexe-composition\"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes :{http://loinc.org 60591-5}\">Patient summary Document</span></p><p><b>date</b>: 2024-11-20 11:00:00+0100</p><p><b>author</b>: <a href=\"Bundle-example-annexe-fhir-document.html#urn-uuid-bbbbbbbb-0000-0000-0000-000000000003\">Practitioner : identifier = urn:oid:1.2.250.1.71.4.2.1#899700218896</a></p><p><b>title</b>: Synthèse patient 20/11/2024</p></div></div>"
+  ] ;
+  fhir:Composition.status [ fhir:value "final"] ;
+  fhir:Composition.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:60591-5 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "60591-5" ] ;
+       fhir:Coding.display [ fhir:value "Patient summary Document" ]
+     ]
+  ] ;
+  fhir:Composition.subject [
+     fhir:Reference.reference [ fhir:value "urn:uuid:bbbbbbbb-0000-0000-0000-000000000002" ]
+  ] ;
+  fhir:Composition.date [ fhir:value "2024-11-20T11:00:00+01:00"^^xsd:dateTime] ;
+  fhir:Composition.author [
+     fhir:index 0 ;
+     fhir:Reference.reference [ fhir:value "urn:uuid:bbbbbbbb-0000-0000-0000-000000000003" ]
+  ] ;
+  fhir:Composition.title [ fhir:value "Synthèse patient 20/11/2024"] ;
+  fhir:Composition.section [
+     fhir:index 0 ;
+     fhir:Composition.section.title [ fhir:value "Synthèse" ] ;
+     fhir:Composition.section.text [
+       fhir:Narrative.status [ fhir:value "generated" ] ;
+       fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Contenu de synthèse (exemple).</div>"
+     ]
+  ] .
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000002> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "example-annexe-patient"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Patient_example-annexe-patient\"> </a><p class=\"res-header-id\"><b>Narratif généré : Patient example-annexe-patient</b></p><a name=\"example-annexe-patient\"> </a><a name=\"hcexample-annexe-patient\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Patient Anonyme (sexe non précisé), Date de Naissance inconnue ( urn:oid:1.2.250.1.213.1.4.8#123456789012345)</p><hr/></div></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:oid:1.2.250.1.213.1.4.8" ] ;
+     fhir:Identifier.value [ fhir:value "123456789012345" ]
+  ] .
+
+<urn:uuid:bbbbbbbb-0000-0000-0000-000000000003> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "example-annexe-practitioner"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div xml:lang=\"fr\" lang=\"fr\"><hr/><p><b>French</b></p><hr/><a name=\"Practitioner_example-annexe-practitioner\"> </a><p class=\"res-header-id\"><b>Narratif généré : Praticien example-annexe-practitioner</b></p><a name=\"example-annexe-practitioner\"> </a><a name=\"hcexample-annexe-practitioner\"> </a><p><b>identifier</b>: <code>urn:oid:1.2.250.1.71.4.2.1</code>/899700218896</p></div></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:oid:1.2.250.1.71.4.2.1" ] ;
+     fhir:Identifier.value [ fhir:value "899700218896" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/Bundle/example-annexe-fhir-document.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
