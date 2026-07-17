@@ -52,6 +52,10 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `URI` | `content.attachment.url` | oui | ✅ |
 | `version` | `meta.versionId` | non | ✅ — le profil PDSm définit `meta.versionId` comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
 
+<div class="stu-note">
+**Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par [MHD](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html) : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
+</div>
+
 Le mécanisme XDS de mise à jour de métadonnées (`Update Document Set [ITI-57]`, §3.3.5 du volet) soumet à chaque fois une **nouvelle fiche** — avec un nouvel `entryUUID` — qui conserve le même `uniqueId` et le même `logicalID`, et incrémente `version`. PDSm modélise cette même opération par un **PATCH sur la ressource `DocumentReference` existante** (TD3.3a/TD3.3b/TD3.3c) : `identifier` (slice `entryUUID`) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois. `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id` de la ressource sous PATCH, plutôt que portée par une métadonnée explicite.
 
 ### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
