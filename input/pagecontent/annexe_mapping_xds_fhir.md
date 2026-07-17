@@ -17,8 +17,9 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 
 | Attribut XDS (volet §3.4) | Élément FHIR | Héritée MHD ? | Statut |
 |---|---|---|---|
-| `author` (+ `authorPerson`) | `DocumentReference.author` (Practitioner/Device *contained*) | oui | ✅ |
+| `author` | `DocumentReference.author` (regroupement répétable, [1..*]) | oui | ✅ |
 | `authorInstitution` | `author` → `Organization` *contained* | oui | ✅ |
+| `authorPerson` | `author` → `Practitioner`/`Device` *contained* | oui | ✅ |
 | `authorRole` | `author` → `PractitionerRole.code` *contained* | oui | ✅ (sous réserve de binding) |
 | `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
 | `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict — cf. section dédiée |
@@ -36,7 +37,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `homeCommunityId` | extension `homeCommunityId` | oui (extension MHD) | ⚠️ extension |
 | `languageCode` | `content.attachment.language` | oui | ✅ |
 | `legalAuthenticator` | `authenticator` | oui | ✅ (et non `custodian`) |
-| `logicalID` (lid ebRIM) | — | **non** | ❌ orphelin (versionnement ebRIM ; `meta.versionId` de sémantique différente) |
+| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | non | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id` sous PATCH (cf. note ci-dessous) |
 | `mimeType` | `content.attachment.contentType` | oui | ✅ |
 | `patientId` | `subject` | oui | ✅ |
 | `practiceSettingCode` | `context.practiceSetting` | oui | ✅ |
@@ -49,7 +50,9 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `typeCode` (+ Display / codingScheme) | `type` | oui | ✅ |
 | `uniqueId` | `masterIdentifier` + `identifier` (slice `uniqueId`) | oui | ✅ |
 | `URI` | `content.attachment.url` | oui | ✅ |
-| `version` | — | **non** | ❌ orphelin (versionnement XDS lid+version sans équivalent) |
+| `version` | `meta.versionId` | non | ✅ — le profil PDSm définit `meta.versionId` comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
+
+Le mécanisme XDS de mise à jour de métadonnées (`Update Document Set [ITI-57]`, §3.3.5 du volet) soumet à chaque fois une **nouvelle fiche** — avec un nouvel `entryUUID` — qui conserve le même `uniqueId` et le même `logicalID`, et incrémente `version`. PDSm modélise cette même opération par un **PATCH sur la ressource `DocumentReference` existante** (TD3.3a/TD3.3b/TD3.3c) : `identifier` (slice `entryUUID`) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois. `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id` de la ressource sous PATCH, plutôt que portée par une métadonnée explicite.
 
 ### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
 
@@ -57,8 +60,9 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 
 | Attribut XDS (volet §3.5) | Élément FHIR | Héritée MHD ? | Statut |
 |---|---|---|---|
-| `author` (+ `authorPerson`) | `List.source` (Practitioner/Device *contained*) | oui | ✅ |
+| `author` | `List.source` (regroupement répétable, [1..*]) | oui | ✅ |
 | `authorInstitution` | `source.extension:authorOrg` → `Organization` | oui | ✅ |
+| `authorPerson` | `source` → `Practitioner`/`Device` *contained* | oui | ✅ |
 | `authorRole` | `PractitionerRole.code` *contained* | oui | ✅ (sous réserve de binding) |
 | `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
 | `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict — `Archived` national via `PDSm_isArchived` |
@@ -87,13 +91,13 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
 | `homeCommunityId` | extension `homeCommunityId` | oui | ✅ |
 | `lastUpdateTime` | `date` | oui | ✅ |
-| `logicalID` (lid ebRIM) | — | **non** | ❌ orphelin |
+| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | non | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche |
 | `patientId` | `subject` | oui | ✅ |
 | `title` | `title` | oui | ✅ |
 | `uniqueId` | `identifier` (slice `uniqueId`) | oui | ✅ |
-| `version` | — | **non** | ❌ orphelin |
+| `version` | `meta.versionId` | non | ✅ |
 
-La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). Les orphelins `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement. Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
+La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
 
 ### Associations (§3.3) → DocumentReference.relatesTo
 
@@ -109,6 +113,20 @@ Les objets `Association` d'ebRIM se répartissent selon leur nature. L'appartena
 | `IsSnapshotOf` | `transforms` | approximative | ⚠️ nouvelle instance dérivée, pas strictement un transform |
 
 Les attributs portés par les associations lors des transactions ITI-42 / ITI-57 — `SubmissionSetStatus` (Original/Reference), `PreviousVersion`, `OriginalStatus` / `NewStatus` (association `UpdateAvailabilityStatus`) et le slot `associationPropagation` — n'ont **aucune** cible FHIR : ce sont des mécanismes de transaction ebRIM, non des propriétés d'objet portées par une ressource.
+
+### Éléments FHIR sans source XDS
+
+Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
+
+| Élément FHIR | Ressource | Origine |
+|---|---|---|
+| `List.mode` = `working` (valeur fixée) | `List` (lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
+| `List.code.coding` = `submissionset` / `folder` (system + code fixés) | `List` (lot, classeur) | Contrainte MHD distinguant les deux types de `List` |
+| `List.status` | `List` (lot, classeur) | Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié |
+| `contained` (≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources `author`/`authenticator` doivent être contenues |
+| `context` (1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`, `healthcareFacilityTypeCode`, `practiceSettingCode`, `serviceStartTime`/`serviceStopTime`, `referenceIdList`, `sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
+| `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
+| `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
 
 ### Cas non strict : availabilityStatus → status
 
@@ -130,7 +148,7 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 
 ### Synthèse des orphelins (points ouverts)
 
-1. `logicalID` + `version` (fiche et classeur) — versionnement ebRIM sans équivalent FHIR direct. Le besoin fonctionnel reste néanmoins couvert, mais par un mécanisme différent : au lieu d'un couple identifiant logique + compteur, FHIR/MHD chaîne les ressources successives via `DocumentReference.relatesTo.code = replaces`. Une requête `_revinclude=DocumentReference:relatesTo` sur la dernière version permet de retrouver en un seul appel toutes les ressources qui la référencent, reconstituant ainsi la lignée — sans qu'aucun champ ne porte directement un identifiant de lignée ou un numéro de version.
+1. `logicalID` (fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'`id` de ressource sous PATCH (`version` lui-même est correctement couvert par `meta.versionId`, cf. section dédiée).
 2. `documentAvailability` — Online/Offline (extension imagerie).
 3. `availabilityStatus = Deleted` — extension nationale sans valeur `DocumentReference.status` autorisée par le binding MHD (`Archived` est déjà couvert par l'extension `PDSm_isArchived`).
 4. Attributs d'association ebRIM (`SubmissionSetStatus`, `PreviousVersion`, `OriginalStatus`/`NewStatus`, `associationPropagation`).
