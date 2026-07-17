@@ -25,7 +25,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `classCode` (+ Display / codingScheme) | `category` | oui | ✅ |
 | `comments` | `description` | oui | ✅ |
 | `confidentialityCode` (1re occurrence) | `securityLabel` | oui | ✅ |
-| `confidentialityCode` (occurrences de masquage : `MASQUE_PS`, non-visibilité patient/RL) | — | **non** | ❌ extension nationale sans cible |
+| `confidentialityCode` (occurrences de masquage : `MASQUE_PS`, non-visibilité patient/RL) | `securityLabel` (même élément, codes JDV_J08) | oui | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
 | `eventCodeList` (+ Display / codingScheme) | `context.event` | oui | ✅ |
@@ -132,9 +132,8 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 
 1. `logicalID` + `version` (fiche et classeur) — versionnement ebRIM sans équivalent FHIR direct. Le besoin fonctionnel reste néanmoins couvert, mais par un mécanisme différent : au lieu d'un couple identifiant logique + compteur, FHIR/MHD chaîne les ressources successives via `DocumentReference.relatesTo.code = replaces`. Une requête `_revinclude=DocumentReference:relatesTo` sur la dernière version permet de retrouver en un seul appel toutes les ressources qui la référencent, reconstituant ainsi la lignée — sans qu'aucun champ ne porte directement un identifiant de lignée ou un numéro de version.
 2. `documentAvailability` — Online/Offline (extension imagerie).
-3. Occurrences de masquage de `confidentialityCode` (`MASQUE_PS`, non-visibilité patient/RL).
-4. `availabilityStatus = Deleted` — extension nationale sans valeur `DocumentReference.status` autorisée par le binding MHD (`Archived` est déjà couvert par l'extension `PDSm_isArchived`).
-5. Attributs d'association ebRIM (`SubmissionSetStatus`, `PreviousVersion`, `OriginalStatus`/`NewStatus`, `associationPropagation`).
+3. `availabilityStatus = Deleted` — extension nationale sans valeur `DocumentReference.status` autorisée par le binding MHD (`Archived` est déjà couvert par l'extension `PDSm_isArchived`).
+4. Attributs d'association ebRIM (`SubmissionSetStatus`, `PreviousVersion`, `OriginalStatus`/`NewStatus`, `associationPropagation`).
 
 <div class="dragon" markdown="1">
 
