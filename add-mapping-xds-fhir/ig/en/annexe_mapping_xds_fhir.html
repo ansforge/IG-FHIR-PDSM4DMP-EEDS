@@ -385,9 +385,9 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (occurrences de masquage : <code class="language-plaintext highlighter-rouge">MASQUE_PS</code>, non-visibilité patient/RL)</td>
-      <td>—</td>
-      <td><strong>non</strong></td>
-      <td>❌ extension nationale sans cible</td>
+      <td><code class="language-plaintext highlighter-rouge">securityLabel</code> (même élément, codes JDV_J08)</td>
+      <td>oui</td>
+      <td>✅ — cf. <a href="transaction_td3.3a.html">TD3.3a</a> / <a href="transaction_td3.3b.html">TD3.3b</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">creationTime</code></td>
@@ -833,7 +833,6 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 <ol>
   <li><code class="language-plaintext highlighter-rouge">logicalID</code> + <code class="language-plaintext highlighter-rouge">version</code> (fiche et classeur) — versionnement ebRIM sans équivalent FHIR direct. Le besoin fonctionnel reste néanmoins couvert, mais par un mécanisme différent : au lieu d'un couple identifiant logique + compteur, FHIR/MHD chaîne les ressources successives via <code class="language-plaintext highlighter-rouge">DocumentReference.relatesTo.code = replaces</code>. Une requête <code class="language-plaintext highlighter-rouge">_revinclude=DocumentReference:relatesTo</code> sur la dernière version permet de retrouver en un seul appel toutes les ressources qui la référencent, reconstituant ainsi la lignée — sans qu'aucun champ ne porte directement un identifiant de lignée ou un numéro de version.</li>
   <li><code class="language-plaintext highlighter-rouge">documentAvailability</code> — Online/Offline (extension imagerie).</li>
-  <li>Occurrences de masquage de <code class="language-plaintext highlighter-rouge">confidentialityCode</code> (<code class="language-plaintext highlighter-rouge">MASQUE_PS</code>, non-visibilité patient/RL).</li>
   <li><code class="language-plaintext highlighter-rouge">availabilityStatus = Deleted</code> — extension nationale sans valeur <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> autorisée par le binding MHD (<code class="language-plaintext highlighter-rouge">Archived</code> est déjà couvert par l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code>).</li>
   <li>Attributs d'association ebRIM (<code class="language-plaintext highlighter-rouge">SubmissionSetStatus</code>, <code class="language-plaintext highlighter-rouge">PreviousVersion</code>, <code class="language-plaintext highlighter-rouge">OriginalStatus</code>/<code class="language-plaintext highlighter-rouge">NewStatus</code>, <code class="language-plaintext highlighter-rouge">associationPropagation</code>).</li>
 </ol>
@@ -892,8 +891,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-16 16:43:00 +0000">
-    2026-07-16
+  <span title="2026-07-17 14:17:00 +0000">
+    2026-07-17
   </span>
 
           <br/>
