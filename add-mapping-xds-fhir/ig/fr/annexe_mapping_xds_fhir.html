@@ -534,6 +534,10 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   </tbody>
 </table>
 
+<div class="stu-note">
+**Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par [MHD](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html) : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
+</div>
+
 <p>Le mécanisme XDS de mise à jour de métadonnées (<code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code>, &sect;3.3.5 du volet) soumet à chaque fois une <strong>nouvelle fiche</strong> — avec un nouvel <code class="language-plaintext highlighter-rouge">entryUUID</code> — qui conserve le même <code class="language-plaintext highlighter-rouge">uniqueId</code> et le même <code class="language-plaintext highlighter-rouge">logicalID</code>, et incrémente <code class="language-plaintext highlighter-rouge">version</code>. PDSm modélise cette même opération par un <strong>PATCH sur la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> existante</strong> (TD3.3a/TD3.3b/TD3.3c) : <code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois. <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code> ; <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> de la ressource sous PATCH, plutôt que portée par une métadonnée explicite.</p>
 
 <h3 id="métadonnées-xds-dun-lot-de-soumission-35--list-submissionset">Métadonnées XDS d'un lot de soumission (&sect;3.5) → List (SubmissionSet)</h3>
@@ -948,7 +952,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-17 15:17:00 +0000">
+  <span title="2026-07-17 16:00:00 +0000">
     2026-07-17
   </span>
 
