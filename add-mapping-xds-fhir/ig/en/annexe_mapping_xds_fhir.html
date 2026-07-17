@@ -406,7 +406,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">documentAvailability</code></td>
       <td>—</td>
       <td><strong>non</strong></td>
-      <td>❌ orphelin (Online/Offline — extension imagerie)</td>
+      <td>❌ orphelin (accessibilité en ligne/hors-ligne du document, optionnel, renseigné par le système cible)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
@@ -898,7 +898,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">logicalID</code> (fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> de ressource sous PATCH (<code class="language-plaintext highlighter-rouge">version</code> lui-même est correctement couvert par <code class="language-plaintext highlighter-rouge">meta.versionId</code>, cf. section dédiée).</li>
-  <li><code class="language-plaintext highlighter-rouge">documentAvailability</code> — Online/Offline (extension imagerie).</li>
+  <li><code class="language-plaintext highlighter-rouge">documentAvailability</code> — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.</li>
   <li><code class="language-plaintext highlighter-rouge">availabilityStatus = Deleted</code> — extension nationale sans valeur <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> autorisée par le binding MHD (<code class="language-plaintext highlighter-rouge">Archived</code> est déjà couvert par l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code>).</li>
   <li>Attributs d'association ebRIM (<code class="language-plaintext highlighter-rouge">SubmissionSetStatus</code>, <code class="language-plaintext highlighter-rouge">PreviousVersion</code>, <code class="language-plaintext highlighter-rouge">OriginalStatus</code>/<code class="language-plaintext highlighter-rouge">NewStatus</code>, <code class="language-plaintext highlighter-rouge">associationPropagation</code>).</li>
 </ol>
@@ -957,7 +957,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-17 14:42:00 +0000">
+  <span title="2026-07-17 14:54:00 +0000">
     2026-07-17
   </span>
 

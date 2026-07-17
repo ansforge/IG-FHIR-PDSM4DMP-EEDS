@@ -29,7 +29,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `confidentialityCode`(1re occurrence) | `securityLabel` | oui | ✅ |
 | `confidentialityCode`(occurrences de masquage :`MASQUE_PS`, non-visibilité patient/RL) | `securityLabel`(même élément, codes JDV_J08) | oui | ✅ — cf.[TD3.3a](transaction_td3.3a.md)/[TD3.3b](transaction_td3.3b.md) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
-| `documentAvailability` | — | **non** | ❌ orphelin (Online/Offline — extension imagerie) |
+| `documentAvailability` | — | **non** | ❌ orphelin (accessibilité en ligne/hors-ligne du document, optionnel, renseigné par le système cible) |
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
 | `eventCodeList`(+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode`(+ Display / codingScheme) | `content.format` | oui | ✅ |
@@ -147,7 +147,7 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 ### Synthèse des orphelins (points ouverts)
 
 1. `logicalID`(fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'`id`de ressource sous PATCH (`version`lui-même est correctement couvert par`meta.versionId`, cf. section dédiée).
-1. `documentAvailability`— Online/Offline (extension imagerie).
+1. `documentAvailability`— accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.
 1. `availabilityStatus = Deleted`— extension nationale sans valeur`DocumentReference.status`autorisée par le binding MHD (`Archived`est déjà couvert par l'extension`PDSm_isArchived`).
 1. Attributs d'association ebRIM (`SubmissionSetStatus`,`PreviousVersion`,`OriginalStatus`/`NewStatus`,`associationPropagation`).
 
