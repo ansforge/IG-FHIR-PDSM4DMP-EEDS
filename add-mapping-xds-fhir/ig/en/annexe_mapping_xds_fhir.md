@@ -36,7 +36,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
 | `eventCodeList`(+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode`(+ Display / codingScheme) | `content.format` | oui | ✅ |
-| `hash` | `content.attachment.hash` | oui | ✅ (hex → base64) |
+| `hash` | `content.attachment.hash` | oui | ✅ — conversion hex → base64 requise (`hash`XDS est un condensat[SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf)(§3.4.26) encodé en[hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html)(`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ;`content.attachment.hash`est de type[`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
 | `healthcareFacilityTypeCode` | `context.facilityType` | oui | ✅ |
 | `homeCommunityId` | extension`homeCommunityId` | oui (extension MHD) | ⚠️ extension |
 | `languageCode` | `content.attachment.language` | oui | ✅ |
