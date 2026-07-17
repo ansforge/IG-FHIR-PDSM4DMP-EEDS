@@ -28,16 +28,21 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `confidentialityCode`(1re occurrence) | `securityLabel` | oui | ✅ |
 | `confidentialityCode`(occurrences de masquage :`MASQUE_PS`, non-visibilité patient/RL) | `securityLabel`(même élément, codes JDV_J08) | oui | ✅ — cf.[TD3.3a](transaction_td3.3a.md)/[TD3.3b](transaction_td3.3b.md) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
+| `documentAvailability` | — | **non** | ❌ orphelin (Online/Offline — extension imagerie) |
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
 | `eventCodeList`(+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode`(+ Display / codingScheme) | `content.format` | oui | ✅ |
 | `hash` | `content.attachment.hash` | oui | ✅ (hex → base64) |
 | `healthcareFacilityTypeCode` | `context.facilityType` | oui | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | oui (extension MHD) | ⚠️ extension |
 | `languageCode` | `content.attachment.language` | oui | ✅ |
 | `legalAuthenticator` | `authenticator` | oui | ✅ (et non`custodian`) |
+| `logicalID`(lid ebRIM) | — | **non** | ❌ orphelin (versionnement ebRIM ;`meta.versionId`de sémantique différente) |
 | `mimeType` | `content.attachment.contentType` | oui | ✅ |
 | `patientId` | `subject` | oui | ✅ |
 | `practiceSettingCode` | `context.practiceSetting` | oui | ✅ |
+| `referenceIdList` | `context.related` | oui | ✅ |
+| `repositoryUniqueId` | extension`repositoryUniqueId` | oui (extension MHD) | ⚠️ sans utilité en FHIR pur |
 | `serviceStartTime`/`serviceStopTime` | `context.period.start`/`.end` | oui | ✅ |
 | `size` | `content.attachment.size` | oui | ✅ |
 | `sourcePatientId`/`sourcePatientInfo` | `context.sourcePatientInfo`(+`.identifier`) | oui | ✅ |
@@ -45,11 +50,6 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `typeCode`(+ Display / codingScheme) | `type` | oui | ✅ |
 | `uniqueId` | `masterIdentifier`+`identifier`(slice`uniqueId`) | oui | ✅ |
 | `URI` | `content.attachment.url` | oui | ✅ |
-| `referenceIdList` | `context.related` | oui | ✅ |
-| `repositoryUniqueId` | extension`repositoryUniqueId` | oui (extension MHD) | ⚠️ sans utilité en FHIR pur |
-| `homeCommunityId` | extension`homeCommunityId` | oui (extension MHD) | ⚠️ extension |
-| `documentAvailability` | — | **non** | ❌ orphelin (Online/Offline — extension imagerie) |
-| `logicalID`(lid ebRIM) | — | **non** | ❌ orphelin (versionnement ebRIM ;`meta.versionId`de sémantique différente) |
 | `version` | — | **non** | ❌ orphelin (versionnement XDS lid+version sans équivalent) |
 
 ### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
@@ -66,13 +66,13 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | `comments` | `note` | oui | ✅ |
 | `contentTypeCode`(+ Display / codingScheme) | `code`(+ extension`designationType`) | oui | ✅ |
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
 | `intendedRecipient` | extension`intendedRecipient`(`PDSm_intendedRecipient`) | oui | ✅ |
 | `patientId` | `subject` | oui | ✅ |
 | `sourceId` | extension`sourceId` | oui | ✅ |
 | `submissionTime` | `date` | oui | ✅ |
 | `title` | `title` | oui | ✅ |
 | `uniqueId` | `identifier`(slice`uniqueId`) | oui | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
 
 Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
 
@@ -86,12 +86,12 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 | `codeList`(+ Code / Display / codingScheme) | `code`(+ extension`designationType`) | oui | ✅ |
 | `comments` | `note` | oui | ✅ |
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
-| `uniqueId` | `identifier`(slice`uniqueId`) | oui | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
 | `lastUpdateTime` | `date` | oui | ✅ |
+| `logicalID`(lid ebRIM) | — | **non** | ❌ orphelin |
 | `patientId` | `subject` | oui | ✅ |
 | `title` | `title` | oui | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
-| `logicalID`(lid ebRIM) | — | **non** | ❌ orphelin |
+| `uniqueId` | `identifier`(slice`uniqueId`) | oui | ✅ |
 | `version` | — | **non** | ❌ orphelin |
 
 La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). Les orphelins `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement. Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.

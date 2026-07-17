@@ -396,6 +396,12 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">documentAvailability</code></td>
+      <td>—</td>
+      <td><strong>non</strong></td>
+      <td>❌ orphelin (Online/Offline — extension imagerie)</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
       <td>oui</td>
@@ -426,6 +432,12 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td>oui (extension MHD)</td>
+      <td>⚠️ extension</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">languageCode</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.language</code></td>
       <td>oui</td>
@@ -436,6 +448,12 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">authenticator</code></td>
       <td>oui</td>
       <td>✅ (et non <code class="language-plaintext highlighter-rouge">custodian</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
+      <td>—</td>
+      <td><strong>non</strong></td>
+      <td>❌ orphelin (versionnement ebRIM ; <code class="language-plaintext highlighter-rouge">meta.versionId</code> de sémantique différente)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">mimeType</code></td>
@@ -454,6 +472,18 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">context.practiceSetting</code></td>
       <td>oui</td>
       <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">referenceIdList</code></td>
+      <td><code class="language-plaintext highlighter-rouge">context.related</code></td>
+      <td>oui</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
+      <td>extension <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
+      <td>oui (extension MHD)</td>
+      <td>⚠️ sans utilité en FHIR pur</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">serviceStartTime</code> / <code class="language-plaintext highlighter-rouge">serviceStopTime</code></td>
@@ -496,36 +526,6 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">content.attachment.url</code></td>
       <td>oui</td>
       <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">referenceIdList</code></td>
-      <td><code class="language-plaintext highlighter-rouge">context.related</code></td>
-      <td>oui</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
-      <td>oui (extension MHD)</td>
-      <td>⚠️ sans utilité en FHIR pur</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>oui (extension MHD)</td>
-      <td>⚠️ extension</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">documentAvailability</code></td>
-      <td>—</td>
-      <td><strong>non</strong></td>
-      <td>❌ orphelin (Online/Offline — extension imagerie)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
-      <td>—</td>
-      <td><strong>non</strong></td>
-      <td>❌ orphelin (versionnement ebRIM ; <code class="language-plaintext highlighter-rouge">meta.versionId</code> de sémantique différente)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
@@ -599,6 +599,12 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td>oui</td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">intendedRecipient</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">intendedRecipient</code> (<code class="language-plaintext highlighter-rouge">PDSm_intendedRecipient</code>)</td>
       <td>oui</td>
@@ -631,12 +637,6 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
-      <td>oui</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>oui</td>
       <td>✅</td>
     </tr>
@@ -684,8 +684,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>oui</td>
       <td>✅</td>
     </tr>
@@ -694,6 +694,12 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">date</code></td>
       <td>oui</td>
       <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
+      <td>—</td>
+      <td><strong>non</strong></td>
+      <td>❌ orphelin</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
@@ -708,16 +714,10 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
       <td>oui</td>
       <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
-      <td>—</td>
-      <td><strong>non</strong></td>
-      <td>❌ orphelin</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
@@ -891,7 +891,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-17 14:17:00 +0000">
+  <span title="2026-07-17 14:28:00 +0000">
     2026-07-17
   </span>
 
