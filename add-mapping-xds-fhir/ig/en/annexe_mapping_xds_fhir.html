@@ -383,14 +383,14 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (1re occurrence)</td>
+      <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint)</td>
       <td><code class="language-plaintext highlighter-rouge">securityLabel</code></td>
       <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (occurrences de masquage : <code class="language-plaintext highlighter-rouge">MASQUE_PS</code>, non-visibilité patient/RL)</td>
-      <td><code class="language-plaintext highlighter-rouge">securityLabel</code> (même élément, codes JDV_J08)</td>
+      <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes <code class="language-plaintext highlighter-rouge">MASQUE_PS</code>, <code class="language-plaintext highlighter-rouge">INVISIBLE_PATIENT</code> du JDV_J08)</td>
+      <td><code class="language-plaintext highlighter-rouge">securityLabel</code> (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel <code class="language-plaintext highlighter-rouge">entryUUID</code>, cf. <a href="annexe_identifiants_xds_fhir.html">annexe des identifiants</a>)</td>
       <td>oui</td>
       <td>✅ — cf. <a href="transaction_td3.3a.html">TD3.3a</a> / <a href="transaction_td3.3b.html">TD3.3b</a></td>
     </tr>
@@ -428,7 +428,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
       <td>oui</td>
-      <td><a name="l922">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est un condensat <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l931">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -966,8 +966,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-17 16:24:00 +0000">
-    2026-07-17
+  <span title="2026-07-20 15:36:00 +0000">
+    2026-07-20
   </span>
 
           <br/>
