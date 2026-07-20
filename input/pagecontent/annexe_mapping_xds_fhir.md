@@ -25,14 +25,14 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict — cf. section dédiée |
 | `classCode` (+ Display / codingScheme) | `category` | oui | ✅ |
 | `comments` | `description` | oui | ✅ |
-| `confidentialityCode` (1re occurrence) | `securityLabel` | oui | ✅ |
-| `confidentialityCode` (occurrences de masquage : `MASQUE_PS`, non-visibilité patient/RL) | `securityLabel` (même élément, codes JDV_J08) | oui | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
+| `confidentialityCode` (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | oui | ✅ |
+| `confidentialityCode` (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes `MASQUE_PS`, `INVISIBLE_PATIENT` du JDV_J08) | `securityLabel` (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel `entryUUID`, cf. [annexe des identifiants](annexe_identifiants_xds_fhir.html)) | oui | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
 | `documentAvailability` | — | **non** | ❌ orphelin (accessibilité en ligne/hors-ligne du document, optionnel, renseigné par le système cible) |
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
 | `eventCodeList` (+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode` (+ Display / codingScheme) | `content.format` | oui | ✅ |
-| `hash` | `content.attachment.hash` | oui | ✅ — conversion hex → base64 requise (`hash` XDS est un condensat [SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) (§3.4.26) encodé en [hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html) (`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; `content.attachment.hash` est de type [`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
+| `hash` | `content.attachment.hash` | oui | ✅ — conversion hex → base64 requise (`hash` XDS est de type [SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) (§3.4.26) encodé en [hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html) (`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; `content.attachment.hash` est de type [`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
 | `healthcareFacilityTypeCode` | `context.facilityType` | oui | ✅ |
 | `homeCommunityId` | extension `homeCommunityId` | oui (extension MHD) | ⚠️ extension |
 | `languageCode` | `content.attachment.language` | oui | ✅ |
