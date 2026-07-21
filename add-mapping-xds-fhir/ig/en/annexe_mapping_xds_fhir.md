@@ -32,7 +32,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `confidentialityCode`(valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | oui | ✅ |
 | `confidentialityCode`(valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes`MASQUE_PS`,`INVISIBLE_PATIENT`du JDV_J08) | `securityLabel`(même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel`entryUUID`, cf.[annexe des identifiants](annexe_identifiants_xds_fhir.md)) | oui | ✅ — cf.[TD3.3a](transaction_td3.3a.md)/[TD3.3b](transaction_td3.3b.md) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
-| `documentAvailability` | — | **non** | ❌ orphelin — la métadonnée`documentAvailability`(décrite dans le supplément[XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP |
+| `documentAvailability` | — | **non** | ❌ orphelin — la métadonnée`documentAvailability`(décrite dans le supplément[XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP — cf.[TD3.3d](transaction_td3.3d.md) |
 | `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
 | `eventCodeList`(+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode`(+ Display / codingScheme) | `content.format` | oui | ✅ |
@@ -148,7 +148,7 @@ C'est le seul mapping présentant un risque réel de perte sémantique. Le volet
 | `Approved` | `current` | ✅ |
 | `Deprecated` | `superseded` | ✅ |
 | `Archived`(extension nationale) | — | ✅ porté par l'extension`PDSm_isArchived` |
-| `Deleted`/ dépublié (extension nationale) | — | ❌`entered-in-error`non autorisé par le binding MHD (cf.[TD3.3c](transaction_td3.3c.md)et[issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99)) |
+| `Deleted`/ dépublié (extension nationale) | — | ❌ voir question ouverte ci-dessous |
 
 Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du volet : la permissivité du volet ne peut donc rien faire hériter. Le traitement conforme passe par l'extension `PDSm_isArchived` pour `Archived`.
 

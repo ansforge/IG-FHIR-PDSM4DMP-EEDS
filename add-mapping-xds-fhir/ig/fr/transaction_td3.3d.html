@@ -336,6 +336,8 @@ L'identifiant du document dans le système DMP issu de DMP_3.1 : entry</p>
 
 <p>L'extension <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-ext-is-archived.html"><code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></a> (type <code class="language-plaintext highlighter-rouge">boolean</code>) indique si le document est dans un état archivé.</p>
 
+<p>La notion d'« archivage » d'un document est une notion fonctionnelle pour l'utilisateur qui ne souhaite plus visualiser des documents qui ne sont plus utiles dans sa pratique médicale courante, et non un archivage « technique » au niveau du repository XDS : la métadonnée <code class="language-plaintext highlighter-rouge">documentAvailability</code> (décrite dans le supplément XDS Metadata Update) n'entre pas en ligne de compte pour l'archivage de document dans le système DMP (cf. Guide d'intégration DMP SEL-MP-037 v2.10.0, §3.5.3.3.4).</p>
+
 <h4 id="flux-td33d--requête-archivage">Flux TD3.3d — Requête (archivage)</h4>
 
 <p>Le PATCH s'effectue par l'identifiant métier du document (<code class="language-plaintext highlighter-rouge">uniqueId</code> XDS → <code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code>) :</p>
@@ -470,7 +472,7 @@ Accept: application/fhir+json
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-21 10:14:00 +0000">
+  <span title="2026-07-21 13:18:00 +0000">
     2026-07-21
   </span>
 

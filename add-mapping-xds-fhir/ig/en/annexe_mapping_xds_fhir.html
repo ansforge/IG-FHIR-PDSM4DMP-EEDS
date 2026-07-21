@@ -404,7 +404,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">documentAvailability</code></td>
       <td>—</td>
       <td><strong>non</strong></td>
-      <td>❌ orphelin — la métadonnée <code class="language-plaintext highlighter-rouge">documentAvailability</code> (décrite dans le supplément <a href="https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf">XDS Metadata Update</a>) n'est pas utilisée dans le système DMP</td>
+      <td>❌ orphelin — la métadonnée <code class="language-plaintext highlighter-rouge">documentAvailability</code> (décrite dans le supplément <a href="https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf">XDS Metadata Update</a>) n'est pas utilisée dans le système DMP — cf. <a href="transaction_td3.3d.html">TD3.3d</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
@@ -428,7 +428,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
       <td>oui</td>
-      <td><a name="l937">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l939">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -891,7 +891,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Deleted</code> / dépublié (extension nationale)</td>
       <td>—</td>
-      <td>❌ <code class="language-plaintext highlighter-rouge">entered-in-error</code> non autorisé par le binding MHD (cf. <a href="transaction_td3.3c.html">TD3.3c</a> et <a href="https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99">issue PDSm #99</a>)</td>
+      <td>❌ voir question ouverte ci-dessous</td>
     </tr>
   </tbody>
 </table>
@@ -966,7 +966,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-21 10:14:00 +0000">
+  <span title="2026-07-21 13:18:00 +0000">
     2026-07-21
   </span>
 
