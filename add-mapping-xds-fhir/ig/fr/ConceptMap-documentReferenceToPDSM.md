@@ -19,7 +19,7 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
   "title" : "documentReferenceToPDSM",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-07-20T15:36:44+00:00",
+  "date" : "2026-07-21T07:57:42+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
