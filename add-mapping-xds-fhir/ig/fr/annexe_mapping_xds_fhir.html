@@ -295,7 +295,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#métadonnées-xds-dun-classeur-36--list-folder" id="markdown-toc-métadonnées-xds-dun-classeur-36--list-folder">Métadonnées XDS d'un classeur (&sect;3.6) → List (Folder)</a></li>
   <li><a href="#associations-33--documentreferencerelatesto" id="markdown-toc-associations-33--documentreferencerelatesto">Associations (&sect;3.3) → DocumentReference.relatesTo</a></li>
   <li><a href="#éléments-fhir-sans-source-xds" id="markdown-toc-éléments-fhir-sans-source-xds">Éléments FHIR sans source XDS</a></li>
-  <li><a href="#cas-non-strict--availabilitystatus--status" id="markdown-toc-cas-non-strict--availabilitystatus--status">Cas non strict : availabilityStatus → status</a></li>
+  <li><a href="#cas-de-correspondance-incomplète--availabilitystatus--status" id="markdown-toc-cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</a></li>
   <li><a href="#synthèse-des-orphelins-points-ouverts" id="markdown-toc-synthèse-des-orphelins-points-ouverts">Synthèse des orphelins (points ouverts)</a></li>
 </ul>
 
@@ -361,7 +361,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
       <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
-      <td>⚠️ non strict — cf. section dédiée</td>
+      <td>⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">classCode</code> (+ Display / codingScheme)</td>
@@ -595,7 +595,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
       <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
-      <td>⚠️ non strict — <code class="language-plaintext highlighter-rouge">Archived</code> national via <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></td>
+      <td>⚠️ correspondance incomplète — <code class="language-plaintext highlighter-rouge">Archived</code> national via <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">comments</code></td>
@@ -680,7 +680,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
       <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
-      <td>⚠️ non strict (invariable <code class="language-plaintext highlighter-rouge">Approved</code> au CI-SIS actuel)</td>
+      <td>⚠️ correspondance incomplète (invariable <code class="language-plaintext highlighter-rouge">Approved</code> au CI-SIS actuel)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">codeList</code> (+ Code / Display / codingScheme)</td>
@@ -853,7 +853,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   </tbody>
 </table>
 
-<h3 id="cas-non-strict--availabilitystatus--status">Cas non strict : availabilityStatus → status</h3>
+<h3 id="cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</h3>
 
 <p>C'est le seul mapping présentant un risque réel de perte sémantique. Le volet emploie le jeu de valeurs <code class="language-plaintext highlighter-rouge">JDV_J52_AvailabilityStatus_CISIS</code>, dont deux valeurs sont des extensions nationales absentes du ValueSet FHIR (lié en <code class="language-plaintext highlighter-rouge">required</code> sur <code class="language-plaintext highlighter-rouge">DocumentReference.status</code>) :</p>
 
@@ -884,7 +884,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Deleted</code> / dépublié (extension nationale)</td>
       <td>—</td>
-      <td>❌ <code class="language-plaintext highlighter-rouge">entered-in-error</code> non autorisé par le binding MHD (cf. <a href="transaction_td3.3c.html">TD3.3c</a>)</td>
+      <td>❌ <code class="language-plaintext highlighter-rouge">entered-in-error</code> non autorisé par le binding MHD (cf. <a href="transaction_td3.3c.html">TD3.3c</a> et <a href="https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99">issue PDSm #99</a>)</td>
     </tr>
   </tbody>
 </table>
@@ -893,7 +893,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 
 <div class="dragon">
 
-  <p><strong>Question ouverte</strong> — Pour <code class="language-plaintext highlighter-rouge">Deleted</code>, quel traitement retenir : utiliser <code class="language-plaintext highlighter-rouge">superseded</code> par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ?</p>
+  <p><strong>Question ouverte</strong> — Pour <code class="language-plaintext highlighter-rouge">Deleted</code>, quel traitement retenir : utiliser <code class="language-plaintext highlighter-rouge">superseded</code> par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ? Cf. <a href="https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99">issue PDSm #99</a>, qui demande de clarifier qu'un document ne peut pas être supprimé mais seulement archivé (<code class="language-plaintext highlighter-rouge">isArchived</code>).</p>
 </div>
 
 <h3 id="synthèse-des-orphelins-points-ouverts">Synthèse des orphelins (points ouverts)</h3>
@@ -959,7 +959,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-21 07:57:00 +0000">
+  <span title="2026-07-21 10:14:00 +0000">
     2026-07-21
   </span>
 
