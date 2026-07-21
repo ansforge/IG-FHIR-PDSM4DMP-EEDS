@@ -329,214 +329,179 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <th>Attribut XDS (volet &sect;3.4)</th>
       <th>Élément FHIR</th>
-      <th>Héritée MHD ?</th>
       <th>Statut</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.author</code> (regroupement répétable, [1..*])</td>
-      <td>oui</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">Organization</code> <em>contained</em></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.author</code> (regroupement répétable, [1..*]) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">Practitioner</code>/<code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> (élément de la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em> référencée par <code class="language-plaintext highlighter-rouge">author</code>) ou directement <code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.organization</code> (référence externe, résolvable dans l'Annuaire Santé, vers une ressource <code class="language-plaintext highlighter-rouge">AS Organization Profile</code> — non elle-même <em>contained</em> : un <code class="language-plaintext highlighter-rouge">contained</code> ne peut pas en imbriquer un autre, cf. invariant FHIR <code class="language-plaintext highlighter-rouge">dom-2</code>)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> <em>contained</em></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> (élément de la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em>)</td>
       <td>✅ (sous réserve de binding)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
-      <td><code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (élément de la même ressource <em>contained</em>)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
-      <td><code class="language-plaintext highlighter-rouge">status</code></td>
-      <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code> (ValueSet FHIR <code class="language-plaintext highlighter-rouge">required</code>)</td>
       <td>⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">classCode</code> (+ Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">category</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">comments</code></td>
       <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint)</td>
       <td><code class="language-plaintext highlighter-rouge">securityLabel</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">confidentialityCode</code> (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes <code class="language-plaintext highlighter-rouge">MASQUE_PS</code>, <code class="language-plaintext highlighter-rouge">INVISIBLE_PATIENT</code> du JDV_J08)</td>
       <td><code class="language-plaintext highlighter-rouge">securityLabel</code> (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel <code class="language-plaintext highlighter-rouge">entryUUID</code>, cf. <a href="annexe_identifiants_xds_fhir.html">annexe des identifiants</a>)</td>
-      <td>oui</td>
       <td>✅ — cf. <a href="transaction_td3.3a.html">TD3.3a</a> / <a href="transaction_td3.3b.html">TD3.3b</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">creationTime</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.creation</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">documentAvailability</code></td>
       <td>—</td>
-      <td><strong>non</strong></td>
       <td>❌ orphelin — la métadonnée <code class="language-plaintext highlighter-rouge">documentAvailability</code> (décrite dans le supplément <a href="https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf">XDS Metadata Update</a>) n'est pas utilisée dans le système DMP — cf. <a href="transaction_td3.3d.html">TD3.3d</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">eventCodeList</code> (+ Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">context.event</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">formatCode</code> (+ Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">content.format</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td>oui</td>
-      <td><a name="l939">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l924">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
       <td><code class="language-plaintext highlighter-rouge">context.facilityType</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>oui (extension MHD)</td>
-      <td>⚠️ extension</td>
+      <td>⚠️ extension MHD héritée</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">languageCode</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.language</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">legalAuthenticator</code></td>
       <td><code class="language-plaintext highlighter-rouge">authenticator</code></td>
-      <td>oui</td>
       <td>✅ (et non <code class="language-plaintext highlighter-rouge">custodian</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
       <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">id</code> de la ressource</td>
-      <td>non</td>
       <td>⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> sous PATCH (cf. note ci-dessous)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">mimeType</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.contentType</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
       <td><code class="language-plaintext highlighter-rouge">subject</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">practiceSettingCode</code></td>
       <td><code class="language-plaintext highlighter-rouge">context.practiceSetting</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">referenceIdList</code></td>
       <td><code class="language-plaintext highlighter-rouge">context.related</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
-      <td>oui (extension MHD)</td>
-      <td>⚠️ sans utilité en FHIR pur</td>
+      <td>⚠️ extension MHD héritée, sans utilité en FHIR pur</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">serviceStartTime</code> / <code class="language-plaintext highlighter-rouge">serviceStopTime</code></td>
       <td><code class="language-plaintext highlighter-rouge">context.period.start</code> / <code class="language-plaintext highlighter-rouge">.end</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">size</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.size</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">sourcePatientId</code> / <code class="language-plaintext highlighter-rouge">sourcePatientInfo</code></td>
       <td><code class="language-plaintext highlighter-rouge">context.sourcePatientInfo</code> (+ <code class="language-plaintext highlighter-rouge">.identifier</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">title</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.title</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">typeCode</code> (+ Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td><code class="language-plaintext highlighter-rouge">masterIdentifier</code> + <code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">URI</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.url</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
       <td><code class="language-plaintext highlighter-rouge">meta.versionId</code></td>
-      <td>non</td>
-      <td>✅ — le profil PDSm définit <code class="language-plaintext highlighter-rouge">meta.versionId</code> comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour</td>
+      <td>✅ (contrainte ajoutée par PDSm, non héritée de MHD) — le profil PDSm définit <code class="language-plaintext highlighter-rouge">meta.versionId</code> comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour</td>
     </tr>
   </tbody>
 </table>
@@ -563,105 +528,88 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <th>Attribut XDS (volet &sect;3.5)</th>
       <th>Élément FHIR</th>
-      <th>Héritée MHD ?</th>
       <th>Statut</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td><code class="language-plaintext highlighter-rouge">List.source</code> (regroupement répétable, [1..*])</td>
-      <td>oui</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source.extension:authorOrg</code> → <code class="language-plaintext highlighter-rouge">Organization</code></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">List.source</code> (élément unique, [1..1] — non répétable, à la différence de <code class="language-plaintext highlighter-rouge">DocumentReference.author</code>) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">Practitioner</code>/<code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> (dans la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em>) ou directement <code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
+      <td><code class="language-plaintext highlighter-rouge">source.extension:authorOrg</code> → <code class="language-plaintext highlighter-rouge">Reference(AS Organization Profile)</code> [0..1]</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
-      <td><code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> <em>contained</em></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> (dans la même ressource <em>contained</em>)</td>
       <td>✅ (sous réserve de binding)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
-      <td><code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code></td>
-      <td>oui</td>
+      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (dans la même ressource <em>contained</em>)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
-      <td><code class="language-plaintext highlighter-rouge">status</code></td>
-      <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code> (ValueSet FHIR <code class="language-plaintext highlighter-rouge">required</code>)</td>
       <td>⚠️ correspondance incomplète — <code class="language-plaintext highlighter-rouge">Archived</code> national via <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">comments</code></td>
       <td><code class="language-plaintext highlighter-rouge">note</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">contentTypeCode</code> (+ Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">code</code> (+ extension <code class="language-plaintext highlighter-rouge">designationType</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">intendedRecipient</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">intendedRecipient</code> (<code class="language-plaintext highlighter-rouge">PDSm_intendedRecipient</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
       <td><code class="language-plaintext highlighter-rouge">subject</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">sourceId</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">sourceId</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">submissionTime</code></td>
       <td><code class="language-plaintext highlighter-rouge">date</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">title</code></td>
       <td><code class="language-plaintext highlighter-rouge">title</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
   </tbody>
@@ -678,76 +626,64 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <th>Attribut XDS (volet &sect;3.6)</th>
       <th>Élément FHIR</th>
-      <th>Héritée MHD ?</th>
       <th>Statut</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
-      <td><code class="language-plaintext highlighter-rouge">status</code></td>
-      <td>oui (ValueSet <code class="language-plaintext highlighter-rouge">required</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code> (ValueSet FHIR <code class="language-plaintext highlighter-rouge">required</code>)</td>
       <td>⚠️ correspondance incomplète (invariable <code class="language-plaintext highlighter-rouge">Approved</code> au CI-SIS actuel)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">codeList</code> (+ Code / Display / codingScheme)</td>
       <td><code class="language-plaintext highlighter-rouge">code</code> (+ extension <code class="language-plaintext highlighter-rouge">designationType</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">comments</code></td>
       <td><code class="language-plaintext highlighter-rouge">note</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">lastUpdateTime</code></td>
       <td><code class="language-plaintext highlighter-rouge">date</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
       <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">id</code> de la ressource</td>
-      <td>non</td>
       <td>⚠️ pas de champ dédié — même couverture implicite que pour la fiche</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
       <td><code class="language-plaintext highlighter-rouge">subject</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">title</code></td>
       <td><code class="language-plaintext highlighter-rouge">title</code></td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
-      <td>oui</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
       <td><code class="language-plaintext highlighter-rouge">meta.versionId</code></td>
-      <td>non</td>
-      <td>✅</td>
+      <td>✅ (non hérité de MHD)</td>
     </tr>
   </tbody>
 </table>
@@ -966,7 +902,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-21 13:18:00 +0000">
+  <span title="2026-07-21 13:50:00 +0000">
     2026-07-21
   </span>
 

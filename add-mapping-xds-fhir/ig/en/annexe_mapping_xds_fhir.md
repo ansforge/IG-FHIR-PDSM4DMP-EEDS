@@ -19,42 +19,42 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 
 Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html).
 
-| | | | |
-| :--- | :--- | :--- | :--- |
-| `author` | `DocumentReference.author`(regroupement répétable, [1..*]) | oui | ✅ |
-| `authorInstitution` | `author`→`Organization`**contained** | oui | ✅ |
-| `authorPerson` | `author`→`Practitioner`/`Device`**contained** | oui | ✅ |
-| `authorRole` | `author`→`PractitionerRole.code`**contained** | oui | ✅ (sous réserve de binding) |
-| `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
-| `availabilityStatus` | `status` | oui (ValueSet`required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
-| `classCode`(+ Display / codingScheme) | `category` | oui | ✅ |
-| `comments` | `description` | oui | ✅ |
-| `confidentialityCode`(valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | oui | ✅ |
-| `confidentialityCode`(valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes`MASQUE_PS`,`INVISIBLE_PATIENT`du JDV_J08) | `securityLabel`(même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel`entryUUID`, cf.[annexe des identifiants](annexe_identifiants_xds_fhir.md)) | oui | ✅ — cf.[TD3.3a](transaction_td3.3a.md)/[TD3.3b](transaction_td3.3b.md) |
-| `creationTime` | `content.attachment.creation` | oui | ✅ |
-| `documentAvailability` | — | **non** | ❌ orphelin — la métadonnée`documentAvailability`(décrite dans le supplément[XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP — cf.[TD3.3d](transaction_td3.3d.md) |
-| `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
-| `eventCodeList`(+ Display / codingScheme) | `context.event` | oui | ✅ |
-| `formatCode`(+ Display / codingScheme) | `content.format` | oui | ✅ |
-| `hash` | `content.attachment.hash` | oui | ✅ — conversion hex → base64 requise (`hash`XDS est de type[SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf)(§3.4.26) encodé en[hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html)(`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ;`content.attachment.hash`est de type[`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
-| `healthcareFacilityTypeCode` | `context.facilityType` | oui | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | oui (extension MHD) | ⚠️ extension |
-| `languageCode` | `content.attachment.language` | oui | ✅ |
-| `legalAuthenticator` | `authenticator` | oui | ✅ (et non`custodian`) |
-| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | non | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id`sous PATCH (cf. note ci-dessous) |
-| `mimeType` | `content.attachment.contentType` | oui | ✅ |
-| `patientId` | `subject` | oui | ✅ |
-| `practiceSettingCode` | `context.practiceSetting` | oui | ✅ |
-| `referenceIdList` | `context.related` | oui | ✅ |
-| `repositoryUniqueId` | extension`repositoryUniqueId` | oui (extension MHD) | ⚠️ sans utilité en FHIR pur |
-| `serviceStartTime`/`serviceStopTime` | `context.period.start`/`.end` | oui | ✅ |
-| `size` | `content.attachment.size` | oui | ✅ |
-| `sourcePatientId`/`sourcePatientInfo` | `context.sourcePatientInfo`(+`.identifier`) | oui | ✅ |
-| `title` | `content.attachment.title` | oui | ✅ |
-| `typeCode`(+ Display / codingScheme) | `type` | oui | ✅ |
-| `uniqueId` | `masterIdentifier`+`identifier`(slice`uniqueId`) | oui | ✅ |
-| `URI` | `content.attachment.url` | oui | ✅ |
-| `version` | `meta.versionId` | non | ✅ — le profil PDSm définit`meta.versionId`comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
+| | | |
+| :--- | :--- | :--- |
+| `author` | `DocumentReference.author`(regroupement répétable, [1..*]) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
+| `authorPerson` | `author`→`PractitionerRole.practitioner`(élément de la ressource`AS PractitionerRole Profile`**contained**référencée par`author`) ou directement`Device`**contained** | ✅ |
+| `authorInstitution` | `author`→`PractitionerRole.organization`(référence externe, résolvable dans l'Annuaire Santé, vers une ressource`AS Organization Profile`— non elle-même**contained**: un`contained`ne peut pas en imbriquer un autre, cf. invariant FHIR`dom-2`) | ✅ |
+| `authorRole` | `author`→`PractitionerRole.code`(élément de la ressource`AS PractitionerRole Profile`**contained**) | ✅ (sous réserve de binding) |
+| `authorSpecialty` | `author`→`PractitionerRole.specialty`(élément de la même ressource**contained**) | ✅ |
+| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
+| `classCode`(+ Display / codingScheme) | `category` | ✅ |
+| `comments` | `description` | ✅ |
+| `confidentialityCode`(valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | ✅ |
+| `confidentialityCode`(valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes`MASQUE_PS`,`INVISIBLE_PATIENT`du JDV_J08) | `securityLabel`(même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel`entryUUID`, cf.[annexe des identifiants](annexe_identifiants_xds_fhir.md)) | ✅ — cf.[TD3.3a](transaction_td3.3a.md)/[TD3.3b](transaction_td3.3b.md) |
+| `creationTime` | `content.attachment.creation` | ✅ |
+| `documentAvailability` | — | ❌ orphelin — la métadonnée`documentAvailability`(décrite dans le supplément[XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP — cf.[TD3.3d](transaction_td3.3d.md) |
+| `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
+| `eventCodeList`(+ Display / codingScheme) | `context.event` | ✅ |
+| `formatCode`(+ Display / codingScheme) | `content.format` | ✅ |
+| `hash` | `content.attachment.hash` | ✅ — conversion hex → base64 requise (`hash`XDS est de type[SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf)(§3.4.26) encodé en[hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html)(`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ;`content.attachment.hash`est de type[`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
+| `healthcareFacilityTypeCode` | `context.facilityType` | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | ⚠️ extension MHD héritée |
+| `languageCode` | `content.attachment.language` | ✅ |
+| `legalAuthenticator` | `authenticator` | ✅ (et non`custodian`) |
+| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id`sous PATCH (cf. note ci-dessous) |
+| `mimeType` | `content.attachment.contentType` | ✅ |
+| `patientId` | `subject` | ✅ |
+| `practiceSettingCode` | `context.practiceSetting` | ✅ |
+| `referenceIdList` | `context.related` | ✅ |
+| `repositoryUniqueId` | extension`repositoryUniqueId` | ⚠️ extension MHD héritée, sans utilité en FHIR pur |
+| `serviceStartTime`/`serviceStopTime` | `context.period.start`/`.end` | ✅ |
+| `size` | `content.attachment.size` | ✅ |
+| `sourcePatientId`/`sourcePatientInfo` | `context.sourcePatientInfo`(+`.identifier`) | ✅ |
+| `title` | `content.attachment.title` | ✅ |
+| `typeCode`(+ Display / codingScheme) | `type` | ✅ |
+| `uniqueId` | `masterIdentifier`+`identifier`(slice`uniqueId`) | ✅ |
+| `URI` | `content.attachment.url` | ✅ |
+| `version` | `meta.versionId` | ✅ (contrainte ajoutée par PDSm, non héritée de MHD) — le profil PDSm définit`meta.versionId`comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
 
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par [MHD](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html) : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
 
@@ -69,24 +69,24 @@ Conséquence : `version` est correctement repris par `meta.versionId` ; `logical
 
 Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html).
 
-| | | | |
-| :--- | :--- | :--- | :--- |
-| `author` | `List.source`(regroupement répétable, [1..*]) | oui | ✅ |
-| `authorInstitution` | `source.extension:authorOrg`→`Organization` | oui | ✅ |
-| `authorPerson` | `source`→`Practitioner`/`Device`**contained** | oui | ✅ |
-| `authorRole` | `PractitionerRole.code`**contained** | oui | ✅ (sous réserve de binding) |
-| `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
-| `availabilityStatus` | `status` | oui (ValueSet`required`) | ⚠️ correspondance incomplète —`Archived`national via`PDSm_isArchived` |
-| `comments` | `note` | oui | ✅ |
-| `contentTypeCode`(+ Display / codingScheme) | `code`(+ extension`designationType`) | oui | ✅ |
-| `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
-| `intendedRecipient` | extension`intendedRecipient`(`PDSm_intendedRecipient`) | oui | ✅ |
-| `patientId` | `subject` | oui | ✅ |
-| `sourceId` | extension`sourceId` | oui | ✅ |
-| `submissionTime` | `date` | oui | ✅ |
-| `title` | `title` | oui | ✅ |
-| `uniqueId` | `identifier`(slice`uniqueId`) | oui | ✅ |
+| | | |
+| :--- | :--- | :--- |
+| `author` | `List.source`(élément unique, [1..1] — non répétable, à la différence de`DocumentReference.author`) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
+| `authorPerson` | `source`→`PractitionerRole.practitioner`(dans la ressource`AS PractitionerRole Profile`**contained**) ou directement`Device`**contained** | ✅ |
+| `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)`[0..1] | ✅ |
+| `authorRole` | `source`→`PractitionerRole.code`(dans la même ressource**contained**) | ✅ (sous réserve de binding) |
+| `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ |
+| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète —`Archived`national via`PDSm_isArchived` |
+| `comments` | `note` | ✅ |
+| `contentTypeCode`(+ Display / codingScheme) | `code`(+ extension`designationType`) | ✅ |
+| `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | ✅ |
+| `intendedRecipient` | extension`intendedRecipient`(`PDSm_intendedRecipient`) | ✅ |
+| `patientId` | `subject` | ✅ |
+| `sourceId` | extension`sourceId` | ✅ |
+| `submissionTime` | `date` | ✅ |
+| `title` | `title` | ✅ |
+| `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
 
 Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
 
@@ -94,19 +94,19 @@ Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une ci
 
 Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-folder-comprehensive.html).
 
-| | | | |
-| :--- | :--- | :--- | :--- |
-| `availabilityStatus` | `status` | oui (ValueSet`required`) | ⚠️ correspondance incomplète (invariable`Approved`au CI-SIS actuel) |
-| `codeList`(+ Code / Display / codingScheme) | `code`(+ extension`designationType`) | oui | ✅ |
-| `comments` | `note` | oui | ✅ |
-| `entryUUID` | `identifier`(slice`entryUUID`) | oui | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | oui | ✅ |
-| `lastUpdateTime` | `date` | oui | ✅ |
-| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | non | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche |
-| `patientId` | `subject` | oui | ✅ |
-| `title` | `title` | oui | ✅ |
-| `uniqueId` | `identifier`(slice`uniqueId`) | oui | ✅ |
-| `version` | `meta.versionId` | non | ✅ |
+| | | |
+| :--- | :--- | :--- |
+| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète (invariable`Approved`au CI-SIS actuel) |
+| `codeList`(+ Code / Display / codingScheme) | `code`(+ extension`designationType`) | ✅ |
+| `comments` | `note` | ✅ |
+| `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
+| `homeCommunityId` | extension`homeCommunityId` | ✅ |
+| `lastUpdateTime` | `date` | ✅ |
+| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche |
+| `patientId` | `subject` | ✅ |
+| `title` | `title` | ✅ |
+| `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
+| `version` | `meta.versionId` | ✅ (non hérité de MHD) |
 
 La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
 
