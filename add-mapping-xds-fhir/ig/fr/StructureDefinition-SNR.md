@@ -57,7 +57,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-SNR.csv), [Exce
   "name" : "SNR",
   "title" : "SNR",
   "status" : "draft",
-  "date" : "2026-07-21T15:58:42+00:00",
+  "date" : "2026-07-21T16:45:23+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
