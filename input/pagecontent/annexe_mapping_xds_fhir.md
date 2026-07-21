@@ -28,7 +28,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `confidentialityCode` (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | oui | ✅ |
 | `confidentialityCode` (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes `MASQUE_PS`, `INVISIBLE_PATIENT` du JDV_J08) | `securityLabel` (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel `entryUUID`, cf. [annexe des identifiants](annexe_identifiants_xds_fhir.html)) | oui | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
 | `creationTime` | `content.attachment.creation` | oui | ✅ |
-| `documentAvailability` | — | **non** | ❌ orphelin (accessibilité en ligne/hors-ligne du document, optionnel, renseigné par le système cible) |
+| `documentAvailability` | — | **non** | ❌ orphelin — la métadonnée `documentAvailability` (décrite dans le supplément [XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP |
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
 | `eventCodeList` (+ Display / codingScheme) | `context.event` | oui | ✅ |
 | `formatCode` (+ Display / codingScheme) | `content.format` | oui | ✅ |
