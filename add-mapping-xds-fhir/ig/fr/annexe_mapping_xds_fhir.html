@@ -333,23 +333,23 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> (élément de la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em> référencée par <code class="language-plaintext highlighter-rouge">author</code>) ou directement <code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
-      <td>✅</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> — référence vers <code class="language-plaintext highlighter-rouge">AS Practitioner Profile</code> <strong>uniquement pour un professionnel à identifiant national</strong> (RPPS/ADELI, cf. <span class="fhir-conformance">3.4.3.5.1) ; pour les autres catégories que le volet autorise pour <code class="language-plaintext highlighter-rouge">authorPerson</code> (professionnel à identifiant interne, patient, système de structure, SNR — aucune n'a de fiche dans l'Annuaire Santé), il n'y a pas de ressource externe à référencer : <code class="language-plaintext highlighter-rouge">authorPerson</code> est en réalité une donnée recopiée localement par le producteur au moment de la création du document (type XCN, cf. Source </span>3.4.3.7 renvoyant à <code class="language-plaintext highlighter-rouge">PS_IdNat</code>/<code class="language-plaintext highlighter-rouge">PS_Nom</code>/<code class="language-plaintext highlighter-rouge">PS_Prénom</code>), ce qui appelle plutôt une copie <em>contained</em> (<code class="language-plaintext highlighter-rouge">Practitioner</code>/<code class="language-plaintext highlighter-rouge">Device</code>/<code class="language-plaintext highlighter-rouge">Patient</code>) qu'une référence vivante</td>
+      <td>⚠️ ne fonctionne strictement que pour le cas « professionnel à identifiant national »</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.organization</code> (référence externe, résolvable dans l'Annuaire Santé, vers une ressource <code class="language-plaintext highlighter-rouge">AS Organization Profile</code> — non elle-même <em>contained</em> : un <code class="language-plaintext highlighter-rouge">contained</code> ne peut pas en imbriquer un autre, cf. invariant FHIR <code class="language-plaintext highlighter-rouge">dom-2</code>)</td>
-      <td>✅</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.organization</code> — référence vers <code class="language-plaintext highlighter-rouge">AS Organization Profile</code> seulement si la structure dispose d'une fiche dans l'Annuaire Santé (ex. établissement FINESS) ; un éditeur de SNR (identifiant SIREN) ou une structure à identifiant interne n'ont pas nécessairement de fiche correspondante — même logique de copie locale (type XON, cf. Source &sect;3.4.2.7 renvoyant à <code class="language-plaintext highlighter-rouge">Struct_Nom</code>/<code class="language-plaintext highlighter-rouge">Struct_IdNat</code>) que pour <code class="language-plaintext highlighter-rouge">authorPerson</code></td>
+      <td>⚠️ dépend de la résolvabilité de l'identifiant de structure dans l'Annuaire Santé</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> (élément de la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em>)</td>
-      <td>✅ (sous réserve de binding)</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code></td>
+      <td>⚠️ <code class="language-plaintext highlighter-rouge">authorRole</code> est un texte libre côté XDS (« Type : Non Contraint », « Contenu : Libre », cf. &sect;3.4.4 — ex. <code class="language-plaintext highlighter-rouge">Médecin traitant</code>), sans code ni système ; le report dans un <code class="language-plaintext highlighter-rouge">CodeableConcept.code</code> structuré n'est qu'approximatif (au mieux <code class="language-plaintext highlighter-rouge">CodeableConcept.text</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
       <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (élément de la même ressource <em>contained</em>)</td>
-      <td>✅</td>
+      <td>✅ — contrairement à <code class="language-plaintext highlighter-rouge">authorRole</code>, <code class="language-plaintext highlighter-rouge">authorSpecialty</code> est un élément réellement codé côté XDS (type <code class="language-plaintext highlighter-rouge">CE</code>, cf. &sect;3.4.5.2 : identifiant + libellé + système de codage), donc mappable directement vers un <code class="language-plaintext highlighter-rouge">Coding</code> structuré</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
@@ -404,7 +404,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td><a name="l918">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l956">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -532,23 +532,23 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> (dans la ressource <code class="language-plaintext highlighter-rouge">AS PractitionerRole Profile</code> <em>contained</em>) ou directement <code class="language-plaintext highlighter-rouge">Device</code> <em>contained</em></td>
-      <td>✅</td>
+      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code> — référence vers <code class="language-plaintext highlighter-rouge">AS Practitioner Profile</code> uniquement pour un professionnel à identifiant national ; mêmes catégories et même réserve que pour la métadonnée équivalente de la fiche (cf. <span class="fhir-conformance">3.4.3, renvoi explicite en </span><span class="fhir-conformance">3.4.3, renvoi explicite en </span><em>contained</em> dans les autres cas</td>
+      <td>⚠️ ne fonctionne strictement que pour le cas « professionnel à identifiant national »</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source.extension:authorOrg</code> → <code class="language-plaintext highlighter-rouge">Reference(AS Organization Profile)</code> [0..1]</td>
-      <td>✅</td>
+      <td><code class="language-plaintext highlighter-rouge">source.extension:authorOrg</code> → <code class="language-plaintext highlighter-rouge">Reference(AS Organization Profile)</code> [0..1] — résolvable seulement si la structure émettrice a une fiche dans l'Annuaire Santé</td>
+      <td>⚠️ dépend de la résolvabilité de l'identifiant de structure dans l'Annuaire Santé</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code> (dans la même ressource <em>contained</em>)</td>
-      <td>✅ (sous réserve de binding)</td>
+      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code></td>
+      <td>⚠️ texte libre côté XDS (cf. &sect;3.5.4, même définition que pour la fiche) — correspondance approximative avec <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
       <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (dans la même ressource <em>contained</em>)</td>
-      <td>✅</td>
+      <td>✅ — élément codé côté XDS (type <code class="language-plaintext highlighter-rouge">CE</code>, cf. &sect;3.5.5)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
@@ -895,7 +895,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-21 13:50:00 +0000">
+  <span title="2026-07-21 14:27:00 +0000">
     2026-07-21
   </span>
 

@@ -19,10 +19,10 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | | | |
 | :--- | :--- | :--- |
 | `author` | `DocumentReference.author`(regroupement répétable, [1..*]) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
-| `authorPerson` | `author`→`PractitionerRole.practitioner`(élément de la ressource`AS PractitionerRole Profile`**contained**référencée par`author`) ou directement`Device`**contained** | ✅ |
-| `authorInstitution` | `author`→`PractitionerRole.organization`(référence externe, résolvable dans l'Annuaire Santé, vers une ressource`AS Organization Profile`— non elle-même**contained**: un`contained`ne peut pas en imbriquer un autre, cf. invariant FHIR`dom-2`) | ✅ |
-| `authorRole` | `author`→`PractitionerRole.code`(élément de la ressource`AS PractitionerRole Profile`**contained**) | ✅ (sous réserve de binding) |
-| `authorSpecialty` | `author`→`PractitionerRole.specialty`(élément de la même ressource**contained**) | ✅ |
+| `authorPerson` | `author`→`PractitionerRole.practitioner`— référence vers`AS Practitioner Profile`**uniquement pour un professionnel à identifiant national**(RPPS/ADELI, cf. §3.4.3.5.1) ; pour les autres catégories que le volet autorise pour`authorPerson`(professionnel à identifiant interne, patient, système de structure, SNR — aucune n'a de fiche dans l'Annuaire Santé), il n'y a pas de ressource externe à référencer :`authorPerson`est en réalité une donnée recopiée localement par le producteur au moment de la création du document (type XCN, cf. Source §3.4.3.7 renvoyant à`PS_IdNat`/`PS_Nom`/`PS_Prénom`), ce qui appelle plutôt une copie**contained**(`Practitioner`/`Device`/`Patient`) qu'une référence vivante | ⚠️ ne fonctionne strictement que pour le cas « professionnel à identifiant national » |
+| `authorInstitution` | `author`→`PractitionerRole.organization`— référence vers`AS Organization Profile`seulement si la structure dispose d'une fiche dans l'Annuaire Santé (ex. établissement FINESS) ; un éditeur de SNR (identifiant SIREN) ou une structure à identifiant interne n'ont pas nécessairement de fiche correspondante — même logique de copie locale (type XON, cf. Source §3.4.2.7 renvoyant à`Struct_Nom`/`Struct_IdNat`) que pour`authorPerson` | ⚠️ dépend de la résolvabilité de l'identifiant de structure dans l'Annuaire Santé |
+| `authorRole` | `author`→`PractitionerRole.code` | ⚠️`authorRole`est un texte libre côté XDS (« Type : Non Contraint », « Contenu : Libre », cf. §3.4.4 — ex.`Médecin traitant`), sans code ni système ; le report dans un`CodeableConcept.code`structuré n'est qu'approximatif (au mieux`CodeableConcept.text`) |
+| `authorSpecialty` | `author`→`PractitionerRole.specialty`(élément de la même ressource**contained**) | ✅ — contrairement à`authorRole`,`authorSpecialty`est un élément réellement codé côté XDS (type`CE`, cf. §3.4.5.2 : identifiant + libellé + système de codage), donc mappable directement vers un`Coding`structuré |
 | `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
 | `classCode`(+ Display / codingScheme) | `category` | ✅ |
 | `comments` | `description` | ✅ |
@@ -69,10 +69,10 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | | | |
 | :--- | :--- | :--- |
 | `author` | `List.source`(élément unique, [1..1] — non répétable, à la différence de`DocumentReference.author`) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
-| `authorPerson` | `source`→`PractitionerRole.practitioner`(dans la ressource`AS PractitionerRole Profile`**contained**) ou directement`Device`**contained** | ✅ |
-| `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)`[0..1] | ✅ |
-| `authorRole` | `source`→`PractitionerRole.code`(dans la même ressource**contained**) | ✅ (sous réserve de binding) |
-| `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ |
+| `authorPerson` | `source`→`PractitionerRole.practitioner`— référence vers`AS Practitioner Profile`uniquement pour un professionnel à identifiant national ; mêmes catégories et même réserve que pour la métadonnée équivalente de la fiche (cf. §3.4.3, renvoi explicite en §3.5.3) — copie locale**contained**dans les autres cas | ⚠️ ne fonctionne strictement que pour le cas « professionnel à identifiant national » |
+| `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)`[0..1] — résolvable seulement si la structure émettrice a une fiche dans l'Annuaire Santé | ⚠️ dépend de la résolvabilité de l'identifiant de structure dans l'Annuaire Santé |
+| `authorRole` | `source`→`PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec`CodeableConcept` |
+| `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ — élément codé côté XDS (type`CE`, cf. §3.5.5) |
 | `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète —`Archived`national via`PDSm_isArchived` |
 | `comments` | `note` | ✅ |
 | `contentTypeCode`(+ Display / codingScheme) | `code`(+ extension`designationType`) | ✅ |
