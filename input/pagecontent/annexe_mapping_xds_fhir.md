@@ -22,7 +22,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `authorPerson` | `author` → `Practitioner`/`Device` *contained* | oui | ✅ |
 | `authorRole` | `author` → `PractitionerRole.code` *contained* | oui | ✅ (sous réserve de binding) |
 | `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
-| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict — cf. section dédiée |
+| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
 | `classCode` (+ Display / codingScheme) | `category` | oui | ✅ |
 | `comments` | `description` | oui | ✅ |
 | `confidentialityCode` (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | oui | ✅ |
@@ -74,7 +74,7 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | `authorPerson` | `source` → `Practitioner`/`Device` *contained* | oui | ✅ |
 | `authorRole` | `PractitionerRole.code` *contained* | oui | ✅ (sous réserve de binding) |
 | `authorSpecialty` | `PractitionerRole.specialty` | oui | ✅ |
-| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict — `Archived` national via `PDSm_isArchived` |
+| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ correspondance incomplète — `Archived` national via `PDSm_isArchived` |
 | `comments` | `note` | oui | ✅ |
 | `contentTypeCode` (+ Display / codingScheme) | `code` (+ extension `designationType`) | oui | ✅ |
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
@@ -94,7 +94,7 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 
 | Attribut XDS (volet §3.6) | Élément FHIR | Héritée MHD ? | Statut |
 |---|---|---|---|
-| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ non strict (invariable `Approved` au CI-SIS actuel) |
+| `availabilityStatus` | `status` | oui (ValueSet `required`) | ⚠️ correspondance incomplète (invariable `Approved` au CI-SIS actuel) |
 | `codeList` (+ Code / Display / codingScheme) | `code` (+ extension `designationType`) | oui | ✅ |
 | `comments` | `note` | oui | ✅ |
 | `entryUUID` | `identifier` (slice `entryUUID`) | oui | ✅ |
@@ -137,7 +137,7 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
 | `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
 | `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
 
-### Cas non strict : availabilityStatus → status
+### Cas de correspondance incomplète : availabilityStatus → status
 
 C'est le seul mapping présentant un risque réel de perte sémantique. Le volet emploie le jeu de valeurs `JDV_J52_AvailabilityStatus_CISIS`, dont deux valeurs sont des extensions nationales absentes du ValueSet FHIR (lié en `required` sur `DocumentReference.status`) :
 
@@ -146,13 +146,13 @@ C'est le seul mapping présentant un risque réel de perte sémantique. Le volet
 | `Approved` | `current` | ✅ |
 | `Deprecated` | `superseded` | ✅ |
 | `Archived` (extension nationale) | — | ✅ porté par l'extension `PDSm_isArchived` |
-| `Deleted` / dépublié (extension nationale) | — | ❌ `entered-in-error` non autorisé par le binding MHD (cf. [TD3.3c](transaction_td3.3c.html)) |
+| `Deleted` / dépublié (extension nationale) | — | ❌ `entered-in-error` non autorisé par le binding MHD (cf. [TD3.3c](transaction_td3.3c.html) et [issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99)) |
 
 Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du volet : la permissivité du volet ne peut donc rien faire hériter. Le traitement conforme passe par l'extension `PDSm_isArchived` pour `Archived`.
 
 <div class="dragon" markdown="1">
 
-**Question ouverte** — Pour `Deleted`, quel traitement retenir : utiliser `superseded` par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ?
+**Question ouverte** — Pour `Deleted`, quel traitement retenir : utiliser `superseded` par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ? Cf. [issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99), qui demande de clarifier qu'un document ne peut pas être supprimé mais seulement archivé (`isArchived`).
 </div>
 
 ### Synthèse des orphelins (points ouverts)
