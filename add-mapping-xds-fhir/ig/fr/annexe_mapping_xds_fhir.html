@@ -424,7 +424,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">legalAuthenticator</code></td>
       <td><code class="language-plaintext highlighter-rouge">authenticator</code></td>
-      <td>✅ (et non <code class="language-plaintext highlighter-rouge">custodian</code>)</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
@@ -843,6 +843,11 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
       <td>Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">custodian</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Élément FHIR de base (organisation responsable de la conservation du document), explicitement marqué « not mapped » dans les correspondances normatives de <code class="language-plaintext highlighter-rouge">PDSm_ComprehensiveDocumentReference</code> — aucun attribut XDS équivalent (à distinguer de <code class="language-plaintext highlighter-rouge">legalAuthenticator</code> → <code class="language-plaintext highlighter-rouge">authenticator</code>, cf. ligne correspondante plus haut)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -895,7 +900,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-22 08:39:00 +0000">
+  <span title="2026-07-22 09:49:00 +0000">
     2026-07-22
   </span>
 
