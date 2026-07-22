@@ -300,10 +300,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#métadonnées-xds-dune-fiche-34--documentreference" id="markdown-toc-métadonnées-xds-dune-fiche-34--documentreference">Métadonnées XDS d'une fiche (&sect;3.4) → DocumentReference</a></li>
   <li><a href="#métadonnées-xds-dun-lot-de-soumission-35--list-submissionset" id="markdown-toc-métadonnées-xds-dun-lot-de-soumission-35--list-submissionset">Métadonnées XDS d'un lot de soumission (&sect;3.5) → List (SubmissionSet)</a></li>
   <li><a href="#métadonnées-xds-dun-classeur-36--list-folder" id="markdown-toc-métadonnées-xds-dun-classeur-36--list-folder">Métadonnées XDS d'un classeur (&sect;3.6) → List (Folder)</a></li>
-  <li><a href="#associations-33--documentreferencerelatesto" id="markdown-toc-associations-33--documentreferencerelatesto">Associations (&sect;3.3) → DocumentReference.relatesTo</a></li>
-  <li><a href="#éléments-fhir-sans-source-xds" id="markdown-toc-éléments-fhir-sans-source-xds">Éléments FHIR sans source XDS</a></li>
+  <li><a href="#associations-volet-pds-33--documentreferencerelatesto" id="markdown-toc-associations-volet-pds-33--documentreferencerelatesto">Associations (volet PDS &sect;3.3) → DocumentReference.relatesTo</a></li>
   <li><a href="#cas-de-correspondance-incomplète--availabilitystatus--status" id="markdown-toc-cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</a></li>
   <li><a href="#synthèse-des-orphelins-points-ouverts" id="markdown-toc-synthèse-des-orphelins-points-ouverts">Synthèse des orphelins (points ouverts)</a></li>
+  <li><a href="#éléments-fhir-sans-source-xds" id="markdown-toc-éléments-fhir-sans-source-xds">Éléments FHIR sans source XDS</a></li>
 </ul>
 
 </div>
@@ -364,7 +364,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">classCode</code> (+ Display / codingScheme)</td>
+      <td><code class="language-plaintext highlighter-rouge">class</code></td>
       <td><code class="language-plaintext highlighter-rouge">category</code></td>
       <td>✅</td>
     </tr>
@@ -411,7 +411,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td><a name="l981">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l980">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -526,7 +526,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 <table>
   <thead>
     <tr>
-      <th>Attribut XDS (volet &sect;3.5)</th>
+      <th>Attribut XDS (volet PDS &sect;3.5)</th>
       <th>Élément FHIR</th>
       <th>Statut</th>
     </tr>
@@ -690,7 +690,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 
 <p>La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (<code class="language-plaintext highlighter-rouge">availabilityStatus</code> invariable = <code class="language-plaintext highlighter-rouge">Approved</code>). <code class="language-plaintext highlighter-rouge">logicalID</code> / <code class="language-plaintext highlighter-rouge">version</code> ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = folder</code> sont des valeurs fixes FHIR sans source XDS.</p>
 
-<h3 id="associations-33--documentreferencerelatesto">Associations (&sect;3.3) → DocumentReference.relatesTo</h3>
+<h3 id="associations-volet-pds-33--documentreferencerelatesto">Associations (volet PDS &sect;3.3) → DocumentReference.relatesTo</h3>
 
 <p>Les objets <code class="language-plaintext highlighter-rouge">Association</code> d'ebRIM se répartissent selon leur nature. L'appartenance à un lot ou un classeur (<code class="language-plaintext highlighter-rouge">HasMember</code>) devient <code class="language-plaintext highlighter-rouge">List.entry.item</code>. Les relations entre documents se mappent via la ConceptMap <a href="https://profiles.ihe.net/ITI/MHD/ConceptMap-AssociationTypeVsRelatesTo.html"><code class="language-plaintext highlighter-rouge">AssociationTypeVsRelatesTo</code></a> :</p>
 
@@ -726,7 +726,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td><code class="language-plaintext highlighter-rouge">XFRM_RPLC</code></td>
       <td><code class="language-plaintext highlighter-rouge">replaces</code></td>
       <td>plus étroite</td>
-      <td>⚠️ perte du volet <em>transform</em></td>
+      <td>⚠️ perte du <em>transform</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">signs</code></td>
@@ -744,57 +744,6 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 </table>
 
 <p>Les attributs portés par les associations lors des transactions ITI-42 / ITI-57 — <code class="language-plaintext highlighter-rouge">SubmissionSetStatus</code> (Original/Reference), <code class="language-plaintext highlighter-rouge">PreviousVersion</code>, <code class="language-plaintext highlighter-rouge">OriginalStatus</code> / <code class="language-plaintext highlighter-rouge">NewStatus</code> (association <code class="language-plaintext highlighter-rouge">UpdateAvailabilityStatus</code>) et le slot <code class="language-plaintext highlighter-rouge">associationPropagation</code> — n'ont <strong>aucune</strong> cible FHIR : ce sont des mécanismes de transaction ebRIM, non des propriétés d'objet portées par une ressource.</p>
-
-<h3 id="éléments-fhir-sans-source-xds">Éléments FHIR sans source XDS</h3>
-
-<p>Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Élément FHIR</th>
-      <th>Ressource</th>
-      <th>Origine</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">List.mode</code> = <code class="language-plaintext highlighter-rouge">working</code> (valeur fixée)</td>
-      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
-      <td>Contrainte MHD — aucun attribut XDS correspondant</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">List.code.coding</code> = <code class="language-plaintext highlighter-rouge">submissionset</code> / <code class="language-plaintext highlighter-rouge">folder</code> (system + code fixés)</td>
-      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
-      <td>Contrainte MHD distinguant les deux types de <code class="language-plaintext highlighter-rouge">List</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">List.status</code></td>
-      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
-      <td>Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">contained</code> (≥1 obligatoire)</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
-      <td>Contrainte structurelle PDSm : les ressources <code class="language-plaintext highlighter-rouge">author</code>/<code class="language-plaintext highlighter-rouge">authenticator</code> doivent être contenues</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">context</code> (1..1 obligatoire)</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
-      <td>Élément FHIR requis regroupant plusieurs métadonnées XDS (<code class="language-plaintext highlighter-rouge">eventCodeList</code>, <code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code>, <code class="language-plaintext highlighter-rouge">practiceSettingCode</code>, <code class="language-plaintext highlighter-rouge">serviceStartTime</code>/<code class="language-plaintext highlighter-rouge">serviceStopTime</code>, <code class="language-plaintext highlighter-rouge">referenceIdList</code>, <code class="language-plaintext highlighter-rouge">sourcePatientId</code>/<code class="language-plaintext highlighter-rouge">sourcePatientInfo</code>) — le conteneur lui-même n'est pas issu d'un attribut XDS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">extension:isArchived</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
-      <td>Extension nationale PDSm palliant l'absence de <code class="language-plaintext highlighter-rouge">Archived</code> dans le ValueSet FHIR (cf. section dédiée)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">relatesTo</code> cardinalité [1..1] conditionnelle</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
-      <td>Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct</td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</h3>
 
@@ -853,6 +802,57 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   <p><strong>Question ouverte</strong> — Pour chacun de ces points, quel traitement retenir : extension dédiée, exclusion motivée du périmètre, ou prise en charge par un mécanisme transactionnel (Bundle / opération) plutôt que par un élément de ressource ?</p>
 </div>
 
+<h3 id="éléments-fhir-sans-source-xds">Éléments FHIR sans source XDS</h3>
+
+<p>Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Élément FHIR</th>
+      <th>Ressource</th>
+      <th>Origine</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List.mode</code> = <code class="language-plaintext highlighter-rouge">working</code> (valeur fixée)</td>
+      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
+      <td>Contrainte MHD — aucun attribut XDS correspondant</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List.code.coding</code> = <code class="language-plaintext highlighter-rouge">submissionset</code> / <code class="language-plaintext highlighter-rouge">folder</code> (system + code fixés)</td>
+      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
+      <td>Contrainte MHD distinguant les deux types de <code class="language-plaintext highlighter-rouge">List</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">List.status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List</code> (lot, classeur)</td>
+      <td>Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">contained</code> (≥1 obligatoire)</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Contrainte structurelle PDSm : les ressources <code class="language-plaintext highlighter-rouge">author</code>/<code class="language-plaintext highlighter-rouge">authenticator</code> doivent être contenues</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">context</code> (1..1 obligatoire)</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Élément FHIR requis regroupant plusieurs métadonnées XDS (<code class="language-plaintext highlighter-rouge">eventCodeList</code>, <code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code>, <code class="language-plaintext highlighter-rouge">practiceSettingCode</code>, <code class="language-plaintext highlighter-rouge">serviceStartTime</code>/<code class="language-plaintext highlighter-rouge">serviceStopTime</code>, <code class="language-plaintext highlighter-rouge">referenceIdList</code>, <code class="language-plaintext highlighter-rouge">sourcePatientId</code>/<code class="language-plaintext highlighter-rouge">sourcePatientInfo</code>) — le conteneur lui-même n'est pas issu d'un attribut XDS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">extension:isArchived</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Extension nationale PDSm palliant l'absence de <code class="language-plaintext highlighter-rouge">Archived</code> dans le ValueSet FHIR (cf. section dédiée)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">relatesTo</code> cardinalité [1..1] conditionnelle</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
@@ -902,8 +902,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-21 17:13:00 +0000">
-    2026-07-21
+  <span title="2026-07-22 08:39:00 +0000">
+    2026-07-22
   </span>
 
           <br/>
