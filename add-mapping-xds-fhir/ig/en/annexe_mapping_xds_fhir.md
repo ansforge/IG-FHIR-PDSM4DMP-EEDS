@@ -34,11 +34,11 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `creationTime` | `content.attachment.creation` | ✅ |
 | `documentAvailability` | — | ❌ orphelin — la métadonnée`documentAvailability`(décrite dans le supplément[XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP — cf.[TD3.3d](transaction_td3.3d.md) |
 | `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
-| `eventCodeList`(+ Display / codingScheme) | `context.event` | ✅ |
-| `formatCode`(+ Display / codingScheme) | `content.format` | ✅ |
+| `eventCodeList` | `context.event` | ✅ |
+| `formatCode` | `content.format` | ✅ |
 | `hash` | `content.attachment.hash` | ✅ — conversion hex → base64 requise (`hash`XDS est de type[SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf)(§3.4.26) encodé en[hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html)(`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ;`content.attachment.hash`est de type[`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
 | `healthcareFacilityTypeCode` | `context.facilityType` | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | ⚠️ extension MHD héritée |
+| `homeCommunityId` | — | ❌ orphelin — A noter que le volet PDS (§3.4.52) précise que cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA, et qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `languageCode` | `content.attachment.language` | ✅ |
 | `legalAuthenticator` | `authenticator` | ✅ |
 | `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id`sous PATCH (cf. note ci-dessous) |
