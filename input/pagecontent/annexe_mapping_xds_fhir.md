@@ -23,7 +23,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `authorRole` | `author` → `PractitionerRole.code` | ⚠️ `authorRole` est un texte libre côté XDS (« Type : Non Contraint », « Contenu : Libre », cf. §3.4.4 — ex. `Médecin traitant`), sans code ni système ; le report dans un `CodeableConcept.code` structuré n'est qu'approximatif (au mieux `CodeableConcept.text`) |
 | `authorSpecialty` | `author` → `PractitionerRole.specialty` (élément de la même ressource *contained*) | ✅ — contrairement à `authorRole`, `authorSpecialty` est un élément réellement codé côté XDS (type `CE`, cf. §3.4.5.2 : identifiant + libellé + système de codage), donc mappable directement vers un `Coding` structuré |
 | `availabilityStatus` | `status` (ValueSet FHIR `required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
-| `classCode` (+ Display / codingScheme) | `category` | ✅ |
+| `class` | `category` | ✅ |
 | `comments` | `description` | ✅ |
 | `confidentialityCode` (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | ✅ |
 | `confidentialityCode` (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes `MASQUE_PS`, `INVISIBLE_PATIENT` du JDV_J08) | `securityLabel` (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel `entryUUID`, cf. [annexe des identifiants](annexe_identifiants_xds_fhir.html)) | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
@@ -67,7 +67,7 @@ Conséquence : `version` est correctement repris par `meta.versionId` ; `logical
 
 Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html).
 
-| Attribut XDS (volet §3.5) | Élément FHIR | Statut |
+| Attribut XDS (volet PDS §3.5) | Élément FHIR | Statut |
 |---|---|---|
 | `author` | `List.source` (élément unique, [1..1] — non répétable, à la différence de `DocumentReference.author`) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile \| Practitioner \| PractitionerRole \| Patient)` `{c}` (ressource contenue) | ✅ |
 | `authorPerson` | `source` → `.practitioner` d'un `PractitionerRole` *contained* | ❌ pas de correspondance possible en l'état — même problème que pour la métadonnée équivalente de la fiche (cf. §3.4.3, renvoi explicite en §3.5.3) : le `Practitioner` référencé par `.practitioner` ne peut pas être imbriqué dans le `PractitionerRole` déjà `contained` (cf. `dom-2`), il devrait être ajouté séparément dans `contained[]`, ce que PDSm ne documente pas aujourd'hui. Décontrainte de PDSm nécessaire |
@@ -108,7 +108,7 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 
 La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
 
-### Associations (§3.3) → DocumentReference.relatesTo
+### Associations (volet PDS §3.3) → DocumentReference.relatesTo
 
 Les objets `Association` d'ebRIM se répartissent selon leur nature. L'appartenance à un lot ou un classeur (`HasMember`) devient `List.entry.item`. Les relations entre documents se mappent via la ConceptMap [`AssociationTypeVsRelatesTo`](https://profiles.ihe.net/ITI/MHD/ConceptMap-AssociationTypeVsRelatesTo.html) :
 
@@ -117,25 +117,11 @@ Les objets `Association` d'ebRIM se répartissent selon leur nature. L'appartena
 | `RPLC` | `replaces` | équivalente | ✅ |
 | `XFRM` | `transforms` | équivalente | ✅ |
 | `APND` | `appends` | équivalente (interdite à la soumission par le volet) | ✅ |
-| `XFRM_RPLC` | `replaces` | plus étroite | ⚠️ perte du volet *transform* |
+| `XFRM_RPLC` | `replaces` | plus étroite | ⚠️ perte du *transform* |
 | `signs` | `signs` | équivalente | ✅ |
 | `IsSnapshotOf` | `transforms` | approximative | ⚠️ nouvelle instance dérivée, pas strictement un transform |
 
 Les attributs portés par les associations lors des transactions ITI-42 / ITI-57 — `SubmissionSetStatus` (Original/Reference), `PreviousVersion`, `OriginalStatus` / `NewStatus` (association `UpdateAvailabilityStatus`) et le slot `associationPropagation` — n'ont **aucune** cible FHIR : ce sont des mécanismes de transaction ebRIM, non des propriétés d'objet portées par une ressource.
-
-### Éléments FHIR sans source XDS
-
-Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
-
-| Élément FHIR | Ressource | Origine |
-|---|---|---|
-| `List.mode` = `working` (valeur fixée) | `List` (lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
-| `List.code.coding` = `submissionset` / `folder` (system + code fixés) | `List` (lot, classeur) | Contrainte MHD distinguant les deux types de `List` |
-| `List.status` | `List` (lot, classeur) | Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié |
-| `contained` (≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources `author`/`authenticator` doivent être contenues |
-| `context` (1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`, `healthcareFacilityTypeCode`, `practiceSettingCode`, `serviceStartTime`/`serviceStopTime`, `referenceIdList`, `sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
-| `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
-| `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
 
 ### Cas de correspondance incomplète : availabilityStatus → status
 
@@ -166,3 +152,17 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 
 **Question ouverte** — Pour chacun de ces points, quel traitement retenir : extension dédiée, exclusion motivée du périmètre, ou prise en charge par un mécanisme transactionnel (Bundle / opération) plutôt que par un élément de ressource ?
 </div>
+
+### Éléments FHIR sans source XDS
+
+Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
+
+| Élément FHIR | Ressource | Origine |
+|---|---|---|
+| `List.mode` = `working` (valeur fixée) | `List` (lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
+| `List.code.coding` = `submissionset` / `folder` (system + code fixés) | `List` (lot, classeur) | Contrainte MHD distinguant les deux types de `List` |
+| `List.status` | `List` (lot, classeur) | Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié |
+| `contained` (≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources `author`/`authenticator` doivent être contenues |
+| `context` (1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`, `healthcareFacilityTypeCode`, `practiceSettingCode`, `serviceStartTime`/`serviceStopTime`, `referenceIdList`, `sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
+| `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
+| `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
