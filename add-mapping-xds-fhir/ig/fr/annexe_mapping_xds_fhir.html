@@ -328,7 +328,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.author</code> (regroupement répétable, [1..*]) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile \| Practitioner \| PractitionerRole \| Organization \| Patient \| RelatedPerson)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.author</code> (regroupement répétable, [1..*]) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
       <td>✅</td>
     </tr>
     <tr>
@@ -349,7 +349,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
       <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (élément de la même ressource <em>contained</em>)</td>
-      <td>✅ — contrairement à <code class="language-plaintext highlighter-rouge">authorRole</code>, <code class="language-plaintext highlighter-rouge">authorSpecialty</code> est un élément réellement codé côté XDS (type <code class="language-plaintext highlighter-rouge">CE</code>, cf. &sect;3.4.5.2 : identifiant + libellé + système de codage), donc mappable directement vers un <code class="language-plaintext highlighter-rouge">Coding</code> structuré</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
@@ -404,7 +404,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td><a name="l974">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l962">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -527,7 +527,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td><code class="language-plaintext highlighter-rouge">List.source</code> (élément unique, [1..1] — non répétable, à la différence de <code class="language-plaintext highlighter-rouge">DocumentReference.author</code>) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile \| Practitioner \| PractitionerRole \| Patient)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
+      <td><code class="language-plaintext highlighter-rouge">List.source</code> (élément unique, [1..1] — non répétable, à la différence de <code class="language-plaintext highlighter-rouge">DocumentReference.author</code>) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
       <td>✅</td>
     </tr>
     <tr>
@@ -834,6 +834,11 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>Élément FHIR requis regroupant plusieurs métadonnées XDS (<code class="language-plaintext highlighter-rouge">eventCodeList</code>, <code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code>, <code class="language-plaintext highlighter-rouge">practiceSettingCode</code>, <code class="language-plaintext highlighter-rouge">serviceStartTime</code>/<code class="language-plaintext highlighter-rouge">serviceStopTime</code>, <code class="language-plaintext highlighter-rouge">referenceIdList</code>, <code class="language-plaintext highlighter-rouge">sourcePatientId</code>/<code class="language-plaintext highlighter-rouge">sourcePatientInfo</code>) — le conteneur lui-même n'est pas issu d'un attribut XDS</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">context.encounter</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Mappé par MHD vers l'extension <code class="language-plaintext highlighter-rouge">ihe:iti:xds:2015:encounterId</code> du supplément IHE ITI XDS (2015) — cet attribut n'existe pas dans le volet CI-SIS Partage de Documents de Santé (hors périmètre &sect;3.4), donc sans utilité réelle ici malgré la présence d'un mapping</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">extension:isArchived</code></td>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
       <td>Extension nationale PDSm palliant l'absence de <code class="language-plaintext highlighter-rouge">Archived</code> dans le ValueSet FHIR (cf. section dédiée)</td>
@@ -846,7 +851,17 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">custodian</code></td>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
-      <td>Élément FHIR de base (organisation responsable de la conservation du document), explicitement marqué « not mapped » dans les correspondances normatives de <code class="language-plaintext highlighter-rouge">PDSm_ComprehensiveDocumentReference</code> — aucun attribut XDS équivalent (à distinguer de <code class="language-plaintext highlighter-rouge">legalAuthenticator</code> → <code class="language-plaintext highlighter-rouge">authenticator</code>, cf. ligne correspondante plus haut)</td>
+      <td>Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de <code class="language-plaintext highlighter-rouge">PDSm_ComprehensiveDocumentReference</code> — aucun attribut XDS équivalent (à distinguer de <code class="language-plaintext highlighter-rouge">legalAuthenticator</code> → <code class="language-plaintext highlighter-rouge">authenticator</code>, cf. ligne correspondante plus haut)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Statut du contenu du document lui-même (<code class="language-plaintext highlighter-rouge">preliminary</code>/<code class="language-plaintext highlighter-rouge">final</code>/<code class="language-plaintext highlighter-rouge">amended</code>/<code class="language-plaintext highlighter-rouge">entered-in-error</code>), également absent du tableau de correspondances XDS — à ne pas confondre avec <code class="language-plaintext highlighter-rouge">availabilityStatus</code> → <code class="language-plaintext highlighter-rouge">status</code>, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">date</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td>Date de création de la <em>fiche</em> (indexation), également absente du tableau de correspondances XDS — à distinguer de <code class="language-plaintext highlighter-rouge">creationTime</code> → <code class="language-plaintext highlighter-rouge">content.attachment.creation</code>, qui porte sur la date de création du <em>document</em> lui-même</td>
     </tr>
   </tbody>
 </table>
@@ -900,7 +915,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-22 09:49:00 +0000">
+  <span title="2026-07-22 14:20:00 +0000">
     2026-07-22
   </span>
 
