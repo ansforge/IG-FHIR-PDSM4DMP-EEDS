@@ -36,7 +36,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `healthcareFacilityTypeCode` | `context.facilityType` | ✅ |
 | `homeCommunityId` | extension `homeCommunityId` | ⚠️ extension MHD héritée |
 | `languageCode` | `content.attachment.language` | ✅ |
-| `legalAuthenticator` | `authenticator` | ✅ (et non `custodian`) |
+| `legalAuthenticator` | `authenticator` | ✅ |
 | `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id` sous PATCH (cf. note ci-dessous) |
 | `mimeType` | `content.attachment.contentType` | ✅ |
 | `patientId` | `subject` | ✅ |
@@ -166,3 +166,4 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
 | `context` (1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`, `healthcareFacilityTypeCode`, `practiceSettingCode`, `serviceStartTime`/`serviceStopTime`, `referenceIdList`, `sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
 | `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
 | `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
+| `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), explicitement marqué « not mapped » dans les correspondances normatives de `PDSm_ComprehensiveDocumentReference` — aucun attribut XDS équivalent (à distinguer de `legalAuthenticator` → `authenticator`, cf. ligne correspondante plus haut) |
