@@ -37,20 +37,21 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `homeCommunityId` | — | ❌ orphelin —  A noter que le volet PDS (§3.4.52) précise que cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA, et qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `languageCode` | `content.attachment.language` | ✅ |
 | `legalAuthenticator` | `authenticator` | ✅ |
-| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id` sous PATCH (cf. note ci-dessous) |
+| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id` (cf. note ci-dessous) |
 | `mimeType` | `content.attachment.contentType` | ✅ |
 | `patientId` | `subject` | ✅ |
 | `practiceSettingCode` | `context.practiceSetting` | ✅ |
-| `referenceIdList` | `context.related` | ✅ |
-| `repositoryUniqueId` | extension `repositoryUniqueId` | ⚠️ extension MHD héritée, sans utilité en FHIR pur |
+| `referenceIdList` | `context.related` (slice `referenceIdList`) | ✅ |
+| `repositoryUniqueId` | *(implicite)* dérivé de `content.attachment.url` (référence vers la ressource `Binary` : `Binary/[id]`) | ⚠️ pas de champ dédié — l'identité du dépôt est portée implicitement par l'URL de la ressource `Binary`, pas par une métadonnée explicite (aucune extension déclarée dans le profil pour cet attribut) |
 | `serviceStartTime` / `serviceStopTime` | `context.period.start` / `.end` | ✅ |
 | `size` | `content.attachment.size` | ✅ |
-| `sourcePatientId` / `sourcePatientInfo` | `context.sourcePatientInfo` (+ `.identifier`) | ✅ |
+| `sourcePatientId` | `context.sourcePatientInfo.identifier` | ✅ |
+| `sourcePatientInfo` | `context.sourcePatientInfo.reference` | ✅ |
 | `title` | `content.attachment.title` | ✅ |
-| `typeCode` (+ Display / codingScheme) | `type` | ✅ |
-| `uniqueId` | `masterIdentifier` + `identifier` (slice `uniqueId`) | ✅ |
+| `typeCode` | `type` | ✅ |
+| `uniqueId` | `masterIdentifier` | ✅ |
 | `URI` | `content.attachment.url` | ✅ |
-| `version` | `meta.versionId` | ✅ (contrainte ajoutée par PDSm, non héritée de MHD) — le profil PDSm définit `meta.versionId` comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
+| `version` | `meta.versionId` | ✅ le profil PDSm définit `meta.versionId` comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
 
 <div class="stu-note">
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par [MHD](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html) : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
@@ -61,7 +62,7 @@ Le mécanisme de mise à jour des métadonnées ne fonctionne pas de la même fa
 - **XDS** (`Update Document Set [ITI-57]`, §3.3.5 du volet) soumet à chaque mise à jour une **nouvelle fiche**, avec un nouvel `entryUUID`, mais en conservant le même `uniqueId` et le même `logicalID` ; `version` est incrémenté.
 - **PDSm** modélise la même opération par un **PATCH sur la ressource `DocumentReference` existante** (TD3.3a/TD3.3b/TD3.3c) : `identifier` (slice `entryUUID`) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois.
 
-Conséquence : `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id` de la ressource sous PATCH, plutôt que portée par une métadonnée explicite.
+Conséquence : `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id`.
 
 ### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
 
