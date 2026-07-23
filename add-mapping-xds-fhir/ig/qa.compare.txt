@@ -1,10 +1,10 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 80, warn = 260, info = 194
+err = 80, warn = 260, info = 192
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 26 / 13 / 4
+ Build Errors : 26 / 13 / 2
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionSNR : 1 / 0 / 0
@@ -59,8 +59,7 @@ WARNING: Unable to find ImplementationGuide.definition.resource.description for 
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Bundle/example-td2-iti65-lot-soumission.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/en/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
 INFORMATION: en/annexe_mapping_xds_fhir.html: No conformance term found in the text: 3.4.26) encodé en hexadécimal (hexBinary, IHE ITI TF Vol. 3 
-INFORMATION: en/annexe_mapping_xds_fhir.html: No conformance term found in the text: 3.4.52, lot 
-ERROR: en/annexe_mapping_xds_fhir.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 416, column 624: The link 'https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html' for "base64Binary" cannot be resolved
+ERROR: en/annexe_mapping_xds_fhir.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 415, column 624: The link 'https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html' for "base64Binary" cannot be resolved
 WARNING: en/change-log.html#/html/body/div/div/div/div/div/p/a at Line 306, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 308, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/p/a at Line 310, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
@@ -76,8 +75,7 @@ ERROR: en/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at L
 ERROR: en/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 339, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/output/fr/StructureDefinition-AuthorInstitution.html: Illegal HTML: illegal html element: Slot ( n’est pas transmis.)
 INFORMATION: fr/annexe_mapping_xds_fhir.html: No conformance term found in the text: 3.4.26) encodé en hexadécimal (hexBinary, IHE ITI TF Vol. 3 
-INFORMATION: fr/annexe_mapping_xds_fhir.html: No conformance term found in the text: 3.4.52, lot 
-ERROR: fr/annexe_mapping_xds_fhir.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 409, column 624: The link 'https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html' for "base64Binary" cannot be resolved
+ERROR: fr/annexe_mapping_xds_fhir.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 408, column 624: The link 'https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html' for "base64Binary" cannot be resolved
 WARNING: fr/change-log.html#/html/body/div/div/div/div/div/p/a at Line 299, column 11: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp' for "https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp" is a canonical link and is therefore unsafe with regard to versions
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 301, column 48: The link 'package.tgz' for "téléchargeable ici" cannot be resolved
 ERROR: fr/downloads.html#/html/body/div/div/div/div/div/p/a at Line 303, column 44: The link 'package.tgz' for "package.tgz" cannot be resolved
