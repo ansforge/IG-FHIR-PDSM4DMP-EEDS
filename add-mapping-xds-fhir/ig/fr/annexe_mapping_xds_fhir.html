@@ -296,7 +296,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#associations-volet-pds-33--documentreferencerelatesto" id="markdown-toc-associations-volet-pds-33--documentreferencerelatesto">Associations (volet PDS &sect;3.3) → DocumentReference.relatesTo</a></li>
   <li><a href="#cas-de-correspondance-incomplète--availabilitystatus--status" id="markdown-toc-cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</a></li>
   <li><a href="#synthèse-des-orphelins-points-ouverts" id="markdown-toc-synthèse-des-orphelins-points-ouverts">Synthèse des orphelins (points ouverts)</a></li>
-  <li><a href="#éléments-fhir-sans-source-xds-draft" id="markdown-toc-éléments-fhir-sans-source-xds-draft">Éléments FHIR sans source XDS (draft)</a></li>
+  <li><a href="#éléments-fhir-sans-source-xds-draft-généré-par-claude" id="markdown-toc-éléments-fhir-sans-source-xds-draft-généré-par-claude">Éléments FHIR sans source XDS (draft généré par Claude)</a></li>
 </ul>
 
 </div>
@@ -718,7 +718,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 <ol>
   <li><code class="language-plaintext highlighter-rouge">logicalID</code> (fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> de ressource sous PATCH (<code class="language-plaintext highlighter-rouge">version</code> lui-même est correctement couvert par <code class="language-plaintext highlighter-rouge">meta.versionId</code>, cf. section dédiée).</li>
   <li><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code> (fiche) — pas de champ FHIR dédié ni d'extension déclarée dans le profil ; couvert implicitement par <code class="language-plaintext highlighter-rouge">content.attachment.url</code> (référence vers la ressource <code class="language-plaintext highlighter-rouge">Binary</code>).</li>
-  <li><code class="language-plaintext highlighter-rouge">documentAvailability</code> (fiche) — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.</li>
+  <li><code class="language-plaintext highlighter-rouge">documentAvailability</code> (fiche) — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible. Non utilisé par le DMP donc pas d'impact.</li>
   <li><code class="language-plaintext highlighter-rouge">homeCommunityId</code> (fiche <span class="fhir-conformance">3.4.52, lot </span><span class="fhir-conformance">3.4.52, lot </span></li>
   <li><code class="language-plaintext highlighter-rouge">availabilityStatus = Deleted</code> — extension nationale sans valeur <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> autorisée par le binding MHD (<code class="language-plaintext highlighter-rouge">Archived</code> est déjà couvert par l'extension <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code>).</li>
   <li>Attributs d'association ebRIM (<code class="language-plaintext highlighter-rouge">SubmissionSetStatus</code>, <code class="language-plaintext highlighter-rouge">PreviousVersion</code>, <code class="language-plaintext highlighter-rouge">OriginalStatus</code>/<code class="language-plaintext highlighter-rouge">NewStatus</code>, <code class="language-plaintext highlighter-rouge">associationPropagation</code>).</li>
@@ -729,7 +729,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   <p><strong>Question ouverte</strong> — Pour chacun de ces points, quel traitement retenir : extension dédiée, exclusion motivée du périmètre, ou prise en charge par un mécanisme transactionnel (Bundle / opération) plutôt que par un élément de ressource ?</p>
 </div>
 
-<h3 id="éléments-fhir-sans-source-xds-draft">Éléments FHIR sans source XDS (draft)</h3>
+<h3 id="éléments-fhir-sans-source-xds-draft-généré-par-claude">Éléments FHIR sans source XDS (draft généré par Claude)</h3>
 
 <p>Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :</p>
 
@@ -844,7 +844,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-23 15:36:00 +0000">
+  <span title="2026-07-23 15:39:00 +0000">
     2026-07-23
   </span>
 
