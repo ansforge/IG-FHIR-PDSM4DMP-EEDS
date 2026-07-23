@@ -429,7 +429,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
       <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">id</code> de la ressource</td>
-      <td>⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> sous PATCH (cf. note ci-dessous)</td>
+      <td>⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> (cf. note ci-dessous)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">mimeType</code></td>
@@ -448,13 +448,13 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">referenceIdList</code></td>
-      <td><code class="language-plaintext highlighter-rouge">context.related</code></td>
+      <td><code class="language-plaintext highlighter-rouge">context.related</code> (slice <code class="language-plaintext highlighter-rouge">referenceIdList</code>)</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
-      <td>⚠️ extension MHD héritée, sans utilité en FHIR pur</td>
+      <td><em>(implicite)</em> dérivé de <code class="language-plaintext highlighter-rouge">content.attachment.url</code> (référence vers la ressource <code class="language-plaintext highlighter-rouge">Binary</code> : <code class="language-plaintext highlighter-rouge">Binary/[id]</code>)</td>
+      <td>⚠️ pas de champ dédié — l'identité du dépôt est portée implicitement par l'URL de la ressource <code class="language-plaintext highlighter-rouge">Binary</code>, pas par une métadonnée explicite (aucune extension déclarée dans le profil pour cet attribut)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">serviceStartTime</code> / <code class="language-plaintext highlighter-rouge">serviceStopTime</code></td>
@@ -467,8 +467,13 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">sourcePatientId</code> / <code class="language-plaintext highlighter-rouge">sourcePatientInfo</code></td>
-      <td><code class="language-plaintext highlighter-rouge">context.sourcePatientInfo</code> (+ <code class="language-plaintext highlighter-rouge">.identifier</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">sourcePatientId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">context.sourcePatientInfo.identifier</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sourcePatientInfo</code></td>
+      <td><code class="language-plaintext highlighter-rouge">context.sourcePatientInfo.reference</code></td>
       <td>✅</td>
     </tr>
     <tr>
@@ -477,13 +482,13 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
       <td>✅</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">typeCode</code> (+ Display / codingScheme)</td>
+      <td><code class="language-plaintext highlighter-rouge">typeCode</code></td>
       <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>✅</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">masterIdentifier</code> + <code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">masterIdentifier</code></td>
       <td>✅</td>
     </tr>
     <tr>
@@ -494,7 +499,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
       <td><code class="language-plaintext highlighter-rouge">meta.versionId</code></td>
-      <td>✅ (contrainte ajoutée par PDSm, non héritée de MHD) — le profil PDSm définit <code class="language-plaintext highlighter-rouge">meta.versionId</code> comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour</td>
+      <td>✅ le profil PDSm définit <code class="language-plaintext highlighter-rouge">meta.versionId</code> comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour</td>
     </tr>
   </tbody>
 </table>
@@ -510,7 +515,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   <li><strong>PDSm</strong> modélise la même opération par un <strong>PATCH sur la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> existante</strong> (TD3.3a/TD3.3b/TD3.3c) : <code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois.</li>
 </ul>
 
-<p>Conséquence : <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code> ; <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> de la ressource sous PATCH, plutôt que portée par une métadonnée explicite.</p>
+<p>Conséquence : <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code> ; <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code>.</p>
 
 <h3 id="métadonnées-xds-dun-lot-de-soumission-35--list-submissionset">Métadonnées XDS d'un lot de soumission (&sect;3.5) → List (SubmissionSet)</h3>
 
@@ -915,7 +920,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-23 12:12:00 +0000">
+  <span title="2026-07-23 13:40:00 +0000">
     2026-07-23
   </span>
 
