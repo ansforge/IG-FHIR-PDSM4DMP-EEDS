@@ -323,13 +323,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant technique affecté par le SI DMP à une version de métadonnées d'un document. Change à chaque nouvelle version du document (remplacement) et à chaque modification de métadonnées (masquage/démasquage aux PS, remise en visibilité patient ou RL).</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>) — cf. le <a href="https://hl7.org/fhir/R4/documentreference-mappings.html#xds">tableau de correspondance XDS officiel de la ressource FHIR</a> (<code class="language-plaintext highlighter-rouge">identifier</code> → <code class="language-plaintext highlighter-rouge">DocumentEntry.entryUUID</code>)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalId</code></td>
-      <td>Identifier</td>
-      <td>Identifiant technique affecté par le SI DMP à un document (identique pour toutes ses versions de métadonnées). Change à chaque nouvelle version du document (remplacement) mais reste identique à chaque modification de métadonnées.</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">logicalID</code></td>
+      <td>UUID</td>
+      <td>Identifiant technique invariable pour toutes les versions de métadonnées d'un même document, à la différence de <code class="language-plaintext highlighter-rouge">entryUUID</code> (cf. volet CI-SIS §3.4.54).</td>
+      <td><em>(implicite)</em> — aucun champ dédié ; l'invariance est assurée par <code class="language-plaintext highlighter-rouge">DocumentReference.id</code>, l'identifiant logique de la ressource, qui ne change jamais tant que la ressource existe</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
@@ -390,13 +390,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant unique du lot de soumission dans le registre.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td>OID / UUID</td>
       <td>Identifiant unique du lot attribué par le système source.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">sourceId</code></td>
@@ -435,13 +435,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant unique du classeur dans le registre.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td>OID / UUID</td>
       <td>Identifiant unique du classeur attribué par le producteur.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
@@ -482,7 +482,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td><strong>Équivalent FHIR</strong></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference.masterIdentifier</code></td>
     </tr>
     <tr>
@@ -547,7 +547,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 09:49:00 +0000">
+  <span title="2026-07-23 12:12:00 +0000">
     2026-07-23
   </span>
 
