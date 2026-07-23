@@ -38,7 +38,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `formatCode` | `content.format` | ✅ |
 | `hash` | `content.attachment.hash` | ✅ — conversion hex → base64 requise (`hash`XDS est de type[SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf)(§3.4.26) encodé en[hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html)(`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ;`content.attachment.hash`est de type[`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
 | `healthcareFacilityTypeCode` | `context.facilityType` | ✅ |
-| `homeCommunityId` | — | ❌ orphelin — A noter que le volet PDS (§3.4.52) précise que cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA, et qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.4.52) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `languageCode` | `content.attachment.language` | ✅ |
 | `legalAuthenticator` | `authenticator` | ✅ |
 | `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id`(cf. note ci-dessous) |
@@ -70,24 +70,7 @@ Conséquence : `version` est correctement repris par `meta.versionId` ; `logical
 
 Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html).
 
-| | | |
-| :--- | :--- | :--- |
-| `author` | `List.source`(élément unique, [1..1] — non répétable, à la différence de`DocumentReference.author`) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
-| `authorPerson` | `source`→`.practitioner`d'un`PractitionerRole`**contained** | ❌ pas de correspondance possible en l'état — même problème que pour la métadonnée équivalente de la fiche (cf. §3.4.3, renvoi explicite en §3.5.3) : le`Practitioner`référencé par`.practitioner`ne peut pas être imbriqué dans le`PractitionerRole`déjà`contained`(cf.`dom-2`), il devrait être ajouté séparément dans`contained[]`, ce que PDSm ne documente pas aujourd'hui. Décontrainte de PDSm nécessaire |
-| `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)``{c}`[0..1] | ✅ |
-| `authorRole` | `source`→`PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec`CodeableConcept` |
-| `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ — élément codé côté XDS (type`CE`, cf. §3.5.5) |
-| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète —`Archived`national via`PDSm_isArchived` |
-| `comments` | `note` | ✅ |
-| `contentTypeCode`(+ Display / codingScheme) | `code`(+ extension`designationType`) | ✅ |
-| `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | ✅ |
-| `intendedRecipient` | extension`intendedRecipient`(`PDSm_intendedRecipient`) | ✅ |
-| `patientId` | `subject` | ✅ |
-| `sourceId` | extension`sourceId` | ✅ |
-| `submissionTime` | `date` | ✅ |
-| `title` | `title` | ✅ |
-| `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
+| Attribut XDS (volet PDS §3.5) | Élément FHIR | Statut | |—|—|—| | `author` | `List.source` (élément unique, [1..1] — non répétable, à la différence de `DocumentReference.author`) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)` `{c}` (ressource contenue) | ✅ | | `authorPerson` | `source.reference `contained[]` | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? | | `authorInstitution` | `source.extension:authorOrg` → `Reference(AS Organization Profile)` `{c}` [0..1] | ✅ | | `authorRole` | `source` → `PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec `CodeableConcept` | | `authorSpecialty` | `source` → `PractitionerRole.specialty` (dans la même ressource *contained*) | ✅ | | `availabilityStatus` | `status` (ValueSet FHIR `required`) | ⚠️ correspondance incomplète — `Archived` => utilisation de l'extension `PDSm_isArchived` | | `comments` | `note` | ✅ | | `contentTypeCode` (+ Display / codingScheme) | extension `designationType` (`.value[x]` : `CodeableConcept`, lié à `JDV_J03_XdsContentTypeCode_CISIS`) | ✅ | | `entryUUID` | `identifier` (slice `entryUUID`) | ✅ | | `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.5.19) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » | | `intendedRecipient` | extension `intendedRecipient` (`PDSm_intendedRecipient`) | ✅ | | `patientId` | `subject` | ✅ | | `sourceId` | extension `sourceId` | ✅ | | `submissionTime` | `date` | ✅ | | `title` | `title` | ✅ | | `uniqueId` | `identifier` (slice `uniqueId`) | ✅ |
 
 Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
 
@@ -98,10 +81,10 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 | | | |
 | :--- | :--- | :--- |
 | `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète (invariable`Approved`au CI-SIS actuel) |
-| `codeList`(+ Code / Display / codingScheme) | `code`(+ extension`designationType`) | ✅ |
+| `codeList`(+ Code / Display / codingScheme) | extension`designationType`(`.value[x]`:`CodeableConcept`, jeu de valeurs laissé au système cible) | ✅ —`List.code`n'y est pour rien : c'est une valeur fixe (`folder`) sans rapport avec`codeList`, cf. section « Éléments FHIR sans source XDS » |
 | `comments` | `note` | ✅ |
 | `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
-| `homeCommunityId` | extension`homeCommunityId` | ✅ |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.6.12) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `lastUpdateTime` | `date` | ✅ |
 | `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche |
 | `patientId` | `subject` | ✅ |

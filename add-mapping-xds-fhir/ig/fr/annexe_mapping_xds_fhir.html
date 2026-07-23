@@ -414,7 +414,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
       <td>—</td>
-      <td>❌ orphelin —  A noter que le volet PDS (&sect;3.4.52) précise que cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA, et qu'elle « n'est pas utilisée par les transactions décrites dans ce volet »</td>
+      <td>❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (&sect;3.4.52) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet »</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">languageCode</code></td>
@@ -521,97 +521,24 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
 
 <p>Profil cible : <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm_SubmissionSetComprehensive</a>.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Attribut XDS (volet PDS &sect;3.5)</th>
-      <th>Élément FHIR</th>
-      <th>Statut</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td><code class="language-plaintext highlighter-rouge">List.source</code> (élément unique, [1..1] — non répétable, à la différence de <code class="language-plaintext highlighter-rouge">DocumentReference.author</code>) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue)</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">.practitioner</code> d'un <code class="language-plaintext highlighter-rouge">PractitionerRole</code> <em>contained</em></td>
-      <td>❌ pas de correspondance possible en l'état — même problème que pour la métadonnée équivalente de la fiche (cf. <span class="fhir-conformance">3.4.3, renvoi explicite en </span><span class="fhir-conformance">3.4.3, renvoi explicite en </span><code class="language-plaintext highlighter-rouge">Practitioner</code> référencé par <code class="language-plaintext highlighter-rouge">.practitioner</code> ne peut pas être imbriqué dans le <code class="language-plaintext highlighter-rouge">PractitionerRole</code> déjà <code class="language-plaintext highlighter-rouge">contained</code> (cf. <code class="language-plaintext highlighter-rouge">dom-2</code>), il devrait être ajouté séparément dans <code class="language-plaintext highlighter-rouge">contained[]</code>, ce que PDSm ne documente pas aujourd'hui. Décontrainte de PDSm nécessaire</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source.extension:authorOrg</code> → <code class="language-plaintext highlighter-rouge">Reference(AS Organization Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> [0..1]</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.code</code></td>
-      <td>⚠️ texte libre côté XDS (cf. &sect;3.5.4, même définition que pour la fiche) — correspondance approximative avec <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">authorSpecialty</code></td>
-      <td><code class="language-plaintext highlighter-rouge">source</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.specialty</code> (dans la même ressource <em>contained</em>)</td>
-      <td>✅ — élément codé côté XDS (type <code class="language-plaintext highlighter-rouge">CE</code>, cf. &sect;3.5.5)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
-      <td><code class="language-plaintext highlighter-rouge">status</code> (ValueSet FHIR <code class="language-plaintext highlighter-rouge">required</code>)</td>
-      <td>⚠️ correspondance incomplète — <code class="language-plaintext highlighter-rouge">Archived</code> national via <code class="language-plaintext highlighter-rouge">PDSm_isArchived</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">comments</code></td>
-      <td><code class="language-plaintext highlighter-rouge">note</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">contentTypeCode</code> (+ Display / codingScheme)</td>
-      <td><code class="language-plaintext highlighter-rouge">code</code> (+ extension <code class="language-plaintext highlighter-rouge">designationType</code>)</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">intendedRecipient</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">intendedRecipient</code> (<code class="language-plaintext highlighter-rouge">PDSm_intendedRecipient</code>)</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">subject</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sourceId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">sourceId</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">submissionTime</code></td>
-      <td><code class="language-plaintext highlighter-rouge">date</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">title</code></td>
-      <td><code class="language-plaintext highlighter-rouge">title</code></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
-      <td>✅</td>
-    </tr>
-  </tbody>
-</table>
+<p>| Attribut XDS (volet PDS &sect;3.5) | Élément FHIR | Statut |
+|—|—|—|
+| <code class="language-plaintext highlighter-rouge">author</code> | <code class="language-plaintext highlighter-rouge">List.source</code> (élément unique, [1..1] — non répétable, à la différence de <code class="language-plaintext highlighter-rouge">DocumentReference.author</code>) — <code class="language-plaintext highlighter-rouge">Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)</code> <code class="language-plaintext highlighter-rouge">{c}</code> (ressource contenue) | ✅ |
+| <code class="language-plaintext highlighter-rouge">authorPerson</code> | <code class="language-plaintext highlighter-rouge">source.reference </code>contained[]<code class="language-plaintext highlighter-rouge"> | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
+| </code>authorInstitution<code class="language-plaintext highlighter-rouge"> | </code>source.extension:authorOrg<code class="language-plaintext highlighter-rouge"> → </code>Reference(AS Organization Profile)<code class="language-plaintext highlighter-rouge"> </code>{c}<code class="language-plaintext highlighter-rouge"> [0..1] | ✅ |
+| </code>authorRole<code class="language-plaintext highlighter-rouge"> | </code>source<code class="language-plaintext highlighter-rouge"> → </code>PractitionerRole.code<code class="language-plaintext highlighter-rouge"> | ⚠️ texte libre côté XDS (cf. &sect;3.5.4, même définition que pour la fiche) — correspondance approximative avec </code>CodeableConcept<code class="language-plaintext highlighter-rouge"> |
+| </code>authorSpecialty<code class="language-plaintext highlighter-rouge"> | </code>source<code class="language-plaintext highlighter-rouge"> → </code>PractitionerRole.specialty<code class="language-plaintext highlighter-rouge"> (dans la même ressource *contained*) | ✅ |
+| </code>availabilityStatus<code class="language-plaintext highlighter-rouge"> | </code>status<code class="language-plaintext highlighter-rouge"> (ValueSet FHIR </code>required<code class="language-plaintext highlighter-rouge">) | ⚠️ correspondance incomplète — </code>Archived<code class="language-plaintext highlighter-rouge"> =&gt; utilisation de l'extension  </code>PDSm_isArchived<code class="language-plaintext highlighter-rouge"> |
+| </code>comments<code class="language-plaintext highlighter-rouge"> | </code>note<code class="language-plaintext highlighter-rouge"> | ✅ |
+| </code>contentTypeCode<code class="language-plaintext highlighter-rouge"> (+ Display / codingScheme) | extension </code>designationType<code class="language-plaintext highlighter-rouge"> (</code>.value[x]<code class="language-plaintext highlighter-rouge"> : </code>CodeableConcept<code class="language-plaintext highlighter-rouge">, lié à </code>JDV_J03_XdsContentTypeCode_CISIS<code class="language-plaintext highlighter-rouge">) | ✅ |
+| </code>entryUUID<code class="language-plaintext highlighter-rouge"> | </code>identifier<code class="language-plaintext highlighter-rouge"> (slice </code>entryUUID<code class="language-plaintext highlighter-rouge">) | ✅ |
+| </code>homeCommunityId<code class="language-plaintext highlighter-rouge"> | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (&sect;3.5.19) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| </code>intendedRecipient<code class="language-plaintext highlighter-rouge"> | extension </code>intendedRecipient<code class="language-plaintext highlighter-rouge"> (</code>PDSm_intendedRecipient<code class="language-plaintext highlighter-rouge">) | ✅ |
+| </code>patientId<code class="language-plaintext highlighter-rouge"> | </code>subject<code class="language-plaintext highlighter-rouge"> | ✅ |
+| </code>sourceId<code class="language-plaintext highlighter-rouge"> | extension </code>sourceId<code class="language-plaintext highlighter-rouge"> | ✅ |
+| </code>submissionTime<code class="language-plaintext highlighter-rouge"> | </code>date<code class="language-plaintext highlighter-rouge"> | ✅ |
+| </code>title<code class="language-plaintext highlighter-rouge"> | </code>title<code class="language-plaintext highlighter-rouge"> | ✅ |
+| </code>uniqueId<code class="language-plaintext highlighter-rouge"> | </code>identifier<code class="language-plaintext highlighter-rouge"> (slice </code>uniqueId`) | ✅ |</p>
 
 <p>Aucun orphelin au niveau du lot : tous les attributs du &sect;3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = submissionset</code> ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).</p>
 
@@ -635,8 +562,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">codeList</code> (+ Code / Display / codingScheme)</td>
-      <td><code class="language-plaintext highlighter-rouge">code</code> (+ extension <code class="language-plaintext highlighter-rouge">designationType</code>)</td>
-      <td>✅</td>
+      <td>extension <code class="language-plaintext highlighter-rouge">designationType</code> (<code class="language-plaintext highlighter-rouge">.value[x]</code> : <code class="language-plaintext highlighter-rouge">CodeableConcept</code>, jeu de valeurs laissé au système cible)</td>
+      <td>✅ — <code class="language-plaintext highlighter-rouge">List.code</code> n'y est pour rien : c'est une valeur fixe (<code class="language-plaintext highlighter-rouge">folder</code>) sans rapport avec <code class="language-plaintext highlighter-rouge">codeList</code>, cf. section « Éléments FHIR sans source XDS »</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">comments</code></td>
@@ -650,8 +577,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>extension <code class="language-plaintext highlighter-rouge">homeCommunityId</code></td>
-      <td>✅</td>
+      <td>—</td>
+      <td>❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (&sect;3.6.12) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet »</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">lastUpdateTime</code></td>
@@ -920,7 +847,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-23 13:40:00 +0000">
+  <span title="2026-07-23 14:54:00 +0000">
     2026-07-23
   </span>
 
