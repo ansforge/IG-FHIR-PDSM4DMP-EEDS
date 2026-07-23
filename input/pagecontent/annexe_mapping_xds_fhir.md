@@ -8,7 +8,7 @@ Elle répond à un besoin précis : les tables de correspondance publiées par H
 #### Aide à la lecture des tableaux de mapping
 
 <div class="stu-note">
-Légende du statut : ✅ correspondance directe — ⚠️ correspondance non certaine ou via extension — ❌ attribut sans cible FHIR (orphelin).
+Légende du statut : ✅ correspondance directe — ⚠️ correspondance non certaine ou incomplète — ❌ attribut sans cible FHIR (orphelin).
 </div>
 
 ### Métadonnées XDS d'une fiche (§3.4) → DocumentReference
@@ -71,7 +71,7 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | Attribut XDS (volet PDS §3.5) | Élément FHIR | Statut |
 |---|---|---|
 | `author` | `List.source` (élément unique, [1..1] — non répétable, à la différence de `DocumentReference.author`) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)` `{c}` (ressource contenue) | ✅ |
-| `authorPerson` | `source.reference `contained[]` | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
+| `authorPerson` | `source` → `PractitionerRole.practitioner` (ressource contenue) | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
 | `authorInstitution` | `source.extension:authorOrg` → `Reference(AS Organization Profile)` `{c}` [0..1] | ✅ |
 | `authorRole` | `source` → `PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec `CodeableConcept` |
 | `authorSpecialty` | `source` → `PractitionerRole.specialty` (dans la même ressource *contained*) | ✅ |
