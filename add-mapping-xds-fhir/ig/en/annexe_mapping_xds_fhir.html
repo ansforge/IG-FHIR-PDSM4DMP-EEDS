@@ -340,13 +340,13 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorPerson</code></td>
-      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">.practitioner</code> d'un <code class="language-plaintext highlighter-rouge">PractitionerRole</code> <em>contained</em></td>
-      <td>❌ pas de correspondance possible en l'état — le <code class="language-plaintext highlighter-rouge">Practitioner</code> référencé par <code class="language-plaintext highlighter-rouge">.practitioner</code> ne peut pas être imbriqué <em>dans</em> le <code class="language-plaintext highlighter-rouge">PractitionerRole</code> lui-même déjà <code class="language-plaintext highlighter-rouge">contained</code> (cf. <a href="https://hl7.org/fhir/R4/references.html#contained">dom-2</a> : <em>« Contained resources SHALL NOT contain additional contained resources »</em>) : il devrait être ajouté séparément, au même niveau, directement dans <code class="language-plaintext highlighter-rouge">DocumentReference.contained[]</code>. Or PDSm ne documente comme cibles <code class="language-plaintext highlighter-rouge">contained</code> de <code class="language-plaintext highlighter-rouge">author</code> que les ressources listées explicitement (AS PractitionerRole Profile, Device, FR Core Patient Profile) — rien n'y prévoit qu'un <code class="language-plaintext highlighter-rouge">Practitioner</code> puisse être ajouté à <code class="language-plaintext highlighter-rouge">contained</code> uniquement pour être référencé <em>depuis</em> une autre ressource contenue (le <code class="language-plaintext highlighter-rouge">PractitionerRole</code>). Il faudrait que PDSm décontraigne son profil pour autoriser explicitement cet usage de <code class="language-plaintext highlighter-rouge">Practitioner</code> en ressource contenue</td>
+      <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.practitioner</code></td>
+      <td>⚠️ pas de correspondance complète — le <code class="language-plaintext highlighter-rouge">Practitioner</code> est juste référencé par <code class="language-plaintext highlighter-rouge">.practitioner</code>. Les composants de la metadonnée ne seront pas directement définies dans DocumentReference. PDSm ne documente comme cibles <code class="language-plaintext highlighter-rouge">contained</code> de <code class="language-plaintext highlighter-rouge">author</code> que les ressources listées explicitement (AS PractitionerRole Profile, Device, FR Core Patient Profile) — rien n'y prévoit qu'un <code class="language-plaintext highlighter-rouge">Practitioner</code> puisse être ajouté à <code class="language-plaintext highlighter-rouge">contained</code> uniquement pour être référencé <em>depuis</em> une autre ressource contenue (le <code class="language-plaintext highlighter-rouge">PractitionerRole</code>). Il faudrait peut être que PDSm décontraigne son profil pour autoriser explicitement cet usage de <code class="language-plaintext highlighter-rouge">Practitioner</code> en ressource contenue</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorInstitution</code></td>
       <td><code class="language-plaintext highlighter-rouge">author</code> → <code class="language-plaintext highlighter-rouge">PractitionerRole.organization</code></td>
-      <td>❌ même problème que pour <code class="language-plaintext highlighter-rouge">authorPerson</code> : <code class="language-plaintext highlighter-rouge">Organization</code> ne peut pas être imbriquée dans le <code class="language-plaintext highlighter-rouge">PractitionerRole</code> (cf. <code class="language-plaintext highlighter-rouge">dom-2</code>), elle devrait être ajoutée séparément dans <code class="language-plaintext highlighter-rouge">contained[]</code>, ce que PDSm ne documente pas aujourd'hui pour cet usage. Décontrainte de PDSm nécessaire, symétrique à celle requise pour <code class="language-plaintext highlighter-rouge">authorPerson</code></td>
+      <td>⚠️ même problèmatique que pour <code class="language-plaintext highlighter-rouge">authorPerson</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorRole</code></td>
@@ -411,7 +411,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td><a name="l966">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l927">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -922,8 +922,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-22 16:56:00 +0000">
-    2026-07-22
+  <span title="2026-07-23 09:49:00 +0000">
+    2026-07-23
   </span>
 
           <br/>
