@@ -146,7 +146,7 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 
 1. `logicalID` (fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'`id` de ressource sous PATCH (`version` lui-même est correctement couvert par `meta.versionId`, cf. section dédiée).
 2. `repositoryUniqueId` (fiche) — pas de champ FHIR dédié ni d'extension déclarée dans le profil ; couvert implicitement par `content.attachment.url` (référence vers la ressource `Binary`).
-3. `documentAvailability` (fiche) — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.
+3. `documentAvailability` (fiche) — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible. Non utilisé par le DMP donc pas d'impact.
 4. `homeCommunityId` (fiche §3.4.52, lot §3.5.19, classeur §3.6.12) — orphelin dans les trois tableaux : cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités inter-communautés du profil XCA, hors périmètre des transactions décrites dans le volet. Donc pas d'impact.
 5. `availabilityStatus = Deleted` — extension nationale sans valeur `DocumentReference.status` autorisée par le binding MHD (`Archived` est déjà couvert par l'extension `PDSm_isArchived`).
 6. Attributs d'association ebRIM (`SubmissionSetStatus`, `PreviousVersion`, `OriginalStatus`/`NewStatus`, `associationPropagation`).
@@ -156,7 +156,7 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 **Question ouverte** — Pour chacun de ces points, quel traitement retenir : extension dédiée, exclusion motivée du périmètre, ou prise en charge par un mécanisme transactionnel (Bundle / opération) plutôt que par un élément de ressource ?
 </div>
 
-### Éléments FHIR sans source XDS (draft)
+### Éléments FHIR sans source XDS (draft généré par Claude)
 
 Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
 
