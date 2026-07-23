@@ -90,7 +90,7 @@ Ce guide couvre les transactions DMP réalisées par un Logiciel de Professionne
 | Masquer / démasquer aux professionnels | TD3.3a | ITI-57 Update DocumentEntry Metadata | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH (conditional, sur identifiant métier) de`DocumentReference.securityLabel` |
 | Visibilité patient / représentants légaux | TD3.3b | ITI-57 Update DocumentEntry Metadata | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de`DocumentReference.securityLabel` |
 | Archiver / désarchiver | TD3.3d | ITI-57 —`availabilityStatus`=`urn:asip:ci-sis:2010:StatusType:Archived` | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de l'extension`PDSm_isArchived`(booléen) sur`DocumentReference`/`List` |
-| Supprimer un document (suppression logique) | TD3.3c | ITI-57 —`availabilityStatus`=`urn:asip:ci-sis:2010:StatusType:Deleted` | Flux 03 — mise à jour des métadonnées (PATCH) | HTTP PATCH de`DocumentReference.status`→`superseded`(dépublication). Pas de suppression physique (`DELETE`absent dans MHD). RMD (ITI-62/86)**non utilisé**par le DMP |
+| Supprimer un document (suppression logique) | TD3.3c | ITI-57 —`availabilityStatus`=`urn:asip:ci-sis:2010:StatusType:Deleted` | Flux 03 — mise à jour des métadonnées (PATCH) | **Question ouverte, non tranchée**— cf.[annexe de mapping XDS/FHIR](annexe_mapping_xds_fhir.md#cas-de-correspondance-incompl%C3%A8te--availabilitystatus--status)et[issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99):`superseded`ne rend pas fidèlement compte d'une dépublication (à la différence d'un remplacement). Pas de suppression physique (`DELETE`absent dans MHD). RMD (ITI-62/86)**non utilisé**par le DMP |
 
 ### Dépendances
 

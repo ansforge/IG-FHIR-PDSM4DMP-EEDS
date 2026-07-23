@@ -530,7 +530,7 @@ This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to
       <td>TD3.3c</td>
       <td>ITI-57 — <code class="language-plaintext highlighter-rouge">availabilityStatus</code> = <code class="language-plaintext highlighter-rouge">urn:asip:ci-sis:2010:StatusType:Deleted</code></td>
       <td>Flux 03 — mise à jour des métadonnées (PATCH)</td>
-      <td>HTTP PATCH de <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> → <code class="language-plaintext highlighter-rouge">superseded</code> (dépublication). Pas de suppression physique (<code class="language-plaintext highlighter-rouge">DELETE</code> absent dans MHD). RMD (ITI-62/86) <strong>non utilisé</strong> par le DMP</td>
+      <td><strong>Question ouverte, non tranchée</strong> — cf. <a href="annexe_mapping_xds_fhir.html#cas-de-correspondance-incompl%C3%A8te--availabilitystatus--status">annexe de mapping XDS/FHIR</a> et <a href="https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99">issue PDSm #99</a> : <code class="language-plaintext highlighter-rouge">superseded</code> ne rend pas fidèlement compte d'une dépublication (à la différence d'un remplacement). Pas de suppression physique (<code class="language-plaintext highlighter-rouge">DELETE</code> absent dans MHD). RMD (ITI-62/86) <strong>non utilisé</strong> par le DMP</td>
     </tr>
   </tbody>
 </table>
@@ -685,7 +685,7 @@ This Implementation Guide describes how to use PDSm (FHIR-based Mobile access to
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 15:33:00 +0000">
+  <span title="2026-07-23 15:36:00 +0000">
     2026-07-23
   </span>
 

@@ -390,7 +390,7 @@ Accept: application/fhir+json
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code> (identifiant technique DMP)</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code> (identifiant LPS)</td>
@@ -407,7 +407,7 @@ Accept: application/fhir+json
 Accept: application/fhir+json
 </code></pre></div></div>
 
-<p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code> contenant le <code class="language-plaintext highlighter-rouge">DocumentReference</code> trouvé. L’<code class="language-plaintext highlighter-rouge">entryUUID</code> est lu dans <code class="language-plaintext highlighter-rouge">DocumentReference.id</code>.</p>
+<p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code> contenant le <code class="language-plaintext highlighter-rouge">DocumentReference</code> trouvé. L’<code class="language-plaintext highlighter-rouge">entryUUID</code> est lu dans <code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>).</p>
 
 <p><a href="DocumentReference-doc-x-id.html">Voir l’exemple : DocumentReference - Recherche par identifiant (TD3.1b)</a></p>
 
@@ -459,7 +459,7 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-23 15:33:00 +0000">
+  <span title="2026-07-23 15:36:00 +0000">
     2026-07-23
   </span>
 
