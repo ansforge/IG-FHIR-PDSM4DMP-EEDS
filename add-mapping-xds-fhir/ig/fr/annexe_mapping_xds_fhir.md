@@ -77,13 +77,13 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 
 | | | |
 | :--- | :--- | :--- |
-| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète (invariable`Approved`au CI-SIS actuel) |
-| `codeList`(+ Code / Display / codingScheme) | extension`designationType`(`.value[x]`:`CodeableConcept`, jeu de valeurs laissé au système cible) | ✅ —`List.code`n'y est pour rien : c'est une valeur fixe (`folder`) sans rapport avec`codeList`, cf. section « Éléments FHIR sans source XDS » |
+| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance asymétrique — côté XDS,`Approved`est la**seule valeur autorisée**pour un classeur (§3.6.1, restriction française), donc sans perte vers`current`; mais`List.status`n'est pas fixé par le profil PDSm |
+| `codeList` | extension`designationType` | ✅ |
 | `comments` | `note` | ✅ |
 | `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
 | `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.6.12) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `lastUpdateTime` | `date` | ✅ |
-| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche |
+| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche? |
 | `patientId` | `subject` | ✅ |
 | `title` | `title` | ✅ |
 | `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
@@ -124,13 +124,15 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 ### Synthèse des orphelins (points ouverts)
 
 1. `logicalID`(fiche et classeur) — pas de champ FHIR dédié ; couvert implicitement par la stabilité de l'`id`de ressource sous PATCH (`version`lui-même est correctement couvert par`meta.versionId`, cf. section dédiée).
-1. `documentAvailability`— accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.
+1. `repositoryUniqueId`(fiche) — pas de champ FHIR dédié ni d'extension déclarée dans le profil ; couvert implicitement par`content.attachment.url`(référence vers la ressource`Binary`).
+1. `documentAvailability`(fiche) — accessibilité en ligne/hors-ligne du document, optionnelle, renseignée par le système cible.
+1. `homeCommunityId`(fiche §3.4.52, lot §3.5.19, classeur §3.6.12) — orphelin dans les trois tableaux : cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités inter-communautés du profil XCA, hors périmètre des transactions décrites dans le volet. Donc pas d'impact.
 1. `availabilityStatus = Deleted`— extension nationale sans valeur`DocumentReference.status`autorisée par le binding MHD (`Archived`est déjà couvert par l'extension`PDSm_isArchived`).
 1. Attributs d'association ebRIM (`SubmissionSetStatus`,`PreviousVersion`,`OriginalStatus`/`NewStatus`,`associationPropagation`).
 
 **Question ouverte** — Pour chacun de ces points, quel traitement retenir : extension dédiée, exclusion motivée du périmètre, ou prise en charge par un mécanisme transactionnel (Bundle / opération) plutôt que par un élément de ressource ?
 
-### Éléments FHIR sans source XDS
+### Éléments FHIR sans source XDS (draft)
 
 Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
 
@@ -138,11 +140,10 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
 | :--- | :--- | :--- |
 | `List.mode`=`working`(valeur fixée) | `List`(lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
 | `List.code.coding`=`submissionset`/`folder`(system + code fixés) | `List`(lot, classeur) | Contrainte MHD distinguant les deux types de`List` |
-| `List.status` | `List`(lot, classeur) | Élément FHIR requis pilotant le cycle de vie de la ressource, sans attribut XDS dédié |
 | `contained`(≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources`author`/`authenticator`doivent être contenues |
 | `context`(1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`,`healthcareFacilityTypeCode`,`practiceSettingCode`,`serviceStartTime`/`serviceStopTime`,`referenceIdList`,`sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
 | `context.encounter` | `DocumentReference` | Mappé par MHD vers l'extension`ihe:iti:xds:2015:encounterId`du supplément IHE ITI XDS (2015) — cet attribut n'existe pas dans le volet CI-SIS Partage de Documents de Santé (hors périmètre §3.4), donc sans utilité réelle ici malgré la présence d'un mapping |
-| `extension:isArchived` | `DocumentReference` | Extension nationale PDSm palliant l'absence de`Archived`dans le ValueSet FHIR (cf. section dédiée) |
+| `extension:isArchived` | `DocumentReference`,`List`(lot uniquement — absente du classeur) | Extension nationale PDSm palliant l'absence de`Archived`dans le ValueSet FHIR (cf. section dédiée) |
 | `relatesTo`cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
 | `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de`PDSm_ComprehensiveDocumentReference`— aucun attribut XDS équivalent (à distinguer de`legalAuthenticator`→`authenticator`, cf. ligne correspondante plus haut) |
 | `docStatus` | `DocumentReference` | Statut du contenu du document lui-même (`preliminary`/`final`/`amended`/`entered-in-error`), également absent du tableau de correspondances XDS — à ne pas confondre avec`availabilityStatus`→`status`, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu |

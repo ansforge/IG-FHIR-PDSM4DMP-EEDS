@@ -18,7 +18,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | `patientID` | CX | Identifiant du patient dans le registre — INS (NIR ou NIA) dans le contexte DMP. | `DocumentReference.subject`→`Patient.identifier` |
 | `sourcePatientID` | CX | Identifiant local du patient dans le système producteur (IPP ou INS). | `DocumentReference.context.sourcePatientInfo`→`Patient.identifier`(contenu) |
 | `homeCommunityId` | OID | Identifiant de la communauté XCA. Non utilisé dans le périmètre de PDSm. | — |
-| `version` | integer | Numéro de version de la fiche. | Non exposé directement en MHD |
+| `version` | integer | Numéro de version de la fiche. | `DocumentReference.meta.versionId` |
 
 > **Note :** Dans le contexte DMP, `uniqueId` correspond à l'identifiant que le LPS attribue au document au moment de sa création. C'est l'identifiant que le LPS connaît localement. L'`entryUUID`, en revanche, est attribué par le registre DMP lors de la soumission — le LPS doit l'obtenir via TD3.1a ou TD3.1b pour pouvoir ensuite modifier ou supprimer le document.
 
@@ -30,7 +30,6 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | `uniqueId` | OID / UUID | Identifiant unique du lot attribué par le système source. | `List.identifier`(slice`uniqueId`) |
 | `sourceId` | OID | Identifiant du système source (OID de l'application). | Extension`ihe-sourceId`sur`List` |
 | `patientId` | CX | Identifiant du patient. | `List.subject`→`Patient.identifier` |
-| `sourcePatientId` | CX | Identifiant local du patient chez la source. | Extension`ihe-sourcePatientId`sur`List` |
 
 ### Folder / List (Folder PDSm)
 
