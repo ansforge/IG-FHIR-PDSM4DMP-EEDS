@@ -10,7 +10,7 @@ Elle répond à un besoin précis : les tables de correspondance publiées par H
 
 #### Aide à la lecture des tableaux de mapping
 
-Légende du statut : ✅ correspondance directe — ⚠️ correspondance non certaine ou via extension — ❌ attribut sans cible FHIR (orphelin).
+Légende du statut : ✅ correspondance directe — ⚠️ correspondance non certaine ou incomplète — ❌ attribut sans cible FHIR (orphelin).
 
 ### Métadonnées XDS d'une fiche (§3.4) → DocumentReference
 
@@ -67,7 +67,24 @@ Conséquence : `version` est correctement repris par `meta.versionId` ; `logical
 
 Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html).
 
-| Attribut XDS (volet PDS §3.5) | Élément FHIR | Statut | |—|—|—| | `author` | `List.source` (élément unique, [1..1] — non répétable, à la différence de `DocumentReference.author`) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)` `{c}` (ressource contenue) | ✅ | | `authorPerson` | `source.reference `contained[]` | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? | | `authorInstitution` | `source.extension:authorOrg` → `Reference(AS Organization Profile)` `{c}` [0..1] | ✅ | | `authorRole` | `source` → `PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec `CodeableConcept` | | `authorSpecialty` | `source` → `PractitionerRole.specialty` (dans la même ressource *contained*) | ✅ | | `availabilityStatus` | `status` (ValueSet FHIR `required`) | ⚠️ correspondance incomplète — `Archived` => utilisation de l'extension `PDSm_isArchived` | | `comments` | `note` | ✅ | | `contentTypeCode` (+ Display / codingScheme) | extension `designationType` (`.value[x]` : `CodeableConcept`, lié à `JDV_J03_XdsContentTypeCode_CISIS`) | ✅ | | `entryUUID` | `identifier` (slice `entryUUID`) | ✅ | | `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.5.19) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » | | `intendedRecipient` | extension `intendedRecipient` (`PDSm_intendedRecipient`) | ✅ | | `patientId` | `subject` | ✅ | | `sourceId` | extension `sourceId` | ✅ | | `submissionTime` | `date` | ✅ | | `title` | `title` | ✅ | | `uniqueId` | `identifier` (slice `uniqueId`) | ✅ |
+| | | |
+| :--- | :--- | :--- |
+| `author` | `List.source`(élément unique, [1..1] — non répétable, à la différence de`DocumentReference.author`) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
+| `authorPerson` | `source`→`PractitionerRole.practitioner`(ressource contenue) | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
+| `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)``{c}`[0..1] | ✅ |
+| `authorRole` | `source`→`PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec`CodeableConcept` |
+| `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ |
+| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète —`Archived`=> utilisation de l'extension`PDSm_isArchived` |
+| `comments` | `note` | ✅ |
+| `contentTypeCode`(+ Display / codingScheme) | extension`designationType`(`.value[x]`:`CodeableConcept`, lié à`JDV_J03_XdsContentTypeCode_CISIS`) | ✅ |
+| `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.5.19) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| `intendedRecipient` | extension`intendedRecipient`(`PDSm_intendedRecipient`) | ✅ |
+| `patientId` | `subject` | ✅ |
+| `sourceId` | extension`sourceId` | ✅ |
+| `submissionTime` | `date` | ✅ |
+| `title` | `title` | ✅ |
+| `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
 
 Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
 
