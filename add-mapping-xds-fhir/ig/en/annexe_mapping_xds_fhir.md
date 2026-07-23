@@ -46,7 +46,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `patientId` | `subject` | ✅ |
 | `practiceSettingCode` | `context.practiceSetting` | ✅ |
 | `referenceIdList` | `context.related`(slice`referenceIdList`) | ✅ |
-| `repositoryUniqueId` | **(implicite)**dérivé de`content.attachment.url`(référence vers la ressource`Binary`:`Binary/[id]`) | ⚠️ pas de champ dédié — l'identité du dépôt est portée implicitement par l'URL de la ressource`Binary`, pas par une métadonnée explicite (aucune extension déclarée dans le profil pour cet attribut) |
+| `repositoryUniqueId` | `content.attachment.url` | ⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à «`DocumentEntry.repositoryUniqueId or DocumentEntry.URI`» (mapping`DocumentEntry-Mapping`) — un seul champ porte ce que XDS répartit entre`URI`et`repositoryUniqueId` |
 | `serviceStartTime`/`serviceStopTime` | `context.period.start`/`.end` | ✅ |
 | `size` | `content.attachment.size` | ✅ |
 | `sourcePatientId` | `context.sourcePatientInfo.identifier` | ✅ |
