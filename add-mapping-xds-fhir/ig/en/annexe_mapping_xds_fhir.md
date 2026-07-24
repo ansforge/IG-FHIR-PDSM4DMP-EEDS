@@ -26,7 +26,7 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `authorInstitution` | `author`→`PractitionerRole.organization` | ⚠️ même problèmatique que pour`authorPerson` |
 | `authorRole` | `author`→`PractitionerRole.code` | ⚠️`authorRole`est un texte libre côté XDS (« Type : Non Contraint », « Contenu : Libre », cf. §3.4.4 — ex.`Médecin traitant`), sans code ni système ; le report dans un`CodeableConcept.code`structuré n'est qu'approximatif (au mieux`CodeableConcept.text`) |
 | `authorSpecialty` | `author`→`PractitionerRole.specialty`(élément de la même ressource**contained**) | ✅ |
-| `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page |
+| `availabilityStatus` | `status`([ValueSet FHIR](https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html)`required`) | ⚠️ correspondance incomplète — cf. section «[Cas de correspondance incomplète : availabilityStatus → status](annexe_mapping_xds_fhir.md#cas-de-correspondance-incomplète--availabilitystatus--status)» plus bas dans cette page |
 | `class` | `category` | ✅ |
 | `comments` | `description` | ✅ |
 | `confidentialityCode`(valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | ✅ |

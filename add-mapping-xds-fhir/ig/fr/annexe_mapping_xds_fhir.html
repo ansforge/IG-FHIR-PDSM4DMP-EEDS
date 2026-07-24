@@ -352,8 +352,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
-      <td><code class="language-plaintext highlighter-rouge">status</code> (ValueSet FHIR <code class="language-plaintext highlighter-rouge">required</code>)</td>
-      <td>⚠️ correspondance incomplète — cf. section « Cas de correspondance incomplète : availabilityStatus → status » plus bas dans cette page</td>
+      <td><a name="l738">​</a><code class="language-plaintext highlighter-rouge">status</code> (<a href="https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html">ValueSet FHIR</a> <code class="language-plaintext highlighter-rouge">required</code>)</td>
+      <td>⚠️ correspondance incomplète — cf. section « <a href="annexe_mapping_xds_fhir.html#cas-de-correspondance-incomplète--availabilitystatus--status">Cas de correspondance incomplète : availabilityStatus → status</a> » plus bas dans cette page</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">class</code></td>
@@ -403,7 +403,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.hash</code></td>
-      <td><a name="l917">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
+      <td><a name="l923">​</a>✅ — conversion hex → base64 requise (<code class="language-plaintext highlighter-rouge">hash</code> XDS est de type <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a> (<span class="fhir-conformance">3.4.26) encodé en <a href="https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html">hexadécimal</a> (<code class="language-plaintext highlighter-rouge">hexBinary</code>, IHE ITI TF Vol. 3 </span>4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> est de type <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html"><code class="language-plaintext highlighter-rouge">base64Binary</code></a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">healthcareFacilityTypeCode</code></td>
@@ -900,8 +900,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-23 16:29:00 +0000">
-    2026-07-23
+  <span title="2026-07-24 15:35:00 +0000">
+    2026-07-24
   </span>
 
           <br/>
