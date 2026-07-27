@@ -346,7 +346,7 @@ Utilisation de PDSm  dans le contexte d'EEDS - version de développement local (
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Generated 
-            <span title="2026-07-27 09:03:00 +0000">
+            <span title="2026-07-27 09:57:00 +0000">
     2026-07-27
   </span>
 
@@ -549,6 +549,108 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
  est de type           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">
 <code class="language-plaintext highlighter-rouge">base64Binary</code>          </a>
 )
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="en/annexe_mapping_xds_fhir.html">web</a>
+        </td>
+        <td>
+          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27">esante.gouv.fr</a>
+        </td>
+        <td>
+          <strong>XDS</strong>
+ (          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27">
+<code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code>          </a>
+, &sect;3.3.5.1.1 du volet — mise à jour de           <code class="language-plaintext highlighter-rouge">confidentialityCode</code>
+, cas du masquage/démasquage           <a href="transaction_td3.3a.html">TD3.3a</a>
+/          <a href="transaction_td3.3b.html">TD3.3b</a>
+) soumet à chaque mise à jour une           <strong>nouvelle fiche</strong>
+, avec un nouvel           <code class="language-plaintext highlighter-rouge">entryUUID</code>
+, mais en conservant le même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+ et le même           <code class="language-plaintext highlighter-rouge">logicalID</code>
+ ;           <code class="language-plaintext highlighter-rouge">version</code>
+ est incrémenté (exemple chiffré : fiche A2           <code class="language-plaintext highlighter-rouge">entryUUID=22-22-22-22-22</code>
+ → fiche A2-2           <code class="language-plaintext highlighter-rouge">entryUUID=45-456-456-456-45</code>
+, même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+/          <code class="language-plaintext highlighter-rouge">logicalID</code>
+,           <code class="language-plaintext highlighter-rouge">version</code>
+ 1→2, cf.           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">Figure 21 du volet</a>
+). À la différence, une mise à jour d'          <code class="language-plaintext highlighter-rouge">availabilityStatus</code>
+ (archivage/dépublication,           <a href="transaction_td3.3c.html">TD3.3c</a>
+/          <a href="transaction_td3.3d.html">TD3.3d</a>
+,           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">&sect;3.3.5.1.2</a>
+) ne crée           <strong>aucune nouvelle fiche</strong>
+ : seule la métadonnée est modifiée en place sur la fiche existante, sans changement d'          <code class="language-plaintext highlighter-rouge">entryUUID</code>
+.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="en/annexe_mapping_xds_fhir.html">web</a>
+        </td>
+        <td>
+          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">esante.gouv.fr</a>
+        </td>
+        <td>
+          <strong>XDS</strong>
+ (          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27">
+<code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code>          </a>
+, &sect;3.3.5.1.1 du volet — mise à jour de           <code class="language-plaintext highlighter-rouge">confidentialityCode</code>
+, cas du masquage/démasquage           <a href="transaction_td3.3a.html">TD3.3a</a>
+/          <a href="transaction_td3.3b.html">TD3.3b</a>
+) soumet à chaque mise à jour une           <strong>nouvelle fiche</strong>
+, avec un nouvel           <code class="language-plaintext highlighter-rouge">entryUUID</code>
+, mais en conservant le même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+ et le même           <code class="language-plaintext highlighter-rouge">logicalID</code>
+ ;           <code class="language-plaintext highlighter-rouge">version</code>
+ est incrémenté (exemple chiffré : fiche A2           <code class="language-plaintext highlighter-rouge">entryUUID=22-22-22-22-22</code>
+ → fiche A2-2           <code class="language-plaintext highlighter-rouge">entryUUID=45-456-456-456-45</code>
+, même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+/          <code class="language-plaintext highlighter-rouge">logicalID</code>
+,           <code class="language-plaintext highlighter-rouge">version</code>
+ 1→2, cf.           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">Figure 21 du volet</a>
+). À la différence, une mise à jour d'          <code class="language-plaintext highlighter-rouge">availabilityStatus</code>
+ (archivage/dépublication,           <a href="transaction_td3.3c.html">TD3.3c</a>
+/          <a href="transaction_td3.3d.html">TD3.3d</a>
+,           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">&sect;3.3.5.1.2</a>
+) ne crée           <strong>aucune nouvelle fiche</strong>
+ : seule la métadonnée est modifiée en place sur la fiche existante, sans changement d'          <code class="language-plaintext highlighter-rouge">entryUUID</code>
+.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="en/annexe_mapping_xds_fhir.html">web</a>
+        </td>
+        <td>
+          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">esante.gouv.fr</a>
+        </td>
+        <td>
+          <strong>XDS</strong>
+ (          <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27">
+<code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code>          </a>
+, &sect;3.3.5.1.1 du volet — mise à jour de           <code class="language-plaintext highlighter-rouge">confidentialityCode</code>
+, cas du masquage/démasquage           <a href="transaction_td3.3a.html">TD3.3a</a>
+/          <a href="transaction_td3.3b.html">TD3.3b</a>
+) soumet à chaque mise à jour une           <strong>nouvelle fiche</strong>
+, avec un nouvel           <code class="language-plaintext highlighter-rouge">entryUUID</code>
+, mais en conservant le même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+ et le même           <code class="language-plaintext highlighter-rouge">logicalID</code>
+ ;           <code class="language-plaintext highlighter-rouge">version</code>
+ est incrémenté (exemple chiffré : fiche A2           <code class="language-plaintext highlighter-rouge">entryUUID=22-22-22-22-22</code>
+ → fiche A2-2           <code class="language-plaintext highlighter-rouge">entryUUID=45-456-456-456-45</code>
+, même           <code class="language-plaintext highlighter-rouge">uniqueId</code>
+/          <code class="language-plaintext highlighter-rouge">logicalID</code>
+,           <code class="language-plaintext highlighter-rouge">version</code>
+ 1→2, cf.           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">Figure 21 du volet</a>
+). À la différence, une mise à jour d'          <code class="language-plaintext highlighter-rouge">availabilityStatus</code>
+ (archivage/dépublication,           <a href="transaction_td3.3c.html">TD3.3c</a>
+/          <a href="transaction_td3.3d.html">TD3.3d</a>
+,           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">&sect;3.3.5.1.2</a>
+) ne crée           <strong>aucune nouvelle fiche</strong>
+ : seule la métadonnée est modifiée en place sur la fiche existante, sans changement d'          <code class="language-plaintext highlighter-rouge">entryUUID</code>
+.
         </td>
       </tr>
       <tr>
@@ -880,7 +982,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Date de génération : 
-            <span title="2026-07-27 09:03:00 +0000">
+            <span title="2026-07-27 09:57:00 +0000">
     2026-07-27
   </span>
 

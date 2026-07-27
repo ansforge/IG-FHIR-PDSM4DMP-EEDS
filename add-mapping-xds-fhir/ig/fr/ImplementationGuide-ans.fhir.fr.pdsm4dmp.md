@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-07-27T09:03:27+00:00",
+  "date" : "2026-07-27T09:57:22+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -914,6 +914,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ActorPatient.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ActorPatient"
@@ -927,6 +931,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ActorPS.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ActorPS"
@@ -940,6 +948,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ActorSNR.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ActorSNR"
@@ -953,6 +965,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ActorSystem.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ActorSystem"
@@ -966,6 +982,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ActorXDS.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ActorXDS"
@@ -979,6 +999,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-Author.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Author"
@@ -992,6 +1016,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorDispositif.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorDispositif"
@@ -1005,6 +1033,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-AuthorDocumentEntry.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/AuthorDocumentEntry"
@@ -1018,6 +1050,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-AuthorInstitution.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/AuthorInstitution"
@@ -1031,6 +1067,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorInstitutionCabinetRPPS.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorInstitutionCabinetRPPS"
@@ -1043,6 +1083,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorInstitutionSNR.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorInstitutionSNR"
@@ -1055,6 +1099,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorInstitutionStructure.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorInstitutionStructure"
@@ -1067,6 +1115,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorPatient.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorPatient"
@@ -1080,6 +1132,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorPSCabinetRPPS.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorPSCabinetRPPS"
@@ -1093,6 +1149,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-AuthorStructure.html"
       }],
       "reference" : {
         "reference" : "Binary/AuthorStructure"
@@ -1106,6 +1166,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-AuthorSubmissionSet.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/AuthorSubmissionSet"
@@ -1119,6 +1183,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-doc-x-id.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/doc-x-id"
@@ -1130,6 +1198,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-DocumentEntry.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/DocumentEntry"
@@ -1143,6 +1215,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ConceptMap"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ConceptMap-documentReferenceToPDSM.html"
       }],
       "reference" : {
         "reference" : "ConceptMap/documentReferenceToPDSM"
@@ -1156,6 +1232,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-EventCode.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/EventCode"
@@ -1169,6 +1249,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-example-annexe-fhir-document.html"
       }],
       "reference" : {
         "reference" : "Bundle/example-annexe-fhir-document"
@@ -1181,6 +1265,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-example-annexe-searchset-documentreferences.html"
       }],
       "reference" : {
         "reference" : "Bundle/example-annexe-searchset-documentreferences"
@@ -1193,6 +1281,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-example-td2-1-remplacement.html"
       }],
       "reference" : {
         "reference" : "Bundle/example-td2-1-remplacement"
@@ -1204,6 +1296,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-td2-iti105-publication-simplifiee.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-td2-iti105-publication-simplifiee"
@@ -1215,6 +1311,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-example-td2-iti65-lot-soumission.html"
       }],
       "reference" : {
         "reference" : "Bundle/example-td2-iti65-lot-soumission"
@@ -1226,6 +1326,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Binary"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Binary-example-annexe-binary-cda.html"
       }],
       "reference" : {
         "reference" : "Binary/example-annexe-binary-cda"
@@ -1239,6 +1343,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-annexe-docref-cda.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-annexe-docref-cda"
@@ -1252,6 +1360,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-annexe-docref-fhir.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-annexe-docref-fhir"
@@ -1265,6 +1377,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-td3-1a-cr-consultation.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-td3-1a-cr-consultation"
@@ -1278,6 +1394,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-td3-1a-fhir-document.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-td3-1a-fhir-document"
@@ -1291,6 +1411,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "DocumentReference"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "DocumentReference-example-td3-1a-ordonnance.html"
       }],
       "reference" : {
         "reference" : "DocumentReference/example-td3-1a-ordonnance"
@@ -1304,6 +1428,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-Folder.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Folder"
@@ -1317,6 +1445,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-Identifiant.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/Identifiant"
@@ -1329,6 +1461,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:primitive-type"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-IdentifiantSysteme.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/IdentifiantSysteme"
@@ -1342,6 +1478,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-MatriculeINS.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/MatriculeINS"
@@ -1355,6 +1495,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-PatientId.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/PatientId"
@@ -1368,6 +1512,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-PSIdNat.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/PSIdNat"
@@ -1381,6 +1529,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-SNR.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/SNR"
@@ -1394,6 +1546,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-SourcePatientId.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/SourcePatientId"
@@ -1407,6 +1563,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-SourcePatientInfo.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/SourcePatientInfo"
@@ -1420,6 +1580,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-StructIdNat.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/StructIdNat"
@@ -1433,6 +1597,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-SubmissionSet.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/SubmissionSet"
@@ -1446,6 +1614,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ConceptMap"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ConceptMap-submissionSetToPDSM.html"
       }],
       "reference" : {
         "reference" : "ConceptMap/submissionSetToPDSM"
