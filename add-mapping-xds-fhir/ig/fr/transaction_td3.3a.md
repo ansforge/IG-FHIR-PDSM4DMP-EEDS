@@ -27,7 +27,7 @@ Les attributs du document sont modifiés dans le DMP du patient.
 
 TD3.3a correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonnées de la fiche](https://interop.esante.gouv.fr/ig/fhir/pdsm/st_maj.html)** du profil PDSm. L'opération PATCH modifie le champ `DocumentReference.securityLabel` sans remplacer l'ensemble de la ressource.
 
-L'`entryUUID` XDS correspond à l'`id` logique de la ressource `DocumentReference` en FHIR (cf. [annexe identifiants](annexe_identifiants_xds_fhir.md)).
+L'`entryUUID` XDS correspond à `DocumentReference.identifier` (slice `entryUUID`) en FHIR (cf. [annexe identifiants](annexe_identifiants_xds_fhir.md)).
 
 | | | |
 | :--- | :--- | :--- |

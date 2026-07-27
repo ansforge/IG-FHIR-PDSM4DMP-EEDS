@@ -490,11 +490,15 @@ Accept: application/fhir+json
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalId</code> / <code class="language-plaintext highlighter-rouge">uniqueId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.masterIdentifier</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logicalId</code></td>
+      <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">DocumentReference.id</code> — invariance assurée par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> de ressource, cf. <a href="annexe_identifiants_xds_fhir.html">annexe identifiants</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
@@ -674,8 +678,8 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-24 15:35:00 +0000">
-    2026-07-24
+  <span title="2026-07-27 09:03:00 +0000">
+    2026-07-27
   </span>
 
           <br/>

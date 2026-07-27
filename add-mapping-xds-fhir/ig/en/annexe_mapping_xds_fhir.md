@@ -61,8 +61,8 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 
 Le mécanisme de mise à jour des métadonnées ne fonctionne pas de la même façon des deux côtés :
 
-* **XDS** (`Update Document Set [ITI-57]`, §3.3.5 du volet) soumet à chaque mise à jour une **nouvelle fiche**, avec un nouvel `entryUUID`, mais en conservant le même `uniqueId` et le même `logicalID` ; `version` est incrémenté.
-* **PDSm** modélise la même opération par un **PATCH sur la ressource `DocumentReference` existante** (TD3.3a/TD3.3b/TD3.3c) : `identifier` (slice `entryUUID`) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois.
+* **XDS** (`Update Document Set [ITI-57]`, §3.3.5.1.1 du volet — mise à jour de `confidentialityCode`, cas du masquage/démasquage TD3.3a/TD3.3b) soumet à chaque mise à jour une **nouvelle fiche**, avec un nouvel `entryUUID`, mais en conservant le même `uniqueId` et le même `logicalID` ; `version` est incrémenté (exemple chiffré : fiche A2 `entryUUID=22-22-22-22-22` → fiche A2-2 `entryUUID=45-456-456-456-45`, même `uniqueId`/`logicalID`, `version` 1→2, cf. Figure 21 du volet). À la différence, une mise à jour d'`availabilityStatus` (archivage/dépublication, TD3.3c/TD3.3d, §3.3.5.1.2) ne crée **aucune nouvelle fiche** : seule la métadonnée est modifiée en place sur la fiche existante, sans changement d'`entryUUID`.
+* **PDSm** modélise la mise à jour de `confidentialityCode` par un **PATCH sur la ressource `DocumentReference` existante** (TD3.3a/TD3.3b) : `identifier` (slice `entryUUID`) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois.
 
 Conséquence : `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id`.
 
