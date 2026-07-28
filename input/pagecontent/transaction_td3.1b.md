@@ -55,7 +55,7 @@ En cas de succès, le système DMP retourne un code HTTP `200 OK` avec un `Bundl
 
 | Donnée DMP | Élément FHIR |
 |------------|-------------|
-| `entryUUID` (identifiant technique DMP) | `DocumentReference.id` |
+| `entryUUID` (identifiant technique DMP) | `DocumentReference.identifier` (slice `entryUUID`) |
 | `uniqueId` (identifiant LPS) | `DocumentReference.identifier` |
 
 ### Exemple FHIR
@@ -67,6 +67,6 @@ GET [base]/DocumentReference?patient.identifier=urn:oid:1.2.250.1.213.1.4.8|1234
 Accept: application/fhir+json
 ```
 
-**Réponse :** `200 OK` — `Bundle` de type `searchset` contenant le `DocumentReference` trouvé. L’`entryUUID` est lu dans `DocumentReference.id`.
+**Réponse :** `200 OK` — `Bundle` de type `searchset` contenant le `DocumentReference` trouvé. L’`entryUUID` est lu dans `DocumentReference.identifier` (slice `entryUUID`).
 
 [Voir l’exemple : DocumentReference - Recherche par identifiant (TD3.1b)](DocumentReference-doc-x-id.html)

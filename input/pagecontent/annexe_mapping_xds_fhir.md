@@ -1,0 +1,193 @@
+
+### Objet de l'annexe
+
+Cette annexe établit la correspondance des **métadonnées XDS** définies dans le [Volet Partage de Documents de Santé du CI-SIS (v1.16.4)](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) vers les ressources FHIR profilées par [PDSm](https://interop.esante.gouv.fr/ig/fhir/pdsm/).
+
+Elle répond à un besoin précis : les tables de correspondance publiées par HL7 et IHE sont écrites dans le sens **FHIR → XDS** (chaque `mapping` étant porté par un `ElementDefinition`, il ne peut exister que pour un élément FHIR présent). Elles ne peuvent donc pas, par construction, révéler un attribut XDS *dépourvu* de cible FHIR. Cette annexe reconstruit la correspondance dans le sens **XDS → FHIR**, à partir de la nomenclature définie dans le volet XDS du CI-SIS, et met en évidence les attributs **sans cible** (dits « orphelins »).
+
+#### Aide à la lecture des tableaux de mapping
+
+<div class="stu-note">
+Légende du statut : ✅ correspondance directe — ⚠️ correspondance non certaine ou incomplète — ❌ attribut sans cible FHIR (orphelin).
+</div>
+
+### Métadonnées XDS d'une fiche (§3.4) → DocumentReference
+
+Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-comprehensive-document-reference.html).
+
+| Attribut XDS (volet §3.4) | Élément FHIR | Statut |
+|---|---|---|
+| `author` | `DocumentReference.author` (regroupement répétable, [1..*]) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)` `{c}` (ressource contenue) | ✅ |
+| `authorPerson` | `author` → `PractitionerRole.practitioner` | ⚠️ pas de correspondance complète — le `Practitioner` est juste référencé par `.practitioner`. Les composants de la metadonnée ne seront pas directement définies dans DocumentReference. PDSm ne documente comme cibles `contained` de `author` que les ressources listées explicitement (AS PractitionerRole Profile, Device, FR Core Patient Profile) — rien n'y prévoit qu'un `Practitioner` puisse être ajouté à `contained` uniquement pour être référencé *depuis* une autre ressource contenue (le `PractitionerRole`). Il faudrait peut être que PDSm décontraigne son profil pour autoriser explicitement cet usage de `Practitioner` en ressource contenue |
+| `authorInstitution` | `author` → `PractitionerRole.organization` | ⚠️ même problèmatique que pour `authorPerson` |
+| `authorRole` | `author` → `PractitionerRole.code` | ⚠️ `authorRole` est un texte libre côté XDS (« Type : Non Contraint », « Contenu : Libre », cf. §3.4.4 — ex. `Médecin traitant`), sans code ni système ; le report dans un `CodeableConcept.code` structuré n'est qu'approximatif (au mieux `CodeableConcept.text`) |
+| `authorSpecialty` | `author` → `PractitionerRole.specialty` (élément de la même ressource *contained*) | ✅ |
+| `availabilityStatus` | `status` ([ValueSet FHIR](https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html) `required`) | ⚠️ correspondance incomplète — cf. section « [Cas de correspondance incomplète : availabilityStatus → status](annexe_mapping_xds_fhir.html#cas-de-correspondance-incomplète--availabilitystatus--status) » plus bas dans cette page |
+| `class` | `category` | ✅ |
+| `comments` | `description` | ✅ |
+| `confidentialityCode` (valeur portée par la version initiale des métadonnées, à la soumission du document — classification de confidentialité de base : normal/restreint) | `securityLabel` | ✅ |
+| `confidentialityCode` (valeur portée par une version ultérieure des métadonnées, à la suite d'une opération de masquage/démasquage ou de visibilité patient/RL — codes `MASQUE_PS`, `INVISIBLE_PATIENT` du JDV_J08) | `securityLabel` (même élément FHIR ; la valeur remplace celle de la version précédente — chaque changement génère un nouvel `entryUUID`, cf. [annexe des identifiants](annexe_identifiants_xds_fhir.html)) | ✅ — cf. [TD3.3a](transaction_td3.3a.html) / [TD3.3b](transaction_td3.3b.html) |
+| `creationTime` | `content.attachment.creation` | ✅ |
+| `documentAvailability` | — | ❌ orphelin — la métadonnée `documentAvailability` (décrite dans le supplément [XDS Metadata Update](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_XDS_Metadata_Update.pdf)) n'est pas utilisée dans le système DMP — cf. [TD3.3d](transaction_td3.3d.html) |
+| `entryUUID` | `identifier` (slice `entryUUID`) | ✅ |
+| `eventCodeList` | `context.event` | ✅ |
+| `formatCode`  | `content.format` | ✅ |
+| `hash` | `content.attachment.hash` | ✅ — conversion hex → base64 requise (`hash` XDS est de type [SHA-1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) (§3.4.26) encodé en [hexadécimal](https://profiles.ihe.net/ITI/TF/Volume3/ch-4.2.html) (`hexBinary`, IHE ITI TF Vol. 3 §4.2.3.2.10 — la RFC 3174 ne définit que l'algorithme, pas l'encodage) ; `content.attachment.hash` est de type [`base64Binary`](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html)) |
+| `healthcareFacilityTypeCode` | `context.facilityType` | ✅ |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.4.52) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| `languageCode` | `content.attachment.language` | ✅ |
+| `legalAuthenticator` | `authenticator` | ✅ |
+| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id` (cf. note ci-dessous) |
+| `mimeType` | `content.attachment.contentType` | ✅ |
+| `patientId` | `subject` | ✅ |
+| `practiceSettingCode` | `context.practiceSetting` | ✅ |
+| `referenceIdList` | `context.related` (slice `referenceIdList`) | ✅ |
+| `repositoryUniqueId` | `content.attachment.url` | ⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à « `DocumentEntry.repositoryUniqueId or DocumentEntry.URI` » (mapping `DocumentEntry-Mapping`) — un seul champ porte ce que XDS répartit entre `URI` et `repositoryUniqueId` |
+| `serviceStartTime` / `serviceStopTime` | `context.period.start` / `.end` | ✅ |
+| `size` | `content.attachment.size` | ✅ |
+| `sourcePatientId` | `context.sourcePatientInfo.identifier` | ✅ |
+| `sourcePatientInfo` | `context.sourcePatientInfo.reference` | ✅ |
+| `title` | `content.attachment.title` | ✅ |
+| `typeCode` | `type` | ✅ |
+| `uniqueId` | `masterIdentifier` | ✅ |
+| `URI` | `content.attachment.url` | ✅ |
+| `version` | `meta.versionId` | ✅ le profil PDSm définit `meta.versionId` comme « égal à 1 pour la première version de la fiche », requis à chaque mise à jour |
+
+<div class="stu-note">
+**Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a> : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
+</div>
+
+Le mécanisme de mise à jour des métadonnées ne fonctionne pas de la même façon des deux côtés, et diffère même entre les deux types de mise à jour côté XDS. Le tableau ci-dessous compare les deux opérations, sur les deux modèles :
+
+| | Mise à jour `confidentialityCode`<br/>(masquage/démasquage — [TD3.3a](transaction_td3.3a.html)/[TD3.3b](transaction_td3.3b.html)) | Mise à jour `availabilityStatus`<br/>(archivage/dépublication — [TD3.3c](transaction_td3.3c.html)/[TD3.3d](transaction_td3.3d.html)) |
+|---|---|---|
+| Mécanisme XDS ([`Update Document Set [ITI-57]`](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27)) | [§3.3.5.1.1](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27) — soumission d'une **nouvelle fiche** qui remplace l'ancienne | [§3.3.5.1.2](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31) — modification **en place** de la fiche existante (association `UpdateAvailabilityStatus`) |
+| `entryUUID` (XDS) | **change** à chaque mise à jour | inchangé |
+| `uniqueId` / `logicalID` (XDS) | inchangés | inchangés |
+| `version` (XDS) | incrémenté (+1) | inchangé |
+| Mécanisme PDSm/FHIR | **PATCH** sur la ressource `DocumentReference` existante | **PATCH** sur la ressource `DocumentReference` existante |
+| `identifier` (slice `entryUUID`, FHIR) | inchangé — **à la différence de XDS** | inchangé — comme XDS |
+| `meta.versionId` (FHIR) | incrémenté (+1), cohérent avec `version` | inchangé |
+
+Exemple chiffré du volet pour `confidentialityCode` (fiche A2 remplacée par A2-2, cf. [Figure 21](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29)) : `entryUUID` passe de `22-22-22-22-22` à `45-456-456-456-45`, alors que `uniqueId` et `logicalID` restent identiques et que `version` passe de 1 à 2.
+
+<div class="mermaid">
+%%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
+sequenceDiagram
+    actor LPS
+    participant XDS as Registre XDS (DMP)
+    participant FHIR as Serveur PDSm (FHIR)
+
+    rect rgb(240, 248, 255)
+    note over LPS,FHIR: Mise à jour de confidentialityCode (TD3.3a / TD3.3b)
+    LPS->>XDS: Update Document Set [ITI-57] — nouvelle fiche (confidentialityCode modifié)
+    XDS-->>XDS: entryUUID = nouveau · uniqueId/logicalID inchangés · version+1 · ancienne fiche → Deprecated
+    LPS->>FHIR: PATCH DocumentReference?identifier=uniqueId { securityLabel }
+    FHIR-->>FHIR: identifier (entryUUID) inchangé · id inchangé · meta.versionId+1
+    end
+
+    rect rgb(255, 248, 240)
+    note over LPS,FHIR: Mise à jour de availabilityStatus (TD3.3c / TD3.3d)
+    LPS->>XDS: Update Document Set [ITI-57] — association UpdateAvailabilityStatus
+    XDS-->>XDS: fiche existante modifiée en place · entryUUID inchangé
+    LPS->>FHIR: PATCH DocumentReference?identifier=uniqueId { status / extension isArchived }
+    FHIR-->>FHIR: identifier (entryUUID) inchangé (comme côté XDS)
+    end
+</div>
+
+Conséquence : `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id`.
+
+### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
+
+Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-submissionset-comprehensive.html).
+
+| Attribut XDS (volet PDS §3.5) | Élément FHIR | Statut |
+|---|---|---|
+| `author` | `List.source` (élément unique, [1..1] — non répétable, à la différence de `DocumentReference.author`) — `Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)` `{c}` (ressource contenue) | ✅ |
+| `authorPerson` | `source` → `PractitionerRole.practitioner` (ressource contenue) | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
+| `authorInstitution` | `source.extension:authorOrg` → `Reference(AS Organization Profile)` `{c}` [0..1] | ✅ |
+| `authorRole` | `source` → `PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec `CodeableConcept` |
+| `authorSpecialty` | `source` → `PractitionerRole.specialty` (dans la même ressource *contained*) | ✅ |
+| `availabilityStatus` | `status` (ValueSet FHIR `required`) | ⚠️ correspondance incomplète — `Archived` => utilisation de l'extension  `PDSm_isArchived` |
+| `comments` | `note` | ✅ |
+| `contentTypeCode` (+ Display / codingScheme) | extension `designationType` (`.value[x]` : `CodeableConcept`, lié à `JDV_J03_XdsContentTypeCode_CISIS`) | ✅ |
+| `entryUUID` | `identifier` (slice `entryUUID`) | ✅ |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.5.19) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| `intendedRecipient` | extension `intendedRecipient` (`PDSm_intendedRecipient`) | ✅ |
+| `patientId` | `subject` | ✅ |
+| `sourceId` | extension `sourceId` | ✅ |
+| `submissionTime` | `date` | ✅ |
+| `title` | `title` | ✅ |
+| `uniqueId` | `identifier` (slice `uniqueId`) | ✅ |
+
+Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
+
+### Métadonnées XDS d'un classeur (§3.6) → List (Folder)
+
+Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-folder-comprehensive.html).
+
+| Attribut XDS (volet §3.6) | Élément FHIR | Statut |
+|---|---|---|
+| `availabilityStatus` | `status` (ValueSet FHIR `required`) | ⚠️ correspondance asymétrique — côté XDS, `Approved` est la **seule valeur autorisée** pour un classeur (§3.6.1, restriction française), donc sans perte vers `current` ; mais `List.status` n'est pas fixé par le profil PDSm |
+| `codeList` | extension `designationType` | ✅ |
+| `comments` | `note` | ✅ |
+| `entryUUID` | `identifier` (slice `entryUUID`) | ✅ |
+| `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.6.12) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
+| `lastUpdateTime` | `date` | ✅ |
+| `logicalID` (lid ebRIM) | *(implicite)* `id` de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche? |
+| `patientId` | `subject` | ✅ |
+| `title` | `title` | ✅ |
+| `uniqueId` | `identifier` (slice `uniqueId`) | ✅ |
+| `version` | `meta.versionId` | ✅ (non hérité de MHD) |
+
+La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
+
+### Associations (volet PDS §3.3) → DocumentReference.relatesTo
+
+Les objets `Association` d'ebRIM se répartissent selon leur nature. L'appartenance à un lot ou un classeur (`HasMember`) devient `List.entry.item`. Les relations entre documents se mappent via la ConceptMap [`AssociationTypeVsRelatesTo`](https://profiles.ihe.net/ITI/MHD/ConceptMap-AssociationTypeVsRelatesTo.html) :
+
+| Type d'association XDS | `relatesTo.code` FHIR | Correspondance | Statut |
+|---|---|---|---|
+| `RPLC` | `replaces` | équivalente | ✅ |
+| `XFRM` | `transforms` | équivalente | ✅ |
+| `APND` | `appends` | équivalente (interdite à la soumission par le volet) | ✅ |
+| `XFRM_RPLC` | `replaces` | plus étroite | ⚠️ perte du *transform* |
+| `signs` | `signs` | équivalente | ✅ |
+| `IsSnapshotOf` | `transforms` | approximative | ⚠️ nouvelle instance dérivée, pas strictement un transform |
+
+Les attributs portés par les associations lors des transactions ITI-42 / ITI-57 — `SubmissionSetStatus` (Original/Reference), `PreviousVersion`, `OriginalStatus` / `NewStatus` (association `UpdateAvailabilityStatus`) et le slot `associationPropagation` — n'ont **aucune** cible FHIR : ce sont des mécanismes de transaction ebRIM, non des propriétés d'objet portées par une ressource.
+
+### Cas de correspondance incomplète : availabilityStatus → status
+
+C'est le seul mapping présentant un risque réel de perte sémantique. Le volet emploie le jeu de valeurs `JDV_J52_AvailabilityStatus_CISIS`, dont deux valeurs sont des extensions nationales absentes du ValueSet FHIR (lié en `required` sur `DocumentReference.status`) :
+
+| `availabilityStatus` (CI-SIS) | `DocumentReference.status` | Couverture |
+|---|---|---|
+| `Approved` | `current` | ✅ |
+| `Deprecated` | `superseded` | ✅ |
+| `Archived` (extension nationale) | — | ✅ porté par l'extension `PDSm_isArchived` |
+| `Deleted` / dépublié (extension nationale) | — | ❌ voir question ouverte ci-dessous |
+
+Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du volet : la permissivité du volet ne peut donc rien faire hériter. Le traitement conforme passe par l'extension `PDSm_isArchived` pour `Archived`.
+
+<div class="dragon" markdown="1">
+
+**Question ouverte** — Pour `Deleted`, quel traitement retenir : utiliser `superseded` par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ? Cf. [issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99), qui demande de clarifier qu'un document ne peut pas être supprimé mais seulement archivé (`isArchived`).
+</div>
+
+### Éléments FHIR sans source XDS (draft généré par Claude)
+
+Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
+
+| Élément FHIR | Ressource | Origine |
+|---|---|---|
+| `List.mode` = `working` (valeur fixée) | `List` (lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
+| `List.code.coding` = `submissionset` / `folder` (system + code fixés) | `List` (lot, classeur) | Contrainte MHD distinguant les deux types de `List` |
+| `contained` (≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources `author`/`authenticator` doivent être contenues |
+| `context` (1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`, `healthcareFacilityTypeCode`, `practiceSettingCode`, `serviceStartTime`/`serviceStopTime`, `referenceIdList`, `sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
+| `context.encounter` | `DocumentReference` | Mappé par MHD vers l'extension `ihe:iti:xds:2015:encounterId` du supplément IHE ITI XDS (2015) — cet attribut n'existe pas dans le volet CI-SIS Partage de Documents de Santé (hors périmètre §3.4), donc sans utilité réelle ici malgré la présence d'un mapping |
+| `extension:isArchived` | `DocumentReference`, `List` (lot uniquement — absente du classeur) | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
+| `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
+| `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de `PDSm_ComprehensiveDocumentReference` — aucun attribut XDS équivalent (à distinguer de `legalAuthenticator` → `authenticator`, cf. ligne correspondante plus haut) |
+| `docStatus` | `DocumentReference` | Statut du contenu du document lui-même (`preliminary`/`final`/`amended`/`entered-in-error`), également absent du tableau de correspondances XDS — à ne pas confondre avec `availabilityStatus` → `status`, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu |
+| `date` | `DocumentReference` | Date de création de la *fiche* (indexation), également absente du tableau de correspondances XDS — à distinguer de `creationTime` → `content.attachment.creation`, qui porte sur la date de création du *document* lui-même |
