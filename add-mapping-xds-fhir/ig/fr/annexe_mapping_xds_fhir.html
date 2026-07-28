@@ -503,16 +503,84 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   </tbody>
 </table>
 
-<div class="stu-note">
-**Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par [MHD](https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html) : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
+<div class="stu-note"><a name="l1248">​</a>
+**Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a> : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
 </div>
 
-<p>Le mécanisme de mise à jour des métadonnées ne fonctionne pas de la même façon des deux côtés :</p>
+<p>Le mécanisme de mise à jour des métadonnées ne fonctionne pas de la même façon des deux côtés, et diffère même entre les deux types de mise à jour côté XDS. Le tableau ci-dessous compare les deux opérations, sur les deux modèles :</p>
 
-<ul>
-  <li><strong>XDS</strong> (<a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27"><code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code></a>, &sect;3.3.5.1.1 du volet — mise à jour de <code class="language-plaintext highlighter-rouge">confidentialityCode</code>, cas du masquage/démasquage <a href="transaction_td3.3a.html">TD3.3a</a>/<a href="transaction_td3.3b.html">TD3.3b</a>) soumet à chaque mise à jour une <strong>nouvelle fiche</strong>, avec un nouvel <code class="language-plaintext highlighter-rouge">entryUUID</code>, mais en conservant le même <code class="language-plaintext highlighter-rouge">uniqueId</code> et le même <code class="language-plaintext highlighter-rouge">logicalID</code> ; <code class="language-plaintext highlighter-rouge">version</code> est incrémenté (exemple chiffré : fiche A2 <code class="language-plaintext highlighter-rouge">entryUUID=22-22-22-22-22</code> → fiche A2-2 <code class="language-plaintext highlighter-rouge">entryUUID=45-456-456-456-45</code>, même <code class="language-plaintext highlighter-rouge">uniqueId</code>/<code class="language-plaintext highlighter-rouge">logicalID</code>, <code class="language-plaintext highlighter-rouge">version</code> 1→2, cf. <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">Figure 21 du volet</a>). À la différence, une mise à jour d'<code class="language-plaintext highlighter-rouge">availabilityStatus</code> (archivage/dépublication, <a href="transaction_td3.3c.html">TD3.3c</a>/<a href="transaction_td3.3d.html">TD3.3d</a>, <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">&sect;3.3.5.1.2</a>) ne crée <strong>aucune nouvelle fiche</strong> : seule la métadonnée est modifiée en place sur la fiche existante, sans changement d'<code class="language-plaintext highlighter-rouge">entryUUID</code>.</li>
-  <li><strong>PDSm</strong> modélise la mise à jour de <code class="language-plaintext highlighter-rouge">confidentialityCode</code> par un <strong>PATCH sur la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> existante</strong> (<a href="transaction_td3.3a.html">TD3.3a</a>/<a href="transaction_td3.3b.html">TD3.3b</a>) : <code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>) reste donc inchangé d'une mise à jour à l'autre, là où XDS lui attribue une nouvelle valeur à chaque fois.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Mise à jour <code class="language-plaintext highlighter-rouge">confidentialityCode</code><br/>(masquage/démasquage — <a href="transaction_td3.3a.html">TD3.3a</a>/<a href="transaction_td3.3b.html">TD3.3b</a>)</th>
+      <th>Mise à jour <code class="language-plaintext highlighter-rouge">availabilityStatus</code><br/>(archivage/dépublication — <a href="transaction_td3.3c.html">TD3.3c</a>/<a href="transaction_td3.3d.html">TD3.3d</a>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mécanisme XDS (<a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27"><code class="language-plaintext highlighter-rouge">Update Document Set [ITI-57]</code></a>)</td>
+      <td><a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=27">&sect;3.3.5.1.1</a> — soumission d'une <strong>nouvelle fiche</strong> qui remplace l'ancienne</td>
+      <td><a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=31">&sect;3.3.5.1.2</a> — modification <strong>en place</strong> de la fiche existante (association <code class="language-plaintext highlighter-rouge">UpdateAvailabilityStatus</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">entryUUID</code> (XDS)</td>
+      <td><strong>change</strong> à chaque mise à jour</td>
+      <td>inchangé</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uniqueId</code> / <code class="language-plaintext highlighter-rouge">logicalID</code> (XDS)</td>
+      <td>inchangés</td>
+      <td>inchangés</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">version</code> (XDS)</td>
+      <td>incrémenté (+1)</td>
+      <td>inchangé</td>
+    </tr>
+    <tr>
+      <td>Mécanisme PDSm/FHIR</td>
+      <td><strong>PATCH</strong> sur la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> existante</td>
+      <td><strong>PATCH</strong> sur la ressource <code class="language-plaintext highlighter-rouge">DocumentReference</code> existante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>, FHIR)</td>
+      <td>inchangé — <strong>à la différence de XDS</strong></td>
+      <td>inchangé — comme XDS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">meta.versionId</code> (FHIR)</td>
+      <td>incrémenté (+1), cohérent avec <code class="language-plaintext highlighter-rouge">version</code></td>
+      <td>inchangé</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemple chiffré du volet pour <code class="language-plaintext highlighter-rouge">confidentialityCode</code> (fiche A2 remplacée par A2-2, cf. <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf#page=29">Figure 21</a>) : <code class="language-plaintext highlighter-rouge">entryUUID</code> passe de <code class="language-plaintext highlighter-rouge">22-22-22-22-22</code> à <code class="language-plaintext highlighter-rouge">45-456-456-456-45</code>, alors que <code class="language-plaintext highlighter-rouge">uniqueId</code> et <code class="language-plaintext highlighter-rouge">logicalID</code> restent identiques et que <code class="language-plaintext highlighter-rouge">version</code> passe de 1 à 2.</p>
+
+<div class="mermaid">
+%%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%%
+sequenceDiagram
+    actor LPS
+    participant XDS as Registre XDS (DMP)
+    participant FHIR as Serveur PDSm (FHIR)
+
+    rect rgb(240, 248, 255)
+    note over LPS,FHIR: Mise à jour de confidentialityCode (TD3.3a / TD3.3b)
+    LPS-&gt;&gt;XDS: Update Document Set [ITI-57] — nouvelle fiche (confidentialityCode modifié)
+    XDS--&gt;&gt;XDS: entryUUID = nouveau · uniqueId/logicalID inchangés · version+1 · ancienne fiche → Deprecated
+    LPS-&gt;&gt;FHIR: PATCH DocumentReference?identifier=uniqueId { securityLabel }
+    FHIR--&gt;&gt;FHIR: identifier (entryUUID) inchangé · id inchangé · meta.versionId+1
+    end
+
+    rect rgb(255, 248, 240)
+    note over LPS,FHIR: Mise à jour de availabilityStatus (TD3.3c / TD3.3d)
+    LPS-&gt;&gt;XDS: Update Document Set [ITI-57] — association UpdateAvailabilityStatus
+    XDS--&gt;&gt;XDS: fiche existante modifiée en place · entryUUID inchangé
+    LPS-&gt;&gt;FHIR: PATCH DocumentReference?identifier=uniqueId { status / extension isArchived }
+    FHIR--&gt;&gt;FHIR: identifier (entryUUID) inchangé (comme côté XDS)
+    end
+</div>
 
 <p>Conséquence : <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code> ; <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code>.</p>
 
@@ -900,8 +968,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-27 09:57:00 +0000">
-    2026-07-27
+  <span title="2026-07-28 09:09:00 +0000">
+    2026-07-28
   </span>
 
           <br/>
