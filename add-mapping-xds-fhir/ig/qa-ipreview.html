@@ -174,7 +174,7 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur FHIR 4.0.1.
           Date de génération : 
   
-    2026-07-28
+    2026-09-15
   
 
           
@@ -198,7 +198,7 @@ Documentation
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on FHIR 4.0.1.
           Generated 
   
-    2026-07-28
+    2026-09-15
   
 
           
@@ -346,8 +346,8 @@ Utilisation de PDSm  dans le contexte d'EEDS - version de développement local (
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Generated 
-            <span title="2026-07-28 09:09:00 +0000">
-    2026-07-28
+            <span title="2026-09-15 14:24:00 +0000">
+    2026-09-15
   </span>
 
 
@@ -454,6 +454,32 @@ Utilisation de PDSm  dans le contexte d'EEDS - version de développement local (
       </tr>
       <tr>
         <td>
+          <a href="en/StructureDefinition-AuthorDocumentEntry-mappings.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.dicomstandard.org/">www.dicomstandard.org</a>
+        </td>
+        <td>
+          <a href="https://www.dicomstandard.org/" title="Mapping DICOM KOS">AuthorDocumentEntryDICOMKOS</a>
+          <span style="float: right">
+<a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco" onLoad="fhirTableInit(this)" style="background-color: inherit"/></a>          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="en/StructureDefinition-AuthorInstitution-mappings.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.dicomstandard.org/">www.dicomstandard.org</a>
+        </td>
+        <td>
+          <a href="https://www.dicomstandard.org/" title="Mapping DICOM KOS">AuthorInstitutionDICOMKOS</a>
+          <span style="float: right">
+<a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco" onLoad="fhirTableInit(this)" style="background-color: inherit"/></a>          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="en/annexe_mapping_xds_fhir.html">web</a>
         </td>
         <td>
@@ -474,7 +500,7 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l744">​</a>
+          <a name="l747">​</a>
           <code class="language-plaintext highlighter-rouge">status</code>
  (          <a href="https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html">ValueSet FHIR</a>
            <code class="language-plaintext highlighter-rouge">required</code>
@@ -502,7 +528,7 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">esante.gouv.fr</a>
         </td>
         <td>
-          <a name="l929">​</a>
+          <a name="l932">​</a>
 ✅ — conversion hex → base64 requise (          <code class="language-plaintext highlighter-rouge">hash</code>
  XDS est de type           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a>
  (          <span class="fhir-conformance">
@@ -537,7 +563,7 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l929">​</a>
+          <a name="l932">​</a>
 ✅ — conversion hex → base64 requise (          <code class="language-plaintext highlighter-rouge">hash</code>
  XDS est de type           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a>
  (          <span class="fhir-conformance">
@@ -559,7 +585,7 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l1254">​</a>
+          <a name="l1257">​</a>
 
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a>
  : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
@@ -954,8 +980,8 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Date de génération : 
-            <span title="2026-07-28 09:09:00 +0000">
-    2026-07-28
+            <span title="2026-09-15 14:24:00 +0000">
+    2026-09-15
   </span>
 
 
@@ -1029,7 +1055,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l738">​</a>
+          <a name="l741">​</a>
           <code class="language-plaintext highlighter-rouge">status</code>
  (          <a href="https://profiles.ihe.net/ITI/MHD/4.2.3/ValueSet-DocumentReferenceStats.html">ValueSet FHIR</a>
            <code class="language-plaintext highlighter-rouge">required</code>
@@ -1044,7 +1070,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">esante.gouv.fr</a>
         </td>
         <td>
-          <a name="l923">​</a>
+          <a name="l926">​</a>
 ✅ — conversion hex → base64 requise (          <code class="language-plaintext highlighter-rouge">hash</code>
  XDS est de type           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a>
  (          <span class="fhir-conformance">
@@ -1066,7 +1092,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l923">​</a>
+          <a name="l926">​</a>
 ✅ — conversion hex → base64 requise (          <code class="language-plaintext highlighter-rouge">hash</code>
  XDS est de type           <a href="https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf">SHA-1</a>
  (          <span class="fhir-conformance">
@@ -1088,7 +1114,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l1248">​</a>
+          <a name="l1251">​</a>
 
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a>
  : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.

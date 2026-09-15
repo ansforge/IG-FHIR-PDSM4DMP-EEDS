@@ -11,7 +11,7 @@
   <name value="PDSm4DMP"/>
   <title value="Utilisation de PDSm  dans le contexte d'EEDS"/>
   <status value="draft"/>
-  <date value="2026-07-28T09:09:08+00:00"/>
+  <date value="2026-09-15T14:24:26+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -49,7 +49,7 @@
   <dependsOn id="ans_fr_terminologies">
     <uri value="https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies"/>
     <packageId value="ans.fr.terminologies"/>
-    <version value="1.11.1"/>
+    <version value="1.13.0"/>
   </dependsOn>
   <dependsOn id="ans_fhir_fr_pdsm">
     <uri value="https://interop.esante.gouv.fr/ig/fhir/pdsm/ImplementationGuide/ans.fhir.fr.pdsm"/>
@@ -197,7 +197,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
-        <valueString value="path-liquid"/>
+        <valueString value="path-liquid-template"/>
       </extension>
       <extension url="value">
         <valueString value="template/liquid"/>
@@ -205,7 +205,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
-        <valueString value="path-liquid"/>
+        <valueString value="path-liquid-template"/>
       </extension>
       <extension url="value">
         <valueString value="input/liquid"/>
@@ -493,7 +493,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
-        <valueCode value="path-liquid"/>
+        <valueCode value="path-liquid-template"/>
       </extension>
       <extension url="value">
         <valueString value="template/liquid"/>
@@ -501,7 +501,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
-        <valueCode value="path-liquid"/>
+        <valueCode value="path-liquid-template"/>
       </extension>
       <extension url="value">
         <valueString value="input/liquid"/>

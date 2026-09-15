@@ -14,7 +14,7 @@
   "name" : "PDSm4DMP",
   "title" : "Utilisation de PDSm  dans le contexte d'EEDS",
   "status" : "draft",
-  "date" : "2026-07-28T09:09:08+00:00",
+  "date" : "2026-09-15T14:24:26+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -57,7 +57,7 @@
     "id" : "ans_fr_terminologies",
     "uri" : "https://interop.esante.gouv.fr/terminologies/ImplementationGuide/ans.fr.terminologies",
     "packageId" : "ans.fr.terminologies",
-    "version" : "1.11.1"
+    "version" : "1.13.0"
   },
   {
     "id" : "ans_fhir_fr_pdsm",
@@ -257,7 +257,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueString" : "path-liquid"
+        "valueString" : "path-liquid-template"
       },
       {
         "url" : "value",
@@ -268,7 +268,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueString" : "path-liquid"
+        "valueString" : "path-liquid-template"
       },
       {
         "url" : "value",
@@ -663,7 +663,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueCode" : "path-liquid"
+        "valueCode" : "path-liquid-template"
       },
       {
         "url" : "value",
@@ -674,7 +674,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueCode" : "path-liquid"
+        "valueCode" : "path-liquid-template"
       },
       {
         "url" : "value",

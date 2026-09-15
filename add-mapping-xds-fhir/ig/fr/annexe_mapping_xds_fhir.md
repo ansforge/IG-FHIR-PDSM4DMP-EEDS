@@ -2,6 +2,8 @@
 
 ## Mapping des métadonnées XDS / FHIR
 
+> **Note pour les lecteurs :** Cette annexe résulte d'une première itération pour définir le mapping XDS/FHIR. Son contenu risque donc d'évoluer selon les retours.</a>. 
+
 ### Objet de l'annexe
 
 Cette annexe établit la correspondance des **métadonnées XDS** définies dans le [Volet Partage de Documents de Santé du CI-SIS (v1.16.4)](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) vers les ressources FHIR profilées par [PDSm](https://interop.esante.gouv.fr/ig/fhir/pdsm/).
@@ -149,21 +151,4 @@ C'est le seul mapping présentant un risque réel de perte sémantique. Le volet
 Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du volet : la permissivité du volet ne peut donc rien faire hériter. Le traitement conforme passe par l'extension `PDSm_isArchived` pour `Archived`.
 
 **Question ouverte** — Pour `Deleted`, quel traitement retenir : utiliser `superseded` par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ? Cf. [issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99), qui demande de clarifier qu'un document ne peut pas être supprimé mais seulement archivé (`isArchived`).
-
-### Éléments FHIR sans source XDS (draft généré par Claude)
-
-Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
-
-| | | |
-| :--- | :--- | :--- |
-| `List.mode`=`working`(valeur fixée) | `List`(lot, classeur) | Contrainte MHD — aucun attribut XDS correspondant |
-| `List.code.coding`=`submissionset`/`folder`(system + code fixés) | `List`(lot, classeur) | Contrainte MHD distinguant les deux types de`List` |
-| `contained`(≥1 obligatoire) | `DocumentReference` | Contrainte structurelle PDSm : les ressources`author`/`authenticator`doivent être contenues |
-| `context`(1..1 obligatoire) | `DocumentReference` | Élément FHIR requis regroupant plusieurs métadonnées XDS (`eventCodeList`,`healthcareFacilityTypeCode`,`practiceSettingCode`,`serviceStartTime`/`serviceStopTime`,`referenceIdList`,`sourcePatientId`/`sourcePatientInfo`) — le conteneur lui-même n'est pas issu d'un attribut XDS |
-| `context.encounter` | `DocumentReference` | Mappé par MHD vers l'extension`ihe:iti:xds:2015:encounterId`du supplément IHE ITI XDS (2015) — cet attribut n'existe pas dans le volet CI-SIS Partage de Documents de Santé (hors périmètre §3.4), donc sans utilité réelle ici malgré la présence d'un mapping |
-| `extension:isArchived` | `DocumentReference`,`List`(lot uniquement — absente du classeur) | Extension nationale PDSm palliant l'absence de`Archived`dans le ValueSet FHIR (cf. section dédiée) |
-| `relatesTo`cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
-| `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de`PDSm_ComprehensiveDocumentReference`— aucun attribut XDS équivalent (à distinguer de`legalAuthenticator`→`authenticator`, cf. ligne correspondante plus haut) |
-| `docStatus` | `DocumentReference` | Statut du contenu du document lui-même (`preliminary`/`final`/`amended`/`entered-in-error`), également absent du tableau de correspondances XDS — à ne pas confondre avec`availabilityStatus`→`status`, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu |
-| `date` | `DocumentReference` | Date de création de la**fiche**(indexation), également absente du tableau de correspondances XDS — à distinguer de`creationTime`→`content.attachment.creation`, qui porte sur la date de création du**document**lui-même |
 
