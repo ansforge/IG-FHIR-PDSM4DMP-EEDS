@@ -2,7 +2,7 @@
 
 ## Mapping des métadonnées XDS / FHIR
 
-> **Note pour les lecteurs :** Cette annexe résulte d'une première itération pour définir le mapping XDS/FHIR. Son contenu risque donc d'évoluer selon les retours.</a>. 
+> **Note pour les lecteurs :** Cette annexe résulte d'une première itération pour définir le mapping XDS/FHIR. Son contenu risque donc d'évoluer selon les retours. 
 
 ### Objet de l'annexe
 
