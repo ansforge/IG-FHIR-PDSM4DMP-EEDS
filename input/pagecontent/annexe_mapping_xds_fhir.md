@@ -1,4 +1,10 @@
 
+<blockquote class="ballot-note">
+<p><b>Note pour les lecteurs :</b>
+
+Cette annexe résulte d'une première itération pour définir le mapping XDS/FHIR. Son contenu risque donc d'évoluer selon les retours.</a>.
+</p></blockquote>
+
 ### Objet de l'annexe
 
 Cette annexe établit la correspondance des **métadonnées XDS** définies dans le [Volet Partage de Documents de Santé du CI-SIS (v1.16.4)](https://esante.gouv.fr/sites/default/files/media_entity/documents/ci-sis_service_volet-partage-documents-sante_v1.16.4.pdf) vers les ressources FHIR profilées par [PDSm](https://interop.esante.gouv.fr/ig/fhir/pdsm/).
@@ -175,7 +181,8 @@ Ici, la contrainte vient de FHIR (ValueSet fermé), non d'une interdiction du vo
 **Question ouverte** — Pour `Deleted`, quel traitement retenir : utiliser `superseded` par défaut malgré le décalage de sens (dépublication ≠ remplacement par une version plus récente), ou identifier un autre mécanisme conforme au binding MHD ? Cf. [issue PDSm #99](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/issues/99), qui demande de clarifier qu'un document ne peut pas être supprimé mais seulement archivé (`isArchived`).
 </div>
 
-### Éléments FHIR sans source XDS (draft généré par Claude)
+<!--- section à revoir
+### Éléments FHIR sans source XDS
 
 Symétriquement, certains éléments imposés par les profils PDSm/MHD ne proviennent d'aucun attribut XDS — ce sont des ajouts du sens inverse du mapping (FHIR → XDS), utiles à connaître pour qui découvre les ressources en venant de XDS :
 
@@ -191,3 +198,4 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
 | `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de `PDSm_ComprehensiveDocumentReference` — aucun attribut XDS équivalent (à distinguer de `legalAuthenticator` → `authenticator`, cf. ligne correspondante plus haut) |
 | `docStatus` | `DocumentReference` | Statut du contenu du document lui-même (`preliminary`/`final`/`amended`/`entered-in-error`), également absent du tableau de correspondances XDS — à ne pas confondre avec `availabilityStatus` → `status`, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu |
 | `date` | `DocumentReference` | Date de création de la *fiche* (indexation), également absente du tableau de correspondances XDS — à distinguer de `creationTime` → `content.attachment.creation`, qui porte sur la date de création du *document* lui-même |
+-->
