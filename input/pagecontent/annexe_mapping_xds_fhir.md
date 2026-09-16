@@ -1,9 +1,9 @@
 
-<blockquote class="ballot-note">
-<p><b>Note pour les lecteurs :</b>
-
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+<b>Note pour les lecteurs :</b>
+<br>
 Cette annexe résulte d'une première itération pour définir le mapping XDS/FHIR. Son contenu risque donc d'évoluer selon les retours.
-</p></blockquote>
+</p>
 
 ### Objet de l'annexe
 
