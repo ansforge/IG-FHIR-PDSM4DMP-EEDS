@@ -1,10 +1,10 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 89, warn = 261, info = 187
+err = 89, warn = 259, info = 187
 IG Publisher Version: 2.3.4
-Generated Wed Sep 16 10:04:15 UTC 2026. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
- Build Errors : 30 / 13 / 2
+Generated Tue Sep 22 13:53:49 UTC 2026. FHIR version 4.0.1 for ans.fhir.fr.pdsm4dmp#0.1.0 (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
+ Build Errors : 30 / 11 / 2
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorDispositif : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorInstitutionSNR : 1 / 0 / 0
@@ -94,8 +94,6 @@ ERROR: fr/index.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 
 ERROR: fr/transaction_td3.1a.html#/html/body/div/div/div/div/div/p/strong/a at Line 337, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 ERROR: fr/transaction_td3.1b.html#/html/body/div/div/div/div/div/p/strong/a at Line 332, column 48: The link 'https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html' for "ITI-67 Find Document References" cannot be resolved
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml, cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
-WARNING: 4: An HTML fragment from the set [globals-table.xhtml, globals-table.xhtml] is not included anywhere in the produced implementation guide
-WARNING: 5: An HTML fragment from the set [expansion-params.xhtml, expansion-params.xhtml] is not included anywhere in the produced implementation guide
 == fsh-generated/resources/Binary-AuthorDispositif.json ==
 ERROR: Binary/AuthorDispositif: Binary: Specified profile type was 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorDocumentEntry' in profile 'https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/AuthorDocumentEntry|0.1.0', but found type 'Binary'
 == fsh-generated/resources/Binary-AuthorInstitutionCabinetRPPS.json ==

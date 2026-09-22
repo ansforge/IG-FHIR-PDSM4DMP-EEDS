@@ -87,7 +87,7 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | `author` | `List.source`(élément unique, [1..1] — non répétable, à la différence de`DocumentReference.author`) —`Reference(AS PractitionerRole Profile \| Device \| FR Core Patient Profile)``{c}`(ressource contenue) | ✅ |
 | `authorPerson` | `source`→`PractitionerRole.practitioner`(ressource contenue) | ⚠️ FR Core Patient Profile pour un patient mais pas Practitioner pour un PS ? Décontrainte de PDSm nécessaire ? |
 | `authorInstitution` | `source.extension:authorOrg`→`Reference(AS Organization Profile)``{c}`[0..1] | ✅ |
-| `authorRole` | `source`→`PractitionerRole.code` | ⚠️ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) — correspondance approximative avec`CodeableConcept` |
+| `authorRole` | `source`→`PractitionerRole.code` | ✅ texte libre côté XDS (cf. §3.5.4, même définition que pour la fiche) —`code`est de type`CodeableConcept`qui permet le texte libre dans`text` |
 | `authorSpecialty` | `source`→`PractitionerRole.specialty`(dans la même ressource**contained**) | ✅ |
 | `availabilityStatus` | `status`(ValueSet FHIR`required`) | ⚠️ correspondance incomplète —`Archived`=> utilisation de l'extension`PDSm_isArchived` |
 | `comments` | `note` | ✅ |
