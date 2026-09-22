@@ -15,12 +15,13 @@ Description: """
 * group[=].target = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive"
 
 * group[=].element[0].code = #SubmissionSet.entryUUID
+* group[=].element[=].target.code = #List.identifier:entryUUID
 * group[=].element[=].target.equivalence = #equivalent
-* group[=].element[=].target.comment = #List.identifier
 
 * group[=].element[+].code = #SubmissionSet.availabilityStatus
 * group[=].element[=].target.code = #List.status
-* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.equivalence = #inexact
+* group[=].element[=].target.comment = "La valeur Archived n'a pas d'équivalent dans List.status : elle est portée par l'extension PDSm_isArchived"
 
 * group[=].element[+].code = #SubmissionSet.submissionTime
 * group[=].element[=].target.code = #List.date
@@ -31,11 +32,11 @@ Description: """
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #SubmissionSet.comments
-* group[=].element[=].target.equivalence = #unmatched
-* group[=].element[=].target.comment = "TO DO"
+* group[=].element[=].target.code = #List.note
+* group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #SubmissionSet.patientID
-* group[=].element[=].target.code = #List.subject.fr-core-patient
+* group[=].element[=].target.code = #List.subject
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #SubmissionSet.sourceID
@@ -43,8 +44,8 @@ Description: """
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #SubmissionSet.uniqueID
-* group[=].element[=].target.equivalence = #unmatched
-* group[=].element[=].target.comment = "TO DO"
+* group[=].element[=].target.code = #List.identifier:uniqueId
+* group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #SubmissionSet.contentTypeCode
 * group[=].element[=].target.code = #List.extension:designationType
@@ -57,5 +58,6 @@ Description: """
 * group[=].element[+].code = #SubmissionSet.homeCommunityID
 * group[=].element[=].target.equivalence = #unmatched
 
-* group[=].element[+].code = #DSubmissionSet.intendedRecipient
-* group[=].element[=].target.equivalence = #unmatched
+* group[=].element[+].code = #SubmissionSet.intendedRecipient
+* group[=].element[=].target.code = #List.extension:intendedRecipient
+* group[=].element[=].target.equivalence = #equivalent
