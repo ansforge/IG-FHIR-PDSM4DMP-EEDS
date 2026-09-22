@@ -879,7 +879,7 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
 | `context.encounter` | `DocumentReference` | Mappé par MHD vers l'extension `ihe:iti:xds:2015:encounterId` du supplément IHE ITI XDS (2015) — cet attribut n'existe pas dans le volet CI-SIS Partage de Documents de Santé (hors périmètre §3.4), donc sans utilité réelle ici malgré la présence d'un mapping |
 | `extension:isArchived` | `DocumentReference`, `List` (lot uniquement — absente du classeur) | Extension nationale PDSm palliant l'absence de `Archived` dans le ValueSet FHIR (cf. section dédiée) |
 | `relatesTo` cardinalité [1..1] conditionnelle | `DocumentReference` | Contrainte PDSm ajoutée pour le cas du remplacement de document, sans attribut XDS équivalent direct |
-| `custodian` | `DocumentReference` | Élément FHIR de base (organisation responsable de la conservation du document), absent du tableau de correspondances XDS de `PDSm_ComprehensiveDocumentReference` — aucun attribut XDS équivalent (à distinguer de `legalAuthenticator` → `authenticator`, cf. ligne correspondante plus haut) |
+| `custodian` | `DocumentReference` | Élément FHIR de base (correspond à l’organisation responsable de la conservation, de la maintenance et/ou de l’accès au document, et non nécessairement à l’auteur ou à l’hébergeur technique.), absent du tableau de correspondances XDS de `PDSm_ComprehensiveDocumentReference` — aucun attribut XDS équivalent (à distinguer de `legalAuthenticator` → `authenticator`, cf. ligne correspondante plus haut). Il s'agit d'une information transmise dans le VIHF|
 | `docStatus` | `DocumentReference` | Statut du contenu du document lui-même (`preliminary`/`final`/`amended`/`entered-in-error`), également absent du tableau de correspondances XDS — à ne pas confondre avec `availabilityStatus` → `status`, qui porte sur la pertinence de la fiche, pas sur l'état de rédaction du contenu |
 | `date` | `DocumentReference` | Date de création de la *fiche* (indexation), également absente du tableau de correspondances XDS — à distinguer de `creationTime` → `content.attachment.creation`, qui porte sur la date de création du *document* lui-même | -->
 
@@ -931,7 +931,7 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-09-22 13:51:00 +0000">
+  <span title="2026-09-22 15:20:00 +0000">
     2026-09-22
   </span>
 
