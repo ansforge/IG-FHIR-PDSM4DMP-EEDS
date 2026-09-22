@@ -19,7 +19,7 @@ Relation entre un lot de soummission du 'Volet Partage de Documents de Santé' e
   "title" : "submissionSetToPDSM",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-22T15:20:18+00:00",
+  "date" : "2026-09-22T17:31:05+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -46,15 +46,16 @@ Relation entre un lot de soummission du 'Volet Partage de Documents de Santé' e
     "element" : [{
       "code" : "SubmissionSet.entryUUID",
       "target" : [{
-        "equivalence" : "equivalent",
-        "comment" : "List.identifier"
+        "code" : "List.identifier:entryUUID",
+        "equivalence" : "equivalent"
       }]
     },
     {
       "code" : "SubmissionSet.availabilityStatus",
       "target" : [{
         "code" : "List.status",
-        "equivalence" : "equivalent"
+        "equivalence" : "inexact",
+        "comment" : "La valeur Archived n'a pas d'équivalent dans List.status : elle est portée par l'extension PDSm_isArchived"
       }]
     },
     {
@@ -74,14 +75,14 @@ Relation entre un lot de soummission du 'Volet Partage de Documents de Santé' e
     {
       "code" : "SubmissionSet.comments",
       "target" : [{
-        "equivalence" : "unmatched",
-        "comment" : "TO DO"
+        "code" : "List.note",
+        "equivalence" : "equivalent"
       }]
     },
     {
       "code" : "SubmissionSet.patientID",
       "target" : [{
-        "code" : "List.subject.fr-core-patient",
+        "code" : "List.subject",
         "equivalence" : "equivalent"
       }]
     },
@@ -95,8 +96,8 @@ Relation entre un lot de soummission du 'Volet Partage de Documents de Santé' e
     {
       "code" : "SubmissionSet.uniqueID",
       "target" : [{
-        "equivalence" : "unmatched",
-        "comment" : "TO DO"
+        "code" : "List.identifier:uniqueId",
+        "equivalence" : "equivalent"
       }]
     },
     {
@@ -120,9 +121,10 @@ Relation entre un lot de soummission du 'Volet Partage de Documents de Santé' e
       }]
     },
     {
-      "code" : "DSubmissionSet.intendedRecipient",
+      "code" : "SubmissionSet.intendedRecipient",
       "target" : [{
-        "equivalence" : "unmatched"
+        "code" : "List.extension:intendedRecipient",
+        "equivalence" : "equivalent"
       }]
     }]
   }]

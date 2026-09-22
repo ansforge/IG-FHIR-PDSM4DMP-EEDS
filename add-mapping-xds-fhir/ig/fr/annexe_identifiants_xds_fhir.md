@@ -9,7 +9,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | | | | |
 | :--- | :--- | :--- | :--- |
 | `entryUUID` | UUID | Identifiant technique affecté par le SI DMP à une version de métadonnées d'un document. Change à chaque nouvelle version du document (remplacement) et à chaque modification de métadonnées (masquage/démasquage aux PS, remise en visibilité patient ou RL). | `DocumentReference.identifier`(slice`entryUUID`) — cf. le[tableau de correspondance XDS officiel de la ressource FHIR](https://hl7.org/fhir/R4/documentreference-mappings.html#xds)(`identifier`→`DocumentEntry.entryUUID`) |
-| `logicalID` | UUID | Identifiant technique invariable pour toutes les versions de métadonnées d'un même document, à la différence de`entryUUID`(cf. volet CI-SIS §3.4.54). | **(implicite)**— aucun champ dédié ; l'invariance est assurée par`DocumentReference.id`, l'identifiant logique de la ressource, qui ne change jamais tant que la ressource existe |
+| `logicalID` | UUID | Identifiant technique invariable pour toutes les versions de métadonnées d'un même document, à la différence de`entryUUID`(cf. volet CI-SIS §3.4.54). | **aucun**— ni champ dédié, ni slice`identifier`, ni extension : la valeur n'est transportée par aucun élément FHIR (cf.[annexe de mapping](annexe_mapping_xds_fhir.md)). L'invariance à travers les versions de métadonnées est assurée structurellement, la fiche étant mise à jour en place plutôt que remplacée |
 | `uniqueId` | OID / UUID | Identifiant unique du**document**attribué par le producteur (système LPS). | `DocumentReference.masterIdentifier` |
 | `repositoryUniqueId` | OID | Identifiant du dépôt dans lequel est stocké le document. | Dérivé de`DocumentReference.content.attachment.url` |
 | `patientID` | CX | Identifiant du patient dans le registre — INS (NIR ou NIA) dans le contexte DMP. | `DocumentReference.subject`→`Patient.identifier` |
@@ -34,6 +34,7 @@ Dans le contexte DMP, les mêmes documents sont manipulés à travers deux modè
 | :--- | :--- | :--- | :--- |
 | `entryUUID` | UUID | Identifiant unique du classeur dans le registre. | `List.identifier`(slice`entryUUID`) |
 | `uniqueId` | OID / UUID | Identifiant unique du classeur attribué par le producteur. | `List.identifier`(slice`uniqueId`) |
+| `logicalID` | UUID | Identifiant technique invariable pour toutes les versions d'un même classeur (supplément XDS Metadata Update §4.2.3.4.11). | **aucun**— même situation que pour la fiche : la valeur n'est transportée par aucun élément FHIR (cf.[annexe de mapping](annexe_mapping_xds_fhir.md)) |
 | `patientId` | CX | Identifiant du patient. | `List.subject`→`Patient.identifier` |
 
 ### Récapitulatif : entryUUID vs uniqueId dans le contexte DMP

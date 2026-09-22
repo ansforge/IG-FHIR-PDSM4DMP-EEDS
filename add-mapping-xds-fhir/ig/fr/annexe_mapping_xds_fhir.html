@@ -432,8 +432,8 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
-      <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">id</code> de la ressource</td>
-      <td>⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code> (cf. note ci-dessous)</td>
+      <td>—</td>
+      <td>❌ orphelin — ni MHD ni le <a href="https://hl7.org/fhir/R4/documentreference-mappings.html">mapping XDS de la ressource FHIR R4</a> ne définissent de cible, et PDSm n'en ajoute pas (ni slice <code class="language-plaintext highlighter-rouge">identifier</code>, ni extension). <code class="language-plaintext highlighter-rouge">DocumentReference.id</code> n'en est pas une : c'est l'identifiant technique de la ressource, affecté par le serveur</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">mimeType</code></td>
@@ -458,7 +458,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
     <tr>
       <td><code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
       <td><code class="language-plaintext highlighter-rouge">content.attachment.url</code></td>
-      <td>⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à « <code class="language-plaintext highlighter-rouge">DocumentEntry.repositoryUniqueId or DocumentEntry.URI</code> » (mapping <code class="language-plaintext highlighter-rouge">DocumentEntry-Mapping</code>) — un seul champ porte ce que XDS répartit entre <code class="language-plaintext highlighter-rouge">URI</code> et <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
+      <td>⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à « <code class="language-plaintext highlighter-rouge">DocumentEntry.repositoryUniqueId+DocumentEntry.uniqueId or DocumentEntry.URI</code> » (mapping <code class="language-plaintext highlighter-rouge">DocumentEntry-Mapping</code>) — un seul champ porte ce que XDS répartit entre <code class="language-plaintext highlighter-rouge">URI</code> et <code class="language-plaintext highlighter-rouge">repositoryUniqueId</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">serviceStartTime</code> / <code class="language-plaintext highlighter-rouge">serviceStopTime</code></td>
@@ -508,7 +508,7 @@ Légende du statut : ✅ correspondance directe — ⚠️ correspondance non ce
   </tbody>
 </table>
 
-<div class="stu-note"><a name="l1252">​</a>
+<div class="stu-note"><a name="l1253">​</a>
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a> : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
 </div>
 
@@ -587,7 +587,7 @@ sequenceDiagram
     end
 </div>
 
-<p>Conséquence : <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code> ; <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'<code class="language-plaintext highlighter-rouge">id</code>.</p>
+<p>Conséquence : <code class="language-plaintext highlighter-rouge">version</code> est correctement repris par <code class="language-plaintext highlighter-rouge">meta.versionId</code>. <code class="language-plaintext highlighter-rouge">logicalID</code>, en revanche, n'a aucune cible FHIR — la valeur produite par le registre n'est transportée nulle part.</p>
 
 <h3 id="métadonnées-xds-dun-lot-de-soumission-35--list-submissionset">Métadonnées XDS d'un lot de soumission (&sect;3.5) → List (SubmissionSet)</h3>
 
@@ -685,7 +685,7 @@ sequenceDiagram
   </tbody>
 </table>
 
-<p>Aucun orphelin au niveau du lot : tous les attributs du &sect;3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = submissionset</code> ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).</p>
+<p>Hormis <code class="language-plaintext highlighter-rouge">homeCommunityId</code> (ci-dessus), aucun orphelin au niveau du lot : tous les autres attributs du &sect;3.5 disposent d'une cible héritée de MHD. Le lot de soumission n'est pas versionné côté XDS — il n'a donc ni <code class="language-plaintext highlighter-rouge">logicalID</code> ni <code class="language-plaintext highlighter-rouge">version</code>, à la différence de la fiche et du classeur. Les valeurs fixées par MHD <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = submissionset</code> ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).</p>
 
 <h3 id="métadonnées-xds-dun-classeur-36--list-folder">Métadonnées XDS d'un classeur (&sect;3.6) → List (Folder)</h3>
 
@@ -732,8 +732,8 @@ sequenceDiagram
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">logicalID</code> (lid ebRIM)</td>
-      <td><em>(implicite)</em> <code class="language-plaintext highlighter-rouge">id</code> de la ressource</td>
-      <td>⚠️ pas de champ dédié — même couverture implicite que pour la fiche?</td>
+      <td>—</td>
+      <td>❌ orphelin — même analyse que pour la fiche (ci-dessus)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
@@ -758,7 +758,7 @@ sequenceDiagram
   </tbody>
 </table>
 
-<p>La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (<code class="language-plaintext highlighter-rouge">availabilityStatus</code> invariable = <code class="language-plaintext highlighter-rouge">Approved</code>). <code class="language-plaintext highlighter-rouge">logicalID</code> / <code class="language-plaintext highlighter-rouge">version</code> ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = folder</code> sont des valeurs fixes FHIR sans source XDS.</p>
+<p>La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (<code class="language-plaintext highlighter-rouge">availabilityStatus</code> invariable = <code class="language-plaintext highlighter-rouge">Approved</code>). <code class="language-plaintext highlighter-rouge">logicalID</code> / <code class="language-plaintext highlighter-rouge">version</code> ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; <code class="language-plaintext highlighter-rouge">version</code> dispose alors d'une cible (<code class="language-plaintext highlighter-rouge">meta.versionId</code>), tandis que <code class="language-plaintext highlighter-rouge">logicalID</code> reste orphelin, pour les mêmes raisons que pour la fiche (ci-dessus). Comme pour le lot, <code class="language-plaintext highlighter-rouge">mode = working</code> et <code class="language-plaintext highlighter-rouge">code = folder</code> sont des valeurs fixes FHIR sans source XDS.</p>
 
 <h3 id="associations-volet-pds-33--documentreferencerelatesto">Associations (volet PDS &sect;3.3) → DocumentReference.relatesTo</h3>
 
@@ -924,7 +924,7 @@ Symétriquement, certains éléments imposés par les profils PDSm/MHD ne provie
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-09-22 15:20:00 +0000">
+  <span title="2026-09-22 17:31:00 +0000">
     2026-09-22
   </span>
 

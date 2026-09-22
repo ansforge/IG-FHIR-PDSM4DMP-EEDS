@@ -4,7 +4,7 @@
   <id value="submissionSetToPDSM"/>
   <language value="fr"/>
   <text>
-    <status value="generated"/><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><p class="res-header-id"><b>Narratif généré : CarteDeConcepts submissionSetToPDSM</b></p><a name="submissionSetToPDSM"> </a><a name="hcsubmissionSetToPDSM"> </a><p>Mapping de <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> vers <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><br/><p>Mapping de <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><table class="grid"><tr><td><b>Code source</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>relation</b></td><td><b>Code cible</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Commentaire</b></td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.entryUUID">SubmissionSet.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3"/><td>List.identifier</td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.availabilityStatus">SubmissionSet.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.status">List.status</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.submissionTime">SubmissionSet.submissionTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.date">List.date</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.title">SubmissionSet.title</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.title">List.title</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.comments">SubmissionSet.comments</a></td><td>0..1</td><td>todo</td><td colspan="5" style="background-color: #efefef">(not mapped)</td><td style="background-color: #efefef">TO DO</td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.patientID">SubmissionSet.patientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td colspan="3">List.subject.fr-core-patient</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.sourceID">SubmissionSet.sourceID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:sourceId">List.extension:sourceId</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.uniqueID">SubmissionSet.uniqueID</a></td><td>1..1</td><td>todo</td><td colspan="5" style="background-color: #efefef">(not mapped)</td><td style="background-color: #efefef">TO DO</td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.contentTypeCode">SubmissionSet.contentTypeCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:designationType">List.extension:designationType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.author">SubmissionSet.author</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.source">List.source</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.homeCommunityID">SubmissionSet.homeCommunityID</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td colspan="3">DSubmissionSet.intendedRecipient</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr></table></div>
+    <status value="generated"/><div xml:lang="fr" lang="fr"><hr/><p><b>French</b></p><hr/><p class="res-header-id"><b>Narratif généré : CarteDeConcepts submissionSetToPDSM</b></p><a name="submissionSetToPDSM"> </a><a name="hcsubmissionSetToPDSM"> </a><p>Mapping de <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> vers <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><br/><p>Mapping de <a href="StructureDefinition-SubmissionSet.html">SubmissionSet (LM)</a> to <a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html">PDSm SubmissionSet Comprehensive</a></p><table class="grid"><tr><td><b>Code source</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>relation</b></td><td><b>Code cible</b></td><td><b>Card.</b></td><td><b>Type</b></td><td><b>Commentaire</b></td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.entryUUID">SubmissionSet.entryUUID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.identifier:entryUUID">List.identifier:entryUUID</a></td><td>0..*</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.availabilityStatus">SubmissionSet.availabilityStatus</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#inexact" title="inexact">maps loosely to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.status">List.status</a></td><td>1..1</td><td>todo</td><td>La valeur Archived n'a pas d'équivalent dans List.status : elle est portée par l'extension PDSm_isArchived</td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.submissionTime">SubmissionSet.submissionTime</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.date">List.date</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.title">SubmissionSet.title</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.title">List.title</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.comments">SubmissionSet.comments</a></td><td>0..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.note">List.note</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.patientID">SubmissionSet.patientID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.subject">List.subject</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.sourceID">SubmissionSet.sourceID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:sourceId">List.extension:sourceId</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.uniqueID">SubmissionSet.uniqueID</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.identifier:uniqueId">List.identifier:uniqueId</a></td><td>0..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.contentTypeCode">SubmissionSet.contentTypeCode</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:designationType">List.extension:designationType</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.author">SubmissionSet.author</a></td><td>1..1</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.source">List.source</a></td><td>1..1</td><td>todo</td><td/></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.homeCommunityID">SubmissionSet.homeCommunityID</a></td><td>0..1</td><td>todo</td><td colspan="4" style="background-color: #efefef">(not mapped)</td></tr><tr><td><a href="StructureDefinition-SubmissionSet.html#s-SubmissionSet.intendedRecipient">SubmissionSet.intendedRecipient</a></td><td>0..*</td><td>todo</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/3.1.0/StructureDefinition-pdsm-submissionset-comprehensive.html#s-List.extension:intendedRecipient">List.extension:intendedRecipient</a></td><td>0..*</td><td>todo</td><td/></tr></table></div>
   </text>
   <url value="https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/ConceptMap/submissionSetToPDSM"/>
   <version value="0.1.0"/>
@@ -12,7 +12,7 @@
   <title value="submissionSetToPDSM"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <date value="2026-09-22T15:20:18+00:00"/>
+  <date value="2026-09-22T17:31:05+00:00"/>
   <publisher value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
   <contact>
     <name value="Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris"/>
@@ -39,15 +39,16 @@
     <element>
       <code value="SubmissionSet.entryUUID"/>
       <target>
+        <code value="List.identifier:entryUUID"/>
         <equivalence value="equivalent"/>
-        <comment value="List.identifier"/>
       </target>
     </element>
     <element>
       <code value="SubmissionSet.availabilityStatus"/>
       <target>
         <code value="List.status"/>
-        <equivalence value="equivalent"/>
+        <equivalence value="inexact"/>
+        <comment value="La valeur Archived n'a pas d'équivalent dans List.status : elle est portée par l'extension PDSm_isArchived"/>
       </target>
     </element>
     <element>
@@ -67,14 +68,14 @@
     <element>
       <code value="SubmissionSet.comments"/>
       <target>
-        <equivalence value="unmatched"/>
-        <comment value="TO DO"/>
+        <code value="List.note"/>
+        <equivalence value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SubmissionSet.patientID"/>
       <target>
-        <code value="List.subject.fr-core-patient"/>
+        <code value="List.subject"/>
         <equivalence value="equivalent"/>
       </target>
     </element>
@@ -88,8 +89,8 @@
     <element>
       <code value="SubmissionSet.uniqueID"/>
       <target>
-        <equivalence value="unmatched"/>
-        <comment value="TO DO"/>
+        <code value="List.identifier:uniqueId"/>
+        <equivalence value="equivalent"/>
       </target>
     </element>
     <element>
@@ -113,9 +114,10 @@
       </target>
     </element>
     <element>
-      <code value="DSubmissionSet.intendedRecipient"/>
+      <code value="SubmissionSet.intendedRecipient"/>
       <target>
-        <equivalence value="unmatched"/>
+        <code value="List.extension:intendedRecipient"/>
+        <equivalence value="equivalent"/>
       </target>
     </element>
   </group>

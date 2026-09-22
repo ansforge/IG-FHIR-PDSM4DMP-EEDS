@@ -1,7 +1,7 @@
 PDSm4DMP : Validation Results
 =========================================
 
-err = 89, warn = 259, info = 187
+err = 85, warn = 259, info = 187
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp)
  Build Errors : 30 / 11 / 2
@@ -13,8 +13,8 @@ Generated $--. FHIR version $-- for ans.fhir.fr.pdsm4dmp#$-- (canonical = https:
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorPatient : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-AuthorStructure : 1 / 0 / 0
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/Binary-example-annexe-binary-cda : 0 / 0 / 1
- /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 5 / 1 / 4
- /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 4 / 1 / 4
+ /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-documentReferenceToPDSM : 3 / 1 / 4
+ /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/ConceptMap-submissionSetToPDSM : 2 / 1 / 4
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/DocumentReference-example-annexe-docref-cda : 4 / 3 / 13
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/DocumentReference-example-annexe-docref-fhir : 3 / 3 / 12
  /__w/IG-FHIR-PDSM4DMP-EEDS/IG-FHIR-PDSM4DMP-EEDS/igSource/fsh-generated/resources/DocumentReference-example-td3-1a-cr-consultation : 5 / 3 / 12
@@ -116,8 +116,6 @@ ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[8].target
 ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[13].target[0]: Constraint failed: cmd-1: 'If the map is narrower or inexact, there SHALL be some comments (comment.exists() or equivalence.empty() or ((equivalence != 'narrower') and (equivalence != 'inexact')))'
 WARNING: ConceptMap/documentReferenceToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
 ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[7].code: The source code 'DocumentEntry.legalAuthenticator' is not valid in the code system https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/DocumentEntry|0.1.0
-ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[11].target[0].code: The target code 'DocumentReference.subject.fr-core-patient' is not valid in the code system https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference|3.1.0
-ERROR: ConceptMap/documentReferenceToPDSM: ConceptMap.group[0].element[16].target[0].code: The target code 'DocumentReference.subject.fr-core-patient' is not valid in the code system https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference|3.1.0
 INFORMATION: Resource: The resource ConceptMap/documentReferenceToPDSM could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/ConceptMap-submissionSetToPDSM.json ==
 INFORMATION: ConceptMap.group[0].target: Pinned the version of https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive to 3.1.0
@@ -125,8 +123,6 @@ INFORMATION: ConceptMap.group[0].source: Pinned the version of https://interop.e
 WARNING: ConceptMap/submissionSetToPDSM: ConceptMap: Constraint failed: cmd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.source: Reference must be to a ValueSet, but found a StructureDefinition instead
 ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.target: Reference must be to a ValueSet, but found a StructureDefinition instead
-ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.group[0].element[5].target[0].code: The target code 'List.subject.fr-core-patient' is not valid in the code system https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-submissionset-comprehensive|3.1.0
-ERROR: ConceptMap/submissionSetToPDSM: ConceptMap.group[0].element[11].code: The source code 'DSubmissionSet.intendedRecipient' is not valid in the code system https://interop.esante.gouv.fr/ig/fhir/pdsm4dmp/StructureDefinition/SubmissionSet|0.1.0
 INFORMATION: Resource: The resource ConceptMap/submissionSetToPDSM could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/DocumentReference-example-annexe-docref-cda.json ==
 WARNING: DocumentReference/example-annexe-docref-cda: DocumentReference.contained[0]/*Patient/patient-source-annexe-cda*/.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.250.1.213.1.4.8'

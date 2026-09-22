@@ -346,7 +346,7 @@ Utilisation de PDSm  dans le contexte d'EEDS - version de développement local (
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Generated 
-            <span title="2026-09-22 15:20:00 +0000">
+            <span title="2026-09-22 17:31:00 +0000">
     2026-09-22
   </span>
 
@@ -585,7 +585,7 @@ Cette annexe établit la correspondance des           <strong>métadonnées XDS<
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l1258">​</a>
+          <a name="l1259">​</a>
 
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a>
  : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.
@@ -980,7 +980,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
 .
           Date de génération : 
-            <span title="2026-09-22 15:20:00 +0000">
+            <span title="2026-09-22 17:31:00 +0000">
     2026-09-22
   </span>
 
@@ -1114,7 +1114,7 @@ Coté volet PDSm, une issue traite ce sujet           <a href="https://github.co
           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">profiles.ihe.net</a>
         </td>
         <td>
-          <a name="l1252">​</a>
+          <a name="l1253">​</a>
 
 **Attention à l'implémentation (`hash`)** — ce point est documenté explicitement par           <a href="https://profiles.ihe.net/ITI/MHD/4.2.4/32_fhir_maps.html">MHD</a>
  : *« The hash of document is encoded differently in the DocumentReference resource and in the DocumentEntry metadata. While the DocumentEntry contains the hexadecimal representation of the hash digest, the DocumentReference resource contains the base64-encoding of the hash digest. »* Exemple donné pour un fichier de longueur nulle : `DocumentEntry.hash` = `da39a3ee5e6b4b0d3255bfef95601890afd80709` (hex) ↔ `DocumentReference.attachment.hash` = `2jmj7l5rSw0yVb/vlWAYkK/YBwk=` (base64). Une simple recopie de la chaîne hexadécimale produirait une valeur incorrecte : une conversion hex → octets → base64 est nécessaire à l'implémentation.

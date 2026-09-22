@@ -44,12 +44,12 @@ Profil cible : [PDSm_ComprehensiveDocumentReference](https://interop.esante.gouv
 | `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.4.52) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `languageCode` | `content.attachment.language` | ✅ |
 | `legalAuthenticator` | `authenticator` | ✅ |
-| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — couvert implicitement par la stabilité de l'`id`(cf. note ci-dessous) |
+| `logicalID`(lid ebRIM) | — | ❌ orphelin — ni MHD ni le[mapping XDS de la ressource FHIR R4](https://hl7.org/fhir/R4/documentreference-mappings.html)ne définissent de cible, et PDSm n'en ajoute pas (ni slice`identifier`, ni extension).`DocumentReference.id`n'en est pas une : c'est l'identifiant technique de la ressource, affecté par le serveur |
 | `mimeType` | `content.attachment.contentType` | ✅ |
 | `patientId` | `subject` | ✅ |
 | `practiceSettingCode` | `context.practiceSetting` | ✅ |
 | `referenceIdList` | `context.related`(slice`referenceIdList`) | ✅ |
-| `repositoryUniqueId` | `content.attachment.url` | ⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à «`DocumentEntry.repositoryUniqueId or DocumentEntry.URI`» (mapping`DocumentEntry-Mapping`) — un seul champ porte ce que XDS répartit entre`URI`et`repositoryUniqueId` |
+| `repositoryUniqueId` | `content.attachment.url` | ⚠️ pas de champ dédié — le profil PDSm mappe explicitement cet élément à «`DocumentEntry.repositoryUniqueId+DocumentEntry.uniqueId or DocumentEntry.URI`» (mapping`DocumentEntry-Mapping`) — un seul champ porte ce que XDS répartit entre`URI`et`repositoryUniqueId` |
 | `serviceStartTime`/`serviceStopTime` | `context.period.start`/`.end` | ✅ |
 | `size` | `content.attachment.size` | ✅ |
 | `sourcePatientId` | `context.sourcePatientInfo.identifier` | ✅ |
@@ -79,7 +79,7 @@ Exemple chiffré du volet pour `confidentialityCode` (fiche A2 remplacée par A2
 
 %%{init: { 'theme': 'base', 'themeVariables': { 'fontSize': '11px', 'actorBkg': '#d0e8f8', 'actorTextColor': '#0d2b45', 'actorBorderColor': '#2271b1', 'noteBkgColor': '#fff8dc', 'noteTextColor': '#333', 'labelBoxBkgColor': '#e8f4fd', 'sequenceNumberColor': '#2271b1', 'labelBoxBorderColor': '#999999', 'altSectionBkgColor': '#f5f5f5', 'loopTextColor': '#333' } } }%% sequenceDiagram actor LPS participant XDS as Registre XDS (DMP) participant FHIR as Serveur PDSm (FHIR) rect rgb(240, 248, 255) note over LPS,FHIR: Mise à jour de confidentialityCode (TD3.3a / TD3.3b) LPS->>XDS: Update Document Set [ITI-57] — nouvelle fiche (confidentialityCode modifié) XDS-->>XDS: entryUUID = nouveau · uniqueId/logicalID inchangés · version+1 · ancienne fiche → Deprecated LPS->>FHIR: PATCH DocumentReference?identifier=uniqueId { securityLabel } FHIR-->>FHIR: identifier (entryUUID) inchangé · id inchangé · meta.versionId+1 end rect rgb(255, 248, 240) note over LPS,FHIR: Mise à jour de availabilityStatus (TD3.3c / TD3.3d) LPS->>XDS: Update Document Set [ITI-57] — association UpdateAvailabilityStatus XDS-->>XDS: fiche existante modifiée en place · entryUUID inchangé LPS->>FHIR: PATCH DocumentReference?identifier=uniqueId { status / extension isArchived } FHIR-->>FHIR: identifier (entryUUID) inchangé (comme côté XDS) end
 
-Conséquence : `version` est correctement repris par `meta.versionId` ; `logicalID`, en revanche, n'a pas de champ dédié — son invariance est assurée implicitement par la stabilité de l'`id`.
+Conséquence : `version` est correctement repris par `meta.versionId`. `logicalID`, en revanche, n'a aucune cible FHIR — la valeur produite par le registre n'est transportée nulle part.
 
 ### Métadonnées XDS d'un lot de soumission (§3.5) → List (SubmissionSet)
 
@@ -104,7 +104,7 @@ Profil cible : [PDSm_SubmissionSetComprehensive](https://interop.esante.gouv.fr/
 | `title` | `title` | ✅ |
 | `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
 
-Aucun orphelin au niveau du lot : tous les attributs du §3.5 disposent d'une cible héritée de MHD. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
+Hormis `homeCommunityId` (ci-dessus), aucun orphelin au niveau du lot : tous les autres attributs du §3.5 disposent d'une cible héritée de MHD. Le lot de soumission n'est pas versionné côté XDS — il n'a donc ni `logicalID` ni `version`, à la différence de la fiche et du classeur. Les valeurs fixées par MHD `mode = working` et `code = submissionset` ne correspondent à aucun attribut XDS — ce sont des contraintes ajoutées par FHIR (sens inverse du mapping).
 
 ### Métadonnées XDS d'un classeur (§3.6) → List (Folder)
 
@@ -118,13 +118,13 @@ Profil cible : [PDSm_FolderComprehensive](https://interop.esante.gouv.fr/ig/fhir
 | `entryUUID` | `identifier`(slice`entryUUID`) | ✅ |
 | `homeCommunityId` | — | ❌ orphelin — cette métadonnée n'est utilisée que si le système cible offre les fonctionnalités de communication inter-communautés du profil XCA ; le volet (§3.6.12) précise qu'elle « n'est pas utilisée par les transactions décrites dans ce volet » |
 | `lastUpdateTime` | `date` | ✅ |
-| `logicalID`(lid ebRIM) | **(implicite)**`id`de la ressource | ⚠️ pas de champ dédié — même couverture implicite que pour la fiche? |
+| `logicalID`(lid ebRIM) | — | ❌ orphelin — même analyse que pour la fiche (ci-dessus) |
 | `patientId` | `subject` | ✅ |
 | `title` | `title` | ✅ |
 | `uniqueId` | `identifier`(slice`uniqueId`) | ✅ |
 | `version` | `meta.versionId` | ✅ (non hérité de MHD) |
 
-La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; leur couverture FHIR suit la même logique que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
+La mise à jour de classeur ne fait pas partie de la version actuelle du CI-SIS (`availabilityStatus` invariable = `Approved`). `logicalID` / `version` ne sont donc mobilisés que si le versionnement de classeur est activé ultérieurement ; `version` dispose alors d'une cible (`meta.versionId`), tandis que `logicalID` reste orphelin, pour les mêmes raisons que pour la fiche (ci-dessus). Comme pour le lot, `mode = working` et `code = folder` sont des valeurs fixes FHIR sans source XDS.
 
 ### Associations (volet PDS §3.3) → DocumentReference.relatesTo
 

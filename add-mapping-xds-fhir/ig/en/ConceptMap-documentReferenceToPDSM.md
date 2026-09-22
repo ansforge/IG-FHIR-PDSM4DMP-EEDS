@@ -19,7 +19,7 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
   "title" : "documentReferenceToPDSM",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-22T15:20:18+00:00",
+  "date" : "2026-09-22T17:31:05+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -44,15 +44,14 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
     "element" : [{
       "code" : "DocumentEntry.entryUUID",
       "target" : [{
-        "code" : "DocumentReference.id",
+        "code" : "DocumentReference.identifier:entryUUID",
         "equivalence" : "equivalent"
       }]
     },
     {
       "code" : "DocumentEntry.logicalId",
       "target" : [{
-        "code" : "DocumentReference.identifier",
-        "equivalence" : "equivalent"
+        "equivalence" : "unmatched"
       }]
     },
     {
@@ -121,14 +120,14 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
     {
       "code" : "DocumentEntry.sourcePatientID",
       "target" : [{
-        "code" : "DocumentReference.subject.fr-core-patient",
+        "code" : "DocumentReference.context.sourcePatientInfo.identifier",
         "equivalence" : "equivalent"
       }]
     },
     {
       "code" : "DocumentEntry.sourcePatientInfo",
       "target" : [{
-        "code" : "DocumentReference.context.sourcePatientInfo",
+        "code" : "DocumentReference.context.sourcePatientInfo.reference",
         "equivalence" : "equivalent"
       }]
     },
@@ -156,14 +155,14 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
     {
       "code" : "DocumentEntry.patientID",
       "target" : [{
-        "code" : "DocumentReference.subject.fr-core-patient",
+        "code" : "DocumentReference.subject",
         "equivalence" : "equivalent"
       }]
     },
     {
       "code" : "DocumentEntry.uniqueId",
       "target" : [{
-        "code" : "DocumentReference.identifier",
+        "code" : "DocumentReference.masterIdentifier",
         "equivalence" : "equivalent"
       }]
     },
@@ -231,7 +230,7 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
     {
       "code" : "DocumentEntry.creationTime",
       "target" : [{
-        "code" : "DocumentReference.date",
+        "code" : "DocumentReference.content.attachment.creation",
         "equivalence" : "equivalent"
       }]
     },
@@ -239,6 +238,20 @@ Relation entre une fiche du 'Volet Partage de Documents de Santé' et documentRe
       "code" : "DocumentEntry.referenceIdList",
       "target" : [{
         "code" : "DocumentReference.context.related:referenceIdList",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.author",
+      "target" : [{
+        "code" : "DocumentReference.author",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentEntry.version",
+      "target" : [{
+        "code" : "DocumentReference.meta.versionId",
         "equivalence" : "equivalent"
       }]
     }]
