@@ -15,12 +15,11 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].target = "https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition/pdsm-comprehensive-document-reference"
 
 * group[=].element[0].code = #DocumentEntry.entryUUID
-* group[=].element[=].target.code = #DocumentReference.id
+* group[=].element[=].target.code = #DocumentReference.identifier:entryUUID
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.logicalId
-* group[=].element[=].target.code = #DocumentReference.identifier
-* group[=].element[=].target.equivalence = #equivalent
+* group[=].element[=].target.equivalence = #unmatched
 
 * group[=].element[+].code = #DocumentEntry.mimeType
 * group[=].element[=].target.equivalence = #equivalent
@@ -60,11 +59,11 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.sourcePatientID
-* group[=].element[=].target.code = #DocumentReference.subject.fr-core-patient
+* group[=].element[=].target.code = #DocumentReference.context.sourcePatientInfo.identifier
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.sourcePatientInfo
-* group[=].element[=].target.code = #DocumentReference.context.sourcePatientInfo
+* group[=].element[=].target.code = #DocumentReference.context.sourcePatientInfo.reference
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.URI
@@ -81,11 +80,11 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.patientID
-* group[=].element[=].target.code = #DocumentReference.subject.fr-core-patient
+* group[=].element[=].target.code = #DocumentReference.subject
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.uniqueId
-* group[=].element[=].target.code = #DocumentReference.identifier
+* group[=].element[=].target.code = #DocumentReference.masterIdentifier
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #DocumentEntry.class
@@ -124,7 +123,7 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 
 
 * group[=].element[+].code = #DocumentEntry.creationTime
-* group[=].element[=].target.code = #DocumentReference.date
+* group[=].element[=].target.code = #DocumentReference.content.attachment.creation
 * group[=].element[=].target.equivalence = #equivalent
 
 
@@ -132,3 +131,10 @@ Relation entre une  fiche  du 'Volet Partage de Documents de Santé' et  documen
 * group[=].element[=].target.code = #DocumentReference.context.related:referenceIdList
 * group[=].element[=].target.equivalence = #equivalent
 
+* group[=].element[+].code = #DocumentEntry.author
+* group[=].element[=].target.code = #DocumentReference.author
+* group[=].element[=].target.equivalence = #equivalent
+
+* group[=].element[+].code = #DocumentEntry.version
+* group[=].element[=].target.code = #DocumentReference.meta.versionId
+* group[=].element[=].target.equivalence = #equivalent
