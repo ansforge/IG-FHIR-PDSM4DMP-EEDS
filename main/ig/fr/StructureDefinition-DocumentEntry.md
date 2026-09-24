@@ -77,7 +77,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-DocumentEntry.c
   "name" : "DocumentEntry",
   "title" : "Document Entry (LM)",
   "status" : "draft",
-  "date" : "2026-07-16T07:22:41+00:00",
+  "date" : "2026-09-24T12:10:52+00:00",
   "publisher" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
   "contact" : [{
     "name" : "Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris",
@@ -121,7 +121,7 @@ Autres représentations du profil : [CSV](../StructureDefinition-DocumentEntry.c
       "id" : "DocumentEntry.entryUUID",
       "path" : "DocumentEntry.entryUUID",
       "short" : "Identifiant unique affecté à la version de la fiche référençant le document.",
-      "definition" : "Les valeurs possibles pour cette métadonnée doivent être un code provenant du jeu de valeurs mis à disposition par le projet. En l’absence de spécifications complémentaires, le jeu de valeurs JDV_J52_AvailabilityStatus_CISIS peut être utilisé.",
+      "definition" : "Cet identifiant est attribué par le registre du système cible lors de la soumission. Il change à chaque nouvelle version de la fiche, à la différence de logicalId qui reste invariable.",
       "min" : 1,
       "max" : "1",
       "type" : [{

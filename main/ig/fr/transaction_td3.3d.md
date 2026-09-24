@@ -31,6 +31,8 @@ TD3.3d correspond aux flux **[Flux 03 / Flux 04 — Mise à jour des métadonné
 
 L'extension [`PDSm_isArchived`](https://interop.esante.gouv.fr/ig/fhir/pdsm/StructureDefinition-pdsm-ext-is-archived.html) (type `boolean`) indique si le document est dans un état archivé.
 
+La notion d'« archivage » d'un document est une notion fonctionnelle pour l'utilisateur qui ne souhaite plus visualiser des documents qui ne sont plus utiles dans sa pratique médicale courante, et non un archivage « technique » au niveau du repository XDS : la métadonnée `documentAvailability` (décrite dans le supplément XDS Metadata Update) n'entre pas en ligne de compte pour l'archivage de document dans le système DMP (cf. Guide d'intégration DMP SEL-MP-037 v2.10.0, §3.5.3.3.4).
+
 #### Flux TD3.3d — Requête (archivage)
 
 Le PATCH s'effectue par l'identifiant métier du document (`uniqueId` XDS → `DocumentReference.identifier`) :

@@ -76,8 +76,9 @@ Chaque `DocumentReference` retourné est conforme au profil [PDSm_ComprehensiveD
 
 | | |
 | :--- | :--- |
-| `entryUUID` | `DocumentReference.id` |
-| `logicalId`/`uniqueId` | `DocumentReference.identifier` |
+| `entryUUID` | `DocumentReference.identifier`(slice`entryUUID`) |
+| `uniqueId` | `DocumentReference.masterIdentifier` |
+| `logicalId` | **aucun**— métadonnée non transportée par le profil PDSm (orphelin), cf.[annexe de mapping](annexe_mapping_xds_fhir.md) |
 | `availabilityStatus` | `DocumentReference.status`(`current`/`superseded`) |
 | `type` | `DocumentReference.type` |
 | `class` | `DocumentReference.category` |

@@ -169,6 +169,9 @@
     </a>
     <ul class="dropdown-menu">
       <li>
+        <a href="annexe_mapping_xds_fhir.html">Mapping des métadonnées XDS / FHIR</a>
+      </li>
+      <li>
         <a href="annexe_identifiants_xds_fhir.html">Comparatif identifiants XDS / FHIR</a>
       </li>
       <li>
@@ -336,7 +339,7 @@ L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide 
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>TD3.1a correspond à la transaction <strong><a name="l579">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
+<p>TD3.1a correspond à la transaction <strong><a name="l585">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm. Elle permet au LPS de rechercher les fiches (<code class="language-plaintext highlighter-rouge">DocumentReference</code>) du DMP d'un patient à partir de son INS et de critères optionnels.</p>
 
 <h4 id="flux-td31a--requête">Flux TD3.1a — Requête</h4>
 
@@ -494,11 +497,15 @@ Accept: application/fhir+json
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalId</code> / <code class="language-plaintext highlighter-rouge">uniqueId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.masterIdentifier</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logicalId</code></td>
+      <td><em>aucun</em> — métadonnée non transportée par le profil PDSm (orphelin), cf. <a href="annexe_mapping_xds_fhir.html">annexe de mapping</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">availabilityStatus</code></td>
@@ -678,8 +685,8 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Package ans.fhir.fr.pdsm4dmp#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-16 07:22:00 +0000">
-    2026-07-16
+  <span title="2026-09-24 12:10:00 +0000">
+    2026-09-24
   </span>
 
           <br/>

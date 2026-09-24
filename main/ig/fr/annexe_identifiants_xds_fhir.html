@@ -48,8 +48,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"6.1"}
-    h3,h4,h5,h6{--heading-prefix:"6.1"}</style>
+    <style type="text/css">h2{--heading-prefix:"6.2"}
+    h3,h4,h5,h6{--heading-prefix:"6.2"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -171,6 +171,9 @@
     </a>
     <ul class="dropdown-menu">
       <li>
+        <a href="annexe_mapping_xds_fhir.html">Mapping des métadonnées XDS / FHIR</a>
+      </li>
+      <li>
         <a href="annexe_identifiants_xds_fhir.html">Comparatif identifiants XDS / FHIR</a>
       </li>
       <li>
@@ -243,7 +246,7 @@
 
           <span style="float: var(--ig-right);">
 
-            <a href="annexe.html">&lt; précédent</a> | 
+            <a href="annexe_mapping_xds_fhir.html">&lt; précédent</a> | 
 
             <a href="#bottom">bas de page</a>
 
@@ -313,13 +316,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant technique affecté par le SI DMP à une version de métadonnées d'un document. Change à chaque nouvelle version du document (remplacement) et à chaque modification de métadonnées (masquage/démasquage aux PS, remise en visibilité patient ou RL).</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>) — cf. le <a href="https://hl7.org/fhir/R4/documentreference-mappings.html#xds">tableau de correspondance XDS officiel de la ressource FHIR</a> (<code class="language-plaintext highlighter-rouge">identifier</code> → <code class="language-plaintext highlighter-rouge">DocumentEntry.entryUUID</code>)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">logicalId</code></td>
-      <td>Identifier</td>
-      <td>Identifiant technique affecté par le SI DMP à un document (identique pour toutes ses versions de métadonnées). Change à chaque nouvelle version du document (remplacement) mais reste identique à chaque modification de métadonnées.</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">logicalID</code></td>
+      <td>UUID</td>
+      <td>Identifiant technique invariable pour toutes les versions de métadonnées d'un même document, à la différence de <code class="language-plaintext highlighter-rouge">entryUUID</code> (cf. volet CI-SIS §3.4.54).</td>
+      <td><em>aucun</em> — ni champ dédié, ni slice <code class="language-plaintext highlighter-rouge">identifier</code>, ni extension : la valeur n'est transportée par aucun élément FHIR (cf. <a href="annexe_mapping_xds_fhir.html">annexe de mapping</a>). L'invariance à travers les versions de métadonnées est assurée structurellement, la fiche étant mise à jour en place plutôt que remplacée</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
@@ -355,7 +358,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">version</code></td>
       <td>integer</td>
       <td>Numéro de version de la fiche.</td>
-      <td>Non exposé directement en MHD</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.meta.versionId</code></td>
     </tr>
   </tbody>
 </table>
@@ -380,13 +383,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant unique du lot de soumission dans le registre.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td>OID / UUID</td>
       <td>Identifiant unique du lot attribué par le système source.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">sourceId</code></td>
@@ -399,12 +402,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td>CX</td>
       <td>Identifiant du patient.</td>
       <td><code class="language-plaintext highlighter-rouge">List.subject</code> → <code class="language-plaintext highlighter-rouge">Patient.identifier</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">sourcePatientId</code></td>
-      <td>CX</td>
-      <td>Identifiant local du patient chez la source.</td>
-      <td>Extension <code class="language-plaintext highlighter-rouge">ihe-sourcePatientId</code> sur <code class="language-plaintext highlighter-rouge">List</code></td>
     </tr>
   </tbody>
 </table>
@@ -425,13 +422,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code></td>
       <td>UUID</td>
       <td>Identifiant unique du classeur dans le registre.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code></td>
       <td>OID / UUID</td>
       <td>Identifiant unique du classeur attribué par le producteur.</td>
-      <td><code class="language-plaintext highlighter-rouge">List.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List.identifier</code> (slice <code class="language-plaintext highlighter-rouge">uniqueId</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logicalID</code></td>
+      <td>UUID</td>
+      <td>Identifiant technique invariable pour toutes les versions d'un même classeur (supplément XDS Metadata Update §4.2.3.4.11).</td>
+      <td><em>aucun</em> — même situation que pour la fiche : la valeur n'est transportée par aucun élément FHIR (cf. <a href="annexe_mapping_xds_fhir.html">annexe de mapping</a>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">patientId</code></td>
@@ -472,7 +475,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td><strong>Équivalent FHIR</strong></td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference.masterIdentifier</code></td>
     </tr>
     <tr>
@@ -513,7 +516,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             <tr>
               <td style="text-align:var(--ig-left);">&#xA0;
 
-                <a href="annexe.html">&lt; précédent</a>
+                <a href="annexe_mapping_xds_fhir.html">&lt; précédent</a>
 
               </td>
               <td style="text-align:center">
@@ -537,8 +540,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d&#39;Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-16 07:22:00 +0000">
-    2026-07-16
+  <span title="2026-09-24 12:10:00 +0000">
+    2026-09-24
   </span>
 
           <br/>

@@ -169,6 +169,9 @@
     </a>
     <ul class="dropdown-menu">
       <li>
+        <a href="annexe_mapping_xds_fhir.html">Mapping des métadonnées XDS / FHIR</a>
+      </li>
+      <li>
         <a href="annexe_identifiants_xds_fhir.html">Comparatif identifiants XDS / FHIR</a>
       </li>
       <li>
@@ -324,7 +327,7 @@ L’autorisation d’accès au DMP du patient (EF_DMP04_01) au statut « valide 
 
 <h3 id="equivalent-fhir">Equivalent FHIR</h3>
 
-<p>TD3.1b correspond à la transaction <strong><a name="l558">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm, utilisée ici avec le paramètre <code class="language-plaintext highlighter-rouge">identifier</code> pour retrouver un document précis à partir de son identifiant local LPS (<code class="language-plaintext highlighter-rouge">uniqueId</code>).</p>
+<p>TD3.1b correspond à la transaction <strong><a name="l564">​</a><a href="https://interop.esante.gouv.fr/ig/fhir/pdsm/st_recherche.html">ITI-67 Find Document References</a></strong> du profil PDSm, utilisée ici avec le paramètre <code class="language-plaintext highlighter-rouge">identifier</code> pour retrouver un document précis à partir de son identifiant local LPS (<code class="language-plaintext highlighter-rouge">uniqueId</code>).</p>
 
 <h4 id="flux-td31b--requête">Flux TD3.1b — Requête</h4>
 
@@ -387,7 +390,7 @@ Accept: application/fhir+json
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">entryUUID</code> (identifiant technique DMP)</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">uniqueId</code> (identifiant LPS)</td>
@@ -404,7 +407,7 @@ Accept: application/fhir+json
 Accept: application/fhir+json
 </code></pre></div></div>
 
-<p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code> contenant le <code class="language-plaintext highlighter-rouge">DocumentReference</code> trouvé. L’<code class="language-plaintext highlighter-rouge">entryUUID</code> est lu dans <code class="language-plaintext highlighter-rouge">DocumentReference.id</code>.</p>
+<p><strong>Réponse :</strong> <code class="language-plaintext highlighter-rouge">200 OK</code> — <code class="language-plaintext highlighter-rouge">Bundle</code> de type <code class="language-plaintext highlighter-rouge">searchset</code> contenant le <code class="language-plaintext highlighter-rouge">DocumentReference</code> trouvé. L’<code class="language-plaintext highlighter-rouge">entryUUID</code> est lu dans <code class="language-plaintext highlighter-rouge">DocumentReference.identifier</code> (slice <code class="language-plaintext highlighter-rouge">entryUUID</code>).</p>
 
 <p><a href="DocumentReference-doc-x-id.html">Voir l’exemple : DocumentReference - Recherche par identifiant (TD3.1b)</a></p>
 
@@ -456,8 +459,8 @@ Accept: application/fhir+json
           IG &copy; 2020+ <a style="color:var(--footer-hyperlink-text-color)" href="https://esante.gouv.fr">Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris</a>.  
           Le package ans.fhir.fr.pdsm4dmp#0.1.0 est basé sur <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Date de génération : 
-  <span title="2026-07-16 07:22:00 +0000">
-    2026-07-16
+  <span title="2026-09-24 12:10:00 +0000">
+    2026-09-24
   </span>
 
           <br/>
